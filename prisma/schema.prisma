@@ -28,3 +28,13 @@ model Admin {
   password  String
   createdAt DateTime @default(now())
 }
+
+model Activity {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  images      String[]
+  score       Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

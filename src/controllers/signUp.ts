@@ -10,7 +10,7 @@ export default <RequestHandler>(async(req, res) => {
   })
   if (count > 0) {
     return res.status(400).send({
-      message: "มีอีเมลนี้ในระบบแล้ว"
+      message: "มีบัญชีนี้ในระบบแล้ว"
     })
   }
   await prisma.user.create({

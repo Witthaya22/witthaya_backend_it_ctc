@@ -18,13 +18,13 @@ export default <RequestHandler>(async(req ,res) => {
   })
   if(!user) {
     return res.status(400).send({
-      message: "อีเมลหรือรหัสผ่านไม่ถูกต้อง"
+      message: "เลขประจำหรือรหัสผ่านไม่ถูกต้อง"
     })
   }
   const result = await compare(req.body.password, user.password)
   if(!result) {
     return res.status(400).send({
-      message: "อีเมลหรือรหัสผ่านไม่ถูกต้อง"
+      message: "เลขประจำหรือรหัสผ่านไม่ถูกต้อง"
     })
   }
   req.session.auth = omit(user, 'password')
