@@ -1,21 +1,41 @@
-import { RequestHandler } from "express"
-import prisma from "../prisma"
+import { RequestHandler } from "express";
+import prisma from "../prisma";
 
-export default <RequestHandler>(async (req, res) => {
-  const payload = {
-    title: req.body.title,
-    description: req.body.description,
-    images: req.body.images,
-    score: req.body.score,
+const upsertActivity: RequestHandler = async (req, res) => {
+  const { title, description, images, score } = req.body;
+
+  // Basic validation
+  if (!title || !description || !Array.isArray(images) || typeof score !== "number") {
+    return res.status(400).send({
+      message: "ข้อมูลไม่ถูกต้อง",
+    });
   }
-  await prisma.activity.upsert({
-    where: {
-      id: req.query.id ? +req.query.id : -1
-    },
-    create: payload,
-    update: payload
-  })
-  res.status(201).send({
-    message: "อัปเดตกิจกรรมสําเร็จ"
-  })
-})
+
+  const payload = {
+    title,
+    description,
+    images,
+    score,
+  };
+
+  try {
+    await prisma.activity.upsert({
+      where: {
+        id: req.query.id ? +req.query.id : -1,
+      },
+      create: payload,
+      update: payload,
+    });
+
+    res.status(201).send({
+      message: "อัปเดตกิจกรรมสำเร็จ",
+    });
+  } catch (error) {
+    console.error("Error upserting activity:", error);
+    res.status(500).send({
+      message: "เกิดข้อผิดพลาดในการอัปเดตกิจกรรม",
+    });
+  }
+};
+
+export default upsertActivity;
