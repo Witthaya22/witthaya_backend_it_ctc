@@ -7,6 +7,8 @@ import loginAdmin from "./controllers/loginAdmin"
 import checkAdmin from "./controllers/checkAdmin"
 import onlyAdmin from "./middleware/onlyAdmin"
 import upsertActivity from "./controllers/upsertActivity"
+import getAllActivity from "./controllers/getAllActivity"
+import getActivity from "./controllers/getActivity"
 
 const router = Router()
 
@@ -19,7 +21,10 @@ router.get("/admin", checkAdmin)
 router.post("/admin/login", loginAdmin)
 
 router.use('/admin', onlyAdmin)
+router.get('/admin/activity', getAllActivity)
 router.post('/admin/activity', upsertActivity)
+router.get('/admin/activity/:id', getActivity)
+
 
 
 export default router
