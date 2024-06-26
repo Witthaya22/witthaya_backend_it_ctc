@@ -20,10 +20,11 @@ router.get("/logout", logout)
 router.get("/admin", checkAdmin)
 router.post("/admin/login", loginAdmin)
 
+router.get('/activity', getAllActivity)
+router.get('/activity/:id', getActivity)
+
 router.use('/admin', onlyAdmin)
-router.get('/admin/activity', getAllActivity)
 router.post('/admin/activity', upsertActivity)
-router.get('/admin/activity/:id', getActivity)
 
 
 
