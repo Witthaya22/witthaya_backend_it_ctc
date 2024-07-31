@@ -20,14 +20,14 @@ async function startServer() {
   // ยังไม่ได้เก็บค่า แบบที่ restart server แล้ว session ยังอยู่ ต้องใช้ connect-pg-simple แทน
   app.use(express.json())
   app.use(session({
-    secret: randomUUID(),
+    secret: process.env.SECRET_KEY || randomUUID(),
     resave: false,
     saveUninitialized: false,
     rolling: true,
     cookie: {
       maxAge: ms('7d'),
       httpOnly: true
-    }
+    },
   }))
   app.use(router)
 
