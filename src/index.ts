@@ -1,25 +1,33 @@
 import express, { ErrorRequestHandler } from 'express'
 import dotenv from 'dotenv'
 import session from 'express-session'
+import RedisStore from 'connect-redis'
+import { createClient } from 'redis'
 import router from './router'
 import prisma from './prisma'
 import { randomUUID } from 'crypto'
 import ms from 'ms'
 
 
-
-
-
 dotenv.config()
+let redisClient = createClient()
+redisClient.connect().catch(console.error)
 const port = process.env.PORT ? +process.env.PORT : 4000
+
+
+let redisStore = new RedisStore({
+  client: redisClient,
+  prefix: "myapp:",
+})
 
 async function startServer() {
   await prisma.$connect()
 
   const app = express()
-  // ยังไม่ได้เก็บค่า แบบที่ restart server แล้ว session ยังอยู่ ต้องใช้ connect-pg-simple แทน
+  // \||||||||||||||||||||||||||||||||||||||||
   app.use(express.json())
   app.use(session({
+    store: redisStore,
     secret: process.env.SECRET_KEY || randomUUID(),
     resave: false,
     saveUninitialized: false,
