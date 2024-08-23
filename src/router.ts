@@ -9,6 +9,9 @@ import onlyAdmin from "./middleware/onlyAdmin"
 import upsertActivity from "./controllers/upsertActivity"
 import getAllActivity from "./controllers/getAllActivity"
 import getActivity from "./controllers/getActivity"
+import getAllUsers from "./controllers/getAllUsers"
+import upsertUser from "./controllers/upsertUser"
+import getUser from "./controllers/getUser"
 
 const router = Router()
 
@@ -23,6 +26,11 @@ router.post("/admin/login", loginAdmin)
 router.get('/activity', getAllActivity)
 router.get('/activity/:id', getActivity)
 
+router.get('/users', getAllUsers)
+router.get('/user/:id', getUser)
+
+
+router.post('/admin/user', upsertUser)
 router.use('/admin', onlyAdmin)
 router.post('/admin/activity', upsertActivity)
 
