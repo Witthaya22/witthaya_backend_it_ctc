@@ -5,7 +5,7 @@ import prisma from "../prisma";
 export default <RequestHandler>(async(req, res) => {
   const count = await prisma.user.count({
     where: {
-      email: req.body.email
+      id: req.body.email
     }
   })
   if (count > 0) {
@@ -15,8 +15,10 @@ export default <RequestHandler>(async(req, res) => {
   }
   await prisma.user.create({
     data: {
-      email: req.body.email,
-      name: req.body.name,
+      id: req.body.email,
+      firstName: req.body.name,
+      lastName: req.body.lastName, // Add this property
+      department: { connect: { id: req.body.departmentId } }, // Add this property
       password: await hash(req.body.password, 10)
     }
   })

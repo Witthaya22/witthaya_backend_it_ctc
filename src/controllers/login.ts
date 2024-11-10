@@ -13,7 +13,7 @@ declare module 'express-session' {
 export default <RequestHandler>(async(req ,res) => {
   const user = await prisma.user.findUnique({
     where: {
-      email: req.body.email
+      id: req.body.email
     }
   })
   if(!user) {
