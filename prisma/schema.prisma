@@ -15,30 +15,121 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  name      String
-  password  String
-  role      String   @default("USER")
-  createdAt DateTime @default(now())
+  id            String    @id @default(uuid())
+  firstName     String    @db.VarChar(64)
+  lastName      String    @db.VarChar(64)
+  password      String    @db.VarChar(256)
+  image         String?   @db.VarChar(256)
+  departmentId  String    @db.VarChar(64)
+  role          String    @default("USER") @db.VarChar(20)
+  isArchived    Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  department       Department        @relation(fields: [departmentId], references: [id])
+  admin           Admin?
+  activityResults ActivityResults[]
+  activityDetails ActivityDetails[]
+  oauth           Oauth[]
+
+  @@map("users")
+}
+
+model Oauth {
+  id           String   @id @default(uuid())
+  userId       String
+  accessToken  String   @db.VarChar(2048)
+  refreshToken String   @db.VarChar(2048)
+  isArchived   Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  user         User     @relation(fields: [userId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@map("oauths")
+}
+
+model Department {
+  id          String    @id @map("department_id") @default(uuid())
+  name        String    @db.VarChar(64)
+  isArchived  Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // Relations
+  users            User[]
+  activityResults  ActivityResults[]
+
+  @@map("departments")
 }
 
 model Admin {
-  id        Int      @id @default(autoincrement())
-  username  String   @unique
-  password  String
-  createdAt DateTime @default(now())
+  id         String   @id @default(uuid())
+  password   String   @db.VarChar(256)
+  userId     String   @unique
+  isArchived Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relations
+  user       User     @relation(fields: [userId], references: [id])
+
+  @@map("admins")
 }
 
 model Activity {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  images      String[]
-  score       Float
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id           String   @id @default(uuid())
+  title        String
+  description  String   @db.Text
+  startDate    DateTime
+  endDate      DateTime
+  type         String   @db.VarChar(20)
+  location     String?  @db.VarChar(256)
+  maxParticipants Int?
+  isArchived   Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  activityResults  ActivityResults[]
+  activityDetails ActivityDetails[]
+
+  @@map("activities")
 }
 
+model ActivityResults {
+  id           String   @id @default(uuid())
+  departmentId String
+  userId       String
+  activityId   String
+  reservation  Boolean
+  status       String   @db.VarChar(20)
+  isArchived   Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
+  // Relations
+  department   Department @relation(fields: [departmentId], references: [id])
+  user         User       @relation(fields: [userId], references: [id])
+  activity     Activity   @relation(fields: [activityId], references: [id])
 
+  @@map("activity_results")
+}
+
+model ActivityDetails {
+  id           String   @id @default(uuid())
+  userId       String
+  activityId   String
+  details      String   @db.Text
+  isArchived   Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  user         User     @relation(fields: [userId], references: [id])
+  activity     Activity @relation(fields: [activityId], references: [id])
+
+  @@map("activity_details")
+}

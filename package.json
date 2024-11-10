@@ -13,6 +13,7 @@
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
     "@prisma/client": "^5.15.0",
+    "backend": "file:",
     "bcrypt": "^5.1.1",
     "commander": "^12.1.0",
     "connect-redis": "^7.1.1",

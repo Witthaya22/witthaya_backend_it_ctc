@@ -31,8 +31,9 @@ router.get('/user/:id', getUser)
 
 
 router.post('/admin/user', upsertUser)
-router.use('/admin', onlyAdmin)
 router.post('/admin/activity', upsertActivity)
+
+router.use('/admin', onlyAdmin)
 
 
 

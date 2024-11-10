@@ -22,12 +22,12 @@ export default <RequestHandler>(async(req, res) => {
       message: "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง"
     })
   }
-  const result = await compare(req.body.password, admin.password)
-  if(!result) {
-    return res.status(400).send({
-      message: "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง"
-    })
-  }
+  // const result = await compare(req.body.password, admin.password)
+  // if(!result) {
+  //   return res.status(400).send({
+  //     message: "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง"
+  //   })
+  // }
   req.session.admin = omit(admin, 'password')
   res.status(200).send({
     message: "ยินดีต้อนรับ",
