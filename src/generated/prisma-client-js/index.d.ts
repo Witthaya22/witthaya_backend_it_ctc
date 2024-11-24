@@ -1394,15 +1394,15 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    activityResults: number
-    activityDetails: number
-    oauth: number
+    ActivityResults: number
+    ActivityDetails: number
+    Oauth: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    activityResults?: boolean | UserCountOutputTypeCountActivityResultsArgs
-    activityDetails?: boolean | UserCountOutputTypeCountActivityDetailsArgs
-    oauth?: boolean | UserCountOutputTypeCountOauthArgs
+    ActivityResults?: boolean | UserCountOutputTypeCountActivityResultsArgs
+    ActivityDetails?: boolean | UserCountOutputTypeCountActivityDetailsArgs
+    Oauth?: boolean | UserCountOutputTypeCountOauthArgs
   }
 
   // Custom InputTypes
@@ -1443,13 +1443,13 @@ export namespace Prisma {
    */
 
   export type DepartmentCountOutputType = {
-    users: number
-    activityResults: number
+    Users: number
+    ActivityResults: number
   }
 
   export type DepartmentCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    users?: boolean | DepartmentCountOutputTypeCountUsersArgs
-    activityResults?: boolean | DepartmentCountOutputTypeCountActivityResultsArgs
+    Users?: boolean | DepartmentCountOutputTypeCountUsersArgs
+    ActivityResults?: boolean | DepartmentCountOutputTypeCountActivityResultsArgs
   }
 
   // Custom InputTypes
@@ -1483,13 +1483,13 @@ export namespace Prisma {
    */
 
   export type ActivityCountOutputType = {
-    activityResults: number
-    activityDetails: number
+    ActivityResults: number
+    ActivityDetails: number
   }
 
   export type ActivityCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    activityResults?: boolean | ActivityCountOutputTypeCountActivityResultsArgs
-    activityDetails?: boolean | ActivityCountOutputTypeCountActivityDetailsArgs
+    ActivityResults?: boolean | ActivityCountOutputTypeCountActivityResultsArgs
+    ActivityDetails?: boolean | ActivityCountOutputTypeCountActivityDetailsArgs
   }
 
   // Custom InputTypes
@@ -1533,83 +1533,83 @@ export namespace Prisma {
   }
 
   export type UserMinAggregateOutputType = {
-    id: string | null
-    firstName: string | null
-    lastName: string | null
-    password: string | null
-    image: string | null
-    departmentId: string | null
-    role: string | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    UserID: string | null
+    UserFirstName: string | null
+    UserLastName: string | null
+    UserPassword: string | null
+    UserImage: string | null
+    DepartmentID: string | null
+    Role: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
-    id: string | null
-    firstName: string | null
-    lastName: string | null
-    password: string | null
-    image: string | null
-    departmentId: string | null
-    role: string | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    UserID: string | null
+    UserFirstName: string | null
+    UserLastName: string | null
+    UserPassword: string | null
+    UserImage: string | null
+    DepartmentID: string | null
+    Role: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type UserCountAggregateOutputType = {
-    id: number
-    firstName: number
-    lastName: number
-    password: number
-    image: number
-    departmentId: number
-    role: number
-    isArchived: number
-    createdAt: number
-    updatedAt: number
+    UserID: number
+    UserFirstName: number
+    UserLastName: number
+    UserPassword: number
+    UserImage: number
+    DepartmentID: number
+    Role: number
+    IsArchived: number
+    CreatedAt: number
+    UpdatedAt: number
     _all: number
   }
 
 
   export type UserMinAggregateInputType = {
-    id?: true
-    firstName?: true
-    lastName?: true
-    password?: true
-    image?: true
-    departmentId?: true
-    role?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    UserID?: true
+    UserFirstName?: true
+    UserLastName?: true
+    UserPassword?: true
+    UserImage?: true
+    DepartmentID?: true
+    Role?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type UserMaxAggregateInputType = {
-    id?: true
-    firstName?: true
-    lastName?: true
-    password?: true
-    image?: true
-    departmentId?: true
-    role?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    UserID?: true
+    UserFirstName?: true
+    UserLastName?: true
+    UserPassword?: true
+    UserImage?: true
+    DepartmentID?: true
+    Role?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type UserCountAggregateInputType = {
-    id?: true
-    firstName?: true
-    lastName?: true
-    password?: true
-    image?: true
-    departmentId?: true
-    role?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    UserID?: true
+    UserFirstName?: true
+    UserLastName?: true
+    UserPassword?: true
+    UserImage?: true
+    DepartmentID?: true
+    Role?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
     _all?: true
   }
 
@@ -1686,16 +1686,16 @@ export namespace Prisma {
   }
 
   export type UserGroupByOutputType = {
-    id: string
-    firstName: string
-    lastName: string
-    password: string
-    image: string | null
-    departmentId: string
-    role: string
-    isArchived: boolean
-    createdAt: Date
-    updatedAt: Date
+    UserID: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage: string | null
+    DepartmentID: string
+    Role: string
+    IsArchived: boolean
+    CreatedAt: Date
+    UpdatedAt: Date
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1716,83 +1716,83 @@ export namespace Prisma {
 
 
   export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    firstName?: boolean
-    lastName?: boolean
-    password?: boolean
-    image?: boolean
-    departmentId?: boolean
-    role?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    department?: boolean | DepartmentDefaultArgs<ExtArgs>
-    admin?: boolean | User$adminArgs<ExtArgs>
-    activityResults?: boolean | User$activityResultsArgs<ExtArgs>
-    activityDetails?: boolean | User$activityDetailsArgs<ExtArgs>
-    oauth?: boolean | User$oauthArgs<ExtArgs>
+    UserID?: boolean
+    UserFirstName?: boolean
+    UserLastName?: boolean
+    UserPassword?: boolean
+    UserImage?: boolean
+    DepartmentID?: boolean
+    Role?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    Department?: boolean | DepartmentDefaultArgs<ExtArgs>
+    Admin?: boolean | User$AdminArgs<ExtArgs>
+    ActivityResults?: boolean | User$ActivityResultsArgs<ExtArgs>
+    ActivityDetails?: boolean | User$ActivityDetailsArgs<ExtArgs>
+    Oauth?: boolean | User$OauthArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    firstName?: boolean
-    lastName?: boolean
-    password?: boolean
-    image?: boolean
-    departmentId?: boolean
-    role?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    department?: boolean | DepartmentDefaultArgs<ExtArgs>
+    UserID?: boolean
+    UserFirstName?: boolean
+    UserLastName?: boolean
+    UserPassword?: boolean
+    UserImage?: boolean
+    DepartmentID?: boolean
+    Role?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    Department?: boolean | DepartmentDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
-    id?: boolean
-    firstName?: boolean
-    lastName?: boolean
-    password?: boolean
-    image?: boolean
-    departmentId?: boolean
-    role?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    UserID?: boolean
+    UserFirstName?: boolean
+    UserLastName?: boolean
+    UserPassword?: boolean
+    UserImage?: boolean
+    DepartmentID?: boolean
+    Role?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
   }
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    department?: boolean | DepartmentDefaultArgs<ExtArgs>
-    admin?: boolean | User$adminArgs<ExtArgs>
-    activityResults?: boolean | User$activityResultsArgs<ExtArgs>
-    activityDetails?: boolean | User$activityDetailsArgs<ExtArgs>
-    oauth?: boolean | User$oauthArgs<ExtArgs>
+    Department?: boolean | DepartmentDefaultArgs<ExtArgs>
+    Admin?: boolean | User$AdminArgs<ExtArgs>
+    ActivityResults?: boolean | User$ActivityResultsArgs<ExtArgs>
+    ActivityDetails?: boolean | User$ActivityDetailsArgs<ExtArgs>
+    Oauth?: boolean | User$OauthArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    department?: boolean | DepartmentDefaultArgs<ExtArgs>
+    Department?: boolean | DepartmentDefaultArgs<ExtArgs>
   }
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      department: Prisma.$DepartmentPayload<ExtArgs>
-      admin: Prisma.$AdminPayload<ExtArgs> | null
-      activityResults: Prisma.$ActivityResultsPayload<ExtArgs>[]
-      activityDetails: Prisma.$ActivityDetailsPayload<ExtArgs>[]
-      oauth: Prisma.$OauthPayload<ExtArgs>[]
+      Department: Prisma.$DepartmentPayload<ExtArgs>
+      Admin: Prisma.$AdminPayload<ExtArgs> | null
+      ActivityResults: Prisma.$ActivityResultsPayload<ExtArgs>[]
+      ActivityDetails: Prisma.$ActivityDetailsPayload<ExtArgs>[]
+      Oauth: Prisma.$OauthPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
-      firstName: string
-      lastName: string
-      password: string
-      image: string | null
-      departmentId: string
-      role: string
-      isArchived: boolean
-      createdAt: Date
-      updatedAt: Date
+      UserID: string
+      UserFirstName: string
+      UserLastName: string
+      UserPassword: string
+      UserImage: string | null
+      DepartmentID: string
+      Role: string
+      IsArchived: boolean
+      CreatedAt: Date
+      UpdatedAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1884,8 +1884,8 @@ export namespace Prisma {
      * // Get first 10 Users
      * const users = await prisma.user.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
+     * // Only select the `UserID`
+     * const userWithUserIDOnly = await prisma.user.findMany({ select: { UserID: true } })
      * 
     **/
     findMany<T extends UserFindManyArgs<ExtArgs>>(
@@ -1935,9 +1935,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many Users and only return the `id`
-     * const userWithIdOnly = await prisma.user.createManyAndReturn({ 
-     *   select: { id: true },
+     * // Create many Users and only return the `UserID`
+     * const userWithUserIDOnly = await prisma.user.createManyAndReturn({ 
+     *   select: { UserID: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -2183,15 +2183,15 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    department<T extends DepartmentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DepartmentDefaultArgs<ExtArgs>>): Prisma__DepartmentClient<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    Department<T extends DepartmentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DepartmentDefaultArgs<ExtArgs>>): Prisma__DepartmentClient<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    admin<T extends User$adminArgs<ExtArgs> = {}>(args?: Subset<T, User$adminArgs<ExtArgs>>): Prisma__AdminClient<$Result.GetResult<Prisma.$AdminPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+    Admin<T extends User$AdminArgs<ExtArgs> = {}>(args?: Subset<T, User$AdminArgs<ExtArgs>>): Prisma__AdminClient<$Result.GetResult<Prisma.$AdminPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
 
-    activityResults<T extends User$activityResultsArgs<ExtArgs> = {}>(args?: Subset<T, User$activityResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityResultsPayload<ExtArgs>, T, 'findMany'> | Null>;
+    ActivityResults<T extends User$ActivityResultsArgs<ExtArgs> = {}>(args?: Subset<T, User$ActivityResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityResultsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    activityDetails<T extends User$activityDetailsArgs<ExtArgs> = {}>(args?: Subset<T, User$activityDetailsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityDetailsPayload<ExtArgs>, T, 'findMany'> | Null>;
+    ActivityDetails<T extends User$ActivityDetailsArgs<ExtArgs> = {}>(args?: Subset<T, User$ActivityDetailsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityDetailsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    oauth<T extends User$oauthArgs<ExtArgs> = {}>(args?: Subset<T, User$oauthArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OauthPayload<ExtArgs>, T, 'findMany'> | Null>;
+    Oauth<T extends User$OauthArgs<ExtArgs> = {}>(args?: Subset<T, User$OauthArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OauthPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2221,16 +2221,16 @@ export namespace Prisma {
    * Fields of the User model
    */ 
   interface UserFieldRefs {
-    readonly id: FieldRef<"User", 'String'>
-    readonly firstName: FieldRef<"User", 'String'>
-    readonly lastName: FieldRef<"User", 'String'>
-    readonly password: FieldRef<"User", 'String'>
-    readonly image: FieldRef<"User", 'String'>
-    readonly departmentId: FieldRef<"User", 'String'>
-    readonly role: FieldRef<"User", 'String'>
-    readonly isArchived: FieldRef<"User", 'Boolean'>
-    readonly createdAt: FieldRef<"User", 'DateTime'>
-    readonly updatedAt: FieldRef<"User", 'DateTime'>
+    readonly UserID: FieldRef<"User", 'String'>
+    readonly UserFirstName: FieldRef<"User", 'String'>
+    readonly UserLastName: FieldRef<"User", 'String'>
+    readonly UserPassword: FieldRef<"User", 'String'>
+    readonly UserImage: FieldRef<"User", 'String'>
+    readonly DepartmentID: FieldRef<"User", 'String'>
+    readonly Role: FieldRef<"User", 'String'>
+    readonly IsArchived: FieldRef<"User", 'Boolean'>
+    readonly CreatedAt: FieldRef<"User", 'DateTime'>
+    readonly UpdatedAt: FieldRef<"User", 'DateTime'>
   }
     
 
@@ -2549,9 +2549,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.admin
+   * User.Admin
    */
-  export type User$adminArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$AdminArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Admin
      */
@@ -2564,9 +2564,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.activityResults
+   * User.ActivityResults
    */
-  export type User$activityResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$ActivityResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the ActivityResults
      */
@@ -2584,9 +2584,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.activityDetails
+   * User.ActivityDetails
    */
-  export type User$activityDetailsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$ActivityDetailsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the ActivityDetails
      */
@@ -2604,9 +2604,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.oauth
+   * User.Oauth
    */
-  export type User$oauthArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$OauthArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Oauth
      */
@@ -2649,65 +2649,65 @@ export namespace Prisma {
   }
 
   export type OauthMinAggregateOutputType = {
-    id: string | null
-    userId: string | null
-    accessToken: string | null
-    refreshToken: string | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    ID: string | null
+    UserID: string | null
+    AccessToken: string | null
+    RefreshToken: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type OauthMaxAggregateOutputType = {
-    id: string | null
-    userId: string | null
-    accessToken: string | null
-    refreshToken: string | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    ID: string | null
+    UserID: string | null
+    AccessToken: string | null
+    RefreshToken: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type OauthCountAggregateOutputType = {
-    id: number
-    userId: number
-    accessToken: number
-    refreshToken: number
-    isArchived: number
-    createdAt: number
-    updatedAt: number
+    ID: number
+    UserID: number
+    AccessToken: number
+    RefreshToken: number
+    IsArchived: number
+    CreatedAt: number
+    UpdatedAt: number
     _all: number
   }
 
 
   export type OauthMinAggregateInputType = {
-    id?: true
-    userId?: true
-    accessToken?: true
-    refreshToken?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    ID?: true
+    UserID?: true
+    AccessToken?: true
+    RefreshToken?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type OauthMaxAggregateInputType = {
-    id?: true
-    userId?: true
-    accessToken?: true
-    refreshToken?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    ID?: true
+    UserID?: true
+    AccessToken?: true
+    RefreshToken?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type OauthCountAggregateInputType = {
-    id?: true
-    userId?: true
-    accessToken?: true
-    refreshToken?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    ID?: true
+    UserID?: true
+    AccessToken?: true
+    RefreshToken?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
     _all?: true
   }
 
@@ -2784,13 +2784,13 @@ export namespace Prisma {
   }
 
   export type OauthGroupByOutputType = {
-    id: string
-    userId: string
-    accessToken: string
-    refreshToken: string
-    isArchived: boolean
-    createdAt: Date
-    updatedAt: Date
+    ID: string
+    UserID: string
+    AccessToken: string
+    RefreshToken: string
+    IsArchived: boolean
+    CreatedAt: Date
+    UpdatedAt: Date
     _count: OauthCountAggregateOutputType | null
     _min: OauthMinAggregateOutputType | null
     _max: OauthMaxAggregateOutputType | null
@@ -2811,57 +2811,57 @@ export namespace Prisma {
 
 
   export type OauthSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    accessToken?: boolean
-    refreshToken?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    ID?: boolean
+    UserID?: boolean
+    AccessToken?: boolean
+    RefreshToken?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["oauth"]>
 
   export type OauthSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    accessToken?: boolean
-    refreshToken?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    ID?: boolean
+    UserID?: boolean
+    AccessToken?: boolean
+    RefreshToken?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["oauth"]>
 
   export type OauthSelectScalar = {
-    id?: boolean
-    userId?: boolean
-    accessToken?: boolean
-    refreshToken?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    ID?: boolean
+    UserID?: boolean
+    AccessToken?: boolean
+    RefreshToken?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
   }
 
   export type OauthInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type OauthIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $OauthPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Oauth"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
+      User: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
-      userId: string
-      accessToken: string
-      refreshToken: string
-      isArchived: boolean
-      createdAt: Date
-      updatedAt: Date
+      ID: string
+      UserID: string
+      AccessToken: string
+      RefreshToken: string
+      IsArchived: boolean
+      CreatedAt: Date
+      UpdatedAt: Date
     }, ExtArgs["result"]["oauth"]>
     composites: {}
   }
@@ -2953,8 +2953,8 @@ export namespace Prisma {
      * // Get first 10 Oauths
      * const oauths = await prisma.oauth.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const oauthWithIdOnly = await prisma.oauth.findMany({ select: { id: true } })
+     * // Only select the `ID`
+     * const oauthWithIDOnly = await prisma.oauth.findMany({ select: { ID: true } })
      * 
     **/
     findMany<T extends OauthFindManyArgs<ExtArgs>>(
@@ -3004,9 +3004,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many Oauths and only return the `id`
-     * const oauthWithIdOnly = await prisma.oauth.createManyAndReturn({ 
-     *   select: { id: true },
+     * // Create many Oauths and only return the `ID`
+     * const oauthWithIDOnly = await prisma.oauth.createManyAndReturn({ 
+     *   select: { ID: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -3252,7 +3252,7 @@ export namespace Prisma {
   export interface Prisma__OauthClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3282,13 +3282,13 @@ export namespace Prisma {
    * Fields of the Oauth model
    */ 
   interface OauthFieldRefs {
-    readonly id: FieldRef<"Oauth", 'String'>
-    readonly userId: FieldRef<"Oauth", 'String'>
-    readonly accessToken: FieldRef<"Oauth", 'String'>
-    readonly refreshToken: FieldRef<"Oauth", 'String'>
-    readonly isArchived: FieldRef<"Oauth", 'Boolean'>
-    readonly createdAt: FieldRef<"Oauth", 'DateTime'>
-    readonly updatedAt: FieldRef<"Oauth", 'DateTime'>
+    readonly ID: FieldRef<"Oauth", 'String'>
+    readonly UserID: FieldRef<"Oauth", 'String'>
+    readonly AccessToken: FieldRef<"Oauth", 'String'>
+    readonly RefreshToken: FieldRef<"Oauth", 'String'>
+    readonly IsArchived: FieldRef<"Oauth", 'Boolean'>
+    readonly CreatedAt: FieldRef<"Oauth", 'DateTime'>
+    readonly UpdatedAt: FieldRef<"Oauth", 'DateTime'>
   }
     
 
@@ -3632,53 +3632,53 @@ export namespace Prisma {
   }
 
   export type DepartmentMinAggregateOutputType = {
-    id: string | null
-    name: string | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    DepartmentID: string | null
+    Name: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type DepartmentMaxAggregateOutputType = {
-    id: string | null
-    name: string | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    DepartmentID: string | null
+    Name: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type DepartmentCountAggregateOutputType = {
-    id: number
-    name: number
-    isArchived: number
-    createdAt: number
-    updatedAt: number
+    DepartmentID: number
+    Name: number
+    IsArchived: number
+    CreatedAt: number
+    UpdatedAt: number
     _all: number
   }
 
 
   export type DepartmentMinAggregateInputType = {
-    id?: true
-    name?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    DepartmentID?: true
+    Name?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type DepartmentMaxAggregateInputType = {
-    id?: true
-    name?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    DepartmentID?: true
+    Name?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type DepartmentCountAggregateInputType = {
-    id?: true
-    name?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    DepartmentID?: true
+    Name?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
     _all?: true
   }
 
@@ -3755,11 +3755,11 @@ export namespace Prisma {
   }
 
   export type DepartmentGroupByOutputType = {
-    id: string
-    name: string
-    isArchived: boolean
-    createdAt: Date
-    updatedAt: Date
+    DepartmentID: string
+    Name: string
+    IsArchived: boolean
+    CreatedAt: Date
+    UpdatedAt: Date
     _count: DepartmentCountAggregateOutputType | null
     _min: DepartmentMinAggregateOutputType | null
     _max: DepartmentMaxAggregateOutputType | null
@@ -3780,35 +3780,35 @@ export namespace Prisma {
 
 
   export type DepartmentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    users?: boolean | Department$usersArgs<ExtArgs>
-    activityResults?: boolean | Department$activityResultsArgs<ExtArgs>
+    DepartmentID?: boolean
+    Name?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    Users?: boolean | Department$UsersArgs<ExtArgs>
+    ActivityResults?: boolean | Department$ActivityResultsArgs<ExtArgs>
     _count?: boolean | DepartmentCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["department"]>
 
   export type DepartmentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    DepartmentID?: boolean
+    Name?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
   }, ExtArgs["result"]["department"]>
 
   export type DepartmentSelectScalar = {
-    id?: boolean
-    name?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    DepartmentID?: boolean
+    Name?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
   }
 
   export type DepartmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    users?: boolean | Department$usersArgs<ExtArgs>
-    activityResults?: boolean | Department$activityResultsArgs<ExtArgs>
+    Users?: boolean | Department$UsersArgs<ExtArgs>
+    ActivityResults?: boolean | Department$ActivityResultsArgs<ExtArgs>
     _count?: boolean | DepartmentCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type DepartmentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3816,15 +3816,15 @@ export namespace Prisma {
   export type $DepartmentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Department"
     objects: {
-      users: Prisma.$UserPayload<ExtArgs>[]
-      activityResults: Prisma.$ActivityResultsPayload<ExtArgs>[]
+      Users: Prisma.$UserPayload<ExtArgs>[]
+      ActivityResults: Prisma.$ActivityResultsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
-      name: string
-      isArchived: boolean
-      createdAt: Date
-      updatedAt: Date
+      DepartmentID: string
+      Name: string
+      IsArchived: boolean
+      CreatedAt: Date
+      UpdatedAt: Date
     }, ExtArgs["result"]["department"]>
     composites: {}
   }
@@ -3916,8 +3916,8 @@ export namespace Prisma {
      * // Get first 10 Departments
      * const departments = await prisma.department.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const departmentWithIdOnly = await prisma.department.findMany({ select: { id: true } })
+     * // Only select the `DepartmentID`
+     * const departmentWithDepartmentIDOnly = await prisma.department.findMany({ select: { DepartmentID: true } })
      * 
     **/
     findMany<T extends DepartmentFindManyArgs<ExtArgs>>(
@@ -3967,9 +3967,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many Departments and only return the `id`
-     * const departmentWithIdOnly = await prisma.department.createManyAndReturn({ 
-     *   select: { id: true },
+     * // Create many Departments and only return the `DepartmentID`
+     * const departmentWithDepartmentIDOnly = await prisma.department.createManyAndReturn({ 
+     *   select: { DepartmentID: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -4215,9 +4215,9 @@ export namespace Prisma {
   export interface Prisma__DepartmentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    users<T extends Department$usersArgs<ExtArgs> = {}>(args?: Subset<T, Department$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findMany'> | Null>;
+    Users<T extends Department$UsersArgs<ExtArgs> = {}>(args?: Subset<T, Department$UsersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    activityResults<T extends Department$activityResultsArgs<ExtArgs> = {}>(args?: Subset<T, Department$activityResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityResultsPayload<ExtArgs>, T, 'findMany'> | Null>;
+    ActivityResults<T extends Department$ActivityResultsArgs<ExtArgs> = {}>(args?: Subset<T, Department$ActivityResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityResultsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -4247,11 +4247,11 @@ export namespace Prisma {
    * Fields of the Department model
    */ 
   interface DepartmentFieldRefs {
-    readonly id: FieldRef<"Department", 'String'>
-    readonly name: FieldRef<"Department", 'String'>
-    readonly isArchived: FieldRef<"Department", 'Boolean'>
-    readonly createdAt: FieldRef<"Department", 'DateTime'>
-    readonly updatedAt: FieldRef<"Department", 'DateTime'>
+    readonly DepartmentID: FieldRef<"Department", 'String'>
+    readonly Name: FieldRef<"Department", 'String'>
+    readonly IsArchived: FieldRef<"Department", 'Boolean'>
+    readonly CreatedAt: FieldRef<"Department", 'DateTime'>
+    readonly UpdatedAt: FieldRef<"Department", 'DateTime'>
   }
     
 
@@ -4566,9 +4566,9 @@ export namespace Prisma {
   }
 
   /**
-   * Department.users
+   * Department.Users
    */
-  export type Department$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Department$UsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the User
      */
@@ -4586,9 +4586,9 @@ export namespace Prisma {
   }
 
   /**
-   * Department.activityResults
+   * Department.ActivityResults
    */
-  export type Department$activityResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Department$ActivityResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the ActivityResults
      */
@@ -4631,59 +4631,59 @@ export namespace Prisma {
   }
 
   export type AdminMinAggregateOutputType = {
-    id: string | null
-    password: string | null
-    userId: string | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    AdminID: string | null
+    AdminPass: string | null
+    UserID: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type AdminMaxAggregateOutputType = {
-    id: string | null
-    password: string | null
-    userId: string | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    AdminID: string | null
+    AdminPass: string | null
+    UserID: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type AdminCountAggregateOutputType = {
-    id: number
-    password: number
-    userId: number
-    isArchived: number
-    createdAt: number
-    updatedAt: number
+    AdminID: number
+    AdminPass: number
+    UserID: number
+    IsArchived: number
+    CreatedAt: number
+    UpdatedAt: number
     _all: number
   }
 
 
   export type AdminMinAggregateInputType = {
-    id?: true
-    password?: true
-    userId?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    AdminID?: true
+    AdminPass?: true
+    UserID?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type AdminMaxAggregateInputType = {
-    id?: true
-    password?: true
-    userId?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    AdminID?: true
+    AdminPass?: true
+    UserID?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type AdminCountAggregateInputType = {
-    id?: true
-    password?: true
-    userId?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    AdminID?: true
+    AdminPass?: true
+    UserID?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
     _all?: true
   }
 
@@ -4760,12 +4760,12 @@ export namespace Prisma {
   }
 
   export type AdminGroupByOutputType = {
-    id: string
-    password: string
-    userId: string
-    isArchived: boolean
-    createdAt: Date
-    updatedAt: Date
+    AdminID: string
+    AdminPass: string
+    UserID: string
+    IsArchived: boolean
+    CreatedAt: Date
+    UpdatedAt: Date
     _count: AdminCountAggregateOutputType | null
     _min: AdminMinAggregateOutputType | null
     _max: AdminMaxAggregateOutputType | null
@@ -4786,53 +4786,53 @@ export namespace Prisma {
 
 
   export type AdminSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    password?: boolean
-    userId?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    AdminID?: boolean
+    AdminPass?: boolean
+    UserID?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["admin"]>
 
   export type AdminSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    password?: boolean
-    userId?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    AdminID?: boolean
+    AdminPass?: boolean
+    UserID?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["admin"]>
 
   export type AdminSelectScalar = {
-    id?: boolean
-    password?: boolean
-    userId?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    AdminID?: boolean
+    AdminPass?: boolean
+    UserID?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
   }
 
   export type AdminInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type AdminIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $AdminPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Admin"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
+      User: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
-      password: string
-      userId: string
-      isArchived: boolean
-      createdAt: Date
-      updatedAt: Date
+      AdminID: string
+      AdminPass: string
+      UserID: string
+      IsArchived: boolean
+      CreatedAt: Date
+      UpdatedAt: Date
     }, ExtArgs["result"]["admin"]>
     composites: {}
   }
@@ -4924,8 +4924,8 @@ export namespace Prisma {
      * // Get first 10 Admins
      * const admins = await prisma.admin.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const adminWithIdOnly = await prisma.admin.findMany({ select: { id: true } })
+     * // Only select the `AdminID`
+     * const adminWithAdminIDOnly = await prisma.admin.findMany({ select: { AdminID: true } })
      * 
     **/
     findMany<T extends AdminFindManyArgs<ExtArgs>>(
@@ -4975,9 +4975,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many Admins and only return the `id`
-     * const adminWithIdOnly = await prisma.admin.createManyAndReturn({ 
-     *   select: { id: true },
+     * // Create many Admins and only return the `AdminID`
+     * const adminWithAdminIDOnly = await prisma.admin.createManyAndReturn({ 
+     *   select: { AdminID: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -5223,7 +5223,7 @@ export namespace Prisma {
   export interface Prisma__AdminClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -5253,12 +5253,12 @@ export namespace Prisma {
    * Fields of the Admin model
    */ 
   interface AdminFieldRefs {
-    readonly id: FieldRef<"Admin", 'String'>
-    readonly password: FieldRef<"Admin", 'String'>
-    readonly userId: FieldRef<"Admin", 'String'>
-    readonly isArchived: FieldRef<"Admin", 'Boolean'>
-    readonly createdAt: FieldRef<"Admin", 'DateTime'>
-    readonly updatedAt: FieldRef<"Admin", 'DateTime'>
+    readonly AdminID: FieldRef<"Admin", 'String'>
+    readonly AdminPass: FieldRef<"Admin", 'String'>
+    readonly UserID: FieldRef<"Admin", 'String'>
+    readonly IsArchived: FieldRef<"Admin", 'Boolean'>
+    readonly CreatedAt: FieldRef<"Admin", 'DateTime'>
+    readonly UpdatedAt: FieldRef<"Admin", 'DateTime'>
   }
     
 
@@ -5604,105 +5604,117 @@ export namespace Prisma {
   }
 
   export type ActivityAvgAggregateOutputType = {
-    maxParticipants: number | null
+    Score: number | null
+    MaxParticipants: number | null
   }
 
   export type ActivitySumAggregateOutputType = {
-    maxParticipants: number | null
+    Score: number | null
+    MaxParticipants: number | null
   }
 
   export type ActivityMinAggregateOutputType = {
-    id: string | null
-    title: string | null
-    description: string | null
-    startDate: Date | null
-    endDate: Date | null
-    type: string | null
-    location: string | null
-    maxParticipants: number | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    ID: string | null
+    Title: string | null
+    Description: string | null
+    StartDate: Date | null
+    EndDate: Date | null
+    Type: string | null
+    Score: number | null
+    Location: string | null
+    MaxParticipants: number | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type ActivityMaxAggregateOutputType = {
-    id: string | null
-    title: string | null
-    description: string | null
-    startDate: Date | null
-    endDate: Date | null
-    type: string | null
-    location: string | null
-    maxParticipants: number | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    ID: string | null
+    Title: string | null
+    Description: string | null
+    StartDate: Date | null
+    EndDate: Date | null
+    Type: string | null
+    Score: number | null
+    Location: string | null
+    MaxParticipants: number | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type ActivityCountAggregateOutputType = {
-    id: number
-    title: number
-    description: number
-    startDate: number
-    endDate: number
-    type: number
-    location: number
-    maxParticipants: number
-    isArchived: number
-    createdAt: number
-    updatedAt: number
+    ID: number
+    Title: number
+    Description: number
+    StartDate: number
+    EndDate: number
+    Type: number
+    Images: number
+    Score: number
+    Location: number
+    MaxParticipants: number
+    IsArchived: number
+    CreatedAt: number
+    UpdatedAt: number
     _all: number
   }
 
 
   export type ActivityAvgAggregateInputType = {
-    maxParticipants?: true
+    Score?: true
+    MaxParticipants?: true
   }
 
   export type ActivitySumAggregateInputType = {
-    maxParticipants?: true
+    Score?: true
+    MaxParticipants?: true
   }
 
   export type ActivityMinAggregateInputType = {
-    id?: true
-    title?: true
-    description?: true
-    startDate?: true
-    endDate?: true
-    type?: true
-    location?: true
-    maxParticipants?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    ID?: true
+    Title?: true
+    Description?: true
+    StartDate?: true
+    EndDate?: true
+    Type?: true
+    Score?: true
+    Location?: true
+    MaxParticipants?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type ActivityMaxAggregateInputType = {
-    id?: true
-    title?: true
-    description?: true
-    startDate?: true
-    endDate?: true
-    type?: true
-    location?: true
-    maxParticipants?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    ID?: true
+    Title?: true
+    Description?: true
+    StartDate?: true
+    EndDate?: true
+    Type?: true
+    Score?: true
+    Location?: true
+    MaxParticipants?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type ActivityCountAggregateInputType = {
-    id?: true
-    title?: true
-    description?: true
-    startDate?: true
-    endDate?: true
-    type?: true
-    location?: true
-    maxParticipants?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    ID?: true
+    Title?: true
+    Description?: true
+    StartDate?: true
+    EndDate?: true
+    Type?: true
+    Images?: true
+    Score?: true
+    Location?: true
+    MaxParticipants?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
     _all?: true
   }
 
@@ -5793,17 +5805,19 @@ export namespace Prisma {
   }
 
   export type ActivityGroupByOutputType = {
-    id: string
-    title: string
-    description: string
-    startDate: Date
-    endDate: Date
-    type: string
-    location: string | null
-    maxParticipants: number | null
-    isArchived: boolean
-    createdAt: Date
-    updatedAt: Date
+    ID: string
+    Title: string
+    Description: string
+    StartDate: Date
+    EndDate: Date
+    Type: string
+    Images: JsonValue
+    Score: number
+    Location: string | null
+    MaxParticipants: number | null
+    IsArchived: boolean
+    CreatedAt: Date
+    UpdatedAt: Date
     _count: ActivityCountAggregateOutputType | null
     _avg: ActivityAvgAggregateOutputType | null
     _sum: ActivitySumAggregateOutputType | null
@@ -5826,53 +5840,59 @@ export namespace Prisma {
 
 
   export type ActivitySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    title?: boolean
-    description?: boolean
-    startDate?: boolean
-    endDate?: boolean
-    type?: boolean
-    location?: boolean
-    maxParticipants?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    activityResults?: boolean | Activity$activityResultsArgs<ExtArgs>
-    activityDetails?: boolean | Activity$activityDetailsArgs<ExtArgs>
+    ID?: boolean
+    Title?: boolean
+    Description?: boolean
+    StartDate?: boolean
+    EndDate?: boolean
+    Type?: boolean
+    Images?: boolean
+    Score?: boolean
+    Location?: boolean
+    MaxParticipants?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    ActivityResults?: boolean | Activity$ActivityResultsArgs<ExtArgs>
+    ActivityDetails?: boolean | Activity$ActivityDetailsArgs<ExtArgs>
     _count?: boolean | ActivityCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["activity"]>
 
   export type ActivitySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    title?: boolean
-    description?: boolean
-    startDate?: boolean
-    endDate?: boolean
-    type?: boolean
-    location?: boolean
-    maxParticipants?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    ID?: boolean
+    Title?: boolean
+    Description?: boolean
+    StartDate?: boolean
+    EndDate?: boolean
+    Type?: boolean
+    Images?: boolean
+    Score?: boolean
+    Location?: boolean
+    MaxParticipants?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
   }, ExtArgs["result"]["activity"]>
 
   export type ActivitySelectScalar = {
-    id?: boolean
-    title?: boolean
-    description?: boolean
-    startDate?: boolean
-    endDate?: boolean
-    type?: boolean
-    location?: boolean
-    maxParticipants?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    ID?: boolean
+    Title?: boolean
+    Description?: boolean
+    StartDate?: boolean
+    EndDate?: boolean
+    Type?: boolean
+    Images?: boolean
+    Score?: boolean
+    Location?: boolean
+    MaxParticipants?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
   }
 
   export type ActivityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    activityResults?: boolean | Activity$activityResultsArgs<ExtArgs>
-    activityDetails?: boolean | Activity$activityDetailsArgs<ExtArgs>
+    ActivityResults?: boolean | Activity$ActivityResultsArgs<ExtArgs>
+    ActivityDetails?: boolean | Activity$ActivityDetailsArgs<ExtArgs>
     _count?: boolean | ActivityCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ActivityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -5880,21 +5900,23 @@ export namespace Prisma {
   export type $ActivityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Activity"
     objects: {
-      activityResults: Prisma.$ActivityResultsPayload<ExtArgs>[]
-      activityDetails: Prisma.$ActivityDetailsPayload<ExtArgs>[]
+      ActivityResults: Prisma.$ActivityResultsPayload<ExtArgs>[]
+      ActivityDetails: Prisma.$ActivityDetailsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
-      title: string
-      description: string
-      startDate: Date
-      endDate: Date
-      type: string
-      location: string | null
-      maxParticipants: number | null
-      isArchived: boolean
-      createdAt: Date
-      updatedAt: Date
+      ID: string
+      Title: string
+      Description: string
+      StartDate: Date
+      EndDate: Date
+      Type: string
+      Images: Prisma.JsonValue
+      Score: number
+      Location: string | null
+      MaxParticipants: number | null
+      IsArchived: boolean
+      CreatedAt: Date
+      UpdatedAt: Date
     }, ExtArgs["result"]["activity"]>
     composites: {}
   }
@@ -5986,8 +6008,8 @@ export namespace Prisma {
      * // Get first 10 Activities
      * const activities = await prisma.activity.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const activityWithIdOnly = await prisma.activity.findMany({ select: { id: true } })
+     * // Only select the `ID`
+     * const activityWithIDOnly = await prisma.activity.findMany({ select: { ID: true } })
      * 
     **/
     findMany<T extends ActivityFindManyArgs<ExtArgs>>(
@@ -6037,9 +6059,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many Activities and only return the `id`
-     * const activityWithIdOnly = await prisma.activity.createManyAndReturn({ 
-     *   select: { id: true },
+     * // Create many Activities and only return the `ID`
+     * const activityWithIDOnly = await prisma.activity.createManyAndReturn({ 
+     *   select: { ID: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -6285,9 +6307,9 @@ export namespace Prisma {
   export interface Prisma__ActivityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    activityResults<T extends Activity$activityResultsArgs<ExtArgs> = {}>(args?: Subset<T, Activity$activityResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityResultsPayload<ExtArgs>, T, 'findMany'> | Null>;
+    ActivityResults<T extends Activity$ActivityResultsArgs<ExtArgs> = {}>(args?: Subset<T, Activity$ActivityResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityResultsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    activityDetails<T extends Activity$activityDetailsArgs<ExtArgs> = {}>(args?: Subset<T, Activity$activityDetailsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityDetailsPayload<ExtArgs>, T, 'findMany'> | Null>;
+    ActivityDetails<T extends Activity$ActivityDetailsArgs<ExtArgs> = {}>(args?: Subset<T, Activity$ActivityDetailsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityDetailsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -6317,17 +6339,19 @@ export namespace Prisma {
    * Fields of the Activity model
    */ 
   interface ActivityFieldRefs {
-    readonly id: FieldRef<"Activity", 'String'>
-    readonly title: FieldRef<"Activity", 'String'>
-    readonly description: FieldRef<"Activity", 'String'>
-    readonly startDate: FieldRef<"Activity", 'DateTime'>
-    readonly endDate: FieldRef<"Activity", 'DateTime'>
-    readonly type: FieldRef<"Activity", 'String'>
-    readonly location: FieldRef<"Activity", 'String'>
-    readonly maxParticipants: FieldRef<"Activity", 'Int'>
-    readonly isArchived: FieldRef<"Activity", 'Boolean'>
-    readonly createdAt: FieldRef<"Activity", 'DateTime'>
-    readonly updatedAt: FieldRef<"Activity", 'DateTime'>
+    readonly ID: FieldRef<"Activity", 'String'>
+    readonly Title: FieldRef<"Activity", 'String'>
+    readonly Description: FieldRef<"Activity", 'String'>
+    readonly StartDate: FieldRef<"Activity", 'DateTime'>
+    readonly EndDate: FieldRef<"Activity", 'DateTime'>
+    readonly Type: FieldRef<"Activity", 'String'>
+    readonly Images: FieldRef<"Activity", 'Json'>
+    readonly Score: FieldRef<"Activity", 'Int'>
+    readonly Location: FieldRef<"Activity", 'String'>
+    readonly MaxParticipants: FieldRef<"Activity", 'Int'>
+    readonly IsArchived: FieldRef<"Activity", 'Boolean'>
+    readonly CreatedAt: FieldRef<"Activity", 'DateTime'>
+    readonly UpdatedAt: FieldRef<"Activity", 'DateTime'>
   }
     
 
@@ -6642,9 +6666,9 @@ export namespace Prisma {
   }
 
   /**
-   * Activity.activityResults
+   * Activity.ActivityResults
    */
-  export type Activity$activityResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Activity$ActivityResultsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the ActivityResults
      */
@@ -6662,9 +6686,9 @@ export namespace Prisma {
   }
 
   /**
-   * Activity.activityDetails
+   * Activity.ActivityDetails
    */
-  export type Activity$activityDetailsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Activity$ActivityDetailsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the ActivityDetails
      */
@@ -6702,82 +6726,100 @@ export namespace Prisma {
 
   export type AggregateActivityResults = {
     _count: ActivityResultsCountAggregateOutputType | null
+    _avg: ActivityResultsAvgAggregateOutputType | null
+    _sum: ActivityResultsSumAggregateOutputType | null
     _min: ActivityResultsMinAggregateOutputType | null
     _max: ActivityResultsMaxAggregateOutputType | null
   }
 
+  export type ActivityResultsAvgAggregateOutputType = {
+    ID: number | null
+  }
+
+  export type ActivityResultsSumAggregateOutputType = {
+    ID: number | null
+  }
+
   export type ActivityResultsMinAggregateOutputType = {
-    id: string | null
-    departmentId: string | null
-    userId: string | null
-    activityId: string | null
-    reservation: boolean | null
-    status: string | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    ID: number | null
+    DepartmentID: string | null
+    UserID: string | null
+    ActivityID: string | null
+    Reservation: boolean | null
+    Status: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type ActivityResultsMaxAggregateOutputType = {
-    id: string | null
-    departmentId: string | null
-    userId: string | null
-    activityId: string | null
-    reservation: boolean | null
-    status: string | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    ID: number | null
+    DepartmentID: string | null
+    UserID: string | null
+    ActivityID: string | null
+    Reservation: boolean | null
+    Status: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type ActivityResultsCountAggregateOutputType = {
-    id: number
-    departmentId: number
-    userId: number
-    activityId: number
-    reservation: number
-    status: number
-    isArchived: number
-    createdAt: number
-    updatedAt: number
+    ID: number
+    DepartmentID: number
+    UserID: number
+    ActivityID: number
+    Reservation: number
+    Status: number
+    IsArchived: number
+    CreatedAt: number
+    UpdatedAt: number
     _all: number
   }
 
 
+  export type ActivityResultsAvgAggregateInputType = {
+    ID?: true
+  }
+
+  export type ActivityResultsSumAggregateInputType = {
+    ID?: true
+  }
+
   export type ActivityResultsMinAggregateInputType = {
-    id?: true
-    departmentId?: true
-    userId?: true
-    activityId?: true
-    reservation?: true
-    status?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    ID?: true
+    DepartmentID?: true
+    UserID?: true
+    ActivityID?: true
+    Reservation?: true
+    Status?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type ActivityResultsMaxAggregateInputType = {
-    id?: true
-    departmentId?: true
-    userId?: true
-    activityId?: true
-    reservation?: true
-    status?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    ID?: true
+    DepartmentID?: true
+    UserID?: true
+    ActivityID?: true
+    Reservation?: true
+    Status?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type ActivityResultsCountAggregateInputType = {
-    id?: true
-    departmentId?: true
-    userId?: true
-    activityId?: true
-    reservation?: true
-    status?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    ID?: true
+    DepartmentID?: true
+    UserID?: true
+    ActivityID?: true
+    Reservation?: true
+    Status?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
     _all?: true
   }
 
@@ -6819,6 +6861,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: ActivityResultsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ActivityResultsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: ActivityResultsMinAggregateInputType
@@ -6849,21 +6903,25 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: ActivityResultsCountAggregateInputType | true
+    _avg?: ActivityResultsAvgAggregateInputType
+    _sum?: ActivityResultsSumAggregateInputType
     _min?: ActivityResultsMinAggregateInputType
     _max?: ActivityResultsMaxAggregateInputType
   }
 
   export type ActivityResultsGroupByOutputType = {
-    id: string
-    departmentId: string
-    userId: string
-    activityId: string
-    reservation: boolean
-    status: string
-    isArchived: boolean
-    createdAt: Date
-    updatedAt: Date
+    ID: number
+    DepartmentID: string
+    UserID: string
+    ActivityID: string
+    Reservation: boolean
+    Status: string
+    IsArchived: boolean
+    CreatedAt: Date
+    UpdatedAt: Date
     _count: ActivityResultsCountAggregateOutputType | null
+    _avg: ActivityResultsAvgAggregateOutputType | null
+    _sum: ActivityResultsSumAggregateOutputType | null
     _min: ActivityResultsMinAggregateOutputType | null
     _max: ActivityResultsMaxAggregateOutputType | null
   }
@@ -6883,75 +6941,75 @@ export namespace Prisma {
 
 
   export type ActivityResultsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    departmentId?: boolean
-    userId?: boolean
-    activityId?: boolean
-    reservation?: boolean
-    status?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    department?: boolean | DepartmentDefaultArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    activity?: boolean | ActivityDefaultArgs<ExtArgs>
+    ID?: boolean
+    DepartmentID?: boolean
+    UserID?: boolean
+    ActivityID?: boolean
+    Reservation?: boolean
+    Status?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    Department?: boolean | DepartmentDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Activity?: boolean | ActivityDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["activityResults"]>
 
   export type ActivityResultsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    departmentId?: boolean
-    userId?: boolean
-    activityId?: boolean
-    reservation?: boolean
-    status?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    department?: boolean | DepartmentDefaultArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    activity?: boolean | ActivityDefaultArgs<ExtArgs>
+    ID?: boolean
+    DepartmentID?: boolean
+    UserID?: boolean
+    ActivityID?: boolean
+    Reservation?: boolean
+    Status?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    Department?: boolean | DepartmentDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Activity?: boolean | ActivityDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["activityResults"]>
 
   export type ActivityResultsSelectScalar = {
-    id?: boolean
-    departmentId?: boolean
-    userId?: boolean
-    activityId?: boolean
-    reservation?: boolean
-    status?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    ID?: boolean
+    DepartmentID?: boolean
+    UserID?: boolean
+    ActivityID?: boolean
+    Reservation?: boolean
+    Status?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
   }
 
   export type ActivityResultsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    department?: boolean | DepartmentDefaultArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    activity?: boolean | ActivityDefaultArgs<ExtArgs>
+    Department?: boolean | DepartmentDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Activity?: boolean | ActivityDefaultArgs<ExtArgs>
   }
   export type ActivityResultsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    department?: boolean | DepartmentDefaultArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    activity?: boolean | ActivityDefaultArgs<ExtArgs>
+    Department?: boolean | DepartmentDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Activity?: boolean | ActivityDefaultArgs<ExtArgs>
   }
 
   export type $ActivityResultsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ActivityResults"
     objects: {
-      department: Prisma.$DepartmentPayload<ExtArgs>
-      user: Prisma.$UserPayload<ExtArgs>
-      activity: Prisma.$ActivityPayload<ExtArgs>
+      Department: Prisma.$DepartmentPayload<ExtArgs>
+      User: Prisma.$UserPayload<ExtArgs>
+      Activity: Prisma.$ActivityPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
-      departmentId: string
-      userId: string
-      activityId: string
-      reservation: boolean
-      status: string
-      isArchived: boolean
-      createdAt: Date
-      updatedAt: Date
+      ID: number
+      DepartmentID: string
+      UserID: string
+      ActivityID: string
+      Reservation: boolean
+      Status: string
+      IsArchived: boolean
+      CreatedAt: Date
+      UpdatedAt: Date
     }, ExtArgs["result"]["activityResults"]>
     composites: {}
   }
@@ -7043,8 +7101,8 @@ export namespace Prisma {
      * // Get first 10 ActivityResults
      * const activityResults = await prisma.activityResults.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const activityResultsWithIdOnly = await prisma.activityResults.findMany({ select: { id: true } })
+     * // Only select the `ID`
+     * const activityResultsWithIDOnly = await prisma.activityResults.findMany({ select: { ID: true } })
      * 
     **/
     findMany<T extends ActivityResultsFindManyArgs<ExtArgs>>(
@@ -7094,9 +7152,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many ActivityResults and only return the `id`
-     * const activityResultsWithIdOnly = await prisma.activityResults.createManyAndReturn({ 
-     *   select: { id: true },
+     * // Create many ActivityResults and only return the `ID`
+     * const activityResultsWithIDOnly = await prisma.activityResults.createManyAndReturn({ 
+     *   select: { ID: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -7342,11 +7400,11 @@ export namespace Prisma {
   export interface Prisma__ActivityResultsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    department<T extends DepartmentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DepartmentDefaultArgs<ExtArgs>>): Prisma__DepartmentClient<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    Department<T extends DepartmentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DepartmentDefaultArgs<ExtArgs>>): Prisma__DepartmentClient<$Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    activity<T extends ActivityDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ActivityDefaultArgs<ExtArgs>>): Prisma__ActivityClient<$Result.GetResult<Prisma.$ActivityPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    Activity<T extends ActivityDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ActivityDefaultArgs<ExtArgs>>): Prisma__ActivityClient<$Result.GetResult<Prisma.$ActivityPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -7376,15 +7434,15 @@ export namespace Prisma {
    * Fields of the ActivityResults model
    */ 
   interface ActivityResultsFieldRefs {
-    readonly id: FieldRef<"ActivityResults", 'String'>
-    readonly departmentId: FieldRef<"ActivityResults", 'String'>
-    readonly userId: FieldRef<"ActivityResults", 'String'>
-    readonly activityId: FieldRef<"ActivityResults", 'String'>
-    readonly reservation: FieldRef<"ActivityResults", 'Boolean'>
-    readonly status: FieldRef<"ActivityResults", 'String'>
-    readonly isArchived: FieldRef<"ActivityResults", 'Boolean'>
-    readonly createdAt: FieldRef<"ActivityResults", 'DateTime'>
-    readonly updatedAt: FieldRef<"ActivityResults", 'DateTime'>
+    readonly ID: FieldRef<"ActivityResults", 'Int'>
+    readonly DepartmentID: FieldRef<"ActivityResults", 'String'>
+    readonly UserID: FieldRef<"ActivityResults", 'String'>
+    readonly ActivityID: FieldRef<"ActivityResults", 'String'>
+    readonly Reservation: FieldRef<"ActivityResults", 'Boolean'>
+    readonly Status: FieldRef<"ActivityResults", 'String'>
+    readonly IsArchived: FieldRef<"ActivityResults", 'Boolean'>
+    readonly CreatedAt: FieldRef<"ActivityResults", 'DateTime'>
+    readonly UpdatedAt: FieldRef<"ActivityResults", 'DateTime'>
   }
     
 
@@ -7723,70 +7781,88 @@ export namespace Prisma {
 
   export type AggregateActivityDetails = {
     _count: ActivityDetailsCountAggregateOutputType | null
+    _avg: ActivityDetailsAvgAggregateOutputType | null
+    _sum: ActivityDetailsSumAggregateOutputType | null
     _min: ActivityDetailsMinAggregateOutputType | null
     _max: ActivityDetailsMaxAggregateOutputType | null
   }
 
+  export type ActivityDetailsAvgAggregateOutputType = {
+    ID: number | null
+  }
+
+  export type ActivityDetailsSumAggregateOutputType = {
+    ID: number | null
+  }
+
   export type ActivityDetailsMinAggregateOutputType = {
-    id: string | null
-    userId: string | null
-    activityId: string | null
-    details: string | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    ID: number | null
+    UserID: string | null
+    ActivityID: string | null
+    Details: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type ActivityDetailsMaxAggregateOutputType = {
-    id: string | null
-    userId: string | null
-    activityId: string | null
-    details: string | null
-    isArchived: boolean | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    ID: number | null
+    UserID: string | null
+    ActivityID: string | null
+    Details: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
   }
 
   export type ActivityDetailsCountAggregateOutputType = {
-    id: number
-    userId: number
-    activityId: number
-    details: number
-    isArchived: number
-    createdAt: number
-    updatedAt: number
+    ID: number
+    UserID: number
+    ActivityID: number
+    Details: number
+    IsArchived: number
+    CreatedAt: number
+    UpdatedAt: number
     _all: number
   }
 
 
+  export type ActivityDetailsAvgAggregateInputType = {
+    ID?: true
+  }
+
+  export type ActivityDetailsSumAggregateInputType = {
+    ID?: true
+  }
+
   export type ActivityDetailsMinAggregateInputType = {
-    id?: true
-    userId?: true
-    activityId?: true
-    details?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    ID?: true
+    UserID?: true
+    ActivityID?: true
+    Details?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type ActivityDetailsMaxAggregateInputType = {
-    id?: true
-    userId?: true
-    activityId?: true
-    details?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    ID?: true
+    UserID?: true
+    ActivityID?: true
+    Details?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
   }
 
   export type ActivityDetailsCountAggregateInputType = {
-    id?: true
-    userId?: true
-    activityId?: true
-    details?: true
-    isArchived?: true
-    createdAt?: true
-    updatedAt?: true
+    ID?: true
+    UserID?: true
+    ActivityID?: true
+    Details?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
     _all?: true
   }
 
@@ -7828,6 +7904,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: ActivityDetailsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ActivityDetailsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: ActivityDetailsMinAggregateInputType
@@ -7858,19 +7946,23 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: ActivityDetailsCountAggregateInputType | true
+    _avg?: ActivityDetailsAvgAggregateInputType
+    _sum?: ActivityDetailsSumAggregateInputType
     _min?: ActivityDetailsMinAggregateInputType
     _max?: ActivityDetailsMaxAggregateInputType
   }
 
   export type ActivityDetailsGroupByOutputType = {
-    id: string
-    userId: string
-    activityId: string
-    details: string
-    isArchived: boolean
-    createdAt: Date
-    updatedAt: Date
+    ID: number
+    UserID: string
+    ActivityID: string
+    Details: string
+    IsArchived: boolean
+    CreatedAt: Date
+    UpdatedAt: Date
     _count: ActivityDetailsCountAggregateOutputType | null
+    _avg: ActivityDetailsAvgAggregateOutputType | null
+    _sum: ActivityDetailsSumAggregateOutputType | null
     _min: ActivityDetailsMinAggregateOutputType | null
     _max: ActivityDetailsMaxAggregateOutputType | null
   }
@@ -7890,62 +7982,62 @@ export namespace Prisma {
 
 
   export type ActivityDetailsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    activityId?: boolean
-    details?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    activity?: boolean | ActivityDefaultArgs<ExtArgs>
+    ID?: boolean
+    UserID?: boolean
+    ActivityID?: boolean
+    Details?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Activity?: boolean | ActivityDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["activityDetails"]>
 
   export type ActivityDetailsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    userId?: boolean
-    activityId?: boolean
-    details?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    activity?: boolean | ActivityDefaultArgs<ExtArgs>
+    ID?: boolean
+    UserID?: boolean
+    ActivityID?: boolean
+    Details?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Activity?: boolean | ActivityDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["activityDetails"]>
 
   export type ActivityDetailsSelectScalar = {
-    id?: boolean
-    userId?: boolean
-    activityId?: boolean
-    details?: boolean
-    isArchived?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
+    ID?: boolean
+    UserID?: boolean
+    ActivityID?: boolean
+    Details?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
   }
 
   export type ActivityDetailsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    activity?: boolean | ActivityDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Activity?: boolean | ActivityDefaultArgs<ExtArgs>
   }
   export type ActivityDetailsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    activity?: boolean | ActivityDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Activity?: boolean | ActivityDefaultArgs<ExtArgs>
   }
 
   export type $ActivityDetailsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ActivityDetails"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
-      activity: Prisma.$ActivityPayload<ExtArgs>
+      User: Prisma.$UserPayload<ExtArgs>
+      Activity: Prisma.$ActivityPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: string
-      userId: string
-      activityId: string
-      details: string
-      isArchived: boolean
-      createdAt: Date
-      updatedAt: Date
+      ID: number
+      UserID: string
+      ActivityID: string
+      Details: string
+      IsArchived: boolean
+      CreatedAt: Date
+      UpdatedAt: Date
     }, ExtArgs["result"]["activityDetails"]>
     composites: {}
   }
@@ -8037,8 +8129,8 @@ export namespace Prisma {
      * // Get first 10 ActivityDetails
      * const activityDetails = await prisma.activityDetails.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const activityDetailsWithIdOnly = await prisma.activityDetails.findMany({ select: { id: true } })
+     * // Only select the `ID`
+     * const activityDetailsWithIDOnly = await prisma.activityDetails.findMany({ select: { ID: true } })
      * 
     **/
     findMany<T extends ActivityDetailsFindManyArgs<ExtArgs>>(
@@ -8088,9 +8180,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many ActivityDetails and only return the `id`
-     * const activityDetailsWithIdOnly = await prisma.activityDetails.createManyAndReturn({ 
-     *   select: { id: true },
+     * // Create many ActivityDetails and only return the `ID`
+     * const activityDetailsWithIDOnly = await prisma.activityDetails.createManyAndReturn({ 
+     *   select: { ID: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -8336,9 +8428,9 @@ export namespace Prisma {
   export interface Prisma__ActivityDetailsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    activity<T extends ActivityDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ActivityDefaultArgs<ExtArgs>>): Prisma__ActivityClient<$Result.GetResult<Prisma.$ActivityPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+    Activity<T extends ActivityDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ActivityDefaultArgs<ExtArgs>>): Prisma__ActivityClient<$Result.GetResult<Prisma.$ActivityPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -8368,13 +8460,13 @@ export namespace Prisma {
    * Fields of the ActivityDetails model
    */ 
   interface ActivityDetailsFieldRefs {
-    readonly id: FieldRef<"ActivityDetails", 'String'>
-    readonly userId: FieldRef<"ActivityDetails", 'String'>
-    readonly activityId: FieldRef<"ActivityDetails", 'String'>
-    readonly details: FieldRef<"ActivityDetails", 'String'>
-    readonly isArchived: FieldRef<"ActivityDetails", 'Boolean'>
-    readonly createdAt: FieldRef<"ActivityDetails", 'DateTime'>
-    readonly updatedAt: FieldRef<"ActivityDetails", 'DateTime'>
+    readonly ID: FieldRef<"ActivityDetails", 'Int'>
+    readonly UserID: FieldRef<"ActivityDetails", 'String'>
+    readonly ActivityID: FieldRef<"ActivityDetails", 'String'>
+    readonly Details: FieldRef<"ActivityDetails", 'String'>
+    readonly IsArchived: FieldRef<"ActivityDetails", 'Boolean'>
+    readonly CreatedAt: FieldRef<"ActivityDetails", 'DateTime'>
+    readonly UpdatedAt: FieldRef<"ActivityDetails", 'DateTime'>
   }
     
 
@@ -8722,97 +8814,99 @@ export namespace Prisma {
 
 
   export const UserScalarFieldEnum: {
-    id: 'id',
-    firstName: 'firstName',
-    lastName: 'lastName',
-    password: 'password',
-    image: 'image',
-    departmentId: 'departmentId',
-    role: 'role',
-    isArchived: 'isArchived',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    UserID: 'UserID',
+    UserFirstName: 'UserFirstName',
+    UserLastName: 'UserLastName',
+    UserPassword: 'UserPassword',
+    UserImage: 'UserImage',
+    DepartmentID: 'DepartmentID',
+    Role: 'Role',
+    IsArchived: 'IsArchived',
+    CreatedAt: 'CreatedAt',
+    UpdatedAt: 'UpdatedAt'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
   export const OauthScalarFieldEnum: {
-    id: 'id',
-    userId: 'userId',
-    accessToken: 'accessToken',
-    refreshToken: 'refreshToken',
-    isArchived: 'isArchived',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    ID: 'ID',
+    UserID: 'UserID',
+    AccessToken: 'AccessToken',
+    RefreshToken: 'RefreshToken',
+    IsArchived: 'IsArchived',
+    CreatedAt: 'CreatedAt',
+    UpdatedAt: 'UpdatedAt'
   };
 
   export type OauthScalarFieldEnum = (typeof OauthScalarFieldEnum)[keyof typeof OauthScalarFieldEnum]
 
 
   export const DepartmentScalarFieldEnum: {
-    id: 'id',
-    name: 'name',
-    isArchived: 'isArchived',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    DepartmentID: 'DepartmentID',
+    Name: 'Name',
+    IsArchived: 'IsArchived',
+    CreatedAt: 'CreatedAt',
+    UpdatedAt: 'UpdatedAt'
   };
 
   export type DepartmentScalarFieldEnum = (typeof DepartmentScalarFieldEnum)[keyof typeof DepartmentScalarFieldEnum]
 
 
   export const AdminScalarFieldEnum: {
-    id: 'id',
-    password: 'password',
-    userId: 'userId',
-    isArchived: 'isArchived',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    AdminID: 'AdminID',
+    AdminPass: 'AdminPass',
+    UserID: 'UserID',
+    IsArchived: 'IsArchived',
+    CreatedAt: 'CreatedAt',
+    UpdatedAt: 'UpdatedAt'
   };
 
   export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
 
 
   export const ActivityScalarFieldEnum: {
-    id: 'id',
-    title: 'title',
-    description: 'description',
-    startDate: 'startDate',
-    endDate: 'endDate',
-    type: 'type',
-    location: 'location',
-    maxParticipants: 'maxParticipants',
-    isArchived: 'isArchived',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    ID: 'ID',
+    Title: 'Title',
+    Description: 'Description',
+    StartDate: 'StartDate',
+    EndDate: 'EndDate',
+    Type: 'Type',
+    Images: 'Images',
+    Score: 'Score',
+    Location: 'Location',
+    MaxParticipants: 'MaxParticipants',
+    IsArchived: 'IsArchived',
+    CreatedAt: 'CreatedAt',
+    UpdatedAt: 'UpdatedAt'
   };
 
   export type ActivityScalarFieldEnum = (typeof ActivityScalarFieldEnum)[keyof typeof ActivityScalarFieldEnum]
 
 
   export const ActivityResultsScalarFieldEnum: {
-    id: 'id',
-    departmentId: 'departmentId',
-    userId: 'userId',
-    activityId: 'activityId',
-    reservation: 'reservation',
-    status: 'status',
-    isArchived: 'isArchived',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    ID: 'ID',
+    DepartmentID: 'DepartmentID',
+    UserID: 'UserID',
+    ActivityID: 'ActivityID',
+    Reservation: 'Reservation',
+    Status: 'Status',
+    IsArchived: 'IsArchived',
+    CreatedAt: 'CreatedAt',
+    UpdatedAt: 'UpdatedAt'
   };
 
   export type ActivityResultsScalarFieldEnum = (typeof ActivityResultsScalarFieldEnum)[keyof typeof ActivityResultsScalarFieldEnum]
 
 
   export const ActivityDetailsScalarFieldEnum: {
-    id: 'id',
-    userId: 'userId',
-    activityId: 'activityId',
-    details: 'details',
-    isArchived: 'isArchived',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    ID: 'ID',
+    UserID: 'UserID',
+    ActivityID: 'ActivityID',
+    Details: 'Details',
+    IsArchived: 'IsArchived',
+    CreatedAt: 'CreatedAt',
+    UpdatedAt: 'UpdatedAt'
   };
 
   export type ActivityDetailsScalarFieldEnum = (typeof ActivityDetailsScalarFieldEnum)[keyof typeof ActivityDetailsScalarFieldEnum]
@@ -8824,6 +8918,13 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
   export const QueryMode: {
@@ -8840,6 +8941,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -8883,6 +8993,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -8917,73 +9034,73 @@ export namespace Prisma {
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    id?: StringFilter<"User"> | string
-    firstName?: StringFilter<"User"> | string
-    lastName?: StringFilter<"User"> | string
-    password?: StringFilter<"User"> | string
-    image?: StringNullableFilter<"User"> | string | null
-    departmentId?: StringFilter<"User"> | string
-    role?: StringFilter<"User"> | string
-    isArchived?: BoolFilter<"User"> | boolean
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updatedAt?: DateTimeFilter<"User"> | Date | string
-    department?: XOR<DepartmentRelationFilter, DepartmentWhereInput>
-    admin?: XOR<AdminNullableRelationFilter, AdminWhereInput> | null
-    activityResults?: ActivityResultsListRelationFilter
-    activityDetails?: ActivityDetailsListRelationFilter
-    oauth?: OauthListRelationFilter
+    UserID?: StringFilter<"User"> | string
+    UserFirstName?: StringFilter<"User"> | string
+    UserLastName?: StringFilter<"User"> | string
+    UserPassword?: StringFilter<"User"> | string
+    UserImage?: StringNullableFilter<"User"> | string | null
+    DepartmentID?: StringFilter<"User"> | string
+    Role?: StringFilter<"User"> | string
+    IsArchived?: BoolFilter<"User"> | boolean
+    CreatedAt?: DateTimeFilter<"User"> | Date | string
+    UpdatedAt?: DateTimeFilter<"User"> | Date | string
+    Department?: XOR<DepartmentRelationFilter, DepartmentWhereInput>
+    Admin?: XOR<AdminNullableRelationFilter, AdminWhereInput> | null
+    ActivityResults?: ActivityResultsListRelationFilter
+    ActivityDetails?: ActivityDetailsListRelationFilter
+    Oauth?: OauthListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
-    id?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    password?: SortOrder
-    image?: SortOrderInput | SortOrder
-    departmentId?: SortOrder
-    role?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    department?: DepartmentOrderByWithRelationInput
-    admin?: AdminOrderByWithRelationInput
-    activityResults?: ActivityResultsOrderByRelationAggregateInput
-    activityDetails?: ActivityDetailsOrderByRelationAggregateInput
-    oauth?: OauthOrderByRelationAggregateInput
+    UserID?: SortOrder
+    UserFirstName?: SortOrder
+    UserLastName?: SortOrder
+    UserPassword?: SortOrder
+    UserImage?: SortOrderInput | SortOrder
+    DepartmentID?: SortOrder
+    Role?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+    Department?: DepartmentOrderByWithRelationInput
+    Admin?: AdminOrderByWithRelationInput
+    ActivityResults?: ActivityResultsOrderByRelationAggregateInput
+    ActivityDetails?: ActivityDetailsOrderByRelationAggregateInput
+    Oauth?: OauthOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    UserID?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    firstName?: StringFilter<"User"> | string
-    lastName?: StringFilter<"User"> | string
-    password?: StringFilter<"User"> | string
-    image?: StringNullableFilter<"User"> | string | null
-    departmentId?: StringFilter<"User"> | string
-    role?: StringFilter<"User"> | string
-    isArchived?: BoolFilter<"User"> | boolean
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updatedAt?: DateTimeFilter<"User"> | Date | string
-    department?: XOR<DepartmentRelationFilter, DepartmentWhereInput>
-    admin?: XOR<AdminNullableRelationFilter, AdminWhereInput> | null
-    activityResults?: ActivityResultsListRelationFilter
-    activityDetails?: ActivityDetailsListRelationFilter
-    oauth?: OauthListRelationFilter
-  }, "id">
+    UserFirstName?: StringFilter<"User"> | string
+    UserLastName?: StringFilter<"User"> | string
+    UserPassword?: StringFilter<"User"> | string
+    UserImage?: StringNullableFilter<"User"> | string | null
+    DepartmentID?: StringFilter<"User"> | string
+    Role?: StringFilter<"User"> | string
+    IsArchived?: BoolFilter<"User"> | boolean
+    CreatedAt?: DateTimeFilter<"User"> | Date | string
+    UpdatedAt?: DateTimeFilter<"User"> | Date | string
+    Department?: XOR<DepartmentRelationFilter, DepartmentWhereInput>
+    Admin?: XOR<AdminNullableRelationFilter, AdminWhereInput> | null
+    ActivityResults?: ActivityResultsListRelationFilter
+    ActivityDetails?: ActivityDetailsListRelationFilter
+    Oauth?: OauthListRelationFilter
+  }, "UserID" | "UserID">
 
   export type UserOrderByWithAggregationInput = {
-    id?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    password?: SortOrder
-    image?: SortOrderInput | SortOrder
-    departmentId?: SortOrder
-    role?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    UserID?: SortOrder
+    UserFirstName?: SortOrder
+    UserLastName?: SortOrder
+    UserPassword?: SortOrder
+    UserImage?: SortOrderInput | SortOrder
+    DepartmentID?: SortOrder
+    Role?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -8993,65 +9110,65 @@ export namespace Prisma {
     AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"User"> | string
-    firstName?: StringWithAggregatesFilter<"User"> | string
-    lastName?: StringWithAggregatesFilter<"User"> | string
-    password?: StringWithAggregatesFilter<"User"> | string
-    image?: StringNullableWithAggregatesFilter<"User"> | string | null
-    departmentId?: StringWithAggregatesFilter<"User"> | string
-    role?: StringWithAggregatesFilter<"User"> | string
-    isArchived?: BoolWithAggregatesFilter<"User"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    UserID?: StringWithAggregatesFilter<"User"> | string
+    UserFirstName?: StringWithAggregatesFilter<"User"> | string
+    UserLastName?: StringWithAggregatesFilter<"User"> | string
+    UserPassword?: StringWithAggregatesFilter<"User"> | string
+    UserImage?: StringNullableWithAggregatesFilter<"User"> | string | null
+    DepartmentID?: StringWithAggregatesFilter<"User"> | string
+    Role?: StringWithAggregatesFilter<"User"> | string
+    IsArchived?: BoolWithAggregatesFilter<"User"> | boolean
+    CreatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    UpdatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
   export type OauthWhereInput = {
     AND?: OauthWhereInput | OauthWhereInput[]
     OR?: OauthWhereInput[]
     NOT?: OauthWhereInput | OauthWhereInput[]
-    id?: StringFilter<"Oauth"> | string
-    userId?: StringFilter<"Oauth"> | string
-    accessToken?: StringFilter<"Oauth"> | string
-    refreshToken?: StringFilter<"Oauth"> | string
-    isArchived?: BoolFilter<"Oauth"> | boolean
-    createdAt?: DateTimeFilter<"Oauth"> | Date | string
-    updatedAt?: DateTimeFilter<"Oauth"> | Date | string
-    user?: XOR<UserRelationFilter, UserWhereInput>
+    ID?: StringFilter<"Oauth"> | string
+    UserID?: StringFilter<"Oauth"> | string
+    AccessToken?: StringFilter<"Oauth"> | string
+    RefreshToken?: StringFilter<"Oauth"> | string
+    IsArchived?: BoolFilter<"Oauth"> | boolean
+    CreatedAt?: DateTimeFilter<"Oauth"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Oauth"> | Date | string
+    User?: XOR<UserRelationFilter, UserWhereInput>
   }
 
   export type OauthOrderByWithRelationInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    accessToken?: SortOrder
-    refreshToken?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
+    ID?: SortOrder
+    UserID?: SortOrder
+    AccessToken?: SortOrder
+    RefreshToken?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+    User?: UserOrderByWithRelationInput
   }
 
   export type OauthWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    ID?: string
     AND?: OauthWhereInput | OauthWhereInput[]
     OR?: OauthWhereInput[]
     NOT?: OauthWhereInput | OauthWhereInput[]
-    userId?: StringFilter<"Oauth"> | string
-    accessToken?: StringFilter<"Oauth"> | string
-    refreshToken?: StringFilter<"Oauth"> | string
-    isArchived?: BoolFilter<"Oauth"> | boolean
-    createdAt?: DateTimeFilter<"Oauth"> | Date | string
-    updatedAt?: DateTimeFilter<"Oauth"> | Date | string
-    user?: XOR<UserRelationFilter, UserWhereInput>
-  }, "id">
+    UserID?: StringFilter<"Oauth"> | string
+    AccessToken?: StringFilter<"Oauth"> | string
+    RefreshToken?: StringFilter<"Oauth"> | string
+    IsArchived?: BoolFilter<"Oauth"> | boolean
+    CreatedAt?: DateTimeFilter<"Oauth"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Oauth"> | Date | string
+    User?: XOR<UserRelationFilter, UserWhereInput>
+  }, "ID">
 
   export type OauthOrderByWithAggregationInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    accessToken?: SortOrder
-    refreshToken?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    UserID?: SortOrder
+    AccessToken?: SortOrder
+    RefreshToken?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
     _count?: OauthCountOrderByAggregateInput
     _max?: OauthMaxOrderByAggregateInput
     _min?: OauthMinOrderByAggregateInput
@@ -9061,57 +9178,57 @@ export namespace Prisma {
     AND?: OauthScalarWhereWithAggregatesInput | OauthScalarWhereWithAggregatesInput[]
     OR?: OauthScalarWhereWithAggregatesInput[]
     NOT?: OauthScalarWhereWithAggregatesInput | OauthScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Oauth"> | string
-    userId?: StringWithAggregatesFilter<"Oauth"> | string
-    accessToken?: StringWithAggregatesFilter<"Oauth"> | string
-    refreshToken?: StringWithAggregatesFilter<"Oauth"> | string
-    isArchived?: BoolWithAggregatesFilter<"Oauth"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"Oauth"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Oauth"> | Date | string
+    ID?: StringWithAggregatesFilter<"Oauth"> | string
+    UserID?: StringWithAggregatesFilter<"Oauth"> | string
+    AccessToken?: StringWithAggregatesFilter<"Oauth"> | string
+    RefreshToken?: StringWithAggregatesFilter<"Oauth"> | string
+    IsArchived?: BoolWithAggregatesFilter<"Oauth"> | boolean
+    CreatedAt?: DateTimeWithAggregatesFilter<"Oauth"> | Date | string
+    UpdatedAt?: DateTimeWithAggregatesFilter<"Oauth"> | Date | string
   }
 
   export type DepartmentWhereInput = {
     AND?: DepartmentWhereInput | DepartmentWhereInput[]
     OR?: DepartmentWhereInput[]
     NOT?: DepartmentWhereInput | DepartmentWhereInput[]
-    id?: StringFilter<"Department"> | string
-    name?: StringFilter<"Department"> | string
-    isArchived?: BoolFilter<"Department"> | boolean
-    createdAt?: DateTimeFilter<"Department"> | Date | string
-    updatedAt?: DateTimeFilter<"Department"> | Date | string
-    users?: UserListRelationFilter
-    activityResults?: ActivityResultsListRelationFilter
+    DepartmentID?: StringFilter<"Department"> | string
+    Name?: StringFilter<"Department"> | string
+    IsArchived?: BoolFilter<"Department"> | boolean
+    CreatedAt?: DateTimeFilter<"Department"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Department"> | Date | string
+    Users?: UserListRelationFilter
+    ActivityResults?: ActivityResultsListRelationFilter
   }
 
   export type DepartmentOrderByWithRelationInput = {
-    id?: SortOrder
-    name?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    users?: UserOrderByRelationAggregateInput
-    activityResults?: ActivityResultsOrderByRelationAggregateInput
+    DepartmentID?: SortOrder
+    Name?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+    Users?: UserOrderByRelationAggregateInput
+    ActivityResults?: ActivityResultsOrderByRelationAggregateInput
   }
 
   export type DepartmentWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    DepartmentID?: string
     AND?: DepartmentWhereInput | DepartmentWhereInput[]
     OR?: DepartmentWhereInput[]
     NOT?: DepartmentWhereInput | DepartmentWhereInput[]
-    name?: StringFilter<"Department"> | string
-    isArchived?: BoolFilter<"Department"> | boolean
-    createdAt?: DateTimeFilter<"Department"> | Date | string
-    updatedAt?: DateTimeFilter<"Department"> | Date | string
-    users?: UserListRelationFilter
-    activityResults?: ActivityResultsListRelationFilter
-  }, "id">
+    Name?: StringFilter<"Department"> | string
+    IsArchived?: BoolFilter<"Department"> | boolean
+    CreatedAt?: DateTimeFilter<"Department"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Department"> | Date | string
+    Users?: UserListRelationFilter
+    ActivityResults?: ActivityResultsListRelationFilter
+  }, "DepartmentID">
 
   export type DepartmentOrderByWithAggregationInput = {
-    id?: SortOrder
-    name?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    DepartmentID?: SortOrder
+    Name?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
     _count?: DepartmentCountOrderByAggregateInput
     _max?: DepartmentMaxOrderByAggregateInput
     _min?: DepartmentMinOrderByAggregateInput
@@ -9121,56 +9238,56 @@ export namespace Prisma {
     AND?: DepartmentScalarWhereWithAggregatesInput | DepartmentScalarWhereWithAggregatesInput[]
     OR?: DepartmentScalarWhereWithAggregatesInput[]
     NOT?: DepartmentScalarWhereWithAggregatesInput | DepartmentScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Department"> | string
-    name?: StringWithAggregatesFilter<"Department"> | string
-    isArchived?: BoolWithAggregatesFilter<"Department"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"Department"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Department"> | Date | string
+    DepartmentID?: StringWithAggregatesFilter<"Department"> | string
+    Name?: StringWithAggregatesFilter<"Department"> | string
+    IsArchived?: BoolWithAggregatesFilter<"Department"> | boolean
+    CreatedAt?: DateTimeWithAggregatesFilter<"Department"> | Date | string
+    UpdatedAt?: DateTimeWithAggregatesFilter<"Department"> | Date | string
   }
 
   export type AdminWhereInput = {
     AND?: AdminWhereInput | AdminWhereInput[]
     OR?: AdminWhereInput[]
     NOT?: AdminWhereInput | AdminWhereInput[]
-    id?: StringFilter<"Admin"> | string
-    password?: StringFilter<"Admin"> | string
-    userId?: StringFilter<"Admin"> | string
-    isArchived?: BoolFilter<"Admin"> | boolean
-    createdAt?: DateTimeFilter<"Admin"> | Date | string
-    updatedAt?: DateTimeFilter<"Admin"> | Date | string
-    user?: XOR<UserRelationFilter, UserWhereInput>
+    AdminID?: StringFilter<"Admin"> | string
+    AdminPass?: StringFilter<"Admin"> | string
+    UserID?: StringFilter<"Admin"> | string
+    IsArchived?: BoolFilter<"Admin"> | boolean
+    CreatedAt?: DateTimeFilter<"Admin"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Admin"> | Date | string
+    User?: XOR<UserRelationFilter, UserWhereInput>
   }
 
   export type AdminOrderByWithRelationInput = {
-    id?: SortOrder
-    password?: SortOrder
-    userId?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
+    AdminID?: SortOrder
+    AdminPass?: SortOrder
+    UserID?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+    User?: UserOrderByWithRelationInput
   }
 
   export type AdminWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    userId?: string
+    AdminID?: string
+    UserID?: string
     AND?: AdminWhereInput | AdminWhereInput[]
     OR?: AdminWhereInput[]
     NOT?: AdminWhereInput | AdminWhereInput[]
-    password?: StringFilter<"Admin"> | string
-    isArchived?: BoolFilter<"Admin"> | boolean
-    createdAt?: DateTimeFilter<"Admin"> | Date | string
-    updatedAt?: DateTimeFilter<"Admin"> | Date | string
-    user?: XOR<UserRelationFilter, UserWhereInput>
-  }, "id" | "userId">
+    AdminPass?: StringFilter<"Admin"> | string
+    IsArchived?: BoolFilter<"Admin"> | boolean
+    CreatedAt?: DateTimeFilter<"Admin"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Admin"> | Date | string
+    User?: XOR<UserRelationFilter, UserWhereInput>
+  }, "AdminID" | "UserID">
 
   export type AdminOrderByWithAggregationInput = {
-    id?: SortOrder
-    password?: SortOrder
-    userId?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    AdminID?: SortOrder
+    AdminPass?: SortOrder
+    UserID?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
     _count?: AdminCountOrderByAggregateInput
     _max?: AdminMaxOrderByAggregateInput
     _min?: AdminMinOrderByAggregateInput
@@ -9180,80 +9297,88 @@ export namespace Prisma {
     AND?: AdminScalarWhereWithAggregatesInput | AdminScalarWhereWithAggregatesInput[]
     OR?: AdminScalarWhereWithAggregatesInput[]
     NOT?: AdminScalarWhereWithAggregatesInput | AdminScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Admin"> | string
-    password?: StringWithAggregatesFilter<"Admin"> | string
-    userId?: StringWithAggregatesFilter<"Admin"> | string
-    isArchived?: BoolWithAggregatesFilter<"Admin"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"Admin"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Admin"> | Date | string
+    AdminID?: StringWithAggregatesFilter<"Admin"> | string
+    AdminPass?: StringWithAggregatesFilter<"Admin"> | string
+    UserID?: StringWithAggregatesFilter<"Admin"> | string
+    IsArchived?: BoolWithAggregatesFilter<"Admin"> | boolean
+    CreatedAt?: DateTimeWithAggregatesFilter<"Admin"> | Date | string
+    UpdatedAt?: DateTimeWithAggregatesFilter<"Admin"> | Date | string
   }
 
   export type ActivityWhereInput = {
     AND?: ActivityWhereInput | ActivityWhereInput[]
     OR?: ActivityWhereInput[]
     NOT?: ActivityWhereInput | ActivityWhereInput[]
-    id?: StringFilter<"Activity"> | string
-    title?: StringFilter<"Activity"> | string
-    description?: StringFilter<"Activity"> | string
-    startDate?: DateTimeFilter<"Activity"> | Date | string
-    endDate?: DateTimeFilter<"Activity"> | Date | string
-    type?: StringFilter<"Activity"> | string
-    location?: StringNullableFilter<"Activity"> | string | null
-    maxParticipants?: IntNullableFilter<"Activity"> | number | null
-    isArchived?: BoolFilter<"Activity"> | boolean
-    createdAt?: DateTimeFilter<"Activity"> | Date | string
-    updatedAt?: DateTimeFilter<"Activity"> | Date | string
-    activityResults?: ActivityResultsListRelationFilter
-    activityDetails?: ActivityDetailsListRelationFilter
+    ID?: StringFilter<"Activity"> | string
+    Title?: StringFilter<"Activity"> | string
+    Description?: StringFilter<"Activity"> | string
+    StartDate?: DateTimeFilter<"Activity"> | Date | string
+    EndDate?: DateTimeFilter<"Activity"> | Date | string
+    Type?: StringFilter<"Activity"> | string
+    Images?: JsonFilter<"Activity">
+    Score?: IntFilter<"Activity"> | number
+    Location?: StringNullableFilter<"Activity"> | string | null
+    MaxParticipants?: IntNullableFilter<"Activity"> | number | null
+    IsArchived?: BoolFilter<"Activity"> | boolean
+    CreatedAt?: DateTimeFilter<"Activity"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Activity"> | Date | string
+    ActivityResults?: ActivityResultsListRelationFilter
+    ActivityDetails?: ActivityDetailsListRelationFilter
   }
 
   export type ActivityOrderByWithRelationInput = {
-    id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    startDate?: SortOrder
-    endDate?: SortOrder
-    type?: SortOrder
-    location?: SortOrderInput | SortOrder
-    maxParticipants?: SortOrderInput | SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    activityResults?: ActivityResultsOrderByRelationAggregateInput
-    activityDetails?: ActivityDetailsOrderByRelationAggregateInput
+    ID?: SortOrder
+    Title?: SortOrder
+    Description?: SortOrder
+    StartDate?: SortOrder
+    EndDate?: SortOrder
+    Type?: SortOrder
+    Images?: SortOrder
+    Score?: SortOrder
+    Location?: SortOrderInput | SortOrder
+    MaxParticipants?: SortOrderInput | SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+    ActivityResults?: ActivityResultsOrderByRelationAggregateInput
+    ActivityDetails?: ActivityDetailsOrderByRelationAggregateInput
   }
 
   export type ActivityWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    ID?: string
     AND?: ActivityWhereInput | ActivityWhereInput[]
     OR?: ActivityWhereInput[]
     NOT?: ActivityWhereInput | ActivityWhereInput[]
-    title?: StringFilter<"Activity"> | string
-    description?: StringFilter<"Activity"> | string
-    startDate?: DateTimeFilter<"Activity"> | Date | string
-    endDate?: DateTimeFilter<"Activity"> | Date | string
-    type?: StringFilter<"Activity"> | string
-    location?: StringNullableFilter<"Activity"> | string | null
-    maxParticipants?: IntNullableFilter<"Activity"> | number | null
-    isArchived?: BoolFilter<"Activity"> | boolean
-    createdAt?: DateTimeFilter<"Activity"> | Date | string
-    updatedAt?: DateTimeFilter<"Activity"> | Date | string
-    activityResults?: ActivityResultsListRelationFilter
-    activityDetails?: ActivityDetailsListRelationFilter
-  }, "id">
+    Title?: StringFilter<"Activity"> | string
+    Description?: StringFilter<"Activity"> | string
+    StartDate?: DateTimeFilter<"Activity"> | Date | string
+    EndDate?: DateTimeFilter<"Activity"> | Date | string
+    Type?: StringFilter<"Activity"> | string
+    Images?: JsonFilter<"Activity">
+    Score?: IntFilter<"Activity"> | number
+    Location?: StringNullableFilter<"Activity"> | string | null
+    MaxParticipants?: IntNullableFilter<"Activity"> | number | null
+    IsArchived?: BoolFilter<"Activity"> | boolean
+    CreatedAt?: DateTimeFilter<"Activity"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Activity"> | Date | string
+    ActivityResults?: ActivityResultsListRelationFilter
+    ActivityDetails?: ActivityDetailsListRelationFilter
+  }, "ID">
 
   export type ActivityOrderByWithAggregationInput = {
-    id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    startDate?: SortOrder
-    endDate?: SortOrder
-    type?: SortOrder
-    location?: SortOrderInput | SortOrder
-    maxParticipants?: SortOrderInput | SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    Title?: SortOrder
+    Description?: SortOrder
+    StartDate?: SortOrder
+    EndDate?: SortOrder
+    Type?: SortOrder
+    Images?: SortOrder
+    Score?: SortOrder
+    Location?: SortOrderInput | SortOrder
+    MaxParticipants?: SortOrderInput | SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
     _count?: ActivityCountOrderByAggregateInput
     _avg?: ActivityAvgOrderByAggregateInput
     _max?: ActivityMaxOrderByAggregateInput
@@ -9265,722 +9390,736 @@ export namespace Prisma {
     AND?: ActivityScalarWhereWithAggregatesInput | ActivityScalarWhereWithAggregatesInput[]
     OR?: ActivityScalarWhereWithAggregatesInput[]
     NOT?: ActivityScalarWhereWithAggregatesInput | ActivityScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Activity"> | string
-    title?: StringWithAggregatesFilter<"Activity"> | string
-    description?: StringWithAggregatesFilter<"Activity"> | string
-    startDate?: DateTimeWithAggregatesFilter<"Activity"> | Date | string
-    endDate?: DateTimeWithAggregatesFilter<"Activity"> | Date | string
-    type?: StringWithAggregatesFilter<"Activity"> | string
-    location?: StringNullableWithAggregatesFilter<"Activity"> | string | null
-    maxParticipants?: IntNullableWithAggregatesFilter<"Activity"> | number | null
-    isArchived?: BoolWithAggregatesFilter<"Activity"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"Activity"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Activity"> | Date | string
+    ID?: StringWithAggregatesFilter<"Activity"> | string
+    Title?: StringWithAggregatesFilter<"Activity"> | string
+    Description?: StringWithAggregatesFilter<"Activity"> | string
+    StartDate?: DateTimeWithAggregatesFilter<"Activity"> | Date | string
+    EndDate?: DateTimeWithAggregatesFilter<"Activity"> | Date | string
+    Type?: StringWithAggregatesFilter<"Activity"> | string
+    Images?: JsonWithAggregatesFilter<"Activity">
+    Score?: IntWithAggregatesFilter<"Activity"> | number
+    Location?: StringNullableWithAggregatesFilter<"Activity"> | string | null
+    MaxParticipants?: IntNullableWithAggregatesFilter<"Activity"> | number | null
+    IsArchived?: BoolWithAggregatesFilter<"Activity"> | boolean
+    CreatedAt?: DateTimeWithAggregatesFilter<"Activity"> | Date | string
+    UpdatedAt?: DateTimeWithAggregatesFilter<"Activity"> | Date | string
   }
 
   export type ActivityResultsWhereInput = {
     AND?: ActivityResultsWhereInput | ActivityResultsWhereInput[]
     OR?: ActivityResultsWhereInput[]
     NOT?: ActivityResultsWhereInput | ActivityResultsWhereInput[]
-    id?: StringFilter<"ActivityResults"> | string
-    departmentId?: StringFilter<"ActivityResults"> | string
-    userId?: StringFilter<"ActivityResults"> | string
-    activityId?: StringFilter<"ActivityResults"> | string
-    reservation?: BoolFilter<"ActivityResults"> | boolean
-    status?: StringFilter<"ActivityResults"> | string
-    isArchived?: BoolFilter<"ActivityResults"> | boolean
-    createdAt?: DateTimeFilter<"ActivityResults"> | Date | string
-    updatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
-    department?: XOR<DepartmentRelationFilter, DepartmentWhereInput>
-    user?: XOR<UserRelationFilter, UserWhereInput>
-    activity?: XOR<ActivityRelationFilter, ActivityWhereInput>
+    ID?: IntFilter<"ActivityResults"> | number
+    DepartmentID?: StringFilter<"ActivityResults"> | string
+    UserID?: StringFilter<"ActivityResults"> | string
+    ActivityID?: StringFilter<"ActivityResults"> | string
+    Reservation?: BoolFilter<"ActivityResults"> | boolean
+    Status?: StringFilter<"ActivityResults"> | string
+    IsArchived?: BoolFilter<"ActivityResults"> | boolean
+    CreatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
+    UpdatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
+    Department?: XOR<DepartmentRelationFilter, DepartmentWhereInput>
+    User?: XOR<UserRelationFilter, UserWhereInput>
+    Activity?: XOR<ActivityRelationFilter, ActivityWhereInput>
   }
 
   export type ActivityResultsOrderByWithRelationInput = {
-    id?: SortOrder
-    departmentId?: SortOrder
-    userId?: SortOrder
-    activityId?: SortOrder
-    reservation?: SortOrder
-    status?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    department?: DepartmentOrderByWithRelationInput
-    user?: UserOrderByWithRelationInput
-    activity?: ActivityOrderByWithRelationInput
+    ID?: SortOrder
+    DepartmentID?: SortOrder
+    UserID?: SortOrder
+    ActivityID?: SortOrder
+    Reservation?: SortOrder
+    Status?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+    Department?: DepartmentOrderByWithRelationInput
+    User?: UserOrderByWithRelationInput
+    Activity?: ActivityOrderByWithRelationInput
   }
 
   export type ActivityResultsWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    ID?: number
     AND?: ActivityResultsWhereInput | ActivityResultsWhereInput[]
     OR?: ActivityResultsWhereInput[]
     NOT?: ActivityResultsWhereInput | ActivityResultsWhereInput[]
-    departmentId?: StringFilter<"ActivityResults"> | string
-    userId?: StringFilter<"ActivityResults"> | string
-    activityId?: StringFilter<"ActivityResults"> | string
-    reservation?: BoolFilter<"ActivityResults"> | boolean
-    status?: StringFilter<"ActivityResults"> | string
-    isArchived?: BoolFilter<"ActivityResults"> | boolean
-    createdAt?: DateTimeFilter<"ActivityResults"> | Date | string
-    updatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
-    department?: XOR<DepartmentRelationFilter, DepartmentWhereInput>
-    user?: XOR<UserRelationFilter, UserWhereInput>
-    activity?: XOR<ActivityRelationFilter, ActivityWhereInput>
-  }, "id">
+    DepartmentID?: StringFilter<"ActivityResults"> | string
+    UserID?: StringFilter<"ActivityResults"> | string
+    ActivityID?: StringFilter<"ActivityResults"> | string
+    Reservation?: BoolFilter<"ActivityResults"> | boolean
+    Status?: StringFilter<"ActivityResults"> | string
+    IsArchived?: BoolFilter<"ActivityResults"> | boolean
+    CreatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
+    UpdatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
+    Department?: XOR<DepartmentRelationFilter, DepartmentWhereInput>
+    User?: XOR<UserRelationFilter, UserWhereInput>
+    Activity?: XOR<ActivityRelationFilter, ActivityWhereInput>
+  }, "ID">
 
   export type ActivityResultsOrderByWithAggregationInput = {
-    id?: SortOrder
-    departmentId?: SortOrder
-    userId?: SortOrder
-    activityId?: SortOrder
-    reservation?: SortOrder
-    status?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    DepartmentID?: SortOrder
+    UserID?: SortOrder
+    ActivityID?: SortOrder
+    Reservation?: SortOrder
+    Status?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
     _count?: ActivityResultsCountOrderByAggregateInput
+    _avg?: ActivityResultsAvgOrderByAggregateInput
     _max?: ActivityResultsMaxOrderByAggregateInput
     _min?: ActivityResultsMinOrderByAggregateInput
+    _sum?: ActivityResultsSumOrderByAggregateInput
   }
 
   export type ActivityResultsScalarWhereWithAggregatesInput = {
     AND?: ActivityResultsScalarWhereWithAggregatesInput | ActivityResultsScalarWhereWithAggregatesInput[]
     OR?: ActivityResultsScalarWhereWithAggregatesInput[]
     NOT?: ActivityResultsScalarWhereWithAggregatesInput | ActivityResultsScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"ActivityResults"> | string
-    departmentId?: StringWithAggregatesFilter<"ActivityResults"> | string
-    userId?: StringWithAggregatesFilter<"ActivityResults"> | string
-    activityId?: StringWithAggregatesFilter<"ActivityResults"> | string
-    reservation?: BoolWithAggregatesFilter<"ActivityResults"> | boolean
-    status?: StringWithAggregatesFilter<"ActivityResults"> | string
-    isArchived?: BoolWithAggregatesFilter<"ActivityResults"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"ActivityResults"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"ActivityResults"> | Date | string
+    ID?: IntWithAggregatesFilter<"ActivityResults"> | number
+    DepartmentID?: StringWithAggregatesFilter<"ActivityResults"> | string
+    UserID?: StringWithAggregatesFilter<"ActivityResults"> | string
+    ActivityID?: StringWithAggregatesFilter<"ActivityResults"> | string
+    Reservation?: BoolWithAggregatesFilter<"ActivityResults"> | boolean
+    Status?: StringWithAggregatesFilter<"ActivityResults"> | string
+    IsArchived?: BoolWithAggregatesFilter<"ActivityResults"> | boolean
+    CreatedAt?: DateTimeWithAggregatesFilter<"ActivityResults"> | Date | string
+    UpdatedAt?: DateTimeWithAggregatesFilter<"ActivityResults"> | Date | string
   }
 
   export type ActivityDetailsWhereInput = {
     AND?: ActivityDetailsWhereInput | ActivityDetailsWhereInput[]
     OR?: ActivityDetailsWhereInput[]
     NOT?: ActivityDetailsWhereInput | ActivityDetailsWhereInput[]
-    id?: StringFilter<"ActivityDetails"> | string
-    userId?: StringFilter<"ActivityDetails"> | string
-    activityId?: StringFilter<"ActivityDetails"> | string
-    details?: StringFilter<"ActivityDetails"> | string
-    isArchived?: BoolFilter<"ActivityDetails"> | boolean
-    createdAt?: DateTimeFilter<"ActivityDetails"> | Date | string
-    updatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
-    user?: XOR<UserRelationFilter, UserWhereInput>
-    activity?: XOR<ActivityRelationFilter, ActivityWhereInput>
+    ID?: IntFilter<"ActivityDetails"> | number
+    UserID?: StringFilter<"ActivityDetails"> | string
+    ActivityID?: StringFilter<"ActivityDetails"> | string
+    Details?: StringFilter<"ActivityDetails"> | string
+    IsArchived?: BoolFilter<"ActivityDetails"> | boolean
+    CreatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
+    UpdatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
+    User?: XOR<UserRelationFilter, UserWhereInput>
+    Activity?: XOR<ActivityRelationFilter, ActivityWhereInput>
   }
 
   export type ActivityDetailsOrderByWithRelationInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    activityId?: SortOrder
-    details?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
-    activity?: ActivityOrderByWithRelationInput
+    ID?: SortOrder
+    UserID?: SortOrder
+    ActivityID?: SortOrder
+    Details?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+    User?: UserOrderByWithRelationInput
+    Activity?: ActivityOrderByWithRelationInput
   }
 
   export type ActivityDetailsWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    ID?: number
     AND?: ActivityDetailsWhereInput | ActivityDetailsWhereInput[]
     OR?: ActivityDetailsWhereInput[]
     NOT?: ActivityDetailsWhereInput | ActivityDetailsWhereInput[]
-    userId?: StringFilter<"ActivityDetails"> | string
-    activityId?: StringFilter<"ActivityDetails"> | string
-    details?: StringFilter<"ActivityDetails"> | string
-    isArchived?: BoolFilter<"ActivityDetails"> | boolean
-    createdAt?: DateTimeFilter<"ActivityDetails"> | Date | string
-    updatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
-    user?: XOR<UserRelationFilter, UserWhereInput>
-    activity?: XOR<ActivityRelationFilter, ActivityWhereInput>
-  }, "id">
+    UserID?: StringFilter<"ActivityDetails"> | string
+    ActivityID?: StringFilter<"ActivityDetails"> | string
+    Details?: StringFilter<"ActivityDetails"> | string
+    IsArchived?: BoolFilter<"ActivityDetails"> | boolean
+    CreatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
+    UpdatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
+    User?: XOR<UserRelationFilter, UserWhereInput>
+    Activity?: XOR<ActivityRelationFilter, ActivityWhereInput>
+  }, "ID">
 
   export type ActivityDetailsOrderByWithAggregationInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    activityId?: SortOrder
-    details?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    UserID?: SortOrder
+    ActivityID?: SortOrder
+    Details?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
     _count?: ActivityDetailsCountOrderByAggregateInput
+    _avg?: ActivityDetailsAvgOrderByAggregateInput
     _max?: ActivityDetailsMaxOrderByAggregateInput
     _min?: ActivityDetailsMinOrderByAggregateInput
+    _sum?: ActivityDetailsSumOrderByAggregateInput
   }
 
   export type ActivityDetailsScalarWhereWithAggregatesInput = {
     AND?: ActivityDetailsScalarWhereWithAggregatesInput | ActivityDetailsScalarWhereWithAggregatesInput[]
     OR?: ActivityDetailsScalarWhereWithAggregatesInput[]
     NOT?: ActivityDetailsScalarWhereWithAggregatesInput | ActivityDetailsScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"ActivityDetails"> | string
-    userId?: StringWithAggregatesFilter<"ActivityDetails"> | string
-    activityId?: StringWithAggregatesFilter<"ActivityDetails"> | string
-    details?: StringWithAggregatesFilter<"ActivityDetails"> | string
-    isArchived?: BoolWithAggregatesFilter<"ActivityDetails"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"ActivityDetails"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"ActivityDetails"> | Date | string
+    ID?: IntWithAggregatesFilter<"ActivityDetails"> | number
+    UserID?: StringWithAggregatesFilter<"ActivityDetails"> | string
+    ActivityID?: StringWithAggregatesFilter<"ActivityDetails"> | string
+    Details?: StringWithAggregatesFilter<"ActivityDetails"> | string
+    IsArchived?: BoolWithAggregatesFilter<"ActivityDetails"> | boolean
+    CreatedAt?: DateTimeWithAggregatesFilter<"ActivityDetails"> | Date | string
+    UpdatedAt?: DateTimeWithAggregatesFilter<"ActivityDetails"> | Date | string
   }
 
   export type UserCreateInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    department: DepartmentCreateNestedOneWithoutUsersInput
-    admin?: AdminCreateNestedOneWithoutUserInput
-    activityResults?: ActivityResultsCreateNestedManyWithoutUserInput
-    activityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
-    oauth?: OauthCreateNestedManyWithoutUserInput
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Department: DepartmentCreateNestedOneWithoutUsersInput
+    Admin?: AdminCreateNestedOneWithoutUserInput
+    ActivityResults?: ActivityResultsCreateNestedManyWithoutUserInput
+    ActivityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
+    Oauth?: OauthCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    departmentId: string
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    admin?: AdminUncheckedCreateNestedOneWithoutUserInput
-    activityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
-    activityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
-    oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    DepartmentID: string
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Admin?: AdminUncheckedCreateNestedOneWithoutUserInput
+    ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
+    ActivityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
+    Oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
-    admin?: AdminUpdateOneWithoutUserNestedInput
-    activityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
-    activityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
-    oauth?: OauthUpdateManyWithoutUserNestedInput
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
+    Admin?: AdminUpdateOneWithoutUserNestedInput
+    ActivityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
+    ActivityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
+    Oauth?: OauthUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
-    activityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
-    activityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
-    oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
+    ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
+    ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
+    Oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    departmentId: string
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    DepartmentID: string
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type OauthCreateInput = {
-    id?: string
-    accessToken: string
-    refreshToken: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutOauthInput
+    ID?: string
+    AccessToken: string
+    RefreshToken: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    User: UserCreateNestedOneWithoutOauthInput
   }
 
   export type OauthUncheckedCreateInput = {
-    id?: string
-    userId: string
-    accessToken: string
-    refreshToken: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: string
+    UserID: string
+    AccessToken: string
+    RefreshToken: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type OauthUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    accessToken?: StringFieldUpdateOperationsInput | string
-    refreshToken?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutOauthNestedInput
+    ID?: StringFieldUpdateOperationsInput | string
+    AccessToken?: StringFieldUpdateOperationsInput | string
+    RefreshToken?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutOauthNestedInput
   }
 
   export type OauthUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    accessToken?: StringFieldUpdateOperationsInput | string
-    refreshToken?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: StringFieldUpdateOperationsInput | string
+    UserID?: StringFieldUpdateOperationsInput | string
+    AccessToken?: StringFieldUpdateOperationsInput | string
+    RefreshToken?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type OauthCreateManyInput = {
-    id?: string
-    userId: string
-    accessToken: string
-    refreshToken: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: string
+    UserID: string
+    AccessToken: string
+    RefreshToken: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type OauthUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    accessToken?: StringFieldUpdateOperationsInput | string
-    refreshToken?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: StringFieldUpdateOperationsInput | string
+    AccessToken?: StringFieldUpdateOperationsInput | string
+    RefreshToken?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type OauthUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    accessToken?: StringFieldUpdateOperationsInput | string
-    refreshToken?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: StringFieldUpdateOperationsInput | string
+    UserID?: StringFieldUpdateOperationsInput | string
+    AccessToken?: StringFieldUpdateOperationsInput | string
+    RefreshToken?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DepartmentCreateInput = {
-    id?: string
-    name: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    users?: UserCreateNestedManyWithoutDepartmentInput
-    activityResults?: ActivityResultsCreateNestedManyWithoutDepartmentInput
+    DepartmentID?: string
+    Name: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Users?: UserCreateNestedManyWithoutDepartmentInput
+    ActivityResults?: ActivityResultsCreateNestedManyWithoutDepartmentInput
   }
 
   export type DepartmentUncheckedCreateInput = {
-    id?: string
-    name: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    users?: UserUncheckedCreateNestedManyWithoutDepartmentInput
-    activityResults?: ActivityResultsUncheckedCreateNestedManyWithoutDepartmentInput
+    DepartmentID?: string
+    Name: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Users?: UserUncheckedCreateNestedManyWithoutDepartmentInput
+    ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutDepartmentInput
   }
 
   export type DepartmentUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: UserUpdateManyWithoutDepartmentNestedInput
-    activityResults?: ActivityResultsUpdateManyWithoutDepartmentNestedInput
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Name?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Users?: UserUpdateManyWithoutDepartmentNestedInput
+    ActivityResults?: ActivityResultsUpdateManyWithoutDepartmentNestedInput
   }
 
   export type DepartmentUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: UserUncheckedUpdateManyWithoutDepartmentNestedInput
-    activityResults?: ActivityResultsUncheckedUpdateManyWithoutDepartmentNestedInput
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Name?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Users?: UserUncheckedUpdateManyWithoutDepartmentNestedInput
+    ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutDepartmentNestedInput
   }
 
   export type DepartmentCreateManyInput = {
-    id?: string
-    name: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    DepartmentID?: string
+    Name: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type DepartmentUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Name?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DepartmentUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Name?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AdminCreateInput = {
-    id?: string
-    password: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutAdminInput
+    AdminID?: string
+    AdminPass: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    User: UserCreateNestedOneWithoutAdminInput
   }
 
   export type AdminUncheckedCreateInput = {
-    id?: string
-    password: string
-    userId: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    AdminID?: string
+    AdminPass: string
+    UserID: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type AdminUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutAdminNestedInput
+    AdminID?: StringFieldUpdateOperationsInput | string
+    AdminPass?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutAdminNestedInput
   }
 
   export type AdminUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    AdminID?: StringFieldUpdateOperationsInput | string
+    AdminPass?: StringFieldUpdateOperationsInput | string
+    UserID?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AdminCreateManyInput = {
-    id?: string
-    password: string
-    userId: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    AdminID?: string
+    AdminPass: string
+    UserID: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type AdminUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    AdminID?: StringFieldUpdateOperationsInput | string
+    AdminPass?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AdminUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    AdminID?: StringFieldUpdateOperationsInput | string
+    AdminPass?: StringFieldUpdateOperationsInput | string
+    UserID?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityCreateInput = {
-    id?: string
-    title: string
-    description: string
-    startDate: Date | string
-    endDate: Date | string
-    type: string
-    location?: string | null
-    maxParticipants?: number | null
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    activityResults?: ActivityResultsCreateNestedManyWithoutActivityInput
-    activityDetails?: ActivityDetailsCreateNestedManyWithoutActivityInput
+    ID?: string
+    Title: string
+    Description: string
+    StartDate: Date | string
+    EndDate: Date | string
+    Type: string
+    Images: JsonNullValueInput | InputJsonValue
+    Score: number
+    Location?: string | null
+    MaxParticipants?: number | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    ActivityResults?: ActivityResultsCreateNestedManyWithoutActivityInput
+    ActivityDetails?: ActivityDetailsCreateNestedManyWithoutActivityInput
   }
 
   export type ActivityUncheckedCreateInput = {
-    id?: string
-    title: string
-    description: string
-    startDate: Date | string
-    endDate: Date | string
-    type: string
-    location?: string | null
-    maxParticipants?: number | null
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    activityResults?: ActivityResultsUncheckedCreateNestedManyWithoutActivityInput
-    activityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutActivityInput
+    ID?: string
+    Title: string
+    Description: string
+    StartDate: Date | string
+    EndDate: Date | string
+    Type: string
+    Images: JsonNullValueInput | InputJsonValue
+    Score: number
+    Location?: string | null
+    MaxParticipants?: number | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutActivityInput
+    ActivityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutActivityInput
   }
 
   export type ActivityUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    maxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    activityResults?: ActivityResultsUpdateManyWithoutActivityNestedInput
-    activityDetails?: ActivityDetailsUpdateManyWithoutActivityNestedInput
+    ID?: StringFieldUpdateOperationsInput | string
+    Title?: StringFieldUpdateOperationsInput | string
+    Description?: StringFieldUpdateOperationsInput | string
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Type?: StringFieldUpdateOperationsInput | string
+    Images?: JsonNullValueInput | InputJsonValue
+    Score?: IntFieldUpdateOperationsInput | number
+    Location?: NullableStringFieldUpdateOperationsInput | string | null
+    MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ActivityResults?: ActivityResultsUpdateManyWithoutActivityNestedInput
+    ActivityDetails?: ActivityDetailsUpdateManyWithoutActivityNestedInput
   }
 
   export type ActivityUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    maxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    activityResults?: ActivityResultsUncheckedUpdateManyWithoutActivityNestedInput
-    activityDetails?: ActivityDetailsUncheckedUpdateManyWithoutActivityNestedInput
+    ID?: StringFieldUpdateOperationsInput | string
+    Title?: StringFieldUpdateOperationsInput | string
+    Description?: StringFieldUpdateOperationsInput | string
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Type?: StringFieldUpdateOperationsInput | string
+    Images?: JsonNullValueInput | InputJsonValue
+    Score?: IntFieldUpdateOperationsInput | number
+    Location?: NullableStringFieldUpdateOperationsInput | string | null
+    MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutActivityNestedInput
+    ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutActivityNestedInput
   }
 
   export type ActivityCreateManyInput = {
-    id?: string
-    title: string
-    description: string
-    startDate: Date | string
-    endDate: Date | string
-    type: string
-    location?: string | null
-    maxParticipants?: number | null
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: string
+    Title: string
+    Description: string
+    StartDate: Date | string
+    EndDate: Date | string
+    Type: string
+    Images: JsonNullValueInput | InputJsonValue
+    Score: number
+    Location?: string | null
+    MaxParticipants?: number | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    maxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: StringFieldUpdateOperationsInput | string
+    Title?: StringFieldUpdateOperationsInput | string
+    Description?: StringFieldUpdateOperationsInput | string
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Type?: StringFieldUpdateOperationsInput | string
+    Images?: JsonNullValueInput | InputJsonValue
+    Score?: IntFieldUpdateOperationsInput | number
+    Location?: NullableStringFieldUpdateOperationsInput | string | null
+    MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    maxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: StringFieldUpdateOperationsInput | string
+    Title?: StringFieldUpdateOperationsInput | string
+    Description?: StringFieldUpdateOperationsInput | string
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Type?: StringFieldUpdateOperationsInput | string
+    Images?: JsonNullValueInput | InputJsonValue
+    Score?: IntFieldUpdateOperationsInput | number
+    Location?: NullableStringFieldUpdateOperationsInput | string | null
+    MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityResultsCreateInput = {
-    id?: string
-    reservation: boolean
-    status: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    department: DepartmentCreateNestedOneWithoutActivityResultsInput
-    user: UserCreateNestedOneWithoutActivityResultsInput
-    activity: ActivityCreateNestedOneWithoutActivityResultsInput
+    Reservation: boolean
+    Status: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Department: DepartmentCreateNestedOneWithoutActivityResultsInput
+    User: UserCreateNestedOneWithoutActivityResultsInput
+    Activity: ActivityCreateNestedOneWithoutActivityResultsInput
   }
 
   export type ActivityResultsUncheckedCreateInput = {
-    id?: string
-    departmentId: string
-    userId: string
-    activityId: string
-    reservation: boolean
-    status: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    DepartmentID: string
+    UserID: string
+    ActivityID: string
+    Reservation: boolean
+    Status: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityResultsUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    reservation?: BoolFieldUpdateOperationsInput | boolean
-    status?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    department?: DepartmentUpdateOneRequiredWithoutActivityResultsNestedInput
-    user?: UserUpdateOneRequiredWithoutActivityResultsNestedInput
-    activity?: ActivityUpdateOneRequiredWithoutActivityResultsNestedInput
+    Reservation?: BoolFieldUpdateOperationsInput | boolean
+    Status?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Department?: DepartmentUpdateOneRequiredWithoutActivityResultsNestedInput
+    User?: UserUpdateOneRequiredWithoutActivityResultsNestedInput
+    Activity?: ActivityUpdateOneRequiredWithoutActivityResultsNestedInput
   }
 
   export type ActivityResultsUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    departmentId?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    activityId?: StringFieldUpdateOperationsInput | string
-    reservation?: BoolFieldUpdateOperationsInput | boolean
-    status?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    UserID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: StringFieldUpdateOperationsInput | string
+    Reservation?: BoolFieldUpdateOperationsInput | boolean
+    Status?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityResultsCreateManyInput = {
-    id?: string
-    departmentId: string
-    userId: string
-    activityId: string
-    reservation: boolean
-    status: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    DepartmentID: string
+    UserID: string
+    ActivityID: string
+    Reservation: boolean
+    Status: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityResultsUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    reservation?: BoolFieldUpdateOperationsInput | boolean
-    status?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Reservation?: BoolFieldUpdateOperationsInput | boolean
+    Status?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityResultsUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    departmentId?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    activityId?: StringFieldUpdateOperationsInput | string
-    reservation?: BoolFieldUpdateOperationsInput | boolean
-    status?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    UserID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: StringFieldUpdateOperationsInput | string
+    Reservation?: BoolFieldUpdateOperationsInput | boolean
+    Status?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityDetailsCreateInput = {
-    id?: string
-    details: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutActivityDetailsInput
-    activity: ActivityCreateNestedOneWithoutActivityDetailsInput
+    Details: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    User: UserCreateNestedOneWithoutActivityDetailsInput
+    Activity: ActivityCreateNestedOneWithoutActivityDetailsInput
   }
 
   export type ActivityDetailsUncheckedCreateInput = {
-    id?: string
-    userId: string
-    activityId: string
-    details: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    UserID: string
+    ActivityID: string
+    Details: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityDetailsUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    details?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutActivityDetailsNestedInput
-    activity?: ActivityUpdateOneRequiredWithoutActivityDetailsNestedInput
+    Details?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutActivityDetailsNestedInput
+    Activity?: ActivityUpdateOneRequiredWithoutActivityDetailsNestedInput
   }
 
   export type ActivityDetailsUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    activityId?: StringFieldUpdateOperationsInput | string
-    details?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    UserID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: StringFieldUpdateOperationsInput | string
+    Details?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityDetailsCreateManyInput = {
-    id?: string
-    userId: string
-    activityId: string
-    details: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    UserID: string
+    ActivityID: string
+    Details: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityDetailsUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    details?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Details?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityDetailsUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    activityId?: StringFieldUpdateOperationsInput | string
-    details?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    UserID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: StringFieldUpdateOperationsInput | string
+    Details?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -10075,42 +10214,42 @@ export namespace Prisma {
   }
 
   export type UserCountOrderByAggregateInput = {
-    id?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    password?: SortOrder
-    image?: SortOrder
-    departmentId?: SortOrder
-    role?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    UserID?: SortOrder
+    UserFirstName?: SortOrder
+    UserLastName?: SortOrder
+    UserPassword?: SortOrder
+    UserImage?: SortOrder
+    DepartmentID?: SortOrder
+    Role?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
-    id?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    password?: SortOrder
-    image?: SortOrder
-    departmentId?: SortOrder
-    role?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    UserID?: SortOrder
+    UserFirstName?: SortOrder
+    UserLastName?: SortOrder
+    UserPassword?: SortOrder
+    UserImage?: SortOrder
+    DepartmentID?: SortOrder
+    Role?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
-    id?: SortOrder
-    firstName?: SortOrder
-    lastName?: SortOrder
-    password?: SortOrder
-    image?: SortOrder
-    departmentId?: SortOrder
-    role?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    UserID?: SortOrder
+    UserFirstName?: SortOrder
+    UserLastName?: SortOrder
+    UserPassword?: SortOrder
+    UserImage?: SortOrder
+    DepartmentID?: SortOrder
+    Role?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -10177,33 +10316,33 @@ export namespace Prisma {
   }
 
   export type OauthCountOrderByAggregateInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    accessToken?: SortOrder
-    refreshToken?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    UserID?: SortOrder
+    AccessToken?: SortOrder
+    RefreshToken?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type OauthMaxOrderByAggregateInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    accessToken?: SortOrder
-    refreshToken?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    UserID?: SortOrder
+    AccessToken?: SortOrder
+    RefreshToken?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type OauthMinOrderByAggregateInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    accessToken?: SortOrder
-    refreshToken?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    UserID?: SortOrder
+    AccessToken?: SortOrder
+    RefreshToken?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type UserListRelationFilter = {
@@ -10217,54 +10356,87 @@ export namespace Prisma {
   }
 
   export type DepartmentCountOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    DepartmentID?: SortOrder
+    Name?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type DepartmentMaxOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    DepartmentID?: SortOrder
+    Name?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type DepartmentMinOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    DepartmentID?: SortOrder
+    Name?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type AdminCountOrderByAggregateInput = {
-    id?: SortOrder
-    password?: SortOrder
-    userId?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    AdminID?: SortOrder
+    AdminPass?: SortOrder
+    UserID?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type AdminMaxOrderByAggregateInput = {
-    id?: SortOrder
-    password?: SortOrder
-    userId?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    AdminID?: SortOrder
+    AdminPass?: SortOrder
+    UserID?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type AdminMinOrderByAggregateInput = {
-    id?: SortOrder
-    password?: SortOrder
-    userId?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    AdminID?: SortOrder
+    AdminPass?: SortOrder
+    UserID?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+  export type JsonFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type IntNullableFilter<$PrismaModel = never> = {
@@ -10279,53 +10451,100 @@ export namespace Prisma {
   }
 
   export type ActivityCountOrderByAggregateInput = {
-    id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    startDate?: SortOrder
-    endDate?: SortOrder
-    type?: SortOrder
-    location?: SortOrder
-    maxParticipants?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    Title?: SortOrder
+    Description?: SortOrder
+    StartDate?: SortOrder
+    EndDate?: SortOrder
+    Type?: SortOrder
+    Images?: SortOrder
+    Score?: SortOrder
+    Location?: SortOrder
+    MaxParticipants?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type ActivityAvgOrderByAggregateInput = {
-    maxParticipants?: SortOrder
+    Score?: SortOrder
+    MaxParticipants?: SortOrder
   }
 
   export type ActivityMaxOrderByAggregateInput = {
-    id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    startDate?: SortOrder
-    endDate?: SortOrder
-    type?: SortOrder
-    location?: SortOrder
-    maxParticipants?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    Title?: SortOrder
+    Description?: SortOrder
+    StartDate?: SortOrder
+    EndDate?: SortOrder
+    Type?: SortOrder
+    Score?: SortOrder
+    Location?: SortOrder
+    MaxParticipants?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type ActivityMinOrderByAggregateInput = {
-    id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    startDate?: SortOrder
-    endDate?: SortOrder
-    type?: SortOrder
-    location?: SortOrder
-    maxParticipants?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    Title?: SortOrder
+    Description?: SortOrder
+    StartDate?: SortOrder
+    EndDate?: SortOrder
+    Type?: SortOrder
+    Score?: SortOrder
+    Location?: SortOrder
+    MaxParticipants?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type ActivitySumOrderByAggregateInput = {
-    maxParticipants?: SortOrder
+    Score?: SortOrder
+    MaxParticipants?: SortOrder
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -10350,69 +10569,85 @@ export namespace Prisma {
   }
 
   export type ActivityResultsCountOrderByAggregateInput = {
-    id?: SortOrder
-    departmentId?: SortOrder
-    userId?: SortOrder
-    activityId?: SortOrder
-    reservation?: SortOrder
-    status?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    DepartmentID?: SortOrder
+    UserID?: SortOrder
+    ActivityID?: SortOrder
+    Reservation?: SortOrder
+    Status?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+
+  export type ActivityResultsAvgOrderByAggregateInput = {
+    ID?: SortOrder
   }
 
   export type ActivityResultsMaxOrderByAggregateInput = {
-    id?: SortOrder
-    departmentId?: SortOrder
-    userId?: SortOrder
-    activityId?: SortOrder
-    reservation?: SortOrder
-    status?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    DepartmentID?: SortOrder
+    UserID?: SortOrder
+    ActivityID?: SortOrder
+    Reservation?: SortOrder
+    Status?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type ActivityResultsMinOrderByAggregateInput = {
-    id?: SortOrder
-    departmentId?: SortOrder
-    userId?: SortOrder
-    activityId?: SortOrder
-    reservation?: SortOrder
-    status?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    DepartmentID?: SortOrder
+    UserID?: SortOrder
+    ActivityID?: SortOrder
+    Reservation?: SortOrder
+    Status?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+
+  export type ActivityResultsSumOrderByAggregateInput = {
+    ID?: SortOrder
   }
 
   export type ActivityDetailsCountOrderByAggregateInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    activityId?: SortOrder
-    details?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    UserID?: SortOrder
+    ActivityID?: SortOrder
+    Details?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+
+  export type ActivityDetailsAvgOrderByAggregateInput = {
+    ID?: SortOrder
   }
 
   export type ActivityDetailsMaxOrderByAggregateInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    activityId?: SortOrder
-    details?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    UserID?: SortOrder
+    ActivityID?: SortOrder
+    Details?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
   }
 
   export type ActivityDetailsMinOrderByAggregateInput = {
-    id?: SortOrder
-    userId?: SortOrder
-    activityId?: SortOrder
-    details?: SortOrder
-    isArchived?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+    ID?: SortOrder
+    UserID?: SortOrder
+    ActivityID?: SortOrder
+    Details?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+
+  export type ActivityDetailsSumOrderByAggregateInput = {
+    ID?: SortOrder
   }
 
   export type DepartmentCreateNestedOneWithoutUsersInput = {
@@ -10743,6 +10978,14 @@ export namespace Prisma {
     connect?: ActivityDetailsWhereUniqueInput | ActivityDetailsWhereUniqueInput[]
   }
 
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type NullableIntFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
@@ -10998,6 +11241,55 @@ export namespace Prisma {
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
+  export type NestedJsonFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
@@ -11027,21 +11319,21 @@ export namespace Prisma {
   }
 
   export type DepartmentCreateWithoutUsersInput = {
-    id?: string
-    name: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    activityResults?: ActivityResultsCreateNestedManyWithoutDepartmentInput
+    DepartmentID?: string
+    Name: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    ActivityResults?: ActivityResultsCreateNestedManyWithoutDepartmentInput
   }
 
   export type DepartmentUncheckedCreateWithoutUsersInput = {
-    id?: string
-    name: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    activityResults?: ActivityResultsUncheckedCreateNestedManyWithoutDepartmentInput
+    DepartmentID?: string
+    Name: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutDepartmentInput
   }
 
   export type DepartmentCreateOrConnectWithoutUsersInput = {
@@ -11050,19 +11342,19 @@ export namespace Prisma {
   }
 
   export type AdminCreateWithoutUserInput = {
-    id?: string
-    password: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    AdminID?: string
+    AdminPass: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type AdminUncheckedCreateWithoutUserInput = {
-    id?: string
-    password: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    AdminID?: string
+    AdminPass: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type AdminCreateOrConnectWithoutUserInput = {
@@ -11071,25 +11363,24 @@ export namespace Prisma {
   }
 
   export type ActivityResultsCreateWithoutUserInput = {
-    id?: string
-    reservation: boolean
-    status: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    department: DepartmentCreateNestedOneWithoutActivityResultsInput
-    activity: ActivityCreateNestedOneWithoutActivityResultsInput
+    Reservation: boolean
+    Status: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Department: DepartmentCreateNestedOneWithoutActivityResultsInput
+    Activity: ActivityCreateNestedOneWithoutActivityResultsInput
   }
 
   export type ActivityResultsUncheckedCreateWithoutUserInput = {
-    id?: string
-    departmentId: string
-    activityId: string
-    reservation: boolean
-    status: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    DepartmentID: string
+    ActivityID: string
+    Reservation: boolean
+    Status: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityResultsCreateOrConnectWithoutUserInput = {
@@ -11103,21 +11394,20 @@ export namespace Prisma {
   }
 
   export type ActivityDetailsCreateWithoutUserInput = {
-    id?: string
-    details: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    activity: ActivityCreateNestedOneWithoutActivityDetailsInput
+    Details: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Activity: ActivityCreateNestedOneWithoutActivityDetailsInput
   }
 
   export type ActivityDetailsUncheckedCreateWithoutUserInput = {
-    id?: string
-    activityId: string
-    details: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    ActivityID: string
+    Details: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityDetailsCreateOrConnectWithoutUserInput = {
@@ -11131,21 +11421,21 @@ export namespace Prisma {
   }
 
   export type OauthCreateWithoutUserInput = {
-    id?: string
-    accessToken: string
-    refreshToken: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: string
+    AccessToken: string
+    RefreshToken: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type OauthUncheckedCreateWithoutUserInput = {
-    id?: string
-    accessToken: string
-    refreshToken: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: string
+    AccessToken: string
+    RefreshToken: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type OauthCreateOrConnectWithoutUserInput = {
@@ -11170,21 +11460,21 @@ export namespace Prisma {
   }
 
   export type DepartmentUpdateWithoutUsersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    activityResults?: ActivityResultsUpdateManyWithoutDepartmentNestedInput
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Name?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ActivityResults?: ActivityResultsUpdateManyWithoutDepartmentNestedInput
   }
 
   export type DepartmentUncheckedUpdateWithoutUsersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    activityResults?: ActivityResultsUncheckedUpdateManyWithoutDepartmentNestedInput
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Name?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutDepartmentNestedInput
   }
 
   export type AdminUpsertWithoutUserInput = {
@@ -11199,19 +11489,19 @@ export namespace Prisma {
   }
 
   export type AdminUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    AdminID?: StringFieldUpdateOperationsInput | string
+    AdminPass?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AdminUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    AdminID?: StringFieldUpdateOperationsInput | string
+    AdminPass?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityResultsUpsertWithWhereUniqueWithoutUserInput = {
@@ -11234,15 +11524,15 @@ export namespace Prisma {
     AND?: ActivityResultsScalarWhereInput | ActivityResultsScalarWhereInput[]
     OR?: ActivityResultsScalarWhereInput[]
     NOT?: ActivityResultsScalarWhereInput | ActivityResultsScalarWhereInput[]
-    id?: StringFilter<"ActivityResults"> | string
-    departmentId?: StringFilter<"ActivityResults"> | string
-    userId?: StringFilter<"ActivityResults"> | string
-    activityId?: StringFilter<"ActivityResults"> | string
-    reservation?: BoolFilter<"ActivityResults"> | boolean
-    status?: StringFilter<"ActivityResults"> | string
-    isArchived?: BoolFilter<"ActivityResults"> | boolean
-    createdAt?: DateTimeFilter<"ActivityResults"> | Date | string
-    updatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
+    ID?: IntFilter<"ActivityResults"> | number
+    DepartmentID?: StringFilter<"ActivityResults"> | string
+    UserID?: StringFilter<"ActivityResults"> | string
+    ActivityID?: StringFilter<"ActivityResults"> | string
+    Reservation?: BoolFilter<"ActivityResults"> | boolean
+    Status?: StringFilter<"ActivityResults"> | string
+    IsArchived?: BoolFilter<"ActivityResults"> | boolean
+    CreatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
+    UpdatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
   }
 
   export type ActivityDetailsUpsertWithWhereUniqueWithoutUserInput = {
@@ -11265,13 +11555,13 @@ export namespace Prisma {
     AND?: ActivityDetailsScalarWhereInput | ActivityDetailsScalarWhereInput[]
     OR?: ActivityDetailsScalarWhereInput[]
     NOT?: ActivityDetailsScalarWhereInput | ActivityDetailsScalarWhereInput[]
-    id?: StringFilter<"ActivityDetails"> | string
-    userId?: StringFilter<"ActivityDetails"> | string
-    activityId?: StringFilter<"ActivityDetails"> | string
-    details?: StringFilter<"ActivityDetails"> | string
-    isArchived?: BoolFilter<"ActivityDetails"> | boolean
-    createdAt?: DateTimeFilter<"ActivityDetails"> | Date | string
-    updatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
+    ID?: IntFilter<"ActivityDetails"> | number
+    UserID?: StringFilter<"ActivityDetails"> | string
+    ActivityID?: StringFilter<"ActivityDetails"> | string
+    Details?: StringFilter<"ActivityDetails"> | string
+    IsArchived?: BoolFilter<"ActivityDetails"> | boolean
+    CreatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
+    UpdatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
   }
 
   export type OauthUpsertWithWhereUniqueWithoutUserInput = {
@@ -11294,45 +11584,45 @@ export namespace Prisma {
     AND?: OauthScalarWhereInput | OauthScalarWhereInput[]
     OR?: OauthScalarWhereInput[]
     NOT?: OauthScalarWhereInput | OauthScalarWhereInput[]
-    id?: StringFilter<"Oauth"> | string
-    userId?: StringFilter<"Oauth"> | string
-    accessToken?: StringFilter<"Oauth"> | string
-    refreshToken?: StringFilter<"Oauth"> | string
-    isArchived?: BoolFilter<"Oauth"> | boolean
-    createdAt?: DateTimeFilter<"Oauth"> | Date | string
-    updatedAt?: DateTimeFilter<"Oauth"> | Date | string
+    ID?: StringFilter<"Oauth"> | string
+    UserID?: StringFilter<"Oauth"> | string
+    AccessToken?: StringFilter<"Oauth"> | string
+    RefreshToken?: StringFilter<"Oauth"> | string
+    IsArchived?: BoolFilter<"Oauth"> | boolean
+    CreatedAt?: DateTimeFilter<"Oauth"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Oauth"> | Date | string
   }
 
   export type UserCreateWithoutOauthInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    department: DepartmentCreateNestedOneWithoutUsersInput
-    admin?: AdminCreateNestedOneWithoutUserInput
-    activityResults?: ActivityResultsCreateNestedManyWithoutUserInput
-    activityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Department: DepartmentCreateNestedOneWithoutUsersInput
+    Admin?: AdminCreateNestedOneWithoutUserInput
+    ActivityResults?: ActivityResultsCreateNestedManyWithoutUserInput
+    ActivityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutOauthInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    departmentId: string
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    admin?: AdminUncheckedCreateNestedOneWithoutUserInput
-    activityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
-    activityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    DepartmentID: string
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Admin?: AdminUncheckedCreateNestedOneWithoutUserInput
+    ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
+    ActivityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutOauthInput = {
@@ -11352,67 +11642,67 @@ export namespace Prisma {
   }
 
   export type UserUpdateWithoutOauthInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
-    admin?: AdminUpdateOneWithoutUserNestedInput
-    activityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
-    activityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
+    Admin?: AdminUpdateOneWithoutUserNestedInput
+    ActivityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
+    ActivityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutOauthInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
-    activityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
-    activityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
+    ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
+    ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutDepartmentInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    admin?: AdminCreateNestedOneWithoutUserInput
-    activityResults?: ActivityResultsCreateNestedManyWithoutUserInput
-    activityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
-    oauth?: OauthCreateNestedManyWithoutUserInput
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Admin?: AdminCreateNestedOneWithoutUserInput
+    ActivityResults?: ActivityResultsCreateNestedManyWithoutUserInput
+    ActivityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
+    Oauth?: OauthCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutDepartmentInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    admin?: AdminUncheckedCreateNestedOneWithoutUserInput
-    activityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
-    activityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
-    oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Admin?: AdminUncheckedCreateNestedOneWithoutUserInput
+    ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
+    ActivityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
+    Oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutDepartmentInput = {
@@ -11426,25 +11716,24 @@ export namespace Prisma {
   }
 
   export type ActivityResultsCreateWithoutDepartmentInput = {
-    id?: string
-    reservation: boolean
-    status: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutActivityResultsInput
-    activity: ActivityCreateNestedOneWithoutActivityResultsInput
+    Reservation: boolean
+    Status: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    User: UserCreateNestedOneWithoutActivityResultsInput
+    Activity: ActivityCreateNestedOneWithoutActivityResultsInput
   }
 
   export type ActivityResultsUncheckedCreateWithoutDepartmentInput = {
-    id?: string
-    userId: string
-    activityId: string
-    reservation: boolean
-    status: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    UserID: string
+    ActivityID: string
+    Reservation: boolean
+    Status: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityResultsCreateOrConnectWithoutDepartmentInput = {
@@ -11477,16 +11766,16 @@ export namespace Prisma {
     AND?: UserScalarWhereInput | UserScalarWhereInput[]
     OR?: UserScalarWhereInput[]
     NOT?: UserScalarWhereInput | UserScalarWhereInput[]
-    id?: StringFilter<"User"> | string
-    firstName?: StringFilter<"User"> | string
-    lastName?: StringFilter<"User"> | string
-    password?: StringFilter<"User"> | string
-    image?: StringNullableFilter<"User"> | string | null
-    departmentId?: StringFilter<"User"> | string
-    role?: StringFilter<"User"> | string
-    isArchived?: BoolFilter<"User"> | boolean
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updatedAt?: DateTimeFilter<"User"> | Date | string
+    UserID?: StringFilter<"User"> | string
+    UserFirstName?: StringFilter<"User"> | string
+    UserLastName?: StringFilter<"User"> | string
+    UserPassword?: StringFilter<"User"> | string
+    UserImage?: StringNullableFilter<"User"> | string | null
+    DepartmentID?: StringFilter<"User"> | string
+    Role?: StringFilter<"User"> | string
+    IsArchived?: BoolFilter<"User"> | boolean
+    CreatedAt?: DateTimeFilter<"User"> | Date | string
+    UpdatedAt?: DateTimeFilter<"User"> | Date | string
   }
 
   export type ActivityResultsUpsertWithWhereUniqueWithoutDepartmentInput = {
@@ -11506,35 +11795,35 @@ export namespace Prisma {
   }
 
   export type UserCreateWithoutAdminInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    department: DepartmentCreateNestedOneWithoutUsersInput
-    activityResults?: ActivityResultsCreateNestedManyWithoutUserInput
-    activityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
-    oauth?: OauthCreateNestedManyWithoutUserInput
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Department: DepartmentCreateNestedOneWithoutUsersInput
+    ActivityResults?: ActivityResultsCreateNestedManyWithoutUserInput
+    ActivityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
+    Oauth?: OauthCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAdminInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    departmentId: string
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    activityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
-    activityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
-    oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    DepartmentID: string
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
+    ActivityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
+    Oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAdminInput = {
@@ -11554,57 +11843,56 @@ export namespace Prisma {
   }
 
   export type UserUpdateWithoutAdminInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
-    activityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
-    activityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
-    oauth?: OauthUpdateManyWithoutUserNestedInput
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
+    ActivityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
+    ActivityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
+    Oauth?: OauthUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAdminInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    activityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
-    activityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
-    oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
+    ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
+    Oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ActivityResultsCreateWithoutActivityInput = {
-    id?: string
-    reservation: boolean
-    status: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    department: DepartmentCreateNestedOneWithoutActivityResultsInput
-    user: UserCreateNestedOneWithoutActivityResultsInput
+    Reservation: boolean
+    Status: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Department: DepartmentCreateNestedOneWithoutActivityResultsInput
+    User: UserCreateNestedOneWithoutActivityResultsInput
   }
 
   export type ActivityResultsUncheckedCreateWithoutActivityInput = {
-    id?: string
-    departmentId: string
-    userId: string
-    reservation: boolean
-    status: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    DepartmentID: string
+    UserID: string
+    Reservation: boolean
+    Status: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityResultsCreateOrConnectWithoutActivityInput = {
@@ -11618,21 +11906,20 @@ export namespace Prisma {
   }
 
   export type ActivityDetailsCreateWithoutActivityInput = {
-    id?: string
-    details: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutActivityDetailsInput
+    Details: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    User: UserCreateNestedOneWithoutActivityDetailsInput
   }
 
   export type ActivityDetailsUncheckedCreateWithoutActivityInput = {
-    id?: string
-    userId: string
-    details: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    UserID: string
+    Details: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityDetailsCreateOrConnectWithoutActivityInput = {
@@ -11678,21 +11965,21 @@ export namespace Prisma {
   }
 
   export type DepartmentCreateWithoutActivityResultsInput = {
-    id?: string
-    name: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    users?: UserCreateNestedManyWithoutDepartmentInput
+    DepartmentID?: string
+    Name: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Users?: UserCreateNestedManyWithoutDepartmentInput
   }
 
   export type DepartmentUncheckedCreateWithoutActivityResultsInput = {
-    id?: string
-    name: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    users?: UserUncheckedCreateNestedManyWithoutDepartmentInput
+    DepartmentID?: string
+    Name: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Users?: UserUncheckedCreateNestedManyWithoutDepartmentInput
   }
 
   export type DepartmentCreateOrConnectWithoutActivityResultsInput = {
@@ -11701,35 +11988,35 @@ export namespace Prisma {
   }
 
   export type UserCreateWithoutActivityResultsInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    department: DepartmentCreateNestedOneWithoutUsersInput
-    admin?: AdminCreateNestedOneWithoutUserInput
-    activityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
-    oauth?: OauthCreateNestedManyWithoutUserInput
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Department: DepartmentCreateNestedOneWithoutUsersInput
+    Admin?: AdminCreateNestedOneWithoutUserInput
+    ActivityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
+    Oauth?: OauthCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutActivityResultsInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    departmentId: string
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    admin?: AdminUncheckedCreateNestedOneWithoutUserInput
-    activityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
-    oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    DepartmentID: string
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Admin?: AdminUncheckedCreateNestedOneWithoutUserInput
+    ActivityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
+    Oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutActivityResultsInput = {
@@ -11738,33 +12025,37 @@ export namespace Prisma {
   }
 
   export type ActivityCreateWithoutActivityResultsInput = {
-    id?: string
-    title: string
-    description: string
-    startDate: Date | string
-    endDate: Date | string
-    type: string
-    location?: string | null
-    maxParticipants?: number | null
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    activityDetails?: ActivityDetailsCreateNestedManyWithoutActivityInput
+    ID?: string
+    Title: string
+    Description: string
+    StartDate: Date | string
+    EndDate: Date | string
+    Type: string
+    Images: JsonNullValueInput | InputJsonValue
+    Score: number
+    Location?: string | null
+    MaxParticipants?: number | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    ActivityDetails?: ActivityDetailsCreateNestedManyWithoutActivityInput
   }
 
   export type ActivityUncheckedCreateWithoutActivityResultsInput = {
-    id?: string
-    title: string
-    description: string
-    startDate: Date | string
-    endDate: Date | string
-    type: string
-    location?: string | null
-    maxParticipants?: number | null
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    activityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutActivityInput
+    ID?: string
+    Title: string
+    Description: string
+    StartDate: Date | string
+    EndDate: Date | string
+    Type: string
+    Images: JsonNullValueInput | InputJsonValue
+    Score: number
+    Location?: string | null
+    MaxParticipants?: number | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    ActivityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutActivityInput
   }
 
   export type ActivityCreateOrConnectWithoutActivityResultsInput = {
@@ -11784,21 +12075,21 @@ export namespace Prisma {
   }
 
   export type DepartmentUpdateWithoutActivityResultsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: UserUpdateManyWithoutDepartmentNestedInput
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Name?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Users?: UserUpdateManyWithoutDepartmentNestedInput
   }
 
   export type DepartmentUncheckedUpdateWithoutActivityResultsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: UserUncheckedUpdateManyWithoutDepartmentNestedInput
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Name?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Users?: UserUncheckedUpdateManyWithoutDepartmentNestedInput
   }
 
   export type UserUpsertWithoutActivityResultsInput = {
@@ -11813,35 +12104,35 @@ export namespace Prisma {
   }
 
   export type UserUpdateWithoutActivityResultsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
-    admin?: AdminUpdateOneWithoutUserNestedInput
-    activityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
-    oauth?: OauthUpdateManyWithoutUserNestedInput
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
+    Admin?: AdminUpdateOneWithoutUserNestedInput
+    ActivityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
+    Oauth?: OauthUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutActivityResultsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
-    activityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
-    oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
+    ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
+    Oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ActivityUpsertWithoutActivityResultsInput = {
@@ -11856,65 +12147,69 @@ export namespace Prisma {
   }
 
   export type ActivityUpdateWithoutActivityResultsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    maxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    activityDetails?: ActivityDetailsUpdateManyWithoutActivityNestedInput
+    ID?: StringFieldUpdateOperationsInput | string
+    Title?: StringFieldUpdateOperationsInput | string
+    Description?: StringFieldUpdateOperationsInput | string
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Type?: StringFieldUpdateOperationsInput | string
+    Images?: JsonNullValueInput | InputJsonValue
+    Score?: IntFieldUpdateOperationsInput | number
+    Location?: NullableStringFieldUpdateOperationsInput | string | null
+    MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ActivityDetails?: ActivityDetailsUpdateManyWithoutActivityNestedInput
   }
 
   export type ActivityUncheckedUpdateWithoutActivityResultsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    maxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    activityDetails?: ActivityDetailsUncheckedUpdateManyWithoutActivityNestedInput
+    ID?: StringFieldUpdateOperationsInput | string
+    Title?: StringFieldUpdateOperationsInput | string
+    Description?: StringFieldUpdateOperationsInput | string
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Type?: StringFieldUpdateOperationsInput | string
+    Images?: JsonNullValueInput | InputJsonValue
+    Score?: IntFieldUpdateOperationsInput | number
+    Location?: NullableStringFieldUpdateOperationsInput | string | null
+    MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutActivityNestedInput
   }
 
   export type UserCreateWithoutActivityDetailsInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    department: DepartmentCreateNestedOneWithoutUsersInput
-    admin?: AdminCreateNestedOneWithoutUserInput
-    activityResults?: ActivityResultsCreateNestedManyWithoutUserInput
-    oauth?: OauthCreateNestedManyWithoutUserInput
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Department: DepartmentCreateNestedOneWithoutUsersInput
+    Admin?: AdminCreateNestedOneWithoutUserInput
+    ActivityResults?: ActivityResultsCreateNestedManyWithoutUserInput
+    Oauth?: OauthCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutActivityDetailsInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    departmentId: string
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    admin?: AdminUncheckedCreateNestedOneWithoutUserInput
-    activityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
-    oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    DepartmentID: string
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Admin?: AdminUncheckedCreateNestedOneWithoutUserInput
+    ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
+    Oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutActivityDetailsInput = {
@@ -11923,33 +12218,37 @@ export namespace Prisma {
   }
 
   export type ActivityCreateWithoutActivityDetailsInput = {
-    id?: string
-    title: string
-    description: string
-    startDate: Date | string
-    endDate: Date | string
-    type: string
-    location?: string | null
-    maxParticipants?: number | null
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    activityResults?: ActivityResultsCreateNestedManyWithoutActivityInput
+    ID?: string
+    Title: string
+    Description: string
+    StartDate: Date | string
+    EndDate: Date | string
+    Type: string
+    Images: JsonNullValueInput | InputJsonValue
+    Score: number
+    Location?: string | null
+    MaxParticipants?: number | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    ActivityResults?: ActivityResultsCreateNestedManyWithoutActivityInput
   }
 
   export type ActivityUncheckedCreateWithoutActivityDetailsInput = {
-    id?: string
-    title: string
-    description: string
-    startDate: Date | string
-    endDate: Date | string
-    type: string
-    location?: string | null
-    maxParticipants?: number | null
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    activityResults?: ActivityResultsUncheckedCreateNestedManyWithoutActivityInput
+    ID?: string
+    Title: string
+    Description: string
+    StartDate: Date | string
+    EndDate: Date | string
+    Type: string
+    Images: JsonNullValueInput | InputJsonValue
+    Score: number
+    Location?: string | null
+    MaxParticipants?: number | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutActivityInput
   }
 
   export type ActivityCreateOrConnectWithoutActivityDetailsInput = {
@@ -11969,35 +12268,35 @@ export namespace Prisma {
   }
 
   export type UserUpdateWithoutActivityDetailsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
-    admin?: AdminUpdateOneWithoutUserNestedInput
-    activityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
-    oauth?: OauthUpdateManyWithoutUserNestedInput
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
+    Admin?: AdminUpdateOneWithoutUserNestedInput
+    ActivityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
+    Oauth?: OauthUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutActivityDetailsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    departmentId?: StringFieldUpdateOperationsInput | string
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
-    activityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
-    oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
+    ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
+    Oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ActivityUpsertWithoutActivityDetailsInput = {
@@ -12012,329 +12311,328 @@ export namespace Prisma {
   }
 
   export type ActivityUpdateWithoutActivityDetailsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    maxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    activityResults?: ActivityResultsUpdateManyWithoutActivityNestedInput
+    ID?: StringFieldUpdateOperationsInput | string
+    Title?: StringFieldUpdateOperationsInput | string
+    Description?: StringFieldUpdateOperationsInput | string
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Type?: StringFieldUpdateOperationsInput | string
+    Images?: JsonNullValueInput | InputJsonValue
+    Score?: IntFieldUpdateOperationsInput | number
+    Location?: NullableStringFieldUpdateOperationsInput | string | null
+    MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ActivityResults?: ActivityResultsUpdateManyWithoutActivityNestedInput
   }
 
   export type ActivityUncheckedUpdateWithoutActivityDetailsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    startDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    endDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    maxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    activityResults?: ActivityResultsUncheckedUpdateManyWithoutActivityNestedInput
+    ID?: StringFieldUpdateOperationsInput | string
+    Title?: StringFieldUpdateOperationsInput | string
+    Description?: StringFieldUpdateOperationsInput | string
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Type?: StringFieldUpdateOperationsInput | string
+    Images?: JsonNullValueInput | InputJsonValue
+    Score?: IntFieldUpdateOperationsInput | number
+    Location?: NullableStringFieldUpdateOperationsInput | string | null
+    MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutActivityNestedInput
   }
 
   export type ActivityResultsCreateManyUserInput = {
-    id?: string
-    departmentId: string
-    activityId: string
-    reservation: boolean
-    status: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    DepartmentID: string
+    ActivityID: string
+    Reservation: boolean
+    Status: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityDetailsCreateManyUserInput = {
-    id?: string
-    activityId: string
-    details: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    ActivityID: string
+    Details: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type OauthCreateManyUserInput = {
-    id?: string
-    accessToken: string
-    refreshToken: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: string
+    AccessToken: string
+    RefreshToken: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityResultsUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    reservation?: BoolFieldUpdateOperationsInput | boolean
-    status?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    department?: DepartmentUpdateOneRequiredWithoutActivityResultsNestedInput
-    activity?: ActivityUpdateOneRequiredWithoutActivityResultsNestedInput
+    Reservation?: BoolFieldUpdateOperationsInput | boolean
+    Status?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Department?: DepartmentUpdateOneRequiredWithoutActivityResultsNestedInput
+    Activity?: ActivityUpdateOneRequiredWithoutActivityResultsNestedInput
   }
 
   export type ActivityResultsUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    departmentId?: StringFieldUpdateOperationsInput | string
-    activityId?: StringFieldUpdateOperationsInput | string
-    reservation?: BoolFieldUpdateOperationsInput | boolean
-    status?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: StringFieldUpdateOperationsInput | string
+    Reservation?: BoolFieldUpdateOperationsInput | boolean
+    Status?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityResultsUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    departmentId?: StringFieldUpdateOperationsInput | string
-    activityId?: StringFieldUpdateOperationsInput | string
-    reservation?: BoolFieldUpdateOperationsInput | boolean
-    status?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: StringFieldUpdateOperationsInput | string
+    Reservation?: BoolFieldUpdateOperationsInput | boolean
+    Status?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityDetailsUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    details?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    activity?: ActivityUpdateOneRequiredWithoutActivityDetailsNestedInput
+    Details?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Activity?: ActivityUpdateOneRequiredWithoutActivityDetailsNestedInput
   }
 
   export type ActivityDetailsUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    activityId?: StringFieldUpdateOperationsInput | string
-    details?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    ActivityID?: StringFieldUpdateOperationsInput | string
+    Details?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityDetailsUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    activityId?: StringFieldUpdateOperationsInput | string
-    details?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    ActivityID?: StringFieldUpdateOperationsInput | string
+    Details?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type OauthUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    accessToken?: StringFieldUpdateOperationsInput | string
-    refreshToken?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: StringFieldUpdateOperationsInput | string
+    AccessToken?: StringFieldUpdateOperationsInput | string
+    RefreshToken?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type OauthUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    accessToken?: StringFieldUpdateOperationsInput | string
-    refreshToken?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: StringFieldUpdateOperationsInput | string
+    AccessToken?: StringFieldUpdateOperationsInput | string
+    RefreshToken?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type OauthUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    accessToken?: StringFieldUpdateOperationsInput | string
-    refreshToken?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: StringFieldUpdateOperationsInput | string
+    AccessToken?: StringFieldUpdateOperationsInput | string
+    RefreshToken?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateManyDepartmentInput = {
-    id?: string
-    firstName: string
-    lastName: string
-    password: string
-    image?: string | null
-    role?: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    UserID?: string
+    UserFirstName: string
+    UserLastName: string
+    UserPassword: string
+    UserImage?: string | null
+    Role?: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityResultsCreateManyDepartmentInput = {
-    id?: string
-    userId: string
-    activityId: string
-    reservation: boolean
-    status: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    UserID: string
+    ActivityID: string
+    Reservation: boolean
+    Status: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type UserUpdateWithoutDepartmentInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    admin?: AdminUpdateOneWithoutUserNestedInput
-    activityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
-    activityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
-    oauth?: OauthUpdateManyWithoutUserNestedInput
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Admin?: AdminUpdateOneWithoutUserNestedInput
+    ActivityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
+    ActivityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
+    Oauth?: OauthUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutDepartmentInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
-    activityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
-    activityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
-    oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
+    ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
+    ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
+    Oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutDepartmentInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    firstName?: StringFieldUpdateOperationsInput | string
-    lastName?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    image?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UserID?: StringFieldUpdateOperationsInput | string
+    UserFirstName?: StringFieldUpdateOperationsInput | string
+    UserLastName?: StringFieldUpdateOperationsInput | string
+    UserPassword?: StringFieldUpdateOperationsInput | string
+    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
+    Role?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityResultsUpdateWithoutDepartmentInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    reservation?: BoolFieldUpdateOperationsInput | boolean
-    status?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutActivityResultsNestedInput
-    activity?: ActivityUpdateOneRequiredWithoutActivityResultsNestedInput
+    Reservation?: BoolFieldUpdateOperationsInput | boolean
+    Status?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutActivityResultsNestedInput
+    Activity?: ActivityUpdateOneRequiredWithoutActivityResultsNestedInput
   }
 
   export type ActivityResultsUncheckedUpdateWithoutDepartmentInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    activityId?: StringFieldUpdateOperationsInput | string
-    reservation?: BoolFieldUpdateOperationsInput | boolean
-    status?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    UserID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: StringFieldUpdateOperationsInput | string
+    Reservation?: BoolFieldUpdateOperationsInput | boolean
+    Status?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityResultsUncheckedUpdateManyWithoutDepartmentInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    activityId?: StringFieldUpdateOperationsInput | string
-    reservation?: BoolFieldUpdateOperationsInput | boolean
-    status?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    UserID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: StringFieldUpdateOperationsInput | string
+    Reservation?: BoolFieldUpdateOperationsInput | boolean
+    Status?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityResultsCreateManyActivityInput = {
-    id?: string
-    departmentId: string
-    userId: string
-    reservation: boolean
-    status: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    DepartmentID: string
+    UserID: string
+    Reservation: boolean
+    Status: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityDetailsCreateManyActivityInput = {
-    id?: string
-    userId: string
-    details: string
-    isArchived?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
+    ID?: number
+    UserID: string
+    Details: string
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type ActivityResultsUpdateWithoutActivityInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    reservation?: BoolFieldUpdateOperationsInput | boolean
-    status?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    department?: DepartmentUpdateOneRequiredWithoutActivityResultsNestedInput
-    user?: UserUpdateOneRequiredWithoutActivityResultsNestedInput
+    Reservation?: BoolFieldUpdateOperationsInput | boolean
+    Status?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Department?: DepartmentUpdateOneRequiredWithoutActivityResultsNestedInput
+    User?: UserUpdateOneRequiredWithoutActivityResultsNestedInput
   }
 
   export type ActivityResultsUncheckedUpdateWithoutActivityInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    departmentId?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    reservation?: BoolFieldUpdateOperationsInput | boolean
-    status?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    UserID?: StringFieldUpdateOperationsInput | string
+    Reservation?: BoolFieldUpdateOperationsInput | boolean
+    Status?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityResultsUncheckedUpdateManyWithoutActivityInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    departmentId?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    reservation?: BoolFieldUpdateOperationsInput | boolean
-    status?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    DepartmentID?: StringFieldUpdateOperationsInput | string
+    UserID?: StringFieldUpdateOperationsInput | string
+    Reservation?: BoolFieldUpdateOperationsInput | boolean
+    Status?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityDetailsUpdateWithoutActivityInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    details?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutActivityDetailsNestedInput
+    Details?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutActivityDetailsNestedInput
   }
 
   export type ActivityDetailsUncheckedUpdateWithoutActivityInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    details?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    UserID?: StringFieldUpdateOperationsInput | string
+    Details?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityDetailsUncheckedUpdateManyWithoutActivityInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    details?: StringFieldUpdateOperationsInput | string
-    isArchived?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ID?: IntFieldUpdateOperationsInput | number
+    UserID?: StringFieldUpdateOperationsInput | string
+    Details?: StringFieldUpdateOperationsInput | string
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

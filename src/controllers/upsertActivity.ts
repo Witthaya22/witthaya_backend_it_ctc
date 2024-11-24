@@ -12,14 +12,15 @@ const upsertActivity: RequestHandler = async (req, res) => {
   }
 
   const payload = {
-    title,
-    description,
-    images,
-    score,
-    startDate: new Date(), // add startDate property
-    endDate: new Date(), // add endDate property
-    type: 'some-type', // add type property
+    Title: title, // Match the schema capitalization
+    Description: description,
+    Images: images, // Ensure `Images` is a JSON-compatible value if that's the type in the schema
+    Score: score,
+    StartDate: new Date(),
+    EndDate: new Date(),
+    Type: 'some-type',
   };
+
 
   try {
     const id = req.query.id;
@@ -37,7 +38,7 @@ const upsertActivity: RequestHandler = async (req, res) => {
 
     await prisma.activity.upsert({
       where: {
-        id: idValue.toString(),
+        ID: idValue.toString(),
       },
       create: payload,
       update: payload,

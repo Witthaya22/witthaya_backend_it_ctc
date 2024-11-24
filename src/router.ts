@@ -12,8 +12,11 @@ import getActivity from "./controllers/getActivity"
 import getAllUsers from "./controllers/getAllUsers"
 import upsertUser from "./controllers/upsertUser"
 import getUser from "./controllers/getUser"
+import { getDepartments } from "./controllers/departments"
 
 const router = Router()
+
+router.get('/departments', getDepartments)
 
 router.get('/auth',checkAuth)
 router.post("/signup", signUp)

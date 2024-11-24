@@ -13,7 +13,7 @@ declare module 'express-session' {
 export default <RequestHandler>(async(req ,res) => {
   const user = await prisma.user.findUnique({
     where: {
-      id: req.body.email
+      UserID: req.body.email
     }
   })
   if(!user) {
@@ -21,7 +21,7 @@ export default <RequestHandler>(async(req ,res) => {
       message: "เลขประจำตัวหรือรหัสผ่านไม่ถูกต้อง"
     })
   }
-  const result = await compare(req.body.password, user.password)
+  const result = await compare(req.body.password, user.UserPassword)
   if(!result) {
     return res.status(400).send({
       message: "เลขประจำตัวหรือรหัสผ่านไม่ถูกต้อง"

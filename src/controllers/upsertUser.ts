@@ -25,7 +25,7 @@ const upsertUser: RequestHandler = async (req, res) => {
   try {
     await prisma.user.upsert({
       where: {
-        id: req.query.id ? req.query.id.toString() : '-1',
+        UserID: req.query.id ? req.query.id.toString() : '-1',
       },
       create: payload,
       update: payload,

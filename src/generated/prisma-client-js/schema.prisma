@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma-client-js"
@@ -15,121 +9,123 @@ datasource db {
 }
 
 model User {
-  id           String   @id @default(uuid())
-  firstName    String   @db.VarChar(64)
-  lastName     String   @db.VarChar(64)
-  password     String   @db.VarChar(256)
-  image        String?  @db.VarChar(256)
-  departmentId String   @db.VarChar(64)
-  role         String   @default("USER") @db.VarChar(20)
-  isArchived   Boolean  @default(false)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  UserID        String   @id @unique @default(cuid())
+  UserFirstName String   @db.VarChar(64)
+  UserLastName  String   @db.VarChar(64)
+  UserPassword  String   @db.VarChar(256)
+  UserImage     String?  @db.VarChar(256)
+  DepartmentID  String   @db.VarChar(64)
+  Role          String   @default("USER") @db.VarChar(20)
+  IsArchived    Boolean  @default(false)
+  CreatedAt     DateTime @default(now())
+  UpdatedAt     DateTime @updatedAt
 
   // Relations
-  department      Department        @relation(fields: [departmentId], references: [id])
-  admin           Admin?
-  activityResults ActivityResults[]
-  activityDetails ActivityDetails[]
-  oauth           Oauth[]
+  Department      Department        @relation(fields: [DepartmentID], references: [DepartmentID])
+  Admin           Admin?
+  ActivityResults ActivityResults[]
+  ActivityDetails ActivityDetails[]
+  Oauth           Oauth[]
 
-  @@map("users")
+  @@map("user")
 }
 
 model Oauth {
-  id           String   @id @default(uuid())
-  userId       String
-  accessToken  String   @db.VarChar(2048)
-  refreshToken String   @db.VarChar(2048)
-  isArchived   Boolean  @default(false)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  ID           String   @id @default(cuid())
+  UserID       String   @db.VarChar(64)
+  AccessToken  String   @db.VarChar(2048)
+  RefreshToken String   @db.VarChar(2048)
+  IsArchived   Boolean  @default(false)
+  CreatedAt    DateTime @default(now())
+  UpdatedAt    DateTime @updatedAt
 
   // Relations
-  user User @relation(fields: [userId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  User User @relation(fields: [UserID], references: [UserID], onDelete: Cascade, onUpdate: Cascade)
 
-  @@map("oauths")
+  @@map("oauth")
 }
 
 model Department {
-  id         String   @id @default(uuid()) @map("department_id")
-  name       String   @db.VarChar(64)
-  isArchived Boolean  @default(false)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  DepartmentID String   @id @default(cuid()) @map("department_id")
+  Name         String   @db.VarChar(64)
+  IsArchived   Boolean  @default(false)
+  CreatedAt    DateTime @default(now())
+  UpdatedAt    DateTime @updatedAt
 
   // Relations
-  users           User[]
-  activityResults ActivityResults[]
+  Users           User[]
+  ActivityResults ActivityResults[]
 
-  @@map("departments")
+  @@map("department")
 }
 
 model Admin {
-  id         String   @id @default(uuid())
-  password   String   @db.VarChar(256)
-  userId     String   @unique
-  isArchived Boolean  @default(false)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  AdminID    String   @id @default(cuid())
+  AdminPass  String   @db.VarChar(256)
+  UserID     String   @unique @db.VarChar(64)
+  IsArchived Boolean  @default(false)
+  CreatedAt  DateTime @default(now())
+  UpdatedAt  DateTime @updatedAt
 
   // Relations
-  user User @relation(fields: [userId], references: [id])
+  User User @relation(fields: [UserID], references: [UserID])
 
-  @@map("admins")
+  @@map("admin")
 }
 
 model Activity {
-  id              String   @id @default(uuid())
-  title           String
-  description     String   @db.Text
-  startDate       DateTime
-  endDate         DateTime
-  type            String   @db.VarChar(20)
-  location        String?  @db.VarChar(256)
-  maxParticipants Int?
-  isArchived      Boolean  @default(false)
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  ID              String   @id @default(cuid())
+  Title           String
+  Description     String   @db.Text
+  StartDate       DateTime
+  EndDate         DateTime
+  Type            String   @db.VarChar(20)
+  Images          Json
+  Score           Int
+  Location        String?  @db.VarChar(256) // Optional field for event location
+  MaxParticipants Int? // Optional field for maximum participants
+  IsArchived      Boolean  @default(false) // Indicates if the activity is archived
+  CreatedAt       DateTime @default(now())
+  UpdatedAt       DateTime @updatedAt
 
   // Relations
-  activityResults ActivityResults[]
-  activityDetails ActivityDetails[]
+  ActivityResults ActivityResults[]
+  ActivityDetails ActivityDetails[]
 
-  @@map("activities")
+  @@map("activity")
 }
 
 model ActivityResults {
-  id           String   @id @default(uuid())
-  departmentId String
-  userId       String
-  activityId   String
-  reservation  Boolean
-  status       String   @db.VarChar(20)
-  isArchived   Boolean  @default(false)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  ID           Int      @id @default(autoincrement())
+  DepartmentID String
+  UserID       String
+  ActivityID   String
+  Reservation  Boolean
+  Status       String   @db.VarChar(20)
+  IsArchived   Boolean  @default(false)
+  CreatedAt    DateTime @default(now())
+  UpdatedAt    DateTime @updatedAt
 
   // Relations
-  department Department @relation(fields: [departmentId], references: [id])
-  user       User       @relation(fields: [userId], references: [id])
-  activity   Activity   @relation(fields: [activityId], references: [id])
+  Department Department @relation(fields: [DepartmentID], references: [DepartmentID])
+  User       User       @relation(fields: [UserID], references: [UserID])
+  Activity   Activity   @relation(fields: [ActivityID], references: [ID])
 
-  @@map("activity_results")
+  @@map("activity_result")
 }
 
 model ActivityDetails {
-  id         String   @id @default(uuid())
-  userId     String
-  activityId String
-  details    String   @db.Text
-  isArchived Boolean  @default(false)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  ID         Int      @id @default(autoincrement())
+  UserID     String
+  ActivityID String
+  Details    String   @db.Text
+  IsArchived Boolean  @default(false)
+  CreatedAt  DateTime @default(now())
+  UpdatedAt  DateTime @updatedAt
 
   // Relations
-  user     User     @relation(fields: [userId], references: [id])
-  activity Activity @relation(fields: [activityId], references: [id])
+  User     User     @relation(fields: [UserID], references: [UserID])
+  Activity Activity @relation(fields: [ActivityID], references: [ID])
 
-  @@map("activity_details")
+  @@map("activity_detail")
 }

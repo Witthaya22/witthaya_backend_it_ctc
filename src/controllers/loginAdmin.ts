@@ -14,7 +14,7 @@ declare module 'express-session' {
 export default <RequestHandler>(async(req, res) => {
   const admin = await prisma.admin.findUnique({
     where: {
-      id: req.body.username
+      AdminID: req.body.username
     }
   })
   if(!admin) {

@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma-client-js"
@@ -33,7 +27,7 @@ model User {
   ActivityDetails  ActivityDetails[]
   Oauth            Oauth[]
 
-  @@map("users")
+  @@map("user")
 }
 
 model Oauth {
@@ -48,7 +42,7 @@ model Oauth {
   // Relations
   User         User     @relation(fields: [UserID], references: [UserID], onDelete: Cascade, onUpdate: Cascade)
 
-  @@map("oauths")
+  @@map("oauth")
 }
 
 model Department {
@@ -62,7 +56,7 @@ model Department {
   Users            User[]
   ActivityResults  ActivityResults[]
 
-  @@map("departments")
+  @@map("department")
 }
 
 model Admin {
@@ -76,35 +70,38 @@ model Admin {
   // Relations
   User       User     @relation(fields: [UserID], references: [UserID])
 
-  @@map("admins")
+  @@map("admin")
 }
 
 model Activity {
-  ID           String   @id @default(cuid())
-  Title        String
-  Description  String   @db.Text
-  StartDate    DateTime
-  EndDate      DateTime
-  Type         String   @db.VarChar(20)
-  Location     String?  @db.VarChar(256)
-  MaxParticipants Int?
-  IsArchived   Boolean  @default(false)
-  CreatedAt    DateTime @default(now())
-  UpdatedAt    DateTime @updatedAt
+  ID               String   @id @default(cuid())
+  Title            String
+  Description      String   @db.Text
+  StartDate        DateTime
+  EndDate          DateTime
+  Type             String   @db.VarChar(20)
+  Images           Json
+  Score            Int
+  Location         String?  @db.VarChar(256) // Optional field for event location
+  MaxParticipants  Int?                     // Optional field for maximum participants
+  IsArchived       Boolean   @default(false) // Indicates if the activity is archived
+  CreatedAt        DateTime @default(now())
+  UpdatedAt        DateTime @updatedAt
 
   // Relations
   ActivityResults  ActivityResults[]
   ActivityDetails  ActivityDetails[]
 
-  @@map("activities")
+  @@map("activity")
 }
+
 
 model ActivityResults {
   ID           Int      @id @default(autoincrement())
   DepartmentID String
   UserID       String
   ActivityID   String
-  Reservation   Boolean
+  Reservation  Boolean
   Status       String   @db.VarChar(20)
   IsArchived   Boolean  @default(false)
   CreatedAt    DateTime @default(now())
@@ -115,7 +112,7 @@ model ActivityResults {
   User         User       @relation(fields: [UserID], references: [UserID])
   Activity     Activity   @relation(fields: [ActivityID], references: [ID])
 
-  @@map("activity_results")
+  @@map("activity_result")
 }
 
 model ActivityDetails {
@@ -128,8 +125,8 @@ model ActivityDetails {
   UpdatedAt    DateTime @updatedAt
 
   // Relations
-  User         User     @relation(fields: [UserID], references: [UserID]) // แก้ไขให้เป็น UserID
-  Activity     Activity @relation(fields: [ActivityID], references: [ID]) // แก้ไขให้เป็น ActivityID
+  User         User     @relation(fields: [UserID], references: [UserID])
+  Activity     Activity @relation(fields: [ActivityID], references: [ID])
 
-  @@map("activity_details")
+  @@map("activity_detail")
 }

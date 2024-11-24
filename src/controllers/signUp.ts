@@ -5,7 +5,7 @@ import prisma from "../prisma";
 export default <RequestHandler>(async(req, res) => {
   const count = await prisma.user.count({
     where: {
-      id: req.body.email
+      UserID: req.body.email
     }
   })
   if (count > 0) {
@@ -15,11 +15,11 @@ export default <RequestHandler>(async(req, res) => {
   }
   await prisma.user.create({
     data: {
-      id: req.body.email,
-      firstName: req.body.name,
-      lastName: req.body.lastName, // Add this property
-      department: { connect: { id: req.body.departmentId } }, // Add this property
-      password: await hash(req.body.password, 10)
+      UserID: req.body.email,
+      UserFirstName: req.body.name,
+      UserLastName: req.body.lastName, // Add this property
+      Department: { connect: { DepartmentID: req.body.departmentId } }, // Add this property
+      UserPassword: await hash(req.body.password, 10)
     }
   })
   res.status(201).send({
