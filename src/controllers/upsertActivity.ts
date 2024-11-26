@@ -36,13 +36,13 @@ const upsertActivity: RequestHandler = async (req, res) => {
       throw new Error('Invalid id value');
     }
 
-    await prisma.activity.upsert({
-      where: {
-        ID: idValue.toString(),
-      },
-      create: payload,
-      update: payload,
-    });
+   await prisma.activity.upsert({
+     where: {
+       ID: idValue,
+     },
+     create: payload,
+     update: payload,
+   });
 
     res.status(201).send({
       message: "อัปเดตกิจกรรมสำเร็จ",

@@ -31,7 +31,7 @@ model User {
 }
 
 model Oauth {
-  ID           String   @id @default(cuid())
+  ID           Int   @id @default(autoincrement())
   UserID       String   @db.VarChar(64)
   AccessToken  String   @db.VarChar(2048)
   RefreshToken String   @db.VarChar(2048)
@@ -46,7 +46,7 @@ model Oauth {
 }
 
 model Department {
-  DepartmentID String    @id @default(cuid()) @map("department_id")
+  DepartmentID String    @id  @map("department_id")
   Name         String    @db.VarChar(64)
   IsArchived   Boolean   @default(false)
   CreatedAt    DateTime  @default(now())
@@ -74,7 +74,7 @@ model Admin {
 }
 
 model Activity {
-  ID               String   @id @default(cuid())
+  ID               Int   @id @default(autoincrement())
   Title            String
   Description      String   @db.Text
   StartDate        DateTime
@@ -100,7 +100,7 @@ model ActivityResults {
   ID           Int      @id @default(autoincrement())
   DepartmentID String
   UserID       String
-  ActivityID   String
+  ActivityID   Int
   Reservation  Boolean
   Status       String   @db.VarChar(20)
   IsArchived   Boolean  @default(false)
@@ -118,7 +118,7 @@ model ActivityResults {
 model ActivityDetails {
   ID           Int      @id @default(autoincrement())
   UserID       String
-  ActivityID   String
+  ActivityID   Int
   Details      String   @db.Text
   IsArchived   Boolean  @default(false)
   CreatedAt    DateTime @default(now())

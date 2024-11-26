@@ -29,6 +29,7 @@ export default <RequestHandler>(async(req ,res) => {
   }
   req.session.auth = omit(user, 'password')
   res.status(200).send({
-    message: "เข้าสู่ระบบสําเร็จ"
+    message: "เข้าสู่ระบบสําเร็จ",
+    role: user.Role
   })
 })

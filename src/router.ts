@@ -13,7 +13,8 @@ import getAllUsers from "./controllers/getAllUsers"
 import upsertUser from "./controllers/upsertUser"
 import getUser from "./controllers/getUser"
 import { getDepartments } from "./controllers/departments"
-
+import reserveActivity from "./controllers/reserveActivity";
+import getBookedActivities from "./controllers/getReserveActivity"
 const router = Router()
 
 router.get('/departments', getDepartments)
@@ -37,6 +38,9 @@ router.post('/admin/user', upsertUser)
 router.post('/admin/activity', upsertActivity)
 
 router.use('/admin', onlyAdmin)
+
+router.post("/activity/reserve", reserveActivity)
+router.get("/activity/booked-activities/:userID", getBookedActivities);
 
 
 

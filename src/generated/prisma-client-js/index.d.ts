@@ -2644,12 +2644,22 @@ export namespace Prisma {
 
   export type AggregateOauth = {
     _count: OauthCountAggregateOutputType | null
+    _avg: OauthAvgAggregateOutputType | null
+    _sum: OauthSumAggregateOutputType | null
     _min: OauthMinAggregateOutputType | null
     _max: OauthMaxAggregateOutputType | null
   }
 
+  export type OauthAvgAggregateOutputType = {
+    ID: number | null
+  }
+
+  export type OauthSumAggregateOutputType = {
+    ID: number | null
+  }
+
   export type OauthMinAggregateOutputType = {
-    ID: string | null
+    ID: number | null
     UserID: string | null
     AccessToken: string | null
     RefreshToken: string | null
@@ -2659,7 +2669,7 @@ export namespace Prisma {
   }
 
   export type OauthMaxAggregateOutputType = {
-    ID: string | null
+    ID: number | null
     UserID: string | null
     AccessToken: string | null
     RefreshToken: string | null
@@ -2679,6 +2689,14 @@ export namespace Prisma {
     _all: number
   }
 
+
+  export type OauthAvgAggregateInputType = {
+    ID?: true
+  }
+
+  export type OauthSumAggregateInputType = {
+    ID?: true
+  }
 
   export type OauthMinAggregateInputType = {
     ID?: true
@@ -2749,6 +2767,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: OauthAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: OauthSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: OauthMinAggregateInputType
@@ -2779,12 +2809,14 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: OauthCountAggregateInputType | true
+    _avg?: OauthAvgAggregateInputType
+    _sum?: OauthSumAggregateInputType
     _min?: OauthMinAggregateInputType
     _max?: OauthMaxAggregateInputType
   }
 
   export type OauthGroupByOutputType = {
-    ID: string
+    ID: number
     UserID: string
     AccessToken: string
     RefreshToken: string
@@ -2792,6 +2824,8 @@ export namespace Prisma {
     CreatedAt: Date
     UpdatedAt: Date
     _count: OauthCountAggregateOutputType | null
+    _avg: OauthAvgAggregateOutputType | null
+    _sum: OauthSumAggregateOutputType | null
     _min: OauthMinAggregateOutputType | null
     _max: OauthMaxAggregateOutputType | null
   }
@@ -2855,7 +2889,7 @@ export namespace Prisma {
       User: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      ID: string
+      ID: number
       UserID: string
       AccessToken: string
       RefreshToken: string
@@ -3282,7 +3316,7 @@ export namespace Prisma {
    * Fields of the Oauth model
    */ 
   interface OauthFieldRefs {
-    readonly ID: FieldRef<"Oauth", 'String'>
+    readonly ID: FieldRef<"Oauth", 'Int'>
     readonly UserID: FieldRef<"Oauth", 'String'>
     readonly AccessToken: FieldRef<"Oauth", 'String'>
     readonly RefreshToken: FieldRef<"Oauth", 'String'>
@@ -5604,17 +5638,19 @@ export namespace Prisma {
   }
 
   export type ActivityAvgAggregateOutputType = {
+    ID: number | null
     Score: number | null
     MaxParticipants: number | null
   }
 
   export type ActivitySumAggregateOutputType = {
+    ID: number | null
     Score: number | null
     MaxParticipants: number | null
   }
 
   export type ActivityMinAggregateOutputType = {
-    ID: string | null
+    ID: number | null
     Title: string | null
     Description: string | null
     StartDate: Date | null
@@ -5629,7 +5665,7 @@ export namespace Prisma {
   }
 
   export type ActivityMaxAggregateOutputType = {
-    ID: string | null
+    ID: number | null
     Title: string | null
     Description: string | null
     StartDate: Date | null
@@ -5662,11 +5698,13 @@ export namespace Prisma {
 
 
   export type ActivityAvgAggregateInputType = {
+    ID?: true
     Score?: true
     MaxParticipants?: true
   }
 
   export type ActivitySumAggregateInputType = {
+    ID?: true
     Score?: true
     MaxParticipants?: true
   }
@@ -5805,7 +5843,7 @@ export namespace Prisma {
   }
 
   export type ActivityGroupByOutputType = {
-    ID: string
+    ID: number
     Title: string
     Description: string
     StartDate: Date
@@ -5904,7 +5942,7 @@ export namespace Prisma {
       ActivityDetails: Prisma.$ActivityDetailsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      ID: string
+      ID: number
       Title: string
       Description: string
       StartDate: Date
@@ -6339,7 +6377,7 @@ export namespace Prisma {
    * Fields of the Activity model
    */ 
   interface ActivityFieldRefs {
-    readonly ID: FieldRef<"Activity", 'String'>
+    readonly ID: FieldRef<"Activity", 'Int'>
     readonly Title: FieldRef<"Activity", 'String'>
     readonly Description: FieldRef<"Activity", 'String'>
     readonly StartDate: FieldRef<"Activity", 'DateTime'>
@@ -6734,17 +6772,19 @@ export namespace Prisma {
 
   export type ActivityResultsAvgAggregateOutputType = {
     ID: number | null
+    ActivityID: number | null
   }
 
   export type ActivityResultsSumAggregateOutputType = {
     ID: number | null
+    ActivityID: number | null
   }
 
   export type ActivityResultsMinAggregateOutputType = {
     ID: number | null
     DepartmentID: string | null
     UserID: string | null
-    ActivityID: string | null
+    ActivityID: number | null
     Reservation: boolean | null
     Status: string | null
     IsArchived: boolean | null
@@ -6756,7 +6796,7 @@ export namespace Prisma {
     ID: number | null
     DepartmentID: string | null
     UserID: string | null
-    ActivityID: string | null
+    ActivityID: number | null
     Reservation: boolean | null
     Status: string | null
     IsArchived: boolean | null
@@ -6780,10 +6820,12 @@ export namespace Prisma {
 
   export type ActivityResultsAvgAggregateInputType = {
     ID?: true
+    ActivityID?: true
   }
 
   export type ActivityResultsSumAggregateInputType = {
     ID?: true
+    ActivityID?: true
   }
 
   export type ActivityResultsMinAggregateInputType = {
@@ -6913,7 +6955,7 @@ export namespace Prisma {
     ID: number
     DepartmentID: string
     UserID: string
-    ActivityID: string
+    ActivityID: number
     Reservation: boolean
     Status: string
     IsArchived: boolean
@@ -7004,7 +7046,7 @@ export namespace Prisma {
       ID: number
       DepartmentID: string
       UserID: string
-      ActivityID: string
+      ActivityID: number
       Reservation: boolean
       Status: string
       IsArchived: boolean
@@ -7437,7 +7479,7 @@ export namespace Prisma {
     readonly ID: FieldRef<"ActivityResults", 'Int'>
     readonly DepartmentID: FieldRef<"ActivityResults", 'String'>
     readonly UserID: FieldRef<"ActivityResults", 'String'>
-    readonly ActivityID: FieldRef<"ActivityResults", 'String'>
+    readonly ActivityID: FieldRef<"ActivityResults", 'Int'>
     readonly Reservation: FieldRef<"ActivityResults", 'Boolean'>
     readonly Status: FieldRef<"ActivityResults", 'String'>
     readonly IsArchived: FieldRef<"ActivityResults", 'Boolean'>
@@ -7789,16 +7831,18 @@ export namespace Prisma {
 
   export type ActivityDetailsAvgAggregateOutputType = {
     ID: number | null
+    ActivityID: number | null
   }
 
   export type ActivityDetailsSumAggregateOutputType = {
     ID: number | null
+    ActivityID: number | null
   }
 
   export type ActivityDetailsMinAggregateOutputType = {
     ID: number | null
     UserID: string | null
-    ActivityID: string | null
+    ActivityID: number | null
     Details: string | null
     IsArchived: boolean | null
     CreatedAt: Date | null
@@ -7808,7 +7852,7 @@ export namespace Prisma {
   export type ActivityDetailsMaxAggregateOutputType = {
     ID: number | null
     UserID: string | null
-    ActivityID: string | null
+    ActivityID: number | null
     Details: string | null
     IsArchived: boolean | null
     CreatedAt: Date | null
@@ -7829,10 +7873,12 @@ export namespace Prisma {
 
   export type ActivityDetailsAvgAggregateInputType = {
     ID?: true
+    ActivityID?: true
   }
 
   export type ActivityDetailsSumAggregateInputType = {
     ID?: true
+    ActivityID?: true
   }
 
   export type ActivityDetailsMinAggregateInputType = {
@@ -7955,7 +8001,7 @@ export namespace Prisma {
   export type ActivityDetailsGroupByOutputType = {
     ID: number
     UserID: string
-    ActivityID: string
+    ActivityID: number
     Details: string
     IsArchived: boolean
     CreatedAt: Date
@@ -8033,7 +8079,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       ID: number
       UserID: string
-      ActivityID: string
+      ActivityID: number
       Details: string
       IsArchived: boolean
       CreatedAt: Date
@@ -8462,7 +8508,7 @@ export namespace Prisma {
   interface ActivityDetailsFieldRefs {
     readonly ID: FieldRef<"ActivityDetails", 'Int'>
     readonly UserID: FieldRef<"ActivityDetails", 'String'>
-    readonly ActivityID: FieldRef<"ActivityDetails", 'String'>
+    readonly ActivityID: FieldRef<"ActivityDetails", 'Int'>
     readonly Details: FieldRef<"ActivityDetails", 'String'>
     readonly IsArchived: FieldRef<"ActivityDetails", 'Boolean'>
     readonly CreatedAt: FieldRef<"ActivityDetails", 'DateTime'>
@@ -8993,13 +9039,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Json'
-   */
-  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
-    
-
-
-  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -9010,6 +9049,13 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
     
 
 
@@ -9126,7 +9172,7 @@ export namespace Prisma {
     AND?: OauthWhereInput | OauthWhereInput[]
     OR?: OauthWhereInput[]
     NOT?: OauthWhereInput | OauthWhereInput[]
-    ID?: StringFilter<"Oauth"> | string
+    ID?: IntFilter<"Oauth"> | number
     UserID?: StringFilter<"Oauth"> | string
     AccessToken?: StringFilter<"Oauth"> | string
     RefreshToken?: StringFilter<"Oauth"> | string
@@ -9148,7 +9194,7 @@ export namespace Prisma {
   }
 
   export type OauthWhereUniqueInput = Prisma.AtLeast<{
-    ID?: string
+    ID?: number
     AND?: OauthWhereInput | OauthWhereInput[]
     OR?: OauthWhereInput[]
     NOT?: OauthWhereInput | OauthWhereInput[]
@@ -9170,15 +9216,17 @@ export namespace Prisma {
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
     _count?: OauthCountOrderByAggregateInput
+    _avg?: OauthAvgOrderByAggregateInput
     _max?: OauthMaxOrderByAggregateInput
     _min?: OauthMinOrderByAggregateInput
+    _sum?: OauthSumOrderByAggregateInput
   }
 
   export type OauthScalarWhereWithAggregatesInput = {
     AND?: OauthScalarWhereWithAggregatesInput | OauthScalarWhereWithAggregatesInput[]
     OR?: OauthScalarWhereWithAggregatesInput[]
     NOT?: OauthScalarWhereWithAggregatesInput | OauthScalarWhereWithAggregatesInput[]
-    ID?: StringWithAggregatesFilter<"Oauth"> | string
+    ID?: IntWithAggregatesFilter<"Oauth"> | number
     UserID?: StringWithAggregatesFilter<"Oauth"> | string
     AccessToken?: StringWithAggregatesFilter<"Oauth"> | string
     RefreshToken?: StringWithAggregatesFilter<"Oauth"> | string
@@ -9309,7 +9357,7 @@ export namespace Prisma {
     AND?: ActivityWhereInput | ActivityWhereInput[]
     OR?: ActivityWhereInput[]
     NOT?: ActivityWhereInput | ActivityWhereInput[]
-    ID?: StringFilter<"Activity"> | string
+    ID?: IntFilter<"Activity"> | number
     Title?: StringFilter<"Activity"> | string
     Description?: StringFilter<"Activity"> | string
     StartDate?: DateTimeFilter<"Activity"> | Date | string
@@ -9345,7 +9393,7 @@ export namespace Prisma {
   }
 
   export type ActivityWhereUniqueInput = Prisma.AtLeast<{
-    ID?: string
+    ID?: number
     AND?: ActivityWhereInput | ActivityWhereInput[]
     OR?: ActivityWhereInput[]
     NOT?: ActivityWhereInput | ActivityWhereInput[]
@@ -9390,7 +9438,7 @@ export namespace Prisma {
     AND?: ActivityScalarWhereWithAggregatesInput | ActivityScalarWhereWithAggregatesInput[]
     OR?: ActivityScalarWhereWithAggregatesInput[]
     NOT?: ActivityScalarWhereWithAggregatesInput | ActivityScalarWhereWithAggregatesInput[]
-    ID?: StringWithAggregatesFilter<"Activity"> | string
+    ID?: IntWithAggregatesFilter<"Activity"> | number
     Title?: StringWithAggregatesFilter<"Activity"> | string
     Description?: StringWithAggregatesFilter<"Activity"> | string
     StartDate?: DateTimeWithAggregatesFilter<"Activity"> | Date | string
@@ -9412,7 +9460,7 @@ export namespace Prisma {
     ID?: IntFilter<"ActivityResults"> | number
     DepartmentID?: StringFilter<"ActivityResults"> | string
     UserID?: StringFilter<"ActivityResults"> | string
-    ActivityID?: StringFilter<"ActivityResults"> | string
+    ActivityID?: IntFilter<"ActivityResults"> | number
     Reservation?: BoolFilter<"ActivityResults"> | boolean
     Status?: StringFilter<"ActivityResults"> | string
     IsArchived?: BoolFilter<"ActivityResults"> | boolean
@@ -9445,7 +9493,7 @@ export namespace Prisma {
     NOT?: ActivityResultsWhereInput | ActivityResultsWhereInput[]
     DepartmentID?: StringFilter<"ActivityResults"> | string
     UserID?: StringFilter<"ActivityResults"> | string
-    ActivityID?: StringFilter<"ActivityResults"> | string
+    ActivityID?: IntFilter<"ActivityResults"> | number
     Reservation?: BoolFilter<"ActivityResults"> | boolean
     Status?: StringFilter<"ActivityResults"> | string
     IsArchived?: BoolFilter<"ActivityResults"> | boolean
@@ -9480,7 +9528,7 @@ export namespace Prisma {
     ID?: IntWithAggregatesFilter<"ActivityResults"> | number
     DepartmentID?: StringWithAggregatesFilter<"ActivityResults"> | string
     UserID?: StringWithAggregatesFilter<"ActivityResults"> | string
-    ActivityID?: StringWithAggregatesFilter<"ActivityResults"> | string
+    ActivityID?: IntWithAggregatesFilter<"ActivityResults"> | number
     Reservation?: BoolWithAggregatesFilter<"ActivityResults"> | boolean
     Status?: StringWithAggregatesFilter<"ActivityResults"> | string
     IsArchived?: BoolWithAggregatesFilter<"ActivityResults"> | boolean
@@ -9494,7 +9542,7 @@ export namespace Prisma {
     NOT?: ActivityDetailsWhereInput | ActivityDetailsWhereInput[]
     ID?: IntFilter<"ActivityDetails"> | number
     UserID?: StringFilter<"ActivityDetails"> | string
-    ActivityID?: StringFilter<"ActivityDetails"> | string
+    ActivityID?: IntFilter<"ActivityDetails"> | number
     Details?: StringFilter<"ActivityDetails"> | string
     IsArchived?: BoolFilter<"ActivityDetails"> | boolean
     CreatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
@@ -9521,7 +9569,7 @@ export namespace Prisma {
     OR?: ActivityDetailsWhereInput[]
     NOT?: ActivityDetailsWhereInput | ActivityDetailsWhereInput[]
     UserID?: StringFilter<"ActivityDetails"> | string
-    ActivityID?: StringFilter<"ActivityDetails"> | string
+    ActivityID?: IntFilter<"ActivityDetails"> | number
     Details?: StringFilter<"ActivityDetails"> | string
     IsArchived?: BoolFilter<"ActivityDetails"> | boolean
     CreatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
@@ -9551,7 +9599,7 @@ export namespace Prisma {
     NOT?: ActivityDetailsScalarWhereWithAggregatesInput | ActivityDetailsScalarWhereWithAggregatesInput[]
     ID?: IntWithAggregatesFilter<"ActivityDetails"> | number
     UserID?: StringWithAggregatesFilter<"ActivityDetails"> | string
-    ActivityID?: StringWithAggregatesFilter<"ActivityDetails"> | string
+    ActivityID?: IntWithAggregatesFilter<"ActivityDetails"> | number
     Details?: StringWithAggregatesFilter<"ActivityDetails"> | string
     IsArchived?: BoolWithAggregatesFilter<"ActivityDetails"> | boolean
     CreatedAt?: DateTimeWithAggregatesFilter<"ActivityDetails"> | Date | string
@@ -9665,7 +9713,6 @@ export namespace Prisma {
   }
 
   export type OauthCreateInput = {
-    ID?: string
     AccessToken: string
     RefreshToken: string
     IsArchived?: boolean
@@ -9675,7 +9722,7 @@ export namespace Prisma {
   }
 
   export type OauthUncheckedCreateInput = {
-    ID?: string
+    ID?: number
     UserID: string
     AccessToken: string
     RefreshToken: string
@@ -9685,7 +9732,6 @@ export namespace Prisma {
   }
 
   export type OauthUpdateInput = {
-    ID?: StringFieldUpdateOperationsInput | string
     AccessToken?: StringFieldUpdateOperationsInput | string
     RefreshToken?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
@@ -9695,7 +9741,7 @@ export namespace Prisma {
   }
 
   export type OauthUncheckedUpdateInput = {
-    ID?: StringFieldUpdateOperationsInput | string
+    ID?: IntFieldUpdateOperationsInput | number
     UserID?: StringFieldUpdateOperationsInput | string
     AccessToken?: StringFieldUpdateOperationsInput | string
     RefreshToken?: StringFieldUpdateOperationsInput | string
@@ -9705,7 +9751,7 @@ export namespace Prisma {
   }
 
   export type OauthCreateManyInput = {
-    ID?: string
+    ID?: number
     UserID: string
     AccessToken: string
     RefreshToken: string
@@ -9715,7 +9761,6 @@ export namespace Prisma {
   }
 
   export type OauthUpdateManyMutationInput = {
-    ID?: StringFieldUpdateOperationsInput | string
     AccessToken?: StringFieldUpdateOperationsInput | string
     RefreshToken?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
@@ -9724,7 +9769,7 @@ export namespace Prisma {
   }
 
   export type OauthUncheckedUpdateManyInput = {
-    ID?: StringFieldUpdateOperationsInput | string
+    ID?: IntFieldUpdateOperationsInput | number
     UserID?: StringFieldUpdateOperationsInput | string
     AccessToken?: StringFieldUpdateOperationsInput | string
     RefreshToken?: StringFieldUpdateOperationsInput | string
@@ -9734,7 +9779,7 @@ export namespace Prisma {
   }
 
   export type DepartmentCreateInput = {
-    DepartmentID?: string
+    DepartmentID: string
     Name: string
     IsArchived?: boolean
     CreatedAt?: Date | string
@@ -9744,7 +9789,7 @@ export namespace Prisma {
   }
 
   export type DepartmentUncheckedCreateInput = {
-    DepartmentID?: string
+    DepartmentID: string
     Name: string
     IsArchived?: boolean
     CreatedAt?: Date | string
@@ -9774,7 +9819,7 @@ export namespace Prisma {
   }
 
   export type DepartmentCreateManyInput = {
-    DepartmentID?: string
+    DepartmentID: string
     Name: string
     IsArchived?: boolean
     CreatedAt?: Date | string
@@ -9860,7 +9905,6 @@ export namespace Prisma {
   }
 
   export type ActivityCreateInput = {
-    ID?: string
     Title: string
     Description: string
     StartDate: Date | string
@@ -9878,7 +9922,7 @@ export namespace Prisma {
   }
 
   export type ActivityUncheckedCreateInput = {
-    ID?: string
+    ID?: number
     Title: string
     Description: string
     StartDate: Date | string
@@ -9896,7 +9940,6 @@ export namespace Prisma {
   }
 
   export type ActivityUpdateInput = {
-    ID?: StringFieldUpdateOperationsInput | string
     Title?: StringFieldUpdateOperationsInput | string
     Description?: StringFieldUpdateOperationsInput | string
     StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9914,7 +9957,7 @@ export namespace Prisma {
   }
 
   export type ActivityUncheckedUpdateInput = {
-    ID?: StringFieldUpdateOperationsInput | string
+    ID?: IntFieldUpdateOperationsInput | number
     Title?: StringFieldUpdateOperationsInput | string
     Description?: StringFieldUpdateOperationsInput | string
     StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9932,7 +9975,7 @@ export namespace Prisma {
   }
 
   export type ActivityCreateManyInput = {
-    ID?: string
+    ID?: number
     Title: string
     Description: string
     StartDate: Date | string
@@ -9948,7 +9991,6 @@ export namespace Prisma {
   }
 
   export type ActivityUpdateManyMutationInput = {
-    ID?: StringFieldUpdateOperationsInput | string
     Title?: StringFieldUpdateOperationsInput | string
     Description?: StringFieldUpdateOperationsInput | string
     StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9964,7 +10006,7 @@ export namespace Prisma {
   }
 
   export type ActivityUncheckedUpdateManyInput = {
-    ID?: StringFieldUpdateOperationsInput | string
+    ID?: IntFieldUpdateOperationsInput | number
     Title?: StringFieldUpdateOperationsInput | string
     Description?: StringFieldUpdateOperationsInput | string
     StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9994,7 +10036,7 @@ export namespace Prisma {
     ID?: number
     DepartmentID: string
     UserID: string
-    ActivityID: string
+    ActivityID: number
     Reservation: boolean
     Status: string
     IsArchived?: boolean
@@ -10017,7 +10059,7 @@ export namespace Prisma {
     ID?: IntFieldUpdateOperationsInput | number
     DepartmentID?: StringFieldUpdateOperationsInput | string
     UserID?: StringFieldUpdateOperationsInput | string
-    ActivityID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: IntFieldUpdateOperationsInput | number
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
@@ -10029,7 +10071,7 @@ export namespace Prisma {
     ID?: number
     DepartmentID: string
     UserID: string
-    ActivityID: string
+    ActivityID: number
     Reservation: boolean
     Status: string
     IsArchived?: boolean
@@ -10049,7 +10091,7 @@ export namespace Prisma {
     ID?: IntFieldUpdateOperationsInput | number
     DepartmentID?: StringFieldUpdateOperationsInput | string
     UserID?: StringFieldUpdateOperationsInput | string
-    ActivityID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: IntFieldUpdateOperationsInput | number
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
@@ -10069,7 +10111,7 @@ export namespace Prisma {
   export type ActivityDetailsUncheckedCreateInput = {
     ID?: number
     UserID: string
-    ActivityID: string
+    ActivityID: number
     Details: string
     IsArchived?: boolean
     CreatedAt?: Date | string
@@ -10088,7 +10130,7 @@ export namespace Prisma {
   export type ActivityDetailsUncheckedUpdateInput = {
     ID?: IntFieldUpdateOperationsInput | number
     UserID?: StringFieldUpdateOperationsInput | string
-    ActivityID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: IntFieldUpdateOperationsInput | number
     Details?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10098,7 +10140,7 @@ export namespace Prisma {
   export type ActivityDetailsCreateManyInput = {
     ID?: number
     UserID: string
-    ActivityID: string
+    ActivityID: number
     Details: string
     IsArchived?: boolean
     CreatedAt?: Date | string
@@ -10115,7 +10157,7 @@ export namespace Prisma {
   export type ActivityDetailsUncheckedUpdateManyInput = {
     ID?: IntFieldUpdateOperationsInput | number
     UserID?: StringFieldUpdateOperationsInput | string
-    ActivityID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: IntFieldUpdateOperationsInput | number
     Details?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10310,6 +10352,17 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
   export type UserRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
@@ -10323,6 +10376,10 @@ export namespace Prisma {
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
+  }
+
+  export type OauthAvgOrderByAggregateInput = {
+    ID?: SortOrder
   }
 
   export type OauthMaxOrderByAggregateInput = {
@@ -10343,6 +10400,26 @@ export namespace Prisma {
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
+  }
+
+  export type OauthSumOrderByAggregateInput = {
+    ID?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type UserListRelationFilter = {
@@ -10428,17 +10505,6 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -10467,6 +10533,7 @@ export namespace Prisma {
   }
 
   export type ActivityAvgOrderByAggregateInput = {
+    ID?: SortOrder
     Score?: SortOrder
     MaxParticipants?: SortOrder
   }
@@ -10502,6 +10569,7 @@ export namespace Prisma {
   }
 
   export type ActivitySumOrderByAggregateInput = {
+    ID?: SortOrder
     Score?: SortOrder
     MaxParticipants?: SortOrder
   }
@@ -10529,22 +10597,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedJsonFilter<$PrismaModel>
     _max?: NestedJsonFilter<$PrismaModel>
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -10582,6 +10634,7 @@ export namespace Prisma {
 
   export type ActivityResultsAvgOrderByAggregateInput = {
     ID?: SortOrder
+    ActivityID?: SortOrder
   }
 
   export type ActivityResultsMaxOrderByAggregateInput = {
@@ -10610,6 +10663,7 @@ export namespace Prisma {
 
   export type ActivityResultsSumOrderByAggregateInput = {
     ID?: SortOrder
+    ActivityID?: SortOrder
   }
 
   export type ActivityDetailsCountOrderByAggregateInput = {
@@ -10624,6 +10678,7 @@ export namespace Prisma {
 
   export type ActivityDetailsAvgOrderByAggregateInput = {
     ID?: SortOrder
+    ActivityID?: SortOrder
   }
 
   export type ActivityDetailsMaxOrderByAggregateInput = {
@@ -10648,6 +10703,7 @@ export namespace Prisma {
 
   export type ActivityDetailsSumOrderByAggregateInput = {
     ID?: SortOrder
+    ActivityID?: SortOrder
   }
 
   export type DepartmentCreateNestedOneWithoutUsersInput = {
@@ -10852,6 +10908,14 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutOauthInput, UserUpdateWithoutOauthInput>, UserUncheckedUpdateWithoutOauthInput>
   }
 
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type UserCreateNestedManyWithoutDepartmentInput = {
     create?: XOR<UserCreateWithoutDepartmentInput, UserUncheckedCreateWithoutDepartmentInput> | UserCreateWithoutDepartmentInput[] | UserUncheckedCreateWithoutDepartmentInput[]
     connectOrCreate?: UserCreateOrConnectWithoutDepartmentInput | UserCreateOrConnectWithoutDepartmentInput[]
@@ -10976,14 +11040,6 @@ export namespace Prisma {
     connectOrCreate?: ActivityDetailsCreateOrConnectWithoutActivityInput | ActivityDetailsCreateOrConnectWithoutActivityInput[]
     createMany?: ActivityDetailsCreateManyActivityInputEnvelope
     connect?: ActivityDetailsWhereUniqueInput | ActivityDetailsWhereUniqueInput[]
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -11241,28 +11297,6 @@ export namespace Prisma {
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
-  export type NestedJsonFilter<$PrismaModel = never> = 
-    | PatchUndefined<
-        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
-        Required<NestedJsonFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
-
-  export type NestedJsonFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string[]
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
@@ -11289,6 +11323,28 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
+  }
+  export type NestedJsonFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -11319,7 +11375,7 @@ export namespace Prisma {
   }
 
   export type DepartmentCreateWithoutUsersInput = {
-    DepartmentID?: string
+    DepartmentID: string
     Name: string
     IsArchived?: boolean
     CreatedAt?: Date | string
@@ -11328,7 +11384,7 @@ export namespace Prisma {
   }
 
   export type DepartmentUncheckedCreateWithoutUsersInput = {
-    DepartmentID?: string
+    DepartmentID: string
     Name: string
     IsArchived?: boolean
     CreatedAt?: Date | string
@@ -11375,7 +11431,7 @@ export namespace Prisma {
   export type ActivityResultsUncheckedCreateWithoutUserInput = {
     ID?: number
     DepartmentID: string
-    ActivityID: string
+    ActivityID: number
     Reservation: boolean
     Status: string
     IsArchived?: boolean
@@ -11403,7 +11459,7 @@ export namespace Prisma {
 
   export type ActivityDetailsUncheckedCreateWithoutUserInput = {
     ID?: number
-    ActivityID: string
+    ActivityID: number
     Details: string
     IsArchived?: boolean
     CreatedAt?: Date | string
@@ -11421,7 +11477,6 @@ export namespace Prisma {
   }
 
   export type OauthCreateWithoutUserInput = {
-    ID?: string
     AccessToken: string
     RefreshToken: string
     IsArchived?: boolean
@@ -11430,7 +11485,7 @@ export namespace Prisma {
   }
 
   export type OauthUncheckedCreateWithoutUserInput = {
-    ID?: string
+    ID?: number
     AccessToken: string
     RefreshToken: string
     IsArchived?: boolean
@@ -11527,7 +11582,7 @@ export namespace Prisma {
     ID?: IntFilter<"ActivityResults"> | number
     DepartmentID?: StringFilter<"ActivityResults"> | string
     UserID?: StringFilter<"ActivityResults"> | string
-    ActivityID?: StringFilter<"ActivityResults"> | string
+    ActivityID?: IntFilter<"ActivityResults"> | number
     Reservation?: BoolFilter<"ActivityResults"> | boolean
     Status?: StringFilter<"ActivityResults"> | string
     IsArchived?: BoolFilter<"ActivityResults"> | boolean
@@ -11557,7 +11612,7 @@ export namespace Prisma {
     NOT?: ActivityDetailsScalarWhereInput | ActivityDetailsScalarWhereInput[]
     ID?: IntFilter<"ActivityDetails"> | number
     UserID?: StringFilter<"ActivityDetails"> | string
-    ActivityID?: StringFilter<"ActivityDetails"> | string
+    ActivityID?: IntFilter<"ActivityDetails"> | number
     Details?: StringFilter<"ActivityDetails"> | string
     IsArchived?: BoolFilter<"ActivityDetails"> | boolean
     CreatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
@@ -11584,7 +11639,7 @@ export namespace Prisma {
     AND?: OauthScalarWhereInput | OauthScalarWhereInput[]
     OR?: OauthScalarWhereInput[]
     NOT?: OauthScalarWhereInput | OauthScalarWhereInput[]
-    ID?: StringFilter<"Oauth"> | string
+    ID?: IntFilter<"Oauth"> | number
     UserID?: StringFilter<"Oauth"> | string
     AccessToken?: StringFilter<"Oauth"> | string
     RefreshToken?: StringFilter<"Oauth"> | string
@@ -11728,7 +11783,7 @@ export namespace Prisma {
   export type ActivityResultsUncheckedCreateWithoutDepartmentInput = {
     ID?: number
     UserID: string
-    ActivityID: string
+    ActivityID: number
     Reservation: boolean
     Status: string
     IsArchived?: boolean
@@ -11965,7 +12020,7 @@ export namespace Prisma {
   }
 
   export type DepartmentCreateWithoutActivityResultsInput = {
-    DepartmentID?: string
+    DepartmentID: string
     Name: string
     IsArchived?: boolean
     CreatedAt?: Date | string
@@ -11974,7 +12029,7 @@ export namespace Prisma {
   }
 
   export type DepartmentUncheckedCreateWithoutActivityResultsInput = {
-    DepartmentID?: string
+    DepartmentID: string
     Name: string
     IsArchived?: boolean
     CreatedAt?: Date | string
@@ -12025,7 +12080,6 @@ export namespace Prisma {
   }
 
   export type ActivityCreateWithoutActivityResultsInput = {
-    ID?: string
     Title: string
     Description: string
     StartDate: Date | string
@@ -12042,7 +12096,7 @@ export namespace Prisma {
   }
 
   export type ActivityUncheckedCreateWithoutActivityResultsInput = {
-    ID?: string
+    ID?: number
     Title: string
     Description: string
     StartDate: Date | string
@@ -12147,7 +12201,6 @@ export namespace Prisma {
   }
 
   export type ActivityUpdateWithoutActivityResultsInput = {
-    ID?: StringFieldUpdateOperationsInput | string
     Title?: StringFieldUpdateOperationsInput | string
     Description?: StringFieldUpdateOperationsInput | string
     StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12164,7 +12217,7 @@ export namespace Prisma {
   }
 
   export type ActivityUncheckedUpdateWithoutActivityResultsInput = {
-    ID?: StringFieldUpdateOperationsInput | string
+    ID?: IntFieldUpdateOperationsInput | number
     Title?: StringFieldUpdateOperationsInput | string
     Description?: StringFieldUpdateOperationsInput | string
     StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12218,7 +12271,6 @@ export namespace Prisma {
   }
 
   export type ActivityCreateWithoutActivityDetailsInput = {
-    ID?: string
     Title: string
     Description: string
     StartDate: Date | string
@@ -12235,7 +12287,7 @@ export namespace Prisma {
   }
 
   export type ActivityUncheckedCreateWithoutActivityDetailsInput = {
-    ID?: string
+    ID?: number
     Title: string
     Description: string
     StartDate: Date | string
@@ -12311,7 +12363,6 @@ export namespace Prisma {
   }
 
   export type ActivityUpdateWithoutActivityDetailsInput = {
-    ID?: StringFieldUpdateOperationsInput | string
     Title?: StringFieldUpdateOperationsInput | string
     Description?: StringFieldUpdateOperationsInput | string
     StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12328,7 +12379,7 @@ export namespace Prisma {
   }
 
   export type ActivityUncheckedUpdateWithoutActivityDetailsInput = {
-    ID?: StringFieldUpdateOperationsInput | string
+    ID?: IntFieldUpdateOperationsInput | number
     Title?: StringFieldUpdateOperationsInput | string
     Description?: StringFieldUpdateOperationsInput | string
     StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12347,7 +12398,7 @@ export namespace Prisma {
   export type ActivityResultsCreateManyUserInput = {
     ID?: number
     DepartmentID: string
-    ActivityID: string
+    ActivityID: number
     Reservation: boolean
     Status: string
     IsArchived?: boolean
@@ -12357,7 +12408,7 @@ export namespace Prisma {
 
   export type ActivityDetailsCreateManyUserInput = {
     ID?: number
-    ActivityID: string
+    ActivityID: number
     Details: string
     IsArchived?: boolean
     CreatedAt?: Date | string
@@ -12365,7 +12416,7 @@ export namespace Prisma {
   }
 
   export type OauthCreateManyUserInput = {
-    ID?: string
+    ID?: number
     AccessToken: string
     RefreshToken: string
     IsArchived?: boolean
@@ -12386,7 +12437,7 @@ export namespace Prisma {
   export type ActivityResultsUncheckedUpdateWithoutUserInput = {
     ID?: IntFieldUpdateOperationsInput | number
     DepartmentID?: StringFieldUpdateOperationsInput | string
-    ActivityID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: IntFieldUpdateOperationsInput | number
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
@@ -12397,7 +12448,7 @@ export namespace Prisma {
   export type ActivityResultsUncheckedUpdateManyWithoutUserInput = {
     ID?: IntFieldUpdateOperationsInput | number
     DepartmentID?: StringFieldUpdateOperationsInput | string
-    ActivityID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: IntFieldUpdateOperationsInput | number
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
@@ -12415,7 +12466,7 @@ export namespace Prisma {
 
   export type ActivityDetailsUncheckedUpdateWithoutUserInput = {
     ID?: IntFieldUpdateOperationsInput | number
-    ActivityID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: IntFieldUpdateOperationsInput | number
     Details?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12424,7 +12475,7 @@ export namespace Prisma {
 
   export type ActivityDetailsUncheckedUpdateManyWithoutUserInput = {
     ID?: IntFieldUpdateOperationsInput | number
-    ActivityID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: IntFieldUpdateOperationsInput | number
     Details?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12432,7 +12483,6 @@ export namespace Prisma {
   }
 
   export type OauthUpdateWithoutUserInput = {
-    ID?: StringFieldUpdateOperationsInput | string
     AccessToken?: StringFieldUpdateOperationsInput | string
     RefreshToken?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
@@ -12441,7 +12491,7 @@ export namespace Prisma {
   }
 
   export type OauthUncheckedUpdateWithoutUserInput = {
-    ID?: StringFieldUpdateOperationsInput | string
+    ID?: IntFieldUpdateOperationsInput | number
     AccessToken?: StringFieldUpdateOperationsInput | string
     RefreshToken?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
@@ -12450,7 +12500,7 @@ export namespace Prisma {
   }
 
   export type OauthUncheckedUpdateManyWithoutUserInput = {
-    ID?: StringFieldUpdateOperationsInput | string
+    ID?: IntFieldUpdateOperationsInput | number
     AccessToken?: StringFieldUpdateOperationsInput | string
     RefreshToken?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
@@ -12473,7 +12523,7 @@ export namespace Prisma {
   export type ActivityResultsCreateManyDepartmentInput = {
     ID?: number
     UserID: string
-    ActivityID: string
+    ActivityID: number
     Reservation: boolean
     Status: string
     IsArchived?: boolean
@@ -12538,7 +12588,7 @@ export namespace Prisma {
   export type ActivityResultsUncheckedUpdateWithoutDepartmentInput = {
     ID?: IntFieldUpdateOperationsInput | number
     UserID?: StringFieldUpdateOperationsInput | string
-    ActivityID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: IntFieldUpdateOperationsInput | number
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
@@ -12549,7 +12599,7 @@ export namespace Prisma {
   export type ActivityResultsUncheckedUpdateManyWithoutDepartmentInput = {
     ID?: IntFieldUpdateOperationsInput | number
     UserID?: StringFieldUpdateOperationsInput | string
-    ActivityID?: StringFieldUpdateOperationsInput | string
+    ActivityID?: IntFieldUpdateOperationsInput | number
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
