@@ -2,42 +2,82 @@ import { RequestHandler } from "express";
 import prisma from "../prisma";
 
 const upsertUser: RequestHandler = async (req, res) => {
-  const { name, email, password, role } = req.body;
-
-  // Basic validation
-  if (!name || !email || typeof role !== "string") {
-    return res.status(400).send({
-      message: "ข้อมูลไม่ถูกต้อง",
-    });
-  }
-
-  const payload: any = {
-    name,
-    email,
-    role,
-  };
-
-  // Only include password in the payload if it's provided (for updates)
-  if (password) {
-    payload.password = password; // Make sure to hash the password if needed
-  }
+  const bcrypt = require("bcrypt");
+  const formData = req.body;
 
   try {
-    await prisma.user.upsert({
-      where: {
-        UserID: req.query.id ? req.query.id.toString() : '-1',
-      },
-      create: payload,
-      update: payload,
+    // ตรวจสอบข้อมูลที่จำเป็น
+    if (!formData.UserFirstName || !formData.UserLastName ||
+        !formData.DepartmentID || typeof formData.Role !== "string") {
+      return res.status(400).json({
+        message: "กรุณากรอกข้อมูลให้ครบถ้วน",
+      });
+    }
+
+    if (req.query.id) {
+      // กรณีแก้ไข - เฉพาะฟิลด์ที่อัพเดทได้
+      const updateData: any = {
+        UserFirstName: formData.UserFirstName,
+        UserLastName: formData.UserLastName,
+        Role: formData.Role,
+        DepartmentID: formData.DepartmentID,
+      };
+
+      // เพิ่ม password ถ้ามีการส่งมา
+      if (formData.UserPassword) {
+        updateData.UserPassword = await bcrypt.hash(formData.UserPassword, 10);
+      }
+
+      await prisma.user.update({
+        where: { UserID: req.query.id.toString() },
+        data: updateData,
+      });
+
+    } else {
+      // กรณีสร้างใหม่ - ต้องมี UserID
+      if (!formData.UserID) {
+        return res.status(400).json({
+          message: "กรุณาระบุรหัสนักศึกษา",
+        });
+      }
+
+      // ตรวจสอบรหัสนักศึกษาซ้ำ
+      const existingUser = await prisma.user.findUnique({
+        where: { UserID: formData.UserID }
+      });
+
+      if (existingUser) {
+        return res.status(400).json({
+          message: "รหัสนักศึกษานี้มีในระบบแล้ว",
+        });
+      }
+
+      // สร้างข้อมูลใหม่
+      const createData: any = {
+        UserID: formData.UserID,
+        UserFirstName: formData.UserFirstName,
+        UserLastName: formData.UserLastName,
+        Role: formData.Role,
+        DepartmentID: formData.DepartmentID,
+      };
+
+      if (formData.UserPassword) {
+        createData.UserPassword = await bcrypt.hash(formData.UserPassword, 10);
+      }
+
+      await prisma.user.create({
+        data: createData
+      });
+    }
+
+    res.status(201).json({
+      message: req.query.id ? "อัปเดตข้อมูลผู้ใช้สำเร็จ" : "เพิ่มผู้ใช้สำเร็จ",
     });
 
-    res.status(201).send({
-      message: "อัปเดตข้อมูลผู้ใช้สำเร็จ",
-    });
   } catch (error) {
-    console.error("Error upserting user:", error);
-    res.status(500).send({
-      message: "เกิดข้อผิดพลาดในการอัปเดตข้อมูลผู้ใช้",
+    console.error("เกิดข้อผิดพลาด:", error);
+    res.status(500).json({
+      message: "เกิดข้อผิดพลาดในการดำเนินการ",
     });
   }
 };

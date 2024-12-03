@@ -15,6 +15,10 @@ import getUser from "./controllers/getUser"
 import { getDepartments } from "./controllers/departments"
 import reserveActivity from "./controllers/reserveActivity";
 import getBookedActivities from "./controllers/getReserveActivity"
+import handleActivityCheckIn from "./controllers/qrcodeCheck"
+import deleteUser from "./controllers/deleteUser"
+
+
 const router = Router()
 
 router.get('/departments', getDepartments)
@@ -32,6 +36,7 @@ router.get('/activity/:id', getActivity)
 
 router.get('/users', getAllUsers)
 router.get('/user/:id', getUser)
+router.delete('/user/:id', deleteUser)
 
 
 router.post('/admin/user', upsertUser)
@@ -41,6 +46,8 @@ router.use('/admin', onlyAdmin)
 
 router.post("/activity/reserve", reserveActivity)
 router.get("/activity/booked-activities/:userID", getBookedActivities);
+
+router.post("/activity/check-in", handleActivityCheckIn);
 
 
 

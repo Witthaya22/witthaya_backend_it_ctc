@@ -2,7 +2,7 @@ import { RequestHandler } from "express";
 import prisma from "../prisma";
 
 const upsertActivity: RequestHandler = async (req, res) => {
-  const { title, description, images, score } = req.body;
+  const { title, description, images, score, location } = req.body;
 
   // Basic validation
   if (!title || !description || !Array.isArray(images) || typeof score !== "number") {
@@ -12,15 +12,15 @@ const upsertActivity: RequestHandler = async (req, res) => {
   }
 
   const payload = {
-    Title: title, // Match the schema capitalization
+    Title: title,
     Description: description,
-    Images: images, // Ensure `Images` is a JSON-compatible value if that's the type in the schema
+    Images: images,  // Ensure this is JSON-compatible
     Score: score,
     StartDate: new Date(),
     EndDate: new Date(),
     Type: 'some-type',
+    Location: location,  // Include location in the payload
   };
-
 
   try {
     const id = req.query.id;
@@ -29,20 +29,18 @@ const upsertActivity: RequestHandler = async (req, res) => {
     if (Array.isArray(id)) {
       idValue = parseInt((id as string[])[0], 10);
     } else if (typeof id === 'string') {
-      // If id is a string, parse it as an integer
       idValue = parseInt(id, 10);
     } else {
-      // If id is neither an array nor a string, throw an error
       throw new Error('Invalid id value');
     }
 
-   await prisma.activity.upsert({
-     where: {
-       ID: idValue,
-     },
-     create: payload,
-     update: payload,
-   });
+    await prisma.activity.upsert({
+      where: {
+        ID: idValue,
+      },
+      create: payload,
+      update: payload,
+    });
 
     res.status(201).send({
       message: "อัปเดตกิจกรรมสำเร็จ",
@@ -54,5 +52,6 @@ const upsertActivity: RequestHandler = async (req, res) => {
     });
   }
 };
+
 
 export default upsertActivity;

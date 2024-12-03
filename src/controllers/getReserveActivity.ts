@@ -3,18 +3,21 @@ import { RequestHandler } from "express";
 import prisma from "../prisma";
 
 const getBookedActivities: RequestHandler = async (req, res) => {
-  const { userID } = req.params; // รับ userID จาก URL parameter
+  const { userID } = req.params;
+
+  if (!userID) {
+    return res.status(400).json({ message: "ไม่พบข้อมูลผู้ใช้" });
+  }
 
   try {
-    // ดึงกิจกรรมที่ผู้ใช้จองไว้จาก ActivityResults
     const bookedActivities = await prisma.activityResults.findMany({
       where: {
         UserID: userID,
-        IsArchived: false, // กรองกิจกรรมที่ยังไม่ถูกเก็บ
-        Reservation: true, // เฉพาะกิจกรรมที่ถูกจอง
+        IsArchived: false,
+        Reservation: true,
       },
       include: {
-        Activity: { // รวมข้อมูลกิจกรรม
+        Activity: {
           select: {
             ID: true,
             Title: true,
@@ -22,7 +25,7 @@ const getBookedActivities: RequestHandler = async (req, res) => {
             Location: true,
             Score: true,
             Images: true,
-          }
+          },
         },
       },
     });
@@ -31,15 +34,14 @@ const getBookedActivities: RequestHandler = async (req, res) => {
       return res.status(404).json({ message: "ไม่พบกิจกรรมที่จองไว้" });
     }
 
-    // ส่งข้อมูลกิจกรรมที่จองกลับไปยัง frontend
     const activities = bookedActivities.map(activityResult => ({
       id: activityResult.Activity.ID,
       name: activityResult.Activity.Title,
-      date: activityResult.Activity.StartDate.toLocaleDateString(), // แปลงเป็นวันที่
+      date: activityResult.Activity.StartDate.toLocaleDateString(),
       location: activityResult.Activity.Location,
-      status: activityResult.Status === 'RESERVED' ? 'booking' : activityResult.Status.toLowerCase(),
+      status: activityResult.Status === "RESERVED" ? "booking" : activityResult.Status.toLowerCase(),
       score: activityResult.Activity.Score,
-      images: activityResult.Activity.Images
+      images: activityResult.Activity.Images,
     }));
 
     return res.status(200).json(activities);
@@ -49,5 +51,6 @@ const getBookedActivities: RequestHandler = async (req, res) => {
     res.status(500).json({ message: "เกิดข้อผิดพลาดในการดึงข้อมูลกิจกรรม" });
   }
 };
+
 
 export default getBookedActivities;
