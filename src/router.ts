@@ -17,6 +17,7 @@ import reserveActivity from "./controllers/reserveActivity";
 import getBookedActivities from "./controllers/getReserveActivity"
 import handleActivityCheckIn from "./controllers/qrcodeCheck"
 import deleteUser from "./controllers/deleteUser"
+import deleteActivity from "./controllers/deleteActivity"
 
 
 const router = Router()
@@ -48,6 +49,7 @@ router.post("/activity/reserve", reserveActivity)
 router.get("/activity/booked-activities/:userID", getBookedActivities);
 
 router.post("/activity/check-in", handleActivityCheckIn);
+router.delete('/activity/:id', deleteActivity);
 
 
 

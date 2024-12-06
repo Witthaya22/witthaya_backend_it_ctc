@@ -1,15 +1,24 @@
 import { RequestHandler } from "express";
 import prisma from "../prisma";
 
-export default <RequestHandler>(async(req, res) => {
-  const page = req.query.page ? +req.query.page : 1
+const getAllActivity: RequestHandler = async (req, res) => {
+  try {
+    const activities = await prisma.activity.findMany({
+      where: {
+        IsArchived: false  // เพิ่มเงื่อนไขนี้
+      },
+      orderBy: {
+        ID: 'desc'
+      }
+    });
 
-  const perPage = 15
-  const activities = await prisma.activity.findMany({
-    take: perPage,
-    skip: perPage * (page - 1)
-  })
-  res.send({
-    activities
-  })
-})
+    res.json({ activities });
+  } catch (error) {
+    console.error('Error fetching activities:', error);
+    res.status(500).json({
+      message: 'เกิดข้อผิดพลาดในการดึงข้อมูลกิจกรรม'
+    });
+  }
+};
+
+export default getAllActivity;
