@@ -18,6 +18,8 @@ import getBookedActivities from "./controllers/getReserveActivity"
 import handleActivityCheckIn from "./controllers/qrcodeCheck"
 import deleteUser from "./controllers/deleteUser"
 import deleteActivity from "./controllers/deleteActivity"
+import getUserDetails from "./controllers/getUserDetails"
+import getActivityParticipants from "./controllers/getActivityParticipants"
 
 
 const router = Router()
@@ -41,15 +43,16 @@ router.delete('/user/:id', deleteUser)
 
 
 router.post('/admin/user', upsertUser)
+router.get('/user/:id', getUserDetails)
 router.post('/admin/activity', upsertActivity)
 
 router.use('/admin', onlyAdmin)
 
 router.post("/activity/reserve", reserveActivity)
 router.get("/activity/booked-activities/:userID", getBookedActivities);
-
 router.post("/activity/check-in", handleActivityCheckIn);
 router.delete('/activity/:id', deleteActivity);
+router.get('/activity/participants/:id', getActivityParticipants)
 
 
 
