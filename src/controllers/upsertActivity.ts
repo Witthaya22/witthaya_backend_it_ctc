@@ -118,24 +118,23 @@ const upsertActivity: RequestHandler = async (req, res) => {
     console.error("เกิดข้อผิดพลาด:", error);
 
     // ตรวจสอบ error ที่เกิดจาก Prisma
-   // ตรวจสอบ error ที่เกิดจาก Prisma
-   if (error.code === 'P2002') {
-     return res.status(400).json({
-       message: "มีข้อมูลซ้ำในระบบ"
-     });
-   }
+    if (error.code === 'P2002') {
+      return res.status(400).json({
+        message: "มีข้อมูลซ้ำในระบบ"
+      });
+    }
 
-   if (error instanceof Error) {
-     res.status(500).json({
-       message: "เกิดข้อผิดพลาดในการดำเนินการ",
-       error: process.env.NODE_ENV === 'development' ? error.message : undefined
-     });
-   } else {
-     res.status(500).json({
-       message: "เกิดข้อผิดพลาดในการดำเนินการ",
-       error: process.env.NODE_ENV === 'development' ? String(error) : undefined
-     });
-   }
+    if (error instanceof Error) {
+      res.status(500).json({
+        message: "เกิดข้อผิดพลาดในการดำเนินการ",
+        error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      });
+    } else {
+      res.status(500).json({
+        message: "เกิดข้อผิดพลาดในการดำเนินการ",
+        error: process.env.NODE_ENV === 'development' ? String(error) : undefined
+      });
+    }
   }
 };
 
