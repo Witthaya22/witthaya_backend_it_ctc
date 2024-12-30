@@ -20,9 +20,14 @@ import deleteUser from "./controllers/deleteUser"
 import deleteActivity from "./controllers/deleteActivity"
 import getUserDetails from "./controllers/getUserDetails"
 import getActivityParticipants from "./controllers/getActivityParticipants"
+import { getUsers, updateUser, deleteUserImage } from "./controllers/updateUser"
 
 
 const router = Router()
+
+router.get('/user/:id', getUsers)
+router.put('/user/:UserID', updateUser)
+router.delete('/user/:UserID/image', deleteUserImage)
 
 router.get('/departments', getDepartments)
 
@@ -53,6 +58,10 @@ router.get("/activity/booked-activities/:userID", getBookedActivities);
 router.post("/activity/check-in", handleActivityCheckIn);
 router.delete('/activity/:id', deleteActivity);
 router.get('/activity/participants/:id', getActivityParticipants)
+
+// router.get('/api/user/:id', getUsers)
+// router.put('/api/user/:UserID', updateUser)
+// router.delete('/api/user/:UserID/image', deleteUserImage)
 
 
 

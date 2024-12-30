@@ -23,9 +23,12 @@ let redisStore = new RedisStore({
 async function startServer() {
   await prisma.$connect()
 
+
   const app = express()
   // \||||||||||||||||||||||||||||||||||||||||
   app.use(express.json())
+  app.use('/api/uploads', express.static('public/uploads'))
+  app.use('/images', express.static('public/images'))
   app.use(session({
     store: redisStore,
     secret: process.env.SECRET_KEY || randomUUID(),
@@ -38,7 +41,7 @@ async function startServer() {
     },
   }))
   app.use(router)
-
+  app.use(express.static('public'))
   app.use(<ErrorRequestHandler>((err, req, res, next) => {
     res.status(err.statusCode || 500).send({
       message: err.message
