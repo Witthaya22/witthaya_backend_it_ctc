@@ -25,32 +25,16 @@ model User {
   Admin            Admin?
   ActivityResults  ActivityResults[]
   ActivityDetails  ActivityDetails[]
-  Oauth            Oauth[]
 
   @@map("user")
 }
 
-model Oauth {
-  ID           Int   @id @default(autoincrement())
-  UserID       String   @db.VarChar(64)
-  AccessToken  String   @db.VarChar(2048)
-  RefreshToken String   @db.VarChar(2048)
-  IsArchived   Boolean  @default(false)
-  CreatedAt    DateTime @default(now())
-  UpdatedAt    DateTime @updatedAt
-
-  // Relations
-  User         User     @relation(fields: [UserID], references: [UserID], onDelete: Cascade, onUpdate: Cascade)
-
-  @@map("oauth")
-}
-
 model Department {
-  DepartmentID String    @id  @map("department_id")
-  Name         String    @db.VarChar(64)
-  IsArchived   Boolean   @default(false)
-  CreatedAt    DateTime  @default(now())
-  UpdatedAt    DateTime  @updatedAt
+  DepartmentID     String    @id @map("department_id")
+  Name             String    @db.VarChar(64)
+  IsArchived       Boolean   @default(false)
+  CreatedAt        DateTime  @default(now())
+  UpdatedAt        DateTime  @updatedAt
 
   // Relations
   Users            User[]
@@ -74,19 +58,19 @@ model Admin {
 }
 
 model Activity {
-  ID               Int   @id @default(autoincrement())
+  ID               Int       @id @default(autoincrement())
   Title            String
-  Description      String   @db.Text
+  Description      String    @db.Text
   StartDate        DateTime
   EndDate          DateTime
-  Type             String   @db.VarChar(20)
+  Type             String    @db.VarChar(20)
   Images           Json
   Score            Int
-  Location         String?  @db.VarChar(256) // Optional field for event location
-  MaxParticipants  Int?                     // Optional field for maximum participants
-  IsArchived       Boolean   @default(false) // Indicates if the activity is archived
-  CreatedAt        DateTime @default(now())
-  UpdatedAt        DateTime @updatedAt
+  Location         String?   @db.VarChar(256)
+  MaxParticipants  Int?
+  IsArchived       Boolean   @default(false)
+  CreatedAt        DateTime  @default(now())
+  UpdatedAt        DateTime  @updatedAt
 
   // Relations
   ActivityResults  ActivityResults[]
@@ -95,17 +79,16 @@ model Activity {
   @@map("activity")
 }
 
-
 model ActivityResults {
-  ID           Int      @id @default(autoincrement())
+  ID           Int       @id @default(autoincrement())
   DepartmentID String
   UserID       String
   ActivityID   Int
   Reservation  Boolean
-  Status       String   @db.VarChar(20)
-  IsArchived   Boolean  @default(false)
-  CreatedAt    DateTime @default(now())
-  UpdatedAt    DateTime @updatedAt
+  Status       String    @db.VarChar(20)
+  IsArchived   Boolean   @default(false)
+  CreatedAt    DateTime  @default(now())
+  UpdatedAt    DateTime  @updatedAt
 
   // Relations
   Department   Department @relation(fields: [DepartmentID], references: [DepartmentID])
@@ -116,17 +99,20 @@ model ActivityResults {
 }
 
 model ActivityDetails {
-  ID           Int      @id @default(autoincrement())
+  ID           Int       @id @default(autoincrement())
   UserID       String
   ActivityID   Int
-  Details      String   @db.Text
-  IsArchived   Boolean  @default(false)
-  CreatedAt    DateTime @default(now())
-  UpdatedAt    DateTime @updatedAt
+  Details      String    @db.Text
+  IsApproved   Boolean   @default(false)
+  ReviewedBy   String?   @db.VarChar(64)
+  ReviewNote   String?   @db.Text
+  IsArchived   Boolean   @default(false)
+  CreatedAt    DateTime  @default(now())
+  UpdatedAt    DateTime  @updatedAt
 
   // Relations
-  User         User     @relation(fields: [UserID], references: [UserID])
-  Activity     Activity @relation(fields: [ActivityID], references: [ID])
+  User         User      @relation(fields: [UserID], references: [UserID])
+  Activity     Activity  @relation(fields: [ActivityID], references: [ID])
 
   @@map("activity_detail")
 }

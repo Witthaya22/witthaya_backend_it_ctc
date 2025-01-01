@@ -1,56 +1,70 @@
-// controller/getReserveActivity.ts
+// controllers/getReserveActivity.ts
 import { RequestHandler } from "express";
 import prisma from "../prisma";
 
 const getBookedActivities: RequestHandler = async (req, res) => {
   const { userID } = req.params;
 
-  if (!userID) {
-    return res.status(400).json({ message: "ไม่พบข้อมูลผู้ใช้" });
-  }
-
   try {
-    const bookedActivities = await prisma.activityResults.findMany({
+    // ดึงข้อมูล ActivityResults พร้อมกับ Activity
+    const activities = await prisma.activityResults.findMany({
       where: {
         UserID: userID,
-        IsArchived: false,
-        Reservation: true,
+        IsArchived: false
       },
       include: {
-        Activity: {
-          select: {
-            ID: true,
-            Title: true,
-            StartDate: true,
-            Location: true,
-            Score: true,
-            Images: true,
-          },
-        },
-      },
+        Activity: true
+      }
     });
 
-    if (!bookedActivities.length) {
-      return res.status(404).json({ message: "ไม่พบกิจกรรมที่จองไว้" });
-    }
+    // ดึงข้อมูล ActivityDetails สำหรับแต่ละกิจกรรม
+    const activitiesWithDetails = await Promise.all(
+      activities.map(async (result) => {
+        // ค้นหา ActivityDetails ที่มีอยู่
+        let details = await prisma.activityDetails.findFirst({
+          where: {
+            ActivityID: result.ActivityID,
+            UserID: userID,
+            IsArchived: false
+          }
+        });
 
-    const activities = bookedActivities.map(activityResult => ({
-      id: activityResult.Activity.ID,
-      name: activityResult.Activity.Title,
-      date: activityResult.Activity.StartDate.toLocaleDateString(),
-      location: activityResult.Activity.Location,
-      status: activityResult.Status === "RESERVED" ? "booking" : activityResult.Status.toLowerCase(),
-      score: activityResult.Activity.Score,
-      images: activityResult.Activity.Images,
-    }));
+        // ถ้าไม่มี details ให้สร้างใหม่
+        if (!details) {
+          details = await prisma.activityDetails.create({
+            data: {
+              ActivityID: result.ActivityID,
+              UserID: userID,
+              Details: '',
+              IsApproved: false, // เปลี่ยนจาก null เป็น false
+            }
+          });
+        }
 
-    return res.status(200).json(activities);
+        // จัดรูปแบบข้อมูล
+        return {
+          id: result.ActivityID,
+          name: result.Activity.Title,
+          date: new Date(result.Activity.StartDate).toLocaleDateString('th-TH'),
+          location: result.Activity.Location || 'ไม่ระบุสถานที่',
+          status: result.Status,
+          score: result.Activity.Score,
+          images: result.Activity.Images as string[],
+          details: {
+            id: details.ID,
+            details: details.Details,
+            isApproved: details.IsApproved === undefined ? false : details.IsApproved,
+            reviewNote: details.ReviewNote
+          }
+        };
+      })
+    );
 
+    res.json(activitiesWithDetails);
   } catch (error) {
-    console.error("Error fetching booked activities:", error);
-    res.status(500).json({ message: "เกิดข้อผิดพลาดในการดึงข้อมูลกิจกรรม" });
+    console.error('Error fetching booked activities:', error);
+    res.status(500).json({ message: 'เกิดข้อผิดพลาดในการดึงข้อมูลกิจกรรม' });
   }
 };
-
 
 export default getBookedActivities;

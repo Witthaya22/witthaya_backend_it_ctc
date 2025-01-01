@@ -19,11 +19,6 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model Oauth
- * 
- */
-export type Oauth = $Result.DefaultSelection<Prisma.$OauthPayload>
-/**
  * Model Department
  * 
  */
@@ -180,16 +175,6 @@ export class PrismaClient<
     * ```
     */
   get user(): Prisma.UserDelegate<ExtArgs>;
-
-  /**
-   * `prisma.oauth`: Exposes CRUD operations for the **Oauth** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Oauths
-    * const oauths = await prisma.oauth.findMany()
-    * ```
-    */
-  get oauth(): Prisma.OauthDelegate<ExtArgs>;
 
   /**
    * `prisma.department`: Exposes CRUD operations for the **Department** model.
@@ -718,7 +703,6 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    Oauth: 'Oauth',
     Department: 'Department',
     Admin: 'Admin',
     Activity: 'Activity',
@@ -740,7 +724,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'user' | 'oauth' | 'department' | 'admin' | 'activity' | 'activityResults' | 'activityDetails'
+      modelProps: 'user' | 'department' | 'admin' | 'activity' | 'activityResults' | 'activityDetails'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -811,76 +795,6 @@ export namespace Prisma {
           count: {
             args: Prisma.UserCountArgs<ExtArgs>,
             result: $Utils.Optional<UserCountAggregateOutputType> | number
-          }
-        }
-      }
-      Oauth: {
-        payload: Prisma.$OauthPayload<ExtArgs>
-        fields: Prisma.OauthFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.OauthFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OauthPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.OauthFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OauthPayload>
-          }
-          findFirst: {
-            args: Prisma.OauthFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OauthPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.OauthFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OauthPayload>
-          }
-          findMany: {
-            args: Prisma.OauthFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OauthPayload>[]
-          }
-          create: {
-            args: Prisma.OauthCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OauthPayload>
-          }
-          createMany: {
-            args: Prisma.OauthCreateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.OauthCreateManyAndReturnArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OauthPayload>[]
-          }
-          delete: {
-            args: Prisma.OauthDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OauthPayload>
-          }
-          update: {
-            args: Prisma.OauthUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OauthPayload>
-          }
-          deleteMany: {
-            args: Prisma.OauthDeleteManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          updateMany: {
-            args: Prisma.OauthUpdateManyArgs<ExtArgs>,
-            result: Prisma.BatchPayload
-          }
-          upsert: {
-            args: Prisma.OauthUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OauthPayload>
-          }
-          aggregate: {
-            args: Prisma.OauthAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateOauth>
-          }
-          groupBy: {
-            args: Prisma.OauthGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<OauthGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.OauthCountArgs<ExtArgs>,
-            result: $Utils.Optional<OauthCountAggregateOutputType> | number
           }
         }
       }
@@ -1396,13 +1310,11 @@ export namespace Prisma {
   export type UserCountOutputType = {
     ActivityResults: number
     ActivityDetails: number
-    Oauth: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ActivityResults?: boolean | UserCountOutputTypeCountActivityResultsArgs
     ActivityDetails?: boolean | UserCountOutputTypeCountActivityDetailsArgs
-    Oauth?: boolean | UserCountOutputTypeCountOauthArgs
   }
 
   // Custom InputTypes
@@ -1428,13 +1340,6 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountActivityDetailsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ActivityDetailsWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountOauthArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: OauthWhereInput
   }
 
 
@@ -1730,7 +1635,6 @@ export namespace Prisma {
     Admin?: boolean | User$AdminArgs<ExtArgs>
     ActivityResults?: boolean | User$ActivityResultsArgs<ExtArgs>
     ActivityDetails?: boolean | User$ActivityDetailsArgs<ExtArgs>
-    Oauth?: boolean | User$OauthArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1766,7 +1670,6 @@ export namespace Prisma {
     Admin?: boolean | User$AdminArgs<ExtArgs>
     ActivityResults?: boolean | User$ActivityResultsArgs<ExtArgs>
     ActivityDetails?: boolean | User$ActivityDetailsArgs<ExtArgs>
-    Oauth?: boolean | User$OauthArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1780,7 +1683,6 @@ export namespace Prisma {
       Admin: Prisma.$AdminPayload<ExtArgs> | null
       ActivityResults: Prisma.$ActivityResultsPayload<ExtArgs>[]
       ActivityDetails: Prisma.$ActivityDetailsPayload<ExtArgs>[]
-      Oauth: Prisma.$OauthPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       UserID: string
@@ -2190,8 +2092,6 @@ export namespace Prisma {
     ActivityResults<T extends User$ActivityResultsArgs<ExtArgs> = {}>(args?: Subset<T, User$ActivityResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityResultsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     ActivityDetails<T extends User$ActivityDetailsArgs<ExtArgs> = {}>(args?: Subset<T, User$ActivityDetailsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityDetailsPayload<ExtArgs>, T, 'findMany'> | Null>;
-
-    Oauth<T extends User$OauthArgs<ExtArgs> = {}>(args?: Subset<T, User$OauthArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OauthPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2604,26 +2504,6 @@ export namespace Prisma {
   }
 
   /**
-   * User.Oauth
-   */
-  export type User$OauthArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Oauth
-     */
-    select?: OauthSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OauthInclude<ExtArgs> | null
-    where?: OauthWhereInput
-    orderBy?: OauthOrderByWithRelationInput | OauthOrderByWithRelationInput[]
-    cursor?: OauthWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: OauthScalarFieldEnum | OauthScalarFieldEnum[]
-  }
-
-  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2635,1023 +2515,6 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model Oauth
-   */
-
-  export type AggregateOauth = {
-    _count: OauthCountAggregateOutputType | null
-    _avg: OauthAvgAggregateOutputType | null
-    _sum: OauthSumAggregateOutputType | null
-    _min: OauthMinAggregateOutputType | null
-    _max: OauthMaxAggregateOutputType | null
-  }
-
-  export type OauthAvgAggregateOutputType = {
-    ID: number | null
-  }
-
-  export type OauthSumAggregateOutputType = {
-    ID: number | null
-  }
-
-  export type OauthMinAggregateOutputType = {
-    ID: number | null
-    UserID: string | null
-    AccessToken: string | null
-    RefreshToken: string | null
-    IsArchived: boolean | null
-    CreatedAt: Date | null
-    UpdatedAt: Date | null
-  }
-
-  export type OauthMaxAggregateOutputType = {
-    ID: number | null
-    UserID: string | null
-    AccessToken: string | null
-    RefreshToken: string | null
-    IsArchived: boolean | null
-    CreatedAt: Date | null
-    UpdatedAt: Date | null
-  }
-
-  export type OauthCountAggregateOutputType = {
-    ID: number
-    UserID: number
-    AccessToken: number
-    RefreshToken: number
-    IsArchived: number
-    CreatedAt: number
-    UpdatedAt: number
-    _all: number
-  }
-
-
-  export type OauthAvgAggregateInputType = {
-    ID?: true
-  }
-
-  export type OauthSumAggregateInputType = {
-    ID?: true
-  }
-
-  export type OauthMinAggregateInputType = {
-    ID?: true
-    UserID?: true
-    AccessToken?: true
-    RefreshToken?: true
-    IsArchived?: true
-    CreatedAt?: true
-    UpdatedAt?: true
-  }
-
-  export type OauthMaxAggregateInputType = {
-    ID?: true
-    UserID?: true
-    AccessToken?: true
-    RefreshToken?: true
-    IsArchived?: true
-    CreatedAt?: true
-    UpdatedAt?: true
-  }
-
-  export type OauthCountAggregateInputType = {
-    ID?: true
-    UserID?: true
-    AccessToken?: true
-    RefreshToken?: true
-    IsArchived?: true
-    CreatedAt?: true
-    UpdatedAt?: true
-    _all?: true
-  }
-
-  export type OauthAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Oauth to aggregate.
-     */
-    where?: OauthWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Oauths to fetch.
-     */
-    orderBy?: OauthOrderByWithRelationInput | OauthOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: OauthWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Oauths from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Oauths.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Oauths
-    **/
-    _count?: true | OauthCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: OauthAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: OauthSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: OauthMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: OauthMaxAggregateInputType
-  }
-
-  export type GetOauthAggregateType<T extends OauthAggregateArgs> = {
-        [P in keyof T & keyof AggregateOauth]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateOauth[P]>
-      : GetScalarType<T[P], AggregateOauth[P]>
-  }
-
-
-
-
-  export type OauthGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: OauthWhereInput
-    orderBy?: OauthOrderByWithAggregationInput | OauthOrderByWithAggregationInput[]
-    by: OauthScalarFieldEnum[] | OauthScalarFieldEnum
-    having?: OauthScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: OauthCountAggregateInputType | true
-    _avg?: OauthAvgAggregateInputType
-    _sum?: OauthSumAggregateInputType
-    _min?: OauthMinAggregateInputType
-    _max?: OauthMaxAggregateInputType
-  }
-
-  export type OauthGroupByOutputType = {
-    ID: number
-    UserID: string
-    AccessToken: string
-    RefreshToken: string
-    IsArchived: boolean
-    CreatedAt: Date
-    UpdatedAt: Date
-    _count: OauthCountAggregateOutputType | null
-    _avg: OauthAvgAggregateOutputType | null
-    _sum: OauthSumAggregateOutputType | null
-    _min: OauthMinAggregateOutputType | null
-    _max: OauthMaxAggregateOutputType | null
-  }
-
-  type GetOauthGroupByPayload<T extends OauthGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<OauthGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof OauthGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], OauthGroupByOutputType[P]>
-            : GetScalarType<T[P], OauthGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type OauthSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    ID?: boolean
-    UserID?: boolean
-    AccessToken?: boolean
-    RefreshToken?: boolean
-    IsArchived?: boolean
-    CreatedAt?: boolean
-    UpdatedAt?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["oauth"]>
-
-  export type OauthSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    ID?: boolean
-    UserID?: boolean
-    AccessToken?: boolean
-    RefreshToken?: boolean
-    IsArchived?: boolean
-    CreatedAt?: boolean
-    UpdatedAt?: boolean
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["oauth"]>
-
-  export type OauthSelectScalar = {
-    ID?: boolean
-    UserID?: boolean
-    AccessToken?: boolean
-    RefreshToken?: boolean
-    IsArchived?: boolean
-    CreatedAt?: boolean
-    UpdatedAt?: boolean
-  }
-
-  export type OauthInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type OauthIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | UserDefaultArgs<ExtArgs>
-  }
-
-  export type $OauthPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Oauth"
-    objects: {
-      User: Prisma.$UserPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      ID: number
-      UserID: string
-      AccessToken: string
-      RefreshToken: string
-      IsArchived: boolean
-      CreatedAt: Date
-      UpdatedAt: Date
-    }, ExtArgs["result"]["oauth"]>
-    composites: {}
-  }
-
-  type OauthGetPayload<S extends boolean | null | undefined | OauthDefaultArgs> = $Result.GetResult<Prisma.$OauthPayload, S>
-
-  type OauthCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<OauthFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: OauthCountAggregateInputType | true
-    }
-
-  export interface OauthDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Oauth'], meta: { name: 'Oauth' } }
-    /**
-     * Find zero or one Oauth that matches the filter.
-     * @param {OauthFindUniqueArgs} args - Arguments to find a Oauth
-     * @example
-     * // Get one Oauth
-     * const oauth = await prisma.oauth.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUnique<T extends OauthFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, OauthFindUniqueArgs<ExtArgs>>
-    ): Prisma__OauthClient<$Result.GetResult<Prisma.$OauthPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
-
-    /**
-     * Find one Oauth that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
-     * @param {OauthFindUniqueOrThrowArgs} args - Arguments to find a Oauth
-     * @example
-     * // Get one Oauth
-     * const oauth = await prisma.oauth.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findUniqueOrThrow<T extends OauthFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, OauthFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__OauthClient<$Result.GetResult<Prisma.$OauthPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find the first Oauth that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OauthFindFirstArgs} args - Arguments to find a Oauth
-     * @example
-     * // Get one Oauth
-     * const oauth = await prisma.oauth.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirst<T extends OauthFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, OauthFindFirstArgs<ExtArgs>>
-    ): Prisma__OauthClient<$Result.GetResult<Prisma.$OauthPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
-
-    /**
-     * Find the first Oauth that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OauthFindFirstOrThrowArgs} args - Arguments to find a Oauth
-     * @example
-     * // Get one Oauth
-     * const oauth = await prisma.oauth.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-    **/
-    findFirstOrThrow<T extends OauthFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, OauthFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__OauthClient<$Result.GetResult<Prisma.$OauthPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
-
-    /**
-     * Find zero or more Oauths that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OauthFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Oauths
-     * const oauths = await prisma.oauth.findMany()
-     * 
-     * // Get first 10 Oauths
-     * const oauths = await prisma.oauth.findMany({ take: 10 })
-     * 
-     * // Only select the `ID`
-     * const oauthWithIDOnly = await prisma.oauth.findMany({ select: { ID: true } })
-     * 
-    **/
-    findMany<T extends OauthFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, OauthFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OauthPayload<ExtArgs>, T, 'findMany'>>
-
-    /**
-     * Create a Oauth.
-     * @param {OauthCreateArgs} args - Arguments to create a Oauth.
-     * @example
-     * // Create one Oauth
-     * const Oauth = await prisma.oauth.create({
-     *   data: {
-     *     // ... data to create a Oauth
-     *   }
-     * })
-     * 
-    **/
-    create<T extends OauthCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, OauthCreateArgs<ExtArgs>>
-    ): Prisma__OauthClient<$Result.GetResult<Prisma.$OauthPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
-
-    /**
-     * Create many Oauths.
-     * @param {OauthCreateManyArgs} args - Arguments to create many Oauths.
-     * @example
-     * // Create many Oauths
-     * const oauth = await prisma.oauth.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-    **/
-    createMany<T extends OauthCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, OauthCreateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Oauths and returns the data saved in the database.
-     * @param {OauthCreateManyAndReturnArgs} args - Arguments to create many Oauths.
-     * @example
-     * // Create many Oauths
-     * const oauth = await prisma.oauth.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Oauths and only return the `ID`
-     * const oauthWithIDOnly = await prisma.oauth.createManyAndReturn({ 
-     *   select: { ID: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-    **/
-    createManyAndReturn<T extends OauthCreateManyAndReturnArgs<ExtArgs>>(
-      args?: SelectSubset<T, OauthCreateManyAndReturnArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OauthPayload<ExtArgs>, T, 'createManyAndReturn'>>
-
-    /**
-     * Delete a Oauth.
-     * @param {OauthDeleteArgs} args - Arguments to delete one Oauth.
-     * @example
-     * // Delete one Oauth
-     * const Oauth = await prisma.oauth.delete({
-     *   where: {
-     *     // ... filter to delete one Oauth
-     *   }
-     * })
-     * 
-    **/
-    delete<T extends OauthDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, OauthDeleteArgs<ExtArgs>>
-    ): Prisma__OauthClient<$Result.GetResult<Prisma.$OauthPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
-
-    /**
-     * Update one Oauth.
-     * @param {OauthUpdateArgs} args - Arguments to update one Oauth.
-     * @example
-     * // Update one Oauth
-     * const oauth = await prisma.oauth.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    update<T extends OauthUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, OauthUpdateArgs<ExtArgs>>
-    ): Prisma__OauthClient<$Result.GetResult<Prisma.$OauthPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
-
-    /**
-     * Delete zero or more Oauths.
-     * @param {OauthDeleteManyArgs} args - Arguments to filter Oauths to delete.
-     * @example
-     * // Delete a few Oauths
-     * const { count } = await prisma.oauth.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-    **/
-    deleteMany<T extends OauthDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, OauthDeleteManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Oauths.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OauthUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Oauths
-     * const oauth = await prisma.oauth.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-    **/
-    updateMany<T extends OauthUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, OauthUpdateManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Oauth.
-     * @param {OauthUpsertArgs} args - Arguments to update or create a Oauth.
-     * @example
-     * // Update or create a Oauth
-     * const oauth = await prisma.oauth.upsert({
-     *   create: {
-     *     // ... data to create a Oauth
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Oauth we want to update
-     *   }
-     * })
-    **/
-    upsert<T extends OauthUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, OauthUpsertArgs<ExtArgs>>
-    ): Prisma__OauthClient<$Result.GetResult<Prisma.$OauthPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
-
-    /**
-     * Count the number of Oauths.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OauthCountArgs} args - Arguments to filter Oauths to count.
-     * @example
-     * // Count the number of Oauths
-     * const count = await prisma.oauth.count({
-     *   where: {
-     *     // ... the filter for the Oauths we want to count
-     *   }
-     * })
-    **/
-    count<T extends OauthCountArgs>(
-      args?: Subset<T, OauthCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], OauthCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Oauth.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OauthAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends OauthAggregateArgs>(args: Subset<T, OauthAggregateArgs>): Prisma.PrismaPromise<GetOauthAggregateType<T>>
-
-    /**
-     * Group by Oauth.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {OauthGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends OauthGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: OauthGroupByArgs['orderBy'] }
-        : { orderBy?: OauthGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, OauthGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOauthGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Oauth model
-   */
-  readonly fields: OauthFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Oauth.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__OauthClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: 'PrismaPromise';
-
-    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
-
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
-  }
-
-
-
-  /**
-   * Fields of the Oauth model
-   */ 
-  interface OauthFieldRefs {
-    readonly ID: FieldRef<"Oauth", 'Int'>
-    readonly UserID: FieldRef<"Oauth", 'String'>
-    readonly AccessToken: FieldRef<"Oauth", 'String'>
-    readonly RefreshToken: FieldRef<"Oauth", 'String'>
-    readonly IsArchived: FieldRef<"Oauth", 'Boolean'>
-    readonly CreatedAt: FieldRef<"Oauth", 'DateTime'>
-    readonly UpdatedAt: FieldRef<"Oauth", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Oauth findUnique
-   */
-  export type OauthFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Oauth
-     */
-    select?: OauthSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OauthInclude<ExtArgs> | null
-    /**
-     * Filter, which Oauth to fetch.
-     */
-    where: OauthWhereUniqueInput
-  }
-
-  /**
-   * Oauth findUniqueOrThrow
-   */
-  export type OauthFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Oauth
-     */
-    select?: OauthSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OauthInclude<ExtArgs> | null
-    /**
-     * Filter, which Oauth to fetch.
-     */
-    where: OauthWhereUniqueInput
-  }
-
-  /**
-   * Oauth findFirst
-   */
-  export type OauthFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Oauth
-     */
-    select?: OauthSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OauthInclude<ExtArgs> | null
-    /**
-     * Filter, which Oauth to fetch.
-     */
-    where?: OauthWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Oauths to fetch.
-     */
-    orderBy?: OauthOrderByWithRelationInput | OauthOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Oauths.
-     */
-    cursor?: OauthWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Oauths from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Oauths.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Oauths.
-     */
-    distinct?: OauthScalarFieldEnum | OauthScalarFieldEnum[]
-  }
-
-  /**
-   * Oauth findFirstOrThrow
-   */
-  export type OauthFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Oauth
-     */
-    select?: OauthSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OauthInclude<ExtArgs> | null
-    /**
-     * Filter, which Oauth to fetch.
-     */
-    where?: OauthWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Oauths to fetch.
-     */
-    orderBy?: OauthOrderByWithRelationInput | OauthOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Oauths.
-     */
-    cursor?: OauthWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Oauths from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Oauths.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Oauths.
-     */
-    distinct?: OauthScalarFieldEnum | OauthScalarFieldEnum[]
-  }
-
-  /**
-   * Oauth findMany
-   */
-  export type OauthFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Oauth
-     */
-    select?: OauthSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OauthInclude<ExtArgs> | null
-    /**
-     * Filter, which Oauths to fetch.
-     */
-    where?: OauthWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Oauths to fetch.
-     */
-    orderBy?: OauthOrderByWithRelationInput | OauthOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Oauths.
-     */
-    cursor?: OauthWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Oauths from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Oauths.
-     */
-    skip?: number
-    distinct?: OauthScalarFieldEnum | OauthScalarFieldEnum[]
-  }
-
-  /**
-   * Oauth create
-   */
-  export type OauthCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Oauth
-     */
-    select?: OauthSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OauthInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Oauth.
-     */
-    data: XOR<OauthCreateInput, OauthUncheckedCreateInput>
-  }
-
-  /**
-   * Oauth createMany
-   */
-  export type OauthCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Oauths.
-     */
-    data: OauthCreateManyInput | OauthCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Oauth createManyAndReturn
-   */
-  export type OauthCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Oauth
-     */
-    select?: OauthSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Oauths.
-     */
-    data: OauthCreateManyInput | OauthCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OauthIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Oauth update
-   */
-  export type OauthUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Oauth
-     */
-    select?: OauthSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OauthInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Oauth.
-     */
-    data: XOR<OauthUpdateInput, OauthUncheckedUpdateInput>
-    /**
-     * Choose, which Oauth to update.
-     */
-    where: OauthWhereUniqueInput
-  }
-
-  /**
-   * Oauth updateMany
-   */
-  export type OauthUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Oauths.
-     */
-    data: XOR<OauthUpdateManyMutationInput, OauthUncheckedUpdateManyInput>
-    /**
-     * Filter which Oauths to update
-     */
-    where?: OauthWhereInput
-  }
-
-  /**
-   * Oauth upsert
-   */
-  export type OauthUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Oauth
-     */
-    select?: OauthSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OauthInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Oauth to update in case it exists.
-     */
-    where: OauthWhereUniqueInput
-    /**
-     * In case the Oauth found by the `where` argument doesn't exist, create a new Oauth with this data.
-     */
-    create: XOR<OauthCreateInput, OauthUncheckedCreateInput>
-    /**
-     * In case the Oauth was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<OauthUpdateInput, OauthUncheckedUpdateInput>
-  }
-
-  /**
-   * Oauth delete
-   */
-  export type OauthDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Oauth
-     */
-    select?: OauthSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OauthInclude<ExtArgs> | null
-    /**
-     * Filter which Oauth to delete.
-     */
-    where: OauthWhereUniqueInput
-  }
-
-  /**
-   * Oauth deleteMany
-   */
-  export type OauthDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Oauths to delete
-     */
-    where?: OauthWhereInput
-  }
-
-  /**
-   * Oauth without action
-   */
-  export type OauthDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Oauth
-     */
-    select?: OauthSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: OauthInclude<ExtArgs> | null
   }
 
 
@@ -7844,6 +6707,9 @@ export namespace Prisma {
     UserID: string | null
     ActivityID: number | null
     Details: string | null
+    IsApproved: boolean | null
+    ReviewedBy: string | null
+    ReviewNote: string | null
     IsArchived: boolean | null
     CreatedAt: Date | null
     UpdatedAt: Date | null
@@ -7854,6 +6720,9 @@ export namespace Prisma {
     UserID: string | null
     ActivityID: number | null
     Details: string | null
+    IsApproved: boolean | null
+    ReviewedBy: string | null
+    ReviewNote: string | null
     IsArchived: boolean | null
     CreatedAt: Date | null
     UpdatedAt: Date | null
@@ -7864,6 +6733,9 @@ export namespace Prisma {
     UserID: number
     ActivityID: number
     Details: number
+    IsApproved: number
+    ReviewedBy: number
+    ReviewNote: number
     IsArchived: number
     CreatedAt: number
     UpdatedAt: number
@@ -7886,6 +6758,9 @@ export namespace Prisma {
     UserID?: true
     ActivityID?: true
     Details?: true
+    IsApproved?: true
+    ReviewedBy?: true
+    ReviewNote?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -7896,6 +6771,9 @@ export namespace Prisma {
     UserID?: true
     ActivityID?: true
     Details?: true
+    IsApproved?: true
+    ReviewedBy?: true
+    ReviewNote?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -7906,6 +6784,9 @@ export namespace Prisma {
     UserID?: true
     ActivityID?: true
     Details?: true
+    IsApproved?: true
+    ReviewedBy?: true
+    ReviewNote?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -8003,6 +6884,9 @@ export namespace Prisma {
     UserID: string
     ActivityID: number
     Details: string
+    IsApproved: boolean
+    ReviewedBy: string | null
+    ReviewNote: string | null
     IsArchived: boolean
     CreatedAt: Date
     UpdatedAt: Date
@@ -8032,6 +6916,9 @@ export namespace Prisma {
     UserID?: boolean
     ActivityID?: boolean
     Details?: boolean
+    IsApproved?: boolean
+    ReviewedBy?: boolean
+    ReviewNote?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
@@ -8044,6 +6931,9 @@ export namespace Prisma {
     UserID?: boolean
     ActivityID?: boolean
     Details?: boolean
+    IsApproved?: boolean
+    ReviewedBy?: boolean
+    ReviewNote?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
@@ -8056,6 +6946,9 @@ export namespace Prisma {
     UserID?: boolean
     ActivityID?: boolean
     Details?: boolean
+    IsApproved?: boolean
+    ReviewedBy?: boolean
+    ReviewNote?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
@@ -8081,6 +6974,9 @@ export namespace Prisma {
       UserID: string
       ActivityID: number
       Details: string
+      IsApproved: boolean
+      ReviewedBy: string | null
+      ReviewNote: string | null
       IsArchived: boolean
       CreatedAt: Date
       UpdatedAt: Date
@@ -8510,6 +7406,9 @@ export namespace Prisma {
     readonly UserID: FieldRef<"ActivityDetails", 'String'>
     readonly ActivityID: FieldRef<"ActivityDetails", 'Int'>
     readonly Details: FieldRef<"ActivityDetails", 'String'>
+    readonly IsApproved: FieldRef<"ActivityDetails", 'Boolean'>
+    readonly ReviewedBy: FieldRef<"ActivityDetails", 'String'>
+    readonly ReviewNote: FieldRef<"ActivityDetails", 'String'>
     readonly IsArchived: FieldRef<"ActivityDetails", 'Boolean'>
     readonly CreatedAt: FieldRef<"ActivityDetails", 'DateTime'>
     readonly UpdatedAt: FieldRef<"ActivityDetails", 'DateTime'>
@@ -8875,19 +7774,6 @@ export namespace Prisma {
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const OauthScalarFieldEnum: {
-    ID: 'ID',
-    UserID: 'UserID',
-    AccessToken: 'AccessToken',
-    RefreshToken: 'RefreshToken',
-    IsArchived: 'IsArchived',
-    CreatedAt: 'CreatedAt',
-    UpdatedAt: 'UpdatedAt'
-  };
-
-  export type OauthScalarFieldEnum = (typeof OauthScalarFieldEnum)[keyof typeof OauthScalarFieldEnum]
-
-
   export const DepartmentScalarFieldEnum: {
     DepartmentID: 'DepartmentID',
     Name: 'Name',
@@ -8950,6 +7836,9 @@ export namespace Prisma {
     UserID: 'UserID',
     ActivityID: 'ActivityID',
     Details: 'Details',
+    IsApproved: 'IsApproved',
+    ReviewedBy: 'ReviewedBy',
+    ReviewNote: 'ReviewNote',
     IsArchived: 'IsArchived',
     CreatedAt: 'CreatedAt',
     UpdatedAt: 'UpdatedAt'
@@ -9094,7 +7983,6 @@ export namespace Prisma {
     Admin?: XOR<AdminNullableRelationFilter, AdminWhereInput> | null
     ActivityResults?: ActivityResultsListRelationFilter
     ActivityDetails?: ActivityDetailsListRelationFilter
-    Oauth?: OauthListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -9112,7 +8000,6 @@ export namespace Prisma {
     Admin?: AdminOrderByWithRelationInput
     ActivityResults?: ActivityResultsOrderByRelationAggregateInput
     ActivityDetails?: ActivityDetailsOrderByRelationAggregateInput
-    Oauth?: OauthOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -9133,7 +8020,6 @@ export namespace Prisma {
     Admin?: XOR<AdminNullableRelationFilter, AdminWhereInput> | null
     ActivityResults?: ActivityResultsListRelationFilter
     ActivityDetails?: ActivityDetailsListRelationFilter
-    Oauth?: OauthListRelationFilter
   }, "UserID" | "UserID">
 
   export type UserOrderByWithAggregationInput = {
@@ -9166,73 +8052,6 @@ export namespace Prisma {
     IsArchived?: BoolWithAggregatesFilter<"User"> | boolean
     CreatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     UpdatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-  }
-
-  export type OauthWhereInput = {
-    AND?: OauthWhereInput | OauthWhereInput[]
-    OR?: OauthWhereInput[]
-    NOT?: OauthWhereInput | OauthWhereInput[]
-    ID?: IntFilter<"Oauth"> | number
-    UserID?: StringFilter<"Oauth"> | string
-    AccessToken?: StringFilter<"Oauth"> | string
-    RefreshToken?: StringFilter<"Oauth"> | string
-    IsArchived?: BoolFilter<"Oauth"> | boolean
-    CreatedAt?: DateTimeFilter<"Oauth"> | Date | string
-    UpdatedAt?: DateTimeFilter<"Oauth"> | Date | string
-    User?: XOR<UserRelationFilter, UserWhereInput>
-  }
-
-  export type OauthOrderByWithRelationInput = {
-    ID?: SortOrder
-    UserID?: SortOrder
-    AccessToken?: SortOrder
-    RefreshToken?: SortOrder
-    IsArchived?: SortOrder
-    CreatedAt?: SortOrder
-    UpdatedAt?: SortOrder
-    User?: UserOrderByWithRelationInput
-  }
-
-  export type OauthWhereUniqueInput = Prisma.AtLeast<{
-    ID?: number
-    AND?: OauthWhereInput | OauthWhereInput[]
-    OR?: OauthWhereInput[]
-    NOT?: OauthWhereInput | OauthWhereInput[]
-    UserID?: StringFilter<"Oauth"> | string
-    AccessToken?: StringFilter<"Oauth"> | string
-    RefreshToken?: StringFilter<"Oauth"> | string
-    IsArchived?: BoolFilter<"Oauth"> | boolean
-    CreatedAt?: DateTimeFilter<"Oauth"> | Date | string
-    UpdatedAt?: DateTimeFilter<"Oauth"> | Date | string
-    User?: XOR<UserRelationFilter, UserWhereInput>
-  }, "ID">
-
-  export type OauthOrderByWithAggregationInput = {
-    ID?: SortOrder
-    UserID?: SortOrder
-    AccessToken?: SortOrder
-    RefreshToken?: SortOrder
-    IsArchived?: SortOrder
-    CreatedAt?: SortOrder
-    UpdatedAt?: SortOrder
-    _count?: OauthCountOrderByAggregateInput
-    _avg?: OauthAvgOrderByAggregateInput
-    _max?: OauthMaxOrderByAggregateInput
-    _min?: OauthMinOrderByAggregateInput
-    _sum?: OauthSumOrderByAggregateInput
-  }
-
-  export type OauthScalarWhereWithAggregatesInput = {
-    AND?: OauthScalarWhereWithAggregatesInput | OauthScalarWhereWithAggregatesInput[]
-    OR?: OauthScalarWhereWithAggregatesInput[]
-    NOT?: OauthScalarWhereWithAggregatesInput | OauthScalarWhereWithAggregatesInput[]
-    ID?: IntWithAggregatesFilter<"Oauth"> | number
-    UserID?: StringWithAggregatesFilter<"Oauth"> | string
-    AccessToken?: StringWithAggregatesFilter<"Oauth"> | string
-    RefreshToken?: StringWithAggregatesFilter<"Oauth"> | string
-    IsArchived?: BoolWithAggregatesFilter<"Oauth"> | boolean
-    CreatedAt?: DateTimeWithAggregatesFilter<"Oauth"> | Date | string
-    UpdatedAt?: DateTimeWithAggregatesFilter<"Oauth"> | Date | string
   }
 
   export type DepartmentWhereInput = {
@@ -9544,6 +8363,9 @@ export namespace Prisma {
     UserID?: StringFilter<"ActivityDetails"> | string
     ActivityID?: IntFilter<"ActivityDetails"> | number
     Details?: StringFilter<"ActivityDetails"> | string
+    IsApproved?: BoolFilter<"ActivityDetails"> | boolean
+    ReviewedBy?: StringNullableFilter<"ActivityDetails"> | string | null
+    ReviewNote?: StringNullableFilter<"ActivityDetails"> | string | null
     IsArchived?: BoolFilter<"ActivityDetails"> | boolean
     CreatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
     UpdatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
@@ -9556,6 +8378,9 @@ export namespace Prisma {
     UserID?: SortOrder
     ActivityID?: SortOrder
     Details?: SortOrder
+    IsApproved?: SortOrder
+    ReviewedBy?: SortOrderInput | SortOrder
+    ReviewNote?: SortOrderInput | SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -9571,6 +8396,9 @@ export namespace Prisma {
     UserID?: StringFilter<"ActivityDetails"> | string
     ActivityID?: IntFilter<"ActivityDetails"> | number
     Details?: StringFilter<"ActivityDetails"> | string
+    IsApproved?: BoolFilter<"ActivityDetails"> | boolean
+    ReviewedBy?: StringNullableFilter<"ActivityDetails"> | string | null
+    ReviewNote?: StringNullableFilter<"ActivityDetails"> | string | null
     IsArchived?: BoolFilter<"ActivityDetails"> | boolean
     CreatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
     UpdatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
@@ -9583,6 +8411,9 @@ export namespace Prisma {
     UserID?: SortOrder
     ActivityID?: SortOrder
     Details?: SortOrder
+    IsApproved?: SortOrder
+    ReviewedBy?: SortOrderInput | SortOrder
+    ReviewNote?: SortOrderInput | SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -9601,6 +8432,9 @@ export namespace Prisma {
     UserID?: StringWithAggregatesFilter<"ActivityDetails"> | string
     ActivityID?: IntWithAggregatesFilter<"ActivityDetails"> | number
     Details?: StringWithAggregatesFilter<"ActivityDetails"> | string
+    IsApproved?: BoolWithAggregatesFilter<"ActivityDetails"> | boolean
+    ReviewedBy?: StringNullableWithAggregatesFilter<"ActivityDetails"> | string | null
+    ReviewNote?: StringNullableWithAggregatesFilter<"ActivityDetails"> | string | null
     IsArchived?: BoolWithAggregatesFilter<"ActivityDetails"> | boolean
     CreatedAt?: DateTimeWithAggregatesFilter<"ActivityDetails"> | Date | string
     UpdatedAt?: DateTimeWithAggregatesFilter<"ActivityDetails"> | Date | string
@@ -9620,7 +8454,6 @@ export namespace Prisma {
     Admin?: AdminCreateNestedOneWithoutUserInput
     ActivityResults?: ActivityResultsCreateNestedManyWithoutUserInput
     ActivityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
-    Oauth?: OauthCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -9637,7 +8470,6 @@ export namespace Prisma {
     Admin?: AdminUncheckedCreateNestedOneWithoutUserInput
     ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
     ActivityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
-    Oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -9654,7 +8486,6 @@ export namespace Prisma {
     Admin?: AdminUpdateOneWithoutUserNestedInput
     ActivityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
     ActivityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
-    Oauth?: OauthUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -9671,7 +8502,6 @@ export namespace Prisma {
     Admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
     ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
     ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
-    Oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -9707,72 +8537,6 @@ export namespace Prisma {
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     DepartmentID?: StringFieldUpdateOperationsInput | string
     Role?: StringFieldUpdateOperationsInput | string
-    IsArchived?: BoolFieldUpdateOperationsInput | boolean
-    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type OauthCreateInput = {
-    AccessToken: string
-    RefreshToken: string
-    IsArchived?: boolean
-    CreatedAt?: Date | string
-    UpdatedAt?: Date | string
-    User: UserCreateNestedOneWithoutOauthInput
-  }
-
-  export type OauthUncheckedCreateInput = {
-    ID?: number
-    UserID: string
-    AccessToken: string
-    RefreshToken: string
-    IsArchived?: boolean
-    CreatedAt?: Date | string
-    UpdatedAt?: Date | string
-  }
-
-  export type OauthUpdateInput = {
-    AccessToken?: StringFieldUpdateOperationsInput | string
-    RefreshToken?: StringFieldUpdateOperationsInput | string
-    IsArchived?: BoolFieldUpdateOperationsInput | boolean
-    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    User?: UserUpdateOneRequiredWithoutOauthNestedInput
-  }
-
-  export type OauthUncheckedUpdateInput = {
-    ID?: IntFieldUpdateOperationsInput | number
-    UserID?: StringFieldUpdateOperationsInput | string
-    AccessToken?: StringFieldUpdateOperationsInput | string
-    RefreshToken?: StringFieldUpdateOperationsInput | string
-    IsArchived?: BoolFieldUpdateOperationsInput | boolean
-    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type OauthCreateManyInput = {
-    ID?: number
-    UserID: string
-    AccessToken: string
-    RefreshToken: string
-    IsArchived?: boolean
-    CreatedAt?: Date | string
-    UpdatedAt?: Date | string
-  }
-
-  export type OauthUpdateManyMutationInput = {
-    AccessToken?: StringFieldUpdateOperationsInput | string
-    RefreshToken?: StringFieldUpdateOperationsInput | string
-    IsArchived?: BoolFieldUpdateOperationsInput | boolean
-    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type OauthUncheckedUpdateManyInput = {
-    ID?: IntFieldUpdateOperationsInput | number
-    UserID?: StringFieldUpdateOperationsInput | string
-    AccessToken?: StringFieldUpdateOperationsInput | string
-    RefreshToken?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10101,6 +8865,9 @@ export namespace Prisma {
 
   export type ActivityDetailsCreateInput = {
     Details: string
+    IsApproved?: boolean
+    ReviewedBy?: string | null
+    ReviewNote?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -10113,6 +8880,9 @@ export namespace Prisma {
     UserID: string
     ActivityID: number
     Details: string
+    IsApproved?: boolean
+    ReviewedBy?: string | null
+    ReviewNote?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -10120,6 +8890,9 @@ export namespace Prisma {
 
   export type ActivityDetailsUpdateInput = {
     Details?: StringFieldUpdateOperationsInput | string
+    IsApproved?: BoolFieldUpdateOperationsInput | boolean
+    ReviewedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    ReviewNote?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10132,6 +8905,9 @@ export namespace Prisma {
     UserID?: StringFieldUpdateOperationsInput | string
     ActivityID?: IntFieldUpdateOperationsInput | number
     Details?: StringFieldUpdateOperationsInput | string
+    IsApproved?: BoolFieldUpdateOperationsInput | boolean
+    ReviewedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    ReviewNote?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10142,6 +8918,9 @@ export namespace Prisma {
     UserID: string
     ActivityID: number
     Details: string
+    IsApproved?: boolean
+    ReviewedBy?: string | null
+    ReviewNote?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -10149,6 +8928,9 @@ export namespace Prisma {
 
   export type ActivityDetailsUpdateManyMutationInput = {
     Details?: StringFieldUpdateOperationsInput | string
+    IsApproved?: BoolFieldUpdateOperationsInput | boolean
+    ReviewedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    ReviewNote?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10159,6 +8941,9 @@ export namespace Prisma {
     UserID?: StringFieldUpdateOperationsInput | string
     ActivityID?: IntFieldUpdateOperationsInput | number
     Details?: StringFieldUpdateOperationsInput | string
+    IsApproved?: BoolFieldUpdateOperationsInput | boolean
+    ReviewedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    ReviewNote?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10232,12 +9017,6 @@ export namespace Prisma {
     none?: ActivityDetailsWhereInput
   }
 
-  export type OauthListRelationFilter = {
-    every?: OauthWhereInput
-    some?: OauthWhereInput
-    none?: OauthWhereInput
-  }
-
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -10248,10 +9027,6 @@ export namespace Prisma {
   }
 
   export type ActivityDetailsOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type OauthOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -10352,76 +9127,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type UserRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
-  }
-
-  export type OauthCountOrderByAggregateInput = {
-    ID?: SortOrder
-    UserID?: SortOrder
-    AccessToken?: SortOrder
-    RefreshToken?: SortOrder
-    IsArchived?: SortOrder
-    CreatedAt?: SortOrder
-    UpdatedAt?: SortOrder
-  }
-
-  export type OauthAvgOrderByAggregateInput = {
-    ID?: SortOrder
-  }
-
-  export type OauthMaxOrderByAggregateInput = {
-    ID?: SortOrder
-    UserID?: SortOrder
-    AccessToken?: SortOrder
-    RefreshToken?: SortOrder
-    IsArchived?: SortOrder
-    CreatedAt?: SortOrder
-    UpdatedAt?: SortOrder
-  }
-
-  export type OauthMinOrderByAggregateInput = {
-    ID?: SortOrder
-    UserID?: SortOrder
-    AccessToken?: SortOrder
-    RefreshToken?: SortOrder
-    IsArchived?: SortOrder
-    CreatedAt?: SortOrder
-    UpdatedAt?: SortOrder
-  }
-
-  export type OauthSumOrderByAggregateInput = {
-    ID?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
   export type UserListRelationFilter = {
     every?: UserWhereInput
     some?: UserWhereInput
@@ -10456,6 +9161,11 @@ export namespace Prisma {
     UpdatedAt?: SortOrder
   }
 
+  export type UserRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
   export type AdminCountOrderByAggregateInput = {
     AdminID?: SortOrder
     AdminPass?: SortOrder
@@ -10481,6 +9191,17 @@ export namespace Prisma {
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
   export type JsonFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -10572,6 +9293,22 @@ export namespace Prisma {
     ID?: SortOrder
     Score?: SortOrder
     MaxParticipants?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
   export type JsonWithAggregatesFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -10671,6 +9408,9 @@ export namespace Prisma {
     UserID?: SortOrder
     ActivityID?: SortOrder
     Details?: SortOrder
+    IsApproved?: SortOrder
+    ReviewedBy?: SortOrder
+    ReviewNote?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10686,6 +9426,9 @@ export namespace Prisma {
     UserID?: SortOrder
     ActivityID?: SortOrder
     Details?: SortOrder
+    IsApproved?: SortOrder
+    ReviewedBy?: SortOrder
+    ReviewNote?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10696,6 +9439,9 @@ export namespace Prisma {
     UserID?: SortOrder
     ActivityID?: SortOrder
     Details?: SortOrder
+    IsApproved?: SortOrder
+    ReviewedBy?: SortOrder
+    ReviewNote?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10732,13 +9478,6 @@ export namespace Prisma {
     connect?: ActivityDetailsWhereUniqueInput | ActivityDetailsWhereUniqueInput[]
   }
 
-  export type OauthCreateNestedManyWithoutUserInput = {
-    create?: XOR<OauthCreateWithoutUserInput, OauthUncheckedCreateWithoutUserInput> | OauthCreateWithoutUserInput[] | OauthUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: OauthCreateOrConnectWithoutUserInput | OauthCreateOrConnectWithoutUserInput[]
-    createMany?: OauthCreateManyUserInputEnvelope
-    connect?: OauthWhereUniqueInput | OauthWhereUniqueInput[]
-  }
-
   export type AdminUncheckedCreateNestedOneWithoutUserInput = {
     create?: XOR<AdminCreateWithoutUserInput, AdminUncheckedCreateWithoutUserInput>
     connectOrCreate?: AdminCreateOrConnectWithoutUserInput
@@ -10757,13 +9496,6 @@ export namespace Prisma {
     connectOrCreate?: ActivityDetailsCreateOrConnectWithoutUserInput | ActivityDetailsCreateOrConnectWithoutUserInput[]
     createMany?: ActivityDetailsCreateManyUserInputEnvelope
     connect?: ActivityDetailsWhereUniqueInput | ActivityDetailsWhereUniqueInput[]
-  }
-
-  export type OauthUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<OauthCreateWithoutUserInput, OauthUncheckedCreateWithoutUserInput> | OauthCreateWithoutUserInput[] | OauthUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: OauthCreateOrConnectWithoutUserInput | OauthCreateOrConnectWithoutUserInput[]
-    createMany?: OauthCreateManyUserInputEnvelope
-    connect?: OauthWhereUniqueInput | OauthWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -10828,20 +9560,6 @@ export namespace Prisma {
     deleteMany?: ActivityDetailsScalarWhereInput | ActivityDetailsScalarWhereInput[]
   }
 
-  export type OauthUpdateManyWithoutUserNestedInput = {
-    create?: XOR<OauthCreateWithoutUserInput, OauthUncheckedCreateWithoutUserInput> | OauthCreateWithoutUserInput[] | OauthUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: OauthCreateOrConnectWithoutUserInput | OauthCreateOrConnectWithoutUserInput[]
-    upsert?: OauthUpsertWithWhereUniqueWithoutUserInput | OauthUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: OauthCreateManyUserInputEnvelope
-    set?: OauthWhereUniqueInput | OauthWhereUniqueInput[]
-    disconnect?: OauthWhereUniqueInput | OauthWhereUniqueInput[]
-    delete?: OauthWhereUniqueInput | OauthWhereUniqueInput[]
-    connect?: OauthWhereUniqueInput | OauthWhereUniqueInput[]
-    update?: OauthUpdateWithWhereUniqueWithoutUserInput | OauthUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: OauthUpdateManyWithWhereWithoutUserInput | OauthUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: OauthScalarWhereInput | OauthScalarWhereInput[]
-  }
-
   export type AdminUncheckedUpdateOneWithoutUserNestedInput = {
     create?: XOR<AdminCreateWithoutUserInput, AdminUncheckedCreateWithoutUserInput>
     connectOrCreate?: AdminCreateOrConnectWithoutUserInput
@@ -10878,42 +9596,6 @@ export namespace Prisma {
     update?: ActivityDetailsUpdateWithWhereUniqueWithoutUserInput | ActivityDetailsUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: ActivityDetailsUpdateManyWithWhereWithoutUserInput | ActivityDetailsUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: ActivityDetailsScalarWhereInput | ActivityDetailsScalarWhereInput[]
-  }
-
-  export type OauthUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<OauthCreateWithoutUserInput, OauthUncheckedCreateWithoutUserInput> | OauthCreateWithoutUserInput[] | OauthUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: OauthCreateOrConnectWithoutUserInput | OauthCreateOrConnectWithoutUserInput[]
-    upsert?: OauthUpsertWithWhereUniqueWithoutUserInput | OauthUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: OauthCreateManyUserInputEnvelope
-    set?: OauthWhereUniqueInput | OauthWhereUniqueInput[]
-    disconnect?: OauthWhereUniqueInput | OauthWhereUniqueInput[]
-    delete?: OauthWhereUniqueInput | OauthWhereUniqueInput[]
-    connect?: OauthWhereUniqueInput | OauthWhereUniqueInput[]
-    update?: OauthUpdateWithWhereUniqueWithoutUserInput | OauthUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: OauthUpdateManyWithWhereWithoutUserInput | OauthUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: OauthScalarWhereInput | OauthScalarWhereInput[]
-  }
-
-  export type UserCreateNestedOneWithoutOauthInput = {
-    create?: XOR<UserCreateWithoutOauthInput, UserUncheckedCreateWithoutOauthInput>
-    connectOrCreate?: UserCreateOrConnectWithoutOauthInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type UserUpdateOneRequiredWithoutOauthNestedInput = {
-    create?: XOR<UserCreateWithoutOauthInput, UserUncheckedCreateWithoutOauthInput>
-    connectOrCreate?: UserCreateOrConnectWithoutOauthInput
-    upsert?: UserUpsertWithoutOauthInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutOauthInput, UserUpdateWithoutOauthInput>, UserUncheckedUpdateWithoutOauthInput>
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type UserCreateNestedManyWithoutDepartmentInput = {
@@ -11040,6 +9722,14 @@ export namespace Prisma {
     connectOrCreate?: ActivityDetailsCreateOrConnectWithoutActivityInput | ActivityDetailsCreateOrConnectWithoutActivityInput[]
     createMany?: ActivityDetailsCreateManyActivityInputEnvelope
     connect?: ActivityDetailsWhereUniqueInput | ActivityDetailsWhereUniqueInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -11451,6 +10141,9 @@ export namespace Prisma {
 
   export type ActivityDetailsCreateWithoutUserInput = {
     Details: string
+    IsApproved?: boolean
+    ReviewedBy?: string | null
+    ReviewNote?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11461,6 +10154,9 @@ export namespace Prisma {
     ID?: number
     ActivityID: number
     Details: string
+    IsApproved?: boolean
+    ReviewedBy?: string | null
+    ReviewNote?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11473,33 +10169,6 @@ export namespace Prisma {
 
   export type ActivityDetailsCreateManyUserInputEnvelope = {
     data: ActivityDetailsCreateManyUserInput | ActivityDetailsCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type OauthCreateWithoutUserInput = {
-    AccessToken: string
-    RefreshToken: string
-    IsArchived?: boolean
-    CreatedAt?: Date | string
-    UpdatedAt?: Date | string
-  }
-
-  export type OauthUncheckedCreateWithoutUserInput = {
-    ID?: number
-    AccessToken: string
-    RefreshToken: string
-    IsArchived?: boolean
-    CreatedAt?: Date | string
-    UpdatedAt?: Date | string
-  }
-
-  export type OauthCreateOrConnectWithoutUserInput = {
-    where: OauthWhereUniqueInput
-    create: XOR<OauthCreateWithoutUserInput, OauthUncheckedCreateWithoutUserInput>
-  }
-
-  export type OauthCreateManyUserInputEnvelope = {
-    data: OauthCreateManyUserInput | OauthCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -11614,118 +10283,12 @@ export namespace Prisma {
     UserID?: StringFilter<"ActivityDetails"> | string
     ActivityID?: IntFilter<"ActivityDetails"> | number
     Details?: StringFilter<"ActivityDetails"> | string
+    IsApproved?: BoolFilter<"ActivityDetails"> | boolean
+    ReviewedBy?: StringNullableFilter<"ActivityDetails"> | string | null
+    ReviewNote?: StringNullableFilter<"ActivityDetails"> | string | null
     IsArchived?: BoolFilter<"ActivityDetails"> | boolean
     CreatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
     UpdatedAt?: DateTimeFilter<"ActivityDetails"> | Date | string
-  }
-
-  export type OauthUpsertWithWhereUniqueWithoutUserInput = {
-    where: OauthWhereUniqueInput
-    update: XOR<OauthUpdateWithoutUserInput, OauthUncheckedUpdateWithoutUserInput>
-    create: XOR<OauthCreateWithoutUserInput, OauthUncheckedCreateWithoutUserInput>
-  }
-
-  export type OauthUpdateWithWhereUniqueWithoutUserInput = {
-    where: OauthWhereUniqueInput
-    data: XOR<OauthUpdateWithoutUserInput, OauthUncheckedUpdateWithoutUserInput>
-  }
-
-  export type OauthUpdateManyWithWhereWithoutUserInput = {
-    where: OauthScalarWhereInput
-    data: XOR<OauthUpdateManyMutationInput, OauthUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type OauthScalarWhereInput = {
-    AND?: OauthScalarWhereInput | OauthScalarWhereInput[]
-    OR?: OauthScalarWhereInput[]
-    NOT?: OauthScalarWhereInput | OauthScalarWhereInput[]
-    ID?: IntFilter<"Oauth"> | number
-    UserID?: StringFilter<"Oauth"> | string
-    AccessToken?: StringFilter<"Oauth"> | string
-    RefreshToken?: StringFilter<"Oauth"> | string
-    IsArchived?: BoolFilter<"Oauth"> | boolean
-    CreatedAt?: DateTimeFilter<"Oauth"> | Date | string
-    UpdatedAt?: DateTimeFilter<"Oauth"> | Date | string
-  }
-
-  export type UserCreateWithoutOauthInput = {
-    UserID?: string
-    UserFirstName: string
-    UserLastName: string
-    UserPassword: string
-    UserImage?: string | null
-    Role?: string
-    IsArchived?: boolean
-    CreatedAt?: Date | string
-    UpdatedAt?: Date | string
-    Department: DepartmentCreateNestedOneWithoutUsersInput
-    Admin?: AdminCreateNestedOneWithoutUserInput
-    ActivityResults?: ActivityResultsCreateNestedManyWithoutUserInput
-    ActivityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutOauthInput = {
-    UserID?: string
-    UserFirstName: string
-    UserLastName: string
-    UserPassword: string
-    UserImage?: string | null
-    DepartmentID: string
-    Role?: string
-    IsArchived?: boolean
-    CreatedAt?: Date | string
-    UpdatedAt?: Date | string
-    Admin?: AdminUncheckedCreateNestedOneWithoutUserInput
-    ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
-    ActivityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutOauthInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutOauthInput, UserUncheckedCreateWithoutOauthInput>
-  }
-
-  export type UserUpsertWithoutOauthInput = {
-    update: XOR<UserUpdateWithoutOauthInput, UserUncheckedUpdateWithoutOauthInput>
-    create: XOR<UserCreateWithoutOauthInput, UserUncheckedCreateWithoutOauthInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutOauthInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutOauthInput, UserUncheckedUpdateWithoutOauthInput>
-  }
-
-  export type UserUpdateWithoutOauthInput = {
-    UserID?: StringFieldUpdateOperationsInput | string
-    UserFirstName?: StringFieldUpdateOperationsInput | string
-    UserLastName?: StringFieldUpdateOperationsInput | string
-    UserPassword?: StringFieldUpdateOperationsInput | string
-    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
-    Role?: StringFieldUpdateOperationsInput | string
-    IsArchived?: BoolFieldUpdateOperationsInput | boolean
-    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
-    Admin?: AdminUpdateOneWithoutUserNestedInput
-    ActivityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
-    ActivityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutOauthInput = {
-    UserID?: StringFieldUpdateOperationsInput | string
-    UserFirstName?: StringFieldUpdateOperationsInput | string
-    UserLastName?: StringFieldUpdateOperationsInput | string
-    UserPassword?: StringFieldUpdateOperationsInput | string
-    UserImage?: NullableStringFieldUpdateOperationsInput | string | null
-    DepartmentID?: StringFieldUpdateOperationsInput | string
-    Role?: StringFieldUpdateOperationsInput | string
-    IsArchived?: BoolFieldUpdateOperationsInput | boolean
-    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
-    ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
-    ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutDepartmentInput = {
@@ -11741,7 +10304,6 @@ export namespace Prisma {
     Admin?: AdminCreateNestedOneWithoutUserInput
     ActivityResults?: ActivityResultsCreateNestedManyWithoutUserInput
     ActivityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
-    Oauth?: OauthCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutDepartmentInput = {
@@ -11757,7 +10319,6 @@ export namespace Prisma {
     Admin?: AdminUncheckedCreateNestedOneWithoutUserInput
     ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
     ActivityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
-    Oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutDepartmentInput = {
@@ -11862,7 +10423,6 @@ export namespace Prisma {
     Department: DepartmentCreateNestedOneWithoutUsersInput
     ActivityResults?: ActivityResultsCreateNestedManyWithoutUserInput
     ActivityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
-    Oauth?: OauthCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAdminInput = {
@@ -11878,7 +10438,6 @@ export namespace Prisma {
     UpdatedAt?: Date | string
     ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
     ActivityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
-    Oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAdminInput = {
@@ -11910,7 +10469,6 @@ export namespace Prisma {
     Department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
     ActivityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
     ActivityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
-    Oauth?: OauthUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAdminInput = {
@@ -11926,7 +10484,6 @@ export namespace Prisma {
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
     ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
-    Oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ActivityResultsCreateWithoutActivityInput = {
@@ -11962,6 +10519,9 @@ export namespace Prisma {
 
   export type ActivityDetailsCreateWithoutActivityInput = {
     Details: string
+    IsApproved?: boolean
+    ReviewedBy?: string | null
+    ReviewNote?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11972,6 +10532,9 @@ export namespace Prisma {
     ID?: number
     UserID: string
     Details: string
+    IsApproved?: boolean
+    ReviewedBy?: string | null
+    ReviewNote?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -12055,7 +10618,6 @@ export namespace Prisma {
     Department: DepartmentCreateNestedOneWithoutUsersInput
     Admin?: AdminCreateNestedOneWithoutUserInput
     ActivityDetails?: ActivityDetailsCreateNestedManyWithoutUserInput
-    Oauth?: OauthCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutActivityResultsInput = {
@@ -12071,7 +10633,6 @@ export namespace Prisma {
     UpdatedAt?: Date | string
     Admin?: AdminUncheckedCreateNestedOneWithoutUserInput
     ActivityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutUserInput
-    Oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutActivityResultsInput = {
@@ -12170,7 +10731,6 @@ export namespace Prisma {
     Department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
     Admin?: AdminUpdateOneWithoutUserNestedInput
     ActivityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
-    Oauth?: OauthUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutActivityResultsInput = {
@@ -12186,7 +10746,6 @@ export namespace Prisma {
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     Admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
     ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
-    Oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ActivityUpsertWithoutActivityResultsInput = {
@@ -12246,7 +10805,6 @@ export namespace Prisma {
     Department: DepartmentCreateNestedOneWithoutUsersInput
     Admin?: AdminCreateNestedOneWithoutUserInput
     ActivityResults?: ActivityResultsCreateNestedManyWithoutUserInput
-    Oauth?: OauthCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutActivityDetailsInput = {
@@ -12262,7 +10820,6 @@ export namespace Prisma {
     UpdatedAt?: Date | string
     Admin?: AdminUncheckedCreateNestedOneWithoutUserInput
     ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutUserInput
-    Oauth?: OauthUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutActivityDetailsInput = {
@@ -12332,7 +10889,6 @@ export namespace Prisma {
     Department?: DepartmentUpdateOneRequiredWithoutUsersNestedInput
     Admin?: AdminUpdateOneWithoutUserNestedInput
     ActivityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
-    Oauth?: OauthUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutActivityDetailsInput = {
@@ -12348,7 +10904,6 @@ export namespace Prisma {
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     Admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
     ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
-    Oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ActivityUpsertWithoutActivityDetailsInput = {
@@ -12410,15 +10965,9 @@ export namespace Prisma {
     ID?: number
     ActivityID: number
     Details: string
-    IsArchived?: boolean
-    CreatedAt?: Date | string
-    UpdatedAt?: Date | string
-  }
-
-  export type OauthCreateManyUserInput = {
-    ID?: number
-    AccessToken: string
-    RefreshToken: string
+    IsApproved?: boolean
+    ReviewedBy?: string | null
+    ReviewNote?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -12458,6 +11007,9 @@ export namespace Prisma {
 
   export type ActivityDetailsUpdateWithoutUserInput = {
     Details?: StringFieldUpdateOperationsInput | string
+    IsApproved?: BoolFieldUpdateOperationsInput | boolean
+    ReviewedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    ReviewNote?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12468,6 +11020,9 @@ export namespace Prisma {
     ID?: IntFieldUpdateOperationsInput | number
     ActivityID?: IntFieldUpdateOperationsInput | number
     Details?: StringFieldUpdateOperationsInput | string
+    IsApproved?: BoolFieldUpdateOperationsInput | boolean
+    ReviewedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    ReviewNote?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12477,32 +11032,9 @@ export namespace Prisma {
     ID?: IntFieldUpdateOperationsInput | number
     ActivityID?: IntFieldUpdateOperationsInput | number
     Details?: StringFieldUpdateOperationsInput | string
-    IsArchived?: BoolFieldUpdateOperationsInput | boolean
-    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type OauthUpdateWithoutUserInput = {
-    AccessToken?: StringFieldUpdateOperationsInput | string
-    RefreshToken?: StringFieldUpdateOperationsInput | string
-    IsArchived?: BoolFieldUpdateOperationsInput | boolean
-    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type OauthUncheckedUpdateWithoutUserInput = {
-    ID?: IntFieldUpdateOperationsInput | number
-    AccessToken?: StringFieldUpdateOperationsInput | string
-    RefreshToken?: StringFieldUpdateOperationsInput | string
-    IsArchived?: BoolFieldUpdateOperationsInput | boolean
-    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type OauthUncheckedUpdateManyWithoutUserInput = {
-    ID?: IntFieldUpdateOperationsInput | number
-    AccessToken?: StringFieldUpdateOperationsInput | string
-    RefreshToken?: StringFieldUpdateOperationsInput | string
+    IsApproved?: BoolFieldUpdateOperationsInput | boolean
+    ReviewedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    ReviewNote?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12544,7 +11076,6 @@ export namespace Prisma {
     Admin?: AdminUpdateOneWithoutUserNestedInput
     ActivityResults?: ActivityResultsUpdateManyWithoutUserNestedInput
     ActivityDetails?: ActivityDetailsUpdateManyWithoutUserNestedInput
-    Oauth?: OauthUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutDepartmentInput = {
@@ -12560,7 +11091,6 @@ export namespace Prisma {
     Admin?: AdminUncheckedUpdateOneWithoutUserNestedInput
     ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutUserNestedInput
     ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
-    Oauth?: OauthUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutDepartmentInput = {
@@ -12622,6 +11152,9 @@ export namespace Prisma {
     ID?: number
     UserID: string
     Details: string
+    IsApproved?: boolean
+    ReviewedBy?: string | null
+    ReviewNote?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -12661,6 +11194,9 @@ export namespace Prisma {
 
   export type ActivityDetailsUpdateWithoutActivityInput = {
     Details?: StringFieldUpdateOperationsInput | string
+    IsApproved?: BoolFieldUpdateOperationsInput | boolean
+    ReviewedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    ReviewNote?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12671,6 +11207,9 @@ export namespace Prisma {
     ID?: IntFieldUpdateOperationsInput | number
     UserID?: StringFieldUpdateOperationsInput | string
     Details?: StringFieldUpdateOperationsInput | string
+    IsApproved?: BoolFieldUpdateOperationsInput | boolean
+    ReviewedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    ReviewNote?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12680,6 +11219,9 @@ export namespace Prisma {
     ID?: IntFieldUpdateOperationsInput | number
     UserID?: StringFieldUpdateOperationsInput | string
     Details?: StringFieldUpdateOperationsInput | string
+    IsApproved?: BoolFieldUpdateOperationsInput | boolean
+    ReviewedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    ReviewNote?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12706,10 +11248,6 @@ export namespace Prisma {
      * @deprecated Use UserDefaultArgs instead
      */
     export type UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use OauthDefaultArgs instead
-     */
-    export type OauthArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = OauthDefaultArgs<ExtArgs>
     /**
      * @deprecated Use DepartmentDefaultArgs instead
      */
