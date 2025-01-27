@@ -116,3 +116,20 @@ model ActivityDetails {
 
   @@map("activity_detail")
 }
+
+model AdminRequest {
+  ID              Int      @id @default(autoincrement())
+  SenderName      String   @db.VarChar(128)
+  SenderRole      String   @db.VarChar(20)
+  Title           String   @db.VarChar(256)
+  Message         String   @db.Text
+  Status          String   @default("PENDING") @db.VarChar(20)
+  ResponseMessage String?  @db.Text
+  Type            String   @db.VarChar(20)
+  ActivityID      Int?
+  IsArchived      Boolean  @default(false)
+  CreatedAt       DateTime @default(now())
+  UpdatedAt       DateTime @updatedAt
+
+  @@map("admin_request")
+}

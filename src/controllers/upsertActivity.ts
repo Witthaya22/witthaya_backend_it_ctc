@@ -1,12 +1,14 @@
+// src/controllers/upsertActivity.ts
 import { RequestHandler } from "express";
 import prisma from "../prisma";
+import fs from 'fs/promises';
+import path from 'path';
 
 const upsertActivity: RequestHandler = async (req, res) => {
   try {
     const {
       title,
       description,
-      images,
       score,
       location,
       startDate,
@@ -15,14 +17,13 @@ const upsertActivity: RequestHandler = async (req, res) => {
       maxParticipants
     } = req.body;
 
-    // การตรวจสอบข้อมูลที่จำเป็น
-    if (!title || !description || !startDate || !endDate || typeof score !== "number") {
+    // Validation
+    if (!title || !description || !startDate || !endDate || isNaN(Number(score))) {
       return res.status(400).json({
         message: "กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน",
       });
     }
 
-    // ตรวจสอบรูปแบบวันที่
     const startDateTime = new Date(startDate);
     const endDateTime = new Date(endDate);
 
@@ -38,24 +39,24 @@ const upsertActivity: RequestHandler = async (req, res) => {
       });
     }
 
-    // สร้าง base payload
+    // Process uploaded files
+    const files = (req.files as Express.Multer.File[]) || [];
+    const imageUrls = files.map(file => `/uploads/activities/${file.filename}`);
+
     const basePayload = {
       Title: title.trim(),
       Description: description.trim(),
-      Score: score,
+      Score: Number(score),
       StartDate: startDateTime,
       EndDate: endDateTime,
       Type: type?.trim() || 'GENERAL',
       Location: location?.trim() || null,
-      MaxParticipants: maxParticipants || null,
+      MaxParticipants: maxParticipants ? Number(maxParticipants) : null,
       IsArchived: false
     };
 
     if (req.query.id) {
-      // กรณีแก้ไข
       const activityId = parseInt(req.query.id as string);
-
-      // ตรวจสอบว่ากิจกรรมมีอยู่จริง
       const existingActivity = await prisma.activity.findUnique({
         where: {
           ID: activityId,
@@ -64,27 +65,32 @@ const upsertActivity: RequestHandler = async (req, res) => {
       });
 
       if (!existingActivity) {
+        // Delete uploaded files if activity not found
+        await Promise.all(files.map(file =>
+          fs.unlink(file.path).catch(() => {})
+        ));
         return res.status(404).json({
           message: "ไม่พบกิจกรรมที่ต้องการแก้ไข"
         });
       }
 
-      // สร้าง update payload จากข้อมูลที่ส่งมาเท่านั้น
-      const updatePayload: any = {};
+     const updatePayload: any = {
+       ...basePayload,
+       UpdatedAt: new Date()
+     };
 
-      if (title) updatePayload.Title = title.trim();
-      if (description) updatePayload.Description = description.trim();
-      if (images) updatePayload.Images = images;
-      if (typeof score === 'number') updatePayload.Score = score;
-      if (startDate) updatePayload.StartDate = startDateTime;
-      if (endDate) updatePayload.EndDate = endDateTime;
-      if (type) updatePayload.Type = type.trim();
-      if (location) updatePayload.Location = location.trim();
-      if (maxParticipants !== undefined) updatePayload.MaxParticipants = maxParticipants;
+     // Update images if new files uploaded
+     if (files.length > 0) {
+       // Delete old images
+       if (existingActivity.Images) {
+         await Promise.all((existingActivity.Images as string[]).map(async (oldImage) => {
+           const filePath = path.join(process.cwd(), "public", oldImage);
+           await fs.unlink(filePath).catch(() => {});
+         }));
+       }
+       updatePayload.Images = imageUrls;
+     }
 
-      updatePayload.UpdatedAt = new Date();
-
-      // อัพเดทข้อมูล
       await prisma.activity.update({
         where: { ID: activityId },
         data: updatePayload
@@ -95,10 +101,9 @@ const upsertActivity: RequestHandler = async (req, res) => {
       });
 
     } else {
-      // กรณีสร้างใหม่
       const createPayload = {
         ...basePayload,
-        Images: images || [],
+        Images: imageUrls,
         CreatedAt: new Date(),
         UpdatedAt: new Date()
       };
@@ -117,24 +122,16 @@ const upsertActivity: RequestHandler = async (req, res) => {
   } catch (error: any) {
     console.error("เกิดข้อผิดพลาด:", error);
 
-    // ตรวจสอบ error ที่เกิดจาก Prisma
     if (error.code === 'P2002') {
       return res.status(400).json({
         message: "มีข้อมูลซ้ำในระบบ"
       });
     }
 
-    if (error instanceof Error) {
-      res.status(500).json({
-        message: "เกิดข้อผิดพลาดในการดำเนินการ",
-        error: process.env.NODE_ENV === 'development' ? error.message : undefined
-      });
-    } else {
-      res.status(500).json({
-        message: "เกิดข้อผิดพลาดในการดำเนินการ",
-        error: process.env.NODE_ENV === 'development' ? String(error) : undefined
-      });
-    }
+    res.status(500).json({
+      message: "เกิดข้อผิดพลาดในการดำเนินการ",
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
   }
 };
 

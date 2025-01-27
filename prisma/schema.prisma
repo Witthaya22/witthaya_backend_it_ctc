@@ -9,36 +9,36 @@ datasource db {
 }
 
 model User {
-  UserID        String    @id @default(cuid()) @unique
-  UserFirstName String    @db.VarChar(64)
-  UserLastName  String    @db.VarChar(64)
-  UserPassword  String    @db.VarChar(256)
-  UserImage     String?   @db.VarChar(256)
-  DepartmentID  String    @db.VarChar(64)
-  Role          String    @default("USER") @db.VarChar(20)
-  IsArchived    Boolean   @default(false)
-  CreatedAt     DateTime  @default(now())
-  UpdatedAt     DateTime  @updatedAt
+  UserID        String   @id @unique @default(cuid())
+  UserFirstName String   @db.VarChar(64)
+  UserLastName  String   @db.VarChar(64)
+  UserPassword  String   @db.VarChar(256)
+  UserImage     String?  @db.VarChar(256)
+  DepartmentID  String   @db.VarChar(64)
+  Role          String   @default("USER") @db.VarChar(20)
+  IsArchived    Boolean  @default(false)
+  CreatedAt     DateTime @default(now())
+  UpdatedAt     DateTime @updatedAt
 
   // Relations
-  Department       Department        @relation(fields: [DepartmentID], references: [DepartmentID])
-  Admin            Admin?
-  ActivityResults  ActivityResults[]
-  ActivityDetails  ActivityDetails[]
+  Department      Department        @relation(fields: [DepartmentID], references: [DepartmentID])
+  Admin           Admin?
+  ActivityResults ActivityResults[]
+  ActivityDetails ActivityDetails[]
 
   @@map("user")
 }
 
 model Department {
-  DepartmentID     String    @id @map("department_id")
-  Name             String    @db.VarChar(64)
-  IsArchived       Boolean   @default(false)
-  CreatedAt        DateTime  @default(now())
-  UpdatedAt        DateTime  @updatedAt
+  DepartmentID String   @id @map("department_id")
+  Name         String   @db.VarChar(64)
+  IsArchived   Boolean  @default(false)
+  CreatedAt    DateTime @default(now())
+  UpdatedAt    DateTime @updatedAt
 
   // Relations
-  Users            User[]
-  ActivityResults  ActivityResults[]
+  Users           User[]
+  ActivityResults ActivityResults[]
 
   @@map("department")
 }
@@ -52,67 +52,84 @@ model Admin {
   UpdatedAt  DateTime @updatedAt
 
   // Relations
-  User       User     @relation(fields: [UserID], references: [UserID])
+  User User @relation(fields: [UserID], references: [UserID])
 
   @@map("admin")
 }
 
 model Activity {
-  ID               Int       @id @default(autoincrement())
-  Title            String
-  Description      String    @db.Text
-  StartDate        DateTime
-  EndDate          DateTime
-  Type             String    @db.VarChar(20)
-  Images           Json
-  Score            Int
-  Location         String?   @db.VarChar(256)
-  MaxParticipants  Int?
-  IsArchived       Boolean   @default(false)
-  CreatedAt        DateTime  @default(now())
-  UpdatedAt        DateTime  @updatedAt
+  ID              Int      @id @default(autoincrement())
+  Title           String
+  Description     String   @db.Text
+  StartDate       DateTime
+  EndDate         DateTime
+  Type            String   @db.VarChar(20)
+  Images          Json
+  Score           Int
+  Location        String?  @db.VarChar(256)
+  MaxParticipants Int?
+  IsArchived      Boolean  @default(false)
+  CreatedAt       DateTime @default(now())
+  UpdatedAt       DateTime @updatedAt
 
   // Relations
-  ActivityResults  ActivityResults[]
-  ActivityDetails  ActivityDetails[]
+  ActivityResults ActivityResults[]
+  ActivityDetails ActivityDetails[]
 
   @@map("activity")
 }
 
 model ActivityResults {
-  ID           Int       @id @default(autoincrement())
+  ID           Int      @id @default(autoincrement())
   DepartmentID String
   UserID       String
   ActivityID   Int
   Reservation  Boolean
-  Status       String    @db.VarChar(20)
-  IsArchived   Boolean   @default(false)
-  CreatedAt    DateTime  @default(now())
-  UpdatedAt    DateTime  @updatedAt
+  Status       String   @db.VarChar(20)
+  IsArchived   Boolean  @default(false)
+  CreatedAt    DateTime @default(now())
+  UpdatedAt    DateTime @updatedAt
 
   // Relations
-  Department   Department @relation(fields: [DepartmentID], references: [DepartmentID])
-  User         User       @relation(fields: [UserID], references: [UserID])
-  Activity     Activity   @relation(fields: [ActivityID], references: [ID])
+  Department Department @relation(fields: [DepartmentID], references: [DepartmentID])
+  User       User       @relation(fields: [UserID], references: [UserID])
+  Activity   Activity   @relation(fields: [ActivityID], references: [ID])
 
   @@map("activity_result")
 }
 
 model ActivityDetails {
-  ID           Int       @id @default(autoincrement())
-  UserID       String
-  ActivityID   Int
-  Details      String    @db.Text
-  IsApproved   Boolean   @default(false)
-  ReviewedBy   String?   @db.VarChar(64)
-  ReviewNote   String?   @db.Text
-  IsArchived   Boolean   @default(false)
-  CreatedAt    DateTime  @default(now())
-  UpdatedAt    DateTime  @updatedAt
+  ID         Int      @id @default(autoincrement())
+  UserID     String
+  ActivityID Int
+  Details    String   @db.Text
+  IsApproved Boolean  @default(false)
+  ReviewedBy String?  @db.VarChar(64)
+  ReviewNote String?  @db.Text
+  IsArchived Boolean  @default(false)
+  CreatedAt  DateTime @default(now())
+  UpdatedAt  DateTime @updatedAt
 
   // Relations
-  User         User      @relation(fields: [UserID], references: [UserID])
-  Activity     Activity  @relation(fields: [ActivityID], references: [ID])
+  User     User     @relation(fields: [UserID], references: [UserID])
+  Activity Activity @relation(fields: [ActivityID], references: [ID])
 
   @@map("activity_detail")
+}
+
+model AdminRequest {
+  ID              Int      @id @default(autoincrement())
+  SenderName      String   @db.VarChar(128)
+  SenderRole      String   @db.VarChar(20)
+  Title           String   @db.VarChar(256)
+  Message         String   @db.Text
+  Status          String   @default("PENDING") @db.VarChar(20)
+  ResponseMessage String?  @db.Text
+  Type            String   @db.VarChar(20)
+  ActivityID      Int?
+  IsArchived      Boolean  @default(false)
+  CreatedAt       DateTime @default(now())
+  UpdatedAt       DateTime @updatedAt
+
+  @@map("admin_request")
 }
