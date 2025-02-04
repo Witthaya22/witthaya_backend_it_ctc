@@ -8,7 +8,8 @@ const upsertUser: RequestHandler = async (req, res) => {
   try {
     // ตรวจสอบข้อมูลที่จำเป็น
     if (!formData.UserFirstName || !formData.UserLastName ||
-        !formData.DepartmentID || typeof formData.Role !== "string") {
+        !formData.DepartmentID || typeof formData.Role !== "string" ||
+        !formData.classAt || !formData.classRoom) {
       return res.status(400).json({
         message: "กรุณากรอกข้อมูลให้ครบถ้วน",
       });
@@ -21,6 +22,8 @@ const upsertUser: RequestHandler = async (req, res) => {
         UserLastName: formData.UserLastName,
         Role: formData.Role,
         DepartmentID: formData.DepartmentID,
+        classAt: formData.classAt,
+        classRoom: formData.classRoom,
       };
 
       // เพิ่ม password ถ้ามีการส่งมา
@@ -52,6 +55,14 @@ const upsertUser: RequestHandler = async (req, res) => {
         });
       }
 
+      // ตรวจสอบรูปแบบของระดับชั้นและห้องเรียน
+      const validClassLevels = ['ปวช.2', 'ปวส.1', 'ปวส.2'];
+      if (!validClassLevels.includes(formData.classAt)) {
+        return res.status(400).json({
+          message: "ระดับชั้นไม่ถูกต้อง",
+        });
+      }
+
       // สร้างข้อมูลใหม่
       const createData: any = {
         UserID: formData.UserID,
@@ -59,6 +70,8 @@ const upsertUser: RequestHandler = async (req, res) => {
         UserLastName: formData.UserLastName,
         Role: formData.Role,
         DepartmentID: formData.DepartmentID,
+        classAt: formData.classAt,
+        classRoom: formData.classRoom,
       };
 
       if (formData.UserPassword) {

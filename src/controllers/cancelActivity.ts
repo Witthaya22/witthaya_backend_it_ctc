@@ -1,63 +1,54 @@
-// controllers/check-in.post.ts
 import { RequestHandler } from "express";
 import prisma from "../prisma";
 
-const checkInActivity: RequestHandler = async (req, res) => {
-  const { activityId, userId, checkInCode } = req.body;
+const cancelActivity: RequestHandler = async (req, res) => {
+  const { userID, activityID } = req.body;
 
-  if (!activityId || !userId || !checkInCode) {
+  // Validate input
+  if (!userID || !activityID) {
     return res.status(400).send({
-      message: "ข้อมูลไม่ครบถ้วน"
+      message: "กรุณาระบุ userID และ activityID",
     });
   }
 
   try {
-    // ตรวจสอบการลงทะเบียน
-    const registration = await prisma.activityResults.findFirst({
+    // Find the existing reservation
+    const existingReservation = await prisma.activityResults.findFirst({
       where: {
-        ActivityID: activityId,
-        UserID: userId,
+        UserID: userID,
+        ActivityID: activityID,
+        Status: "RESERVED", // Only allow cancellation of reserved activities
         IsArchived: false,
-        Status: "RESERVED" // เช็คว่าต้องมีการจองก่อน
-      }
+      },
     });
 
-    if (!registration) {
+    if (!existingReservation) {
       return res.status(404).send({
-        message: "ไม่พบข้อมูลการลงทะเบียน"
+        message: "ไม่พบข้อมูลการจองกิจกรรม หรือไม่สามารถยกเลิกได้",
       });
     }
 
-    // เช็คว่าเช็คอินไปแล้วหรือยัง
-    if (registration.Status === "completed") {
-      return res.status(400).send({
-        message: "เช็คอินไปแล้ว"
-      });
-    }
-
-    // อัพเดทสถานะ
-    const result = await prisma.activityResults.update({
+    // Update the reservation status to CANCELLED
+    await prisma.activityResults.update({
       where: {
-        ID: registration.ID
+        ID: existingReservation.ID,
       },
       data: {
-        Status: "completed",
-        UpdatedAt: new Date()
-      }
+        Status: "CANCELLED",
+        IsArchived: true,
+        UpdatedAt: new Date(),
+      },
     });
 
     return res.status(200).send({
-      success: true,
-      message: "เช็คอินสำเร็จ",
-      result
+      message: "ยกเลิกการจองกิจกรรมสำเร็จ",
     });
-
   } catch (error) {
-    console.error("Check-in error:", error);
+    console.error("Error cancelling activity:", error);
     return res.status(500).send({
-      message: "เกิดข้อผิดพลาดในการเช็คอิน"
+      message: "เกิดข้อผิดพลาดในการยกเลิกการจองกิจกรรม",
     });
   }
 };
 
-export default checkInActivity;
+export default cancelActivity;

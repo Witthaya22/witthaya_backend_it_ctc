@@ -19,7 +19,10 @@ export default <RequestHandler>(async(req, res) => {
       UserFirstName: req.body.name,
       UserLastName: req.body.lastName, // Add this property
       Department: { connect: { DepartmentID: req.body.departmentId } }, // Add this property
-      UserPassword: await hash(req.body.password, 10)
+      UserPassword: await hash(req.body.password, 10),
+      classAt: req.body.classAt,       // เพิ่มส่วนนี้
+        classRoom: req.body.classRoom,   // เพิ่มส่วนนี้
+
     }
   })
   res.status(201).send({

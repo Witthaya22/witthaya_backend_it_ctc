@@ -3,14 +3,8 @@ import prisma from "../prisma";
 
 const reserveActivity: RequestHandler = async (req, res) => {
   const { userID, activityID } = req.body;
+  const parsedActivityID = parseInt(activityID, 10);
 
-  // แปลง activityID เป็นตัวเลข
-  const parsedActivityID = parseInt(activityID, 10);  // ใช้ parseInt แปลงจาก string เป็น number
-
-  // ตรวจสอบข้อมูลที่ได้รับ
-  console.log(req.body);
-
-  // ตรวจสอบว่า userID และ activityID มีหรือไม่
   if (!userID || isNaN(parsedActivityID)) {
     return res.status(400).send({
       message: "ข้อมูลไม่ถูกต้อง",
@@ -18,12 +12,25 @@ const reserveActivity: RequestHandler = async (req, res) => {
   }
 
   try {
-    // ตรวจสอบว่ามีการจองกิจกรรมนี้หรือไม่
+    // ตรวจสอบข้อมูลผู้ใช้และแผนก
+    const user = await prisma.user.findUnique({
+      where: {
+        UserID: userID
+      }
+    });
+
+    if (!user) {
+      return res.status(404).send({
+        message: "ไม่พบข้อมูลผู้ใช้",
+      });
+    }
+
+    // ตรวจสอบการจองซ้ำ
     const existingReservation = await prisma.activityResults.findFirst({
       where: {
         UserID: userID,
-        ActivityID: parsedActivityID, // ใช้ parsedActivityID ที่เป็น number
-        IsArchived: false, // ตรวจสอบว่าไม่ได้ถูกลบหรือเก็บข้อมูลแล้ว
+        ActivityID: parsedActivityID,
+        IsArchived: false,
       },
     });
 
@@ -33,7 +40,7 @@ const reserveActivity: RequestHandler = async (req, res) => {
       });
     }
 
-    // บันทึกการจอง
+    // บันทึกการจองโดยใช้แผนกของผู้ใช้
     await prisma.activityResults.create({
       data: {
         User: {
@@ -43,22 +50,20 @@ const reserveActivity: RequestHandler = async (req, res) => {
         },
         Activity: {
           connect: {
-            ID: parsedActivityID, // ใช้ parsedActivityID ที่เป็น number
+            ID: parsedActivityID,
           },
         },
         Reservation: true,
         Status: "RESERVED",
         Department: {
           connect: {
-            DepartmentID: "IT",
+            DepartmentID: user.DepartmentID, // ใช้แผนกจากข้อมูลผู้ใช้
           },
         },
       },
     });
 
-    // ส่ง response หลังจากบันทึกสำเร็จ
     res.status(201).send({ message: "จองกิจกรรมสำเร็จ" });
-
   } catch (error) {
     console.error("Error reserving activity:", error);
     res.status(500).send({

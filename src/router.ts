@@ -26,13 +26,24 @@ import {
   getActivityDetails,
   upsertActivityDetails,
   reviewActivityDetails,
-  getAllActivityDetailsForReview
+  getAllActivityDetailsForReview,
+  updateActivityStatus
 } from "./controllers/activityDetails"
 import cancelActivity from "./controllers/cancelActivity"
-import { updateActivityStatus } from "./controllers/updateActivityStatus"
+// import { updateActivityStatus } from "./controllers/updateActivityStatus"
 import getActivityResult from "./controllers/getActivityResult"
 import { getAllRequests, createRequest, updateRequest } from "./controllers/admin_requests.post"
 import checkInActivity from "./controllers/check-in.post"
+import {
+  getAllSemesters,
+  getActiveSemester,
+  createSemester,
+  updateSemester,
+  deleteSemester
+} from "./controllers/semester";
+
+// import { handleUploadImage, uploadProof, getProof } from "./controllers/activity-image";
+import activityImage from "./controllers/activity-image";
 
 const router = Router()
 
@@ -68,7 +79,7 @@ router.get("/activity/booked-activities/:userID", getBookedActivities)
 router.post("/activity/cancel", cancelActivity)
 router.delete('/activity/:id', deleteActivity)
 router.get('/getActivityResult', getActivityResult)
-router.post('/activity/check-in', checkInActivity)
+router.post('/activity/check-in2activity', checkInActivity)
 
 // Activity Details routes
 router.get('/activity-details', getAllActivityDetailsForReview)
@@ -82,44 +93,19 @@ router.post('/admin-requests', createRequest)
 router.put('/admin-requests/:id', updateRequest)
 
 
+
+router.get("/semesters", getAllSemesters);
+router.get("/semester/active", getActiveSemester);
+router.post("/semester",  createSemester);
+router.put("/semester/:id",  updateSemester);
+router.delete("/semester/:id",  deleteSemester);
+
+// Add to your router
+router.post("/activity-details/proof", activityImage.handleUploadImage, activityImage.uploadProof);
+router.get("/activity-details/proof/:activityId/:userId", activityImage.getProof);
+
 // ต้องอยู่หลังสุดเพราะมี dynamic route
 router.get('/activity/:id', getActivity)
 
 export default router
 
-// // เส้นทางการตรวจสอบสิทธิ์
-// router.get('/auth', checkAuth);
-// router.post("/signup", signUp);
-// router.post("/login", login);
-// router.get("/logout", logout);
-// router.get("/admin", checkAdmin);
-// router.post("/admin/login", loginAdmin);
-
-// // เส้นทางผู้ใช้
-// router.get('/users', getAllUsers);
-// router.get('/user/:id', getUserDetails);
-// router.put('/user/:UserID', updateUser);
-// router.delete('/user/:UserID/image', deleteUserImage);
-// router.delete('/user/:id', deleteUser);
-// router.post('/admin/user', upsertUser);
-
-// // เส้นทางแผนก
-// router.get('/departments', getDepartments);
-
-// // เส้นทางกิจกรรม
-// router.get('/activity', getAllActivity);
-// router.get('/activity/:id', getActivity);
-// router.post('/admin/activity', upsertActivity);
-// router.post("/activity/reserve", reserveActivity);
-// router.get("/activity/booked-activities/:userID", getBookedActivities);
-// router.post("/activity/check-in", handleActivityCheckIn);
-// router.delete('/activity/:id', deleteActivity);
-// router.get('/activity/participants/:id', getActivityParticipants);
-
-// // เส้นทางรายละเอียดกิจกรรม
-// router.get('/activity-details/:activityId/:userId', getActivityDetails);
-// router.post('/activity-details/:activityId/:userId', upsertActivityDetails);
-// router.put('/activity-details/:detailId/review', reviewActivityDetails);
-// router.get('/activity-details', getAllActivityDetailsForReview);
-
-// export default router;

@@ -36,12 +36,12 @@ const getBookedActivities: RequestHandler = async (req, res) => {
               ActivityID: result.ActivityID,
               UserID: userID,
               Details: '',
-              IsApproved: false, // เปลี่ยนจาก null เป็น false
+              IsApproved: false,
             }
           });
         }
 
-        // จัดรูปแบบข้อมูล
+        // จัดรูปแบบข้อมูลและเพิ่ม activityResults
         return {
           id: result.ActivityID,
           name: result.Activity.Title,
@@ -55,11 +55,18 @@ const getBookedActivities: RequestHandler = async (req, res) => {
             details: details.Details,
             isApproved: details.IsApproved === undefined ? false : details.IsApproved,
             reviewNote: details.ReviewNote
+          },
+          // เพิ่มข้อมูล activityResults
+          activityResults: {
+            id: result.ID,
+            status: result.Status,
+            imageActivity: result.imageActivity // เพิ่มฟิลด์นี้
           }
         };
       })
     );
 
+    console.log('Sending activities with details:', activitiesWithDetails); // Debug log
     res.json(activitiesWithDetails);
   } catch (error) {
     console.error('Error fetching booked activities:', error);

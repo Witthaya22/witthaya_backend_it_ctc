@@ -86,13 +86,52 @@ export const upsertActivityDetails: RequestHandler = async (req, res) => {
   }
 };
 
+export const updateActivityStatus: RequestHandler = async (req, res) => {
+  const { activityId, userId } = req.params;
+  const { status } = req.body;
+
+  try {
+    const activityResult = await prisma.activityResults.findFirst({
+      where: {
+        ActivityID: parseInt(activityId),
+        UserID: userId,
+      },
+    });
+
+    if (!activityResult) {
+      return res.status(404).json({ message: 'ไม่พบข้อมูลการลงทะเบียนกิจกรรม' });
+    }
+
+    const updatedResult = await prisma.activityResults.update({
+      where: {
+        ID: activityResult.ID,
+      },
+      data: {
+        Status: status,
+        UpdatedAt: new Date(),
+      },
+    });
+
+    res.json({
+      message: 'อัพเดทสถานะเรียบร้อยแล้ว',
+      result: updatedResult,
+    });
+  } catch (error) {
+    console.error('Error updating activity status:', error);
+    res.status(500).json({
+      message: 'เกิดข้อผิดพลาดในการอัพเดทสถานะ',
+      error: error instanceof Error ? error.message : 'Unknown error'
+    });
+  }
+};
+
+
 // Review activity details (admin only)
 export const reviewActivityDetails: RequestHandler = async (req, res) => {
   const { detailId } = req.params;
   const { isApproved, reviewNote, reviewedBy } = req.body;
 
   try {
-    // ดึงข้อมูล ActivityDetails เดิมก่อน
     const currentDetails = await prisma.activityDetails.findUnique({
       where: {
         ID: parseInt(detailId),
@@ -103,7 +142,6 @@ export const reviewActivityDetails: RequestHandler = async (req, res) => {
       return res.status(404).json({ message: 'ไม่พบข้อมูลกิจกรรม' });
     }
 
-    // อัพเดท ActivityResults ก่อน
     const activityResult = await prisma.activityResults.findFirst({
       where: {
         ActivityID: currentDetails.ActivityID,
@@ -123,7 +161,6 @@ export const reviewActivityDetails: RequestHandler = async (req, res) => {
       });
     }
 
-    // อัพเดท ActivityDetails
     const updatedDetails = await prisma.activityDetails.update({
       where: {
         ID: parseInt(detailId),

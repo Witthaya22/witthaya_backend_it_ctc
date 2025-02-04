@@ -35,6 +35,9 @@ async function startServer() {
   app.use(express.json());
   app.use('/api/uploads', express.static('public/uploads'));
   app.use('/images', express.static('public/images'));
+  // ใน app.ts หรือ server.ts
+// app.use('/uploads', express.static('public/uploads'));
+app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')));
 
   app.use(session({
     store: redisStore,

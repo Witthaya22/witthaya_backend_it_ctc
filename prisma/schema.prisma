@@ -16,6 +16,8 @@ model User {
   UserImage     String?  @db.VarChar(256)
   DepartmentID  String   @db.VarChar(64)
   Role          String   @default("USER") @db.VarChar(20)
+  classAt       String   @db.VarChar(64)  // ชั้นเรียน
+  classRoom     String   @db.VarChar(64)  // ห้องเรียน
   IsArchived    Boolean  @default(false)
   CreatedAt     DateTime @default(now())
   UpdatedAt     DateTime @updatedAt
@@ -65,14 +67,16 @@ model Activity {
   EndDate         DateTime
   Type            String   @db.VarChar(20)
   Images          Json
-  Score           Int
+  Score           Float?
   Location        String?  @db.VarChar(256)
   MaxParticipants Int?
+  SemesterID      Int // เพิ่ม Foreign key ไปยัง Semester
   IsArchived      Boolean  @default(false)
   CreatedAt       DateTime @default(now())
   UpdatedAt       DateTime @updatedAt
 
   // Relations
+  Semester        Semester          @relation(fields: [SemesterID], references: [ID])
   ActivityResults ActivityResults[]
   ActivityDetails ActivityDetails[]
 
@@ -80,15 +84,16 @@ model Activity {
 }
 
 model ActivityResults {
-  ID           Int      @id @default(autoincrement())
-  DepartmentID String
-  UserID       String
-  ActivityID   Int
-  Reservation  Boolean
-  Status       String   @db.VarChar(20)
-  IsArchived   Boolean  @default(false)
-  CreatedAt    DateTime @default(now())
-  UpdatedAt    DateTime @updatedAt
+  ID            Int      @id @default(autoincrement())
+  DepartmentID  String
+  UserID        String
+  ActivityID    Int
+  Reservation   Boolean
+  Status        String   @db.VarChar(20)
+  imageActivity String?  @db.VarChar(512)  // รูปภาพกิจกรรม
+  IsArchived    Boolean  @default(false)
+  CreatedAt     DateTime @default(now())
+  UpdatedAt     DateTime @updatedAt
 
   // Relations
   Department Department @relation(fields: [DepartmentID], references: [DepartmentID])
@@ -132,4 +137,22 @@ model AdminRequest {
   UpdatedAt       DateTime @updatedAt
 
   @@map("admin_request")
+}
+
+model Semester {
+  ID          Int      @id @default(autoincrement())
+  Year        Int // ปีการศึกษา
+  Term        Int // ภาคเรียน (1, 2, 3)
+  StartDate   DateTime // วันเริ่มภาคเรียน
+  EndDate     DateTime // วันสิ้นสุดภาคเรียน
+  Status      String   @db.VarChar(20) // ACTIVE, COMPLETED, PENDING
+  Description String?  @db.Text
+  IsArchived  Boolean  @default(false)
+  CreatedAt   DateTime @default(now())
+  UpdatedAt   DateTime @updatedAt
+
+  // Relations
+  Activities Activity[] // กิจกรรมในภาคเรียนนี้
+
+  @@map("semester")
 }

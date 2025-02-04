@@ -48,6 +48,11 @@ export type ActivityDetails = $Result.DefaultSelection<Prisma.$ActivityDetailsPa
  * 
  */
 export type AdminRequest = $Result.DefaultSelection<Prisma.$AdminRequestPayload>
+/**
+ * Model Semester
+ * 
+ */
+export type Semester = $Result.DefaultSelection<Prisma.$SemesterPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -240,6 +245,16 @@ export class PrismaClient<
     * ```
     */
   get adminRequest(): Prisma.AdminRequestDelegate<ExtArgs>;
+
+  /**
+   * `prisma.semester`: Exposes CRUD operations for the **Semester** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Semesters
+    * const semesters = await prisma.semester.findMany()
+    * ```
+    */
+  get semester(): Prisma.SemesterDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -723,7 +738,8 @@ export namespace Prisma {
     Activity: 'Activity',
     ActivityResults: 'ActivityResults',
     ActivityDetails: 'ActivityDetails',
-    AdminRequest: 'AdminRequest'
+    AdminRequest: 'AdminRequest',
+    Semester: 'Semester'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -740,7 +756,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'user' | 'department' | 'admin' | 'activity' | 'activityResults' | 'activityDetails' | 'adminRequest'
+      modelProps: 'user' | 'department' | 'admin' | 'activity' | 'activityResults' | 'activityDetails' | 'adminRequest' | 'semester'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -1234,6 +1250,76 @@ export namespace Prisma {
           }
         }
       }
+      Semester: {
+        payload: Prisma.$SemesterPayload<ExtArgs>
+        fields: Prisma.SemesterFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SemesterFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$SemesterPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SemesterFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$SemesterPayload>
+          }
+          findFirst: {
+            args: Prisma.SemesterFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$SemesterPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SemesterFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$SemesterPayload>
+          }
+          findMany: {
+            args: Prisma.SemesterFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$SemesterPayload>[]
+          }
+          create: {
+            args: Prisma.SemesterCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$SemesterPayload>
+          }
+          createMany: {
+            args: Prisma.SemesterCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SemesterCreateManyAndReturnArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$SemesterPayload>[]
+          }
+          delete: {
+            args: Prisma.SemesterDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$SemesterPayload>
+          }
+          update: {
+            args: Prisma.SemesterUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$SemesterPayload>
+          }
+          deleteMany: {
+            args: Prisma.SemesterDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SemesterUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.SemesterUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$SemesterPayload>
+          }
+          aggregate: {
+            args: Prisma.SemesterAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateSemester>
+          }
+          groupBy: {
+            args: Prisma.SemesterGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<SemesterGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SemesterCountArgs<ExtArgs>,
+            result: $Utils.Optional<SemesterCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1510,6 +1596,37 @@ export namespace Prisma {
 
 
   /**
+   * Count Type SemesterCountOutputType
+   */
+
+  export type SemesterCountOutputType = {
+    Activities: number
+  }
+
+  export type SemesterCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Activities?: boolean | SemesterCountOutputTypeCountActivitiesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * SemesterCountOutputType without action
+   */
+  export type SemesterCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SemesterCountOutputType
+     */
+    select?: SemesterCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * SemesterCountOutputType without action
+   */
+  export type SemesterCountOutputTypeCountActivitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ActivityWhereInput
+  }
+
+
+  /**
    * Models
    */
 
@@ -1531,6 +1648,8 @@ export namespace Prisma {
     UserImage: string | null
     DepartmentID: string | null
     Role: string | null
+    classAt: string | null
+    classRoom: string | null
     IsArchived: boolean | null
     CreatedAt: Date | null
     UpdatedAt: Date | null
@@ -1544,6 +1663,8 @@ export namespace Prisma {
     UserImage: string | null
     DepartmentID: string | null
     Role: string | null
+    classAt: string | null
+    classRoom: string | null
     IsArchived: boolean | null
     CreatedAt: Date | null
     UpdatedAt: Date | null
@@ -1557,6 +1678,8 @@ export namespace Prisma {
     UserImage: number
     DepartmentID: number
     Role: number
+    classAt: number
+    classRoom: number
     IsArchived: number
     CreatedAt: number
     UpdatedAt: number
@@ -1572,6 +1695,8 @@ export namespace Prisma {
     UserImage?: true
     DepartmentID?: true
     Role?: true
+    classAt?: true
+    classRoom?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -1585,6 +1710,8 @@ export namespace Prisma {
     UserImage?: true
     DepartmentID?: true
     Role?: true
+    classAt?: true
+    classRoom?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -1598,6 +1725,8 @@ export namespace Prisma {
     UserImage?: true
     DepartmentID?: true
     Role?: true
+    classAt?: true
+    classRoom?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -1684,6 +1813,8 @@ export namespace Prisma {
     UserImage: string | null
     DepartmentID: string
     Role: string
+    classAt: string
+    classRoom: string
     IsArchived: boolean
     CreatedAt: Date
     UpdatedAt: Date
@@ -1714,6 +1845,8 @@ export namespace Prisma {
     UserImage?: boolean
     DepartmentID?: boolean
     Role?: boolean
+    classAt?: boolean
+    classRoom?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
@@ -1732,6 +1865,8 @@ export namespace Prisma {
     UserImage?: boolean
     DepartmentID?: boolean
     Role?: boolean
+    classAt?: boolean
+    classRoom?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
@@ -1746,6 +1881,8 @@ export namespace Prisma {
     UserImage?: boolean
     DepartmentID?: boolean
     Role?: boolean
+    classAt?: boolean
+    classRoom?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
@@ -1778,6 +1915,8 @@ export namespace Prisma {
       UserImage: string | null
       DepartmentID: string
       Role: string
+      classAt: string
+      classRoom: string
       IsArchived: boolean
       CreatedAt: Date
       UpdatedAt: Date
@@ -2214,6 +2353,8 @@ export namespace Prisma {
     readonly UserImage: FieldRef<"User", 'String'>
     readonly DepartmentID: FieldRef<"User", 'String'>
     readonly Role: FieldRef<"User", 'String'>
+    readonly classAt: FieldRef<"User", 'String'>
+    readonly classRoom: FieldRef<"User", 'String'>
     readonly IsArchived: FieldRef<"User", 'Boolean'>
     readonly CreatedAt: FieldRef<"User", 'DateTime'>
     readonly UpdatedAt: FieldRef<"User", 'DateTime'>
@@ -4590,12 +4731,14 @@ export namespace Prisma {
     ID: number | null
     Score: number | null
     MaxParticipants: number | null
+    SemesterID: number | null
   }
 
   export type ActivitySumAggregateOutputType = {
     ID: number | null
     Score: number | null
     MaxParticipants: number | null
+    SemesterID: number | null
   }
 
   export type ActivityMinAggregateOutputType = {
@@ -4608,6 +4751,7 @@ export namespace Prisma {
     Score: number | null
     Location: string | null
     MaxParticipants: number | null
+    SemesterID: number | null
     IsArchived: boolean | null
     CreatedAt: Date | null
     UpdatedAt: Date | null
@@ -4623,6 +4767,7 @@ export namespace Prisma {
     Score: number | null
     Location: string | null
     MaxParticipants: number | null
+    SemesterID: number | null
     IsArchived: boolean | null
     CreatedAt: Date | null
     UpdatedAt: Date | null
@@ -4639,6 +4784,7 @@ export namespace Prisma {
     Score: number
     Location: number
     MaxParticipants: number
+    SemesterID: number
     IsArchived: number
     CreatedAt: number
     UpdatedAt: number
@@ -4650,12 +4796,14 @@ export namespace Prisma {
     ID?: true
     Score?: true
     MaxParticipants?: true
+    SemesterID?: true
   }
 
   export type ActivitySumAggregateInputType = {
     ID?: true
     Score?: true
     MaxParticipants?: true
+    SemesterID?: true
   }
 
   export type ActivityMinAggregateInputType = {
@@ -4668,6 +4816,7 @@ export namespace Prisma {
     Score?: true
     Location?: true
     MaxParticipants?: true
+    SemesterID?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -4683,6 +4832,7 @@ export namespace Prisma {
     Score?: true
     Location?: true
     MaxParticipants?: true
+    SemesterID?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -4699,6 +4849,7 @@ export namespace Prisma {
     Score?: true
     Location?: true
     MaxParticipants?: true
+    SemesterID?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -4799,9 +4950,10 @@ export namespace Prisma {
     EndDate: Date
     Type: string
     Images: JsonValue
-    Score: number
+    Score: number | null
     Location: string | null
     MaxParticipants: number | null
+    SemesterID: number
     IsArchived: boolean
     CreatedAt: Date
     UpdatedAt: Date
@@ -4837,9 +4989,11 @@ export namespace Prisma {
     Score?: boolean
     Location?: boolean
     MaxParticipants?: boolean
+    SemesterID?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
+    Semester?: boolean | SemesterDefaultArgs<ExtArgs>
     ActivityResults?: boolean | Activity$ActivityResultsArgs<ExtArgs>
     ActivityDetails?: boolean | Activity$ActivityDetailsArgs<ExtArgs>
     _count?: boolean | ActivityCountOutputTypeDefaultArgs<ExtArgs>
@@ -4856,9 +5010,11 @@ export namespace Prisma {
     Score?: boolean
     Location?: boolean
     MaxParticipants?: boolean
+    SemesterID?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
+    Semester?: boolean | SemesterDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["activity"]>
 
   export type ActivitySelectScalar = {
@@ -4872,21 +5028,26 @@ export namespace Prisma {
     Score?: boolean
     Location?: boolean
     MaxParticipants?: boolean
+    SemesterID?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
   }
 
   export type ActivityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Semester?: boolean | SemesterDefaultArgs<ExtArgs>
     ActivityResults?: boolean | Activity$ActivityResultsArgs<ExtArgs>
     ActivityDetails?: boolean | Activity$ActivityDetailsArgs<ExtArgs>
     _count?: boolean | ActivityCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type ActivityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ActivityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Semester?: boolean | SemesterDefaultArgs<ExtArgs>
+  }
 
   export type $ActivityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Activity"
     objects: {
+      Semester: Prisma.$SemesterPayload<ExtArgs>
       ActivityResults: Prisma.$ActivityResultsPayload<ExtArgs>[]
       ActivityDetails: Prisma.$ActivityDetailsPayload<ExtArgs>[]
     }
@@ -4898,9 +5059,10 @@ export namespace Prisma {
       EndDate: Date
       Type: string
       Images: Prisma.JsonValue
-      Score: number
+      Score: number | null
       Location: string | null
       MaxParticipants: number | null
+      SemesterID: number
       IsArchived: boolean
       CreatedAt: Date
       UpdatedAt: Date
@@ -5294,6 +5456,8 @@ export namespace Prisma {
   export interface Prisma__ActivityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
+    Semester<T extends SemesterDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SemesterDefaultArgs<ExtArgs>>): Prisma__SemesterClient<$Result.GetResult<Prisma.$SemesterPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
     ActivityResults<T extends Activity$ActivityResultsArgs<ExtArgs> = {}>(args?: Subset<T, Activity$ActivityResultsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityResultsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     ActivityDetails<T extends Activity$ActivityDetailsArgs<ExtArgs> = {}>(args?: Subset<T, Activity$ActivityDetailsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityDetailsPayload<ExtArgs>, T, 'findMany'> | Null>;
@@ -5333,9 +5497,10 @@ export namespace Prisma {
     readonly EndDate: FieldRef<"Activity", 'DateTime'>
     readonly Type: FieldRef<"Activity", 'String'>
     readonly Images: FieldRef<"Activity", 'Json'>
-    readonly Score: FieldRef<"Activity", 'Int'>
+    readonly Score: FieldRef<"Activity", 'Float'>
     readonly Location: FieldRef<"Activity", 'String'>
     readonly MaxParticipants: FieldRef<"Activity", 'Int'>
+    readonly SemesterID: FieldRef<"Activity", 'Int'>
     readonly IsArchived: FieldRef<"Activity", 'Boolean'>
     readonly CreatedAt: FieldRef<"Activity", 'DateTime'>
     readonly UpdatedAt: FieldRef<"Activity", 'DateTime'>
@@ -5560,6 +5725,10 @@ export namespace Prisma {
      */
     data: ActivityCreateManyInput | ActivityCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -5736,6 +5905,7 @@ export namespace Prisma {
     ActivityID: number | null
     Reservation: boolean | null
     Status: string | null
+    imageActivity: string | null
     IsArchived: boolean | null
     CreatedAt: Date | null
     UpdatedAt: Date | null
@@ -5748,6 +5918,7 @@ export namespace Prisma {
     ActivityID: number | null
     Reservation: boolean | null
     Status: string | null
+    imageActivity: string | null
     IsArchived: boolean | null
     CreatedAt: Date | null
     UpdatedAt: Date | null
@@ -5760,6 +5931,7 @@ export namespace Prisma {
     ActivityID: number
     Reservation: number
     Status: number
+    imageActivity: number
     IsArchived: number
     CreatedAt: number
     UpdatedAt: number
@@ -5784,6 +5956,7 @@ export namespace Prisma {
     ActivityID?: true
     Reservation?: true
     Status?: true
+    imageActivity?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -5796,6 +5969,7 @@ export namespace Prisma {
     ActivityID?: true
     Reservation?: true
     Status?: true
+    imageActivity?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -5808,6 +5982,7 @@ export namespace Prisma {
     ActivityID?: true
     Reservation?: true
     Status?: true
+    imageActivity?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -5907,6 +6082,7 @@ export namespace Prisma {
     ActivityID: number
     Reservation: boolean
     Status: string
+    imageActivity: string | null
     IsArchived: boolean
     CreatedAt: Date
     UpdatedAt: Date
@@ -5938,6 +6114,7 @@ export namespace Prisma {
     ActivityID?: boolean
     Reservation?: boolean
     Status?: boolean
+    imageActivity?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
@@ -5953,6 +6130,7 @@ export namespace Prisma {
     ActivityID?: boolean
     Reservation?: boolean
     Status?: boolean
+    imageActivity?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
@@ -5968,6 +6146,7 @@ export namespace Prisma {
     ActivityID?: boolean
     Reservation?: boolean
     Status?: boolean
+    imageActivity?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
@@ -5998,6 +6177,7 @@ export namespace Prisma {
       ActivityID: number
       Reservation: boolean
       Status: string
+      imageActivity: string | null
       IsArchived: boolean
       CreatedAt: Date
       UpdatedAt: Date
@@ -6431,6 +6611,7 @@ export namespace Prisma {
     readonly ActivityID: FieldRef<"ActivityResults", 'Int'>
     readonly Reservation: FieldRef<"ActivityResults", 'Boolean'>
     readonly Status: FieldRef<"ActivityResults", 'String'>
+    readonly imageActivity: FieldRef<"ActivityResults", 'String'>
     readonly IsArchived: FieldRef<"ActivityResults", 'Boolean'>
     readonly CreatedAt: FieldRef<"ActivityResults", 'DateTime'>
     readonly UpdatedAt: FieldRef<"ActivityResults", 'DateTime'>
@@ -8857,6 +9038,1082 @@ export namespace Prisma {
 
 
   /**
+   * Model Semester
+   */
+
+  export type AggregateSemester = {
+    _count: SemesterCountAggregateOutputType | null
+    _avg: SemesterAvgAggregateOutputType | null
+    _sum: SemesterSumAggregateOutputType | null
+    _min: SemesterMinAggregateOutputType | null
+    _max: SemesterMaxAggregateOutputType | null
+  }
+
+  export type SemesterAvgAggregateOutputType = {
+    ID: number | null
+    Year: number | null
+    Term: number | null
+  }
+
+  export type SemesterSumAggregateOutputType = {
+    ID: number | null
+    Year: number | null
+    Term: number | null
+  }
+
+  export type SemesterMinAggregateOutputType = {
+    ID: number | null
+    Year: number | null
+    Term: number | null
+    StartDate: Date | null
+    EndDate: Date | null
+    Status: string | null
+    Description: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
+  }
+
+  export type SemesterMaxAggregateOutputType = {
+    ID: number | null
+    Year: number | null
+    Term: number | null
+    StartDate: Date | null
+    EndDate: Date | null
+    Status: string | null
+    Description: string | null
+    IsArchived: boolean | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
+  }
+
+  export type SemesterCountAggregateOutputType = {
+    ID: number
+    Year: number
+    Term: number
+    StartDate: number
+    EndDate: number
+    Status: number
+    Description: number
+    IsArchived: number
+    CreatedAt: number
+    UpdatedAt: number
+    _all: number
+  }
+
+
+  export type SemesterAvgAggregateInputType = {
+    ID?: true
+    Year?: true
+    Term?: true
+  }
+
+  export type SemesterSumAggregateInputType = {
+    ID?: true
+    Year?: true
+    Term?: true
+  }
+
+  export type SemesterMinAggregateInputType = {
+    ID?: true
+    Year?: true
+    Term?: true
+    StartDate?: true
+    EndDate?: true
+    Status?: true
+    Description?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
+  }
+
+  export type SemesterMaxAggregateInputType = {
+    ID?: true
+    Year?: true
+    Term?: true
+    StartDate?: true
+    EndDate?: true
+    Status?: true
+    Description?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
+  }
+
+  export type SemesterCountAggregateInputType = {
+    ID?: true
+    Year?: true
+    Term?: true
+    StartDate?: true
+    EndDate?: true
+    Status?: true
+    Description?: true
+    IsArchived?: true
+    CreatedAt?: true
+    UpdatedAt?: true
+    _all?: true
+  }
+
+  export type SemesterAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Semester to aggregate.
+     */
+    where?: SemesterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Semesters to fetch.
+     */
+    orderBy?: SemesterOrderByWithRelationInput | SemesterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SemesterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Semesters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Semesters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Semesters
+    **/
+    _count?: true | SemesterCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SemesterAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SemesterSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SemesterMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SemesterMaxAggregateInputType
+  }
+
+  export type GetSemesterAggregateType<T extends SemesterAggregateArgs> = {
+        [P in keyof T & keyof AggregateSemester]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSemester[P]>
+      : GetScalarType<T[P], AggregateSemester[P]>
+  }
+
+
+
+
+  export type SemesterGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SemesterWhereInput
+    orderBy?: SemesterOrderByWithAggregationInput | SemesterOrderByWithAggregationInput[]
+    by: SemesterScalarFieldEnum[] | SemesterScalarFieldEnum
+    having?: SemesterScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SemesterCountAggregateInputType | true
+    _avg?: SemesterAvgAggregateInputType
+    _sum?: SemesterSumAggregateInputType
+    _min?: SemesterMinAggregateInputType
+    _max?: SemesterMaxAggregateInputType
+  }
+
+  export type SemesterGroupByOutputType = {
+    ID: number
+    Year: number
+    Term: number
+    StartDate: Date
+    EndDate: Date
+    Status: string
+    Description: string | null
+    IsArchived: boolean
+    CreatedAt: Date
+    UpdatedAt: Date
+    _count: SemesterCountAggregateOutputType | null
+    _avg: SemesterAvgAggregateOutputType | null
+    _sum: SemesterSumAggregateOutputType | null
+    _min: SemesterMinAggregateOutputType | null
+    _max: SemesterMaxAggregateOutputType | null
+  }
+
+  type GetSemesterGroupByPayload<T extends SemesterGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SemesterGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SemesterGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SemesterGroupByOutputType[P]>
+            : GetScalarType<T[P], SemesterGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SemesterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    ID?: boolean
+    Year?: boolean
+    Term?: boolean
+    StartDate?: boolean
+    EndDate?: boolean
+    Status?: boolean
+    Description?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    Activities?: boolean | Semester$ActivitiesArgs<ExtArgs>
+    _count?: boolean | SemesterCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["semester"]>
+
+  export type SemesterSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    ID?: boolean
+    Year?: boolean
+    Term?: boolean
+    StartDate?: boolean
+    EndDate?: boolean
+    Status?: boolean
+    Description?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+  }, ExtArgs["result"]["semester"]>
+
+  export type SemesterSelectScalar = {
+    ID?: boolean
+    Year?: boolean
+    Term?: boolean
+    StartDate?: boolean
+    EndDate?: boolean
+    Status?: boolean
+    Description?: boolean
+    IsArchived?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+  }
+
+  export type SemesterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Activities?: boolean | Semester$ActivitiesArgs<ExtArgs>
+    _count?: boolean | SemesterCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type SemesterIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $SemesterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Semester"
+    objects: {
+      Activities: Prisma.$ActivityPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      ID: number
+      Year: number
+      Term: number
+      StartDate: Date
+      EndDate: Date
+      Status: string
+      Description: string | null
+      IsArchived: boolean
+      CreatedAt: Date
+      UpdatedAt: Date
+    }, ExtArgs["result"]["semester"]>
+    composites: {}
+  }
+
+  type SemesterGetPayload<S extends boolean | null | undefined | SemesterDefaultArgs> = $Result.GetResult<Prisma.$SemesterPayload, S>
+
+  type SemesterCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<SemesterFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: SemesterCountAggregateInputType | true
+    }
+
+  export interface SemesterDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Semester'], meta: { name: 'Semester' } }
+    /**
+     * Find zero or one Semester that matches the filter.
+     * @param {SemesterFindUniqueArgs} args - Arguments to find a Semester
+     * @example
+     * // Get one Semester
+     * const semester = await prisma.semester.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends SemesterFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, SemesterFindUniqueArgs<ExtArgs>>
+    ): Prisma__SemesterClient<$Result.GetResult<Prisma.$SemesterPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Semester that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {SemesterFindUniqueOrThrowArgs} args - Arguments to find a Semester
+     * @example
+     * // Get one Semester
+     * const semester = await prisma.semester.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends SemesterFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, SemesterFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__SemesterClient<$Result.GetResult<Prisma.$SemesterPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Semester that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SemesterFindFirstArgs} args - Arguments to find a Semester
+     * @example
+     * // Get one Semester
+     * const semester = await prisma.semester.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends SemesterFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, SemesterFindFirstArgs<ExtArgs>>
+    ): Prisma__SemesterClient<$Result.GetResult<Prisma.$SemesterPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Semester that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SemesterFindFirstOrThrowArgs} args - Arguments to find a Semester
+     * @example
+     * // Get one Semester
+     * const semester = await prisma.semester.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends SemesterFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, SemesterFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__SemesterClient<$Result.GetResult<Prisma.$SemesterPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Semesters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SemesterFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Semesters
+     * const semesters = await prisma.semester.findMany()
+     * 
+     * // Get first 10 Semesters
+     * const semesters = await prisma.semester.findMany({ take: 10 })
+     * 
+     * // Only select the `ID`
+     * const semesterWithIDOnly = await prisma.semester.findMany({ select: { ID: true } })
+     * 
+    **/
+    findMany<T extends SemesterFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, SemesterFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SemesterPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Semester.
+     * @param {SemesterCreateArgs} args - Arguments to create a Semester.
+     * @example
+     * // Create one Semester
+     * const Semester = await prisma.semester.create({
+     *   data: {
+     *     // ... data to create a Semester
+     *   }
+     * })
+     * 
+    **/
+    create<T extends SemesterCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, SemesterCreateArgs<ExtArgs>>
+    ): Prisma__SemesterClient<$Result.GetResult<Prisma.$SemesterPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Semesters.
+     * @param {SemesterCreateManyArgs} args - Arguments to create many Semesters.
+     * @example
+     * // Create many Semesters
+     * const semester = await prisma.semester.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends SemesterCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, SemesterCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Semesters and returns the data saved in the database.
+     * @param {SemesterCreateManyAndReturnArgs} args - Arguments to create many Semesters.
+     * @example
+     * // Create many Semesters
+     * const semester = await prisma.semester.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Semesters and only return the `ID`
+     * const semesterWithIDOnly = await prisma.semester.createManyAndReturn({ 
+     *   select: { ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+    **/
+    createManyAndReturn<T extends SemesterCreateManyAndReturnArgs<ExtArgs>>(
+      args?: SelectSubset<T, SemesterCreateManyAndReturnArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SemesterPayload<ExtArgs>, T, 'createManyAndReturn'>>
+
+    /**
+     * Delete a Semester.
+     * @param {SemesterDeleteArgs} args - Arguments to delete one Semester.
+     * @example
+     * // Delete one Semester
+     * const Semester = await prisma.semester.delete({
+     *   where: {
+     *     // ... filter to delete one Semester
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends SemesterDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, SemesterDeleteArgs<ExtArgs>>
+    ): Prisma__SemesterClient<$Result.GetResult<Prisma.$SemesterPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Semester.
+     * @param {SemesterUpdateArgs} args - Arguments to update one Semester.
+     * @example
+     * // Update one Semester
+     * const semester = await prisma.semester.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends SemesterUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, SemesterUpdateArgs<ExtArgs>>
+    ): Prisma__SemesterClient<$Result.GetResult<Prisma.$SemesterPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Semesters.
+     * @param {SemesterDeleteManyArgs} args - Arguments to filter Semesters to delete.
+     * @example
+     * // Delete a few Semesters
+     * const { count } = await prisma.semester.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends SemesterDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, SemesterDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Semesters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SemesterUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Semesters
+     * const semester = await prisma.semester.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends SemesterUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, SemesterUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Semester.
+     * @param {SemesterUpsertArgs} args - Arguments to update or create a Semester.
+     * @example
+     * // Update or create a Semester
+     * const semester = await prisma.semester.upsert({
+     *   create: {
+     *     // ... data to create a Semester
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Semester we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends SemesterUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, SemesterUpsertArgs<ExtArgs>>
+    ): Prisma__SemesterClient<$Result.GetResult<Prisma.$SemesterPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Semesters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SemesterCountArgs} args - Arguments to filter Semesters to count.
+     * @example
+     * // Count the number of Semesters
+     * const count = await prisma.semester.count({
+     *   where: {
+     *     // ... the filter for the Semesters we want to count
+     *   }
+     * })
+    **/
+    count<T extends SemesterCountArgs>(
+      args?: Subset<T, SemesterCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SemesterCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Semester.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SemesterAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SemesterAggregateArgs>(args: Subset<T, SemesterAggregateArgs>): Prisma.PrismaPromise<GetSemesterAggregateType<T>>
+
+    /**
+     * Group by Semester.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SemesterGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SemesterGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SemesterGroupByArgs['orderBy'] }
+        : { orderBy?: SemesterGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SemesterGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSemesterGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Semester model
+   */
+  readonly fields: SemesterFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Semester.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SemesterClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    Activities<T extends Semester$ActivitiesArgs<ExtArgs> = {}>(args?: Subset<T, Semester$ActivitiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the Semester model
+   */ 
+  interface SemesterFieldRefs {
+    readonly ID: FieldRef<"Semester", 'Int'>
+    readonly Year: FieldRef<"Semester", 'Int'>
+    readonly Term: FieldRef<"Semester", 'Int'>
+    readonly StartDate: FieldRef<"Semester", 'DateTime'>
+    readonly EndDate: FieldRef<"Semester", 'DateTime'>
+    readonly Status: FieldRef<"Semester", 'String'>
+    readonly Description: FieldRef<"Semester", 'String'>
+    readonly IsArchived: FieldRef<"Semester", 'Boolean'>
+    readonly CreatedAt: FieldRef<"Semester", 'DateTime'>
+    readonly UpdatedAt: FieldRef<"Semester", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Semester findUnique
+   */
+  export type SemesterFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Semester
+     */
+    select?: SemesterSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SemesterInclude<ExtArgs> | null
+    /**
+     * Filter, which Semester to fetch.
+     */
+    where: SemesterWhereUniqueInput
+  }
+
+  /**
+   * Semester findUniqueOrThrow
+   */
+  export type SemesterFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Semester
+     */
+    select?: SemesterSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SemesterInclude<ExtArgs> | null
+    /**
+     * Filter, which Semester to fetch.
+     */
+    where: SemesterWhereUniqueInput
+  }
+
+  /**
+   * Semester findFirst
+   */
+  export type SemesterFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Semester
+     */
+    select?: SemesterSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SemesterInclude<ExtArgs> | null
+    /**
+     * Filter, which Semester to fetch.
+     */
+    where?: SemesterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Semesters to fetch.
+     */
+    orderBy?: SemesterOrderByWithRelationInput | SemesterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Semesters.
+     */
+    cursor?: SemesterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Semesters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Semesters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Semesters.
+     */
+    distinct?: SemesterScalarFieldEnum | SemesterScalarFieldEnum[]
+  }
+
+  /**
+   * Semester findFirstOrThrow
+   */
+  export type SemesterFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Semester
+     */
+    select?: SemesterSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SemesterInclude<ExtArgs> | null
+    /**
+     * Filter, which Semester to fetch.
+     */
+    where?: SemesterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Semesters to fetch.
+     */
+    orderBy?: SemesterOrderByWithRelationInput | SemesterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Semesters.
+     */
+    cursor?: SemesterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Semesters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Semesters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Semesters.
+     */
+    distinct?: SemesterScalarFieldEnum | SemesterScalarFieldEnum[]
+  }
+
+  /**
+   * Semester findMany
+   */
+  export type SemesterFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Semester
+     */
+    select?: SemesterSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SemesterInclude<ExtArgs> | null
+    /**
+     * Filter, which Semesters to fetch.
+     */
+    where?: SemesterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Semesters to fetch.
+     */
+    orderBy?: SemesterOrderByWithRelationInput | SemesterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Semesters.
+     */
+    cursor?: SemesterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Semesters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Semesters.
+     */
+    skip?: number
+    distinct?: SemesterScalarFieldEnum | SemesterScalarFieldEnum[]
+  }
+
+  /**
+   * Semester create
+   */
+  export type SemesterCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Semester
+     */
+    select?: SemesterSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SemesterInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Semester.
+     */
+    data: XOR<SemesterCreateInput, SemesterUncheckedCreateInput>
+  }
+
+  /**
+   * Semester createMany
+   */
+  export type SemesterCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Semesters.
+     */
+    data: SemesterCreateManyInput | SemesterCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Semester createManyAndReturn
+   */
+  export type SemesterCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Semester
+     */
+    select?: SemesterSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many Semesters.
+     */
+    data: SemesterCreateManyInput | SemesterCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Semester update
+   */
+  export type SemesterUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Semester
+     */
+    select?: SemesterSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SemesterInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Semester.
+     */
+    data: XOR<SemesterUpdateInput, SemesterUncheckedUpdateInput>
+    /**
+     * Choose, which Semester to update.
+     */
+    where: SemesterWhereUniqueInput
+  }
+
+  /**
+   * Semester updateMany
+   */
+  export type SemesterUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Semesters.
+     */
+    data: XOR<SemesterUpdateManyMutationInput, SemesterUncheckedUpdateManyInput>
+    /**
+     * Filter which Semesters to update
+     */
+    where?: SemesterWhereInput
+  }
+
+  /**
+   * Semester upsert
+   */
+  export type SemesterUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Semester
+     */
+    select?: SemesterSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SemesterInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Semester to update in case it exists.
+     */
+    where: SemesterWhereUniqueInput
+    /**
+     * In case the Semester found by the `where` argument doesn't exist, create a new Semester with this data.
+     */
+    create: XOR<SemesterCreateInput, SemesterUncheckedCreateInput>
+    /**
+     * In case the Semester was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SemesterUpdateInput, SemesterUncheckedUpdateInput>
+  }
+
+  /**
+   * Semester delete
+   */
+  export type SemesterDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Semester
+     */
+    select?: SemesterSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SemesterInclude<ExtArgs> | null
+    /**
+     * Filter which Semester to delete.
+     */
+    where: SemesterWhereUniqueInput
+  }
+
+  /**
+   * Semester deleteMany
+   */
+  export type SemesterDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Semesters to delete
+     */
+    where?: SemesterWhereInput
+  }
+
+  /**
+   * Semester.Activities
+   */
+  export type Semester$ActivitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Activity
+     */
+    select?: ActivitySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityInclude<ExtArgs> | null
+    where?: ActivityWhereInput
+    orderBy?: ActivityOrderByWithRelationInput | ActivityOrderByWithRelationInput[]
+    cursor?: ActivityWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ActivityScalarFieldEnum | ActivityScalarFieldEnum[]
+  }
+
+  /**
+   * Semester without action
+   */
+  export type SemesterDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Semester
+     */
+    select?: SemesterSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SemesterInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -8878,6 +10135,8 @@ export namespace Prisma {
     UserImage: 'UserImage',
     DepartmentID: 'DepartmentID',
     Role: 'Role',
+    classAt: 'classAt',
+    classRoom: 'classRoom',
     IsArchived: 'IsArchived',
     CreatedAt: 'CreatedAt',
     UpdatedAt: 'UpdatedAt'
@@ -8920,6 +10179,7 @@ export namespace Prisma {
     Score: 'Score',
     Location: 'Location',
     MaxParticipants: 'MaxParticipants',
+    SemesterID: 'SemesterID',
     IsArchived: 'IsArchived',
     CreatedAt: 'CreatedAt',
     UpdatedAt: 'UpdatedAt'
@@ -8935,6 +10195,7 @@ export namespace Prisma {
     ActivityID: 'ActivityID',
     Reservation: 'Reservation',
     Status: 'Status',
+    imageActivity: 'imageActivity',
     IsArchived: 'IsArchived',
     CreatedAt: 'CreatedAt',
     UpdatedAt: 'UpdatedAt'
@@ -8975,6 +10236,22 @@ export namespace Prisma {
   };
 
   export type AdminRequestScalarFieldEnum = (typeof AdminRequestScalarFieldEnum)[keyof typeof AdminRequestScalarFieldEnum]
+
+
+  export const SemesterScalarFieldEnum: {
+    ID: 'ID',
+    Year: 'Year',
+    Term: 'Term',
+    StartDate: 'StartDate',
+    EndDate: 'EndDate',
+    Status: 'Status',
+    Description: 'Description',
+    IsArchived: 'IsArchived',
+    CreatedAt: 'CreatedAt',
+    UpdatedAt: 'UpdatedAt'
+  };
+
+  export type SemesterScalarFieldEnum = (typeof SemesterScalarFieldEnum)[keyof typeof SemesterScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -9106,6 +10383,8 @@ export namespace Prisma {
     UserImage?: StringNullableFilter<"User"> | string | null
     DepartmentID?: StringFilter<"User"> | string
     Role?: StringFilter<"User"> | string
+    classAt?: StringFilter<"User"> | string
+    classRoom?: StringFilter<"User"> | string
     IsArchived?: BoolFilter<"User"> | boolean
     CreatedAt?: DateTimeFilter<"User"> | Date | string
     UpdatedAt?: DateTimeFilter<"User"> | Date | string
@@ -9123,6 +10402,8 @@ export namespace Prisma {
     UserImage?: SortOrderInput | SortOrder
     DepartmentID?: SortOrder
     Role?: SortOrder
+    classAt?: SortOrder
+    classRoom?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -9143,6 +10424,8 @@ export namespace Prisma {
     UserImage?: StringNullableFilter<"User"> | string | null
     DepartmentID?: StringFilter<"User"> | string
     Role?: StringFilter<"User"> | string
+    classAt?: StringFilter<"User"> | string
+    classRoom?: StringFilter<"User"> | string
     IsArchived?: BoolFilter<"User"> | boolean
     CreatedAt?: DateTimeFilter<"User"> | Date | string
     UpdatedAt?: DateTimeFilter<"User"> | Date | string
@@ -9160,6 +10443,8 @@ export namespace Prisma {
     UserImage?: SortOrderInput | SortOrder
     DepartmentID?: SortOrder
     Role?: SortOrder
+    classAt?: SortOrder
+    classRoom?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -9179,6 +10464,8 @@ export namespace Prisma {
     UserImage?: StringNullableWithAggregatesFilter<"User"> | string | null
     DepartmentID?: StringWithAggregatesFilter<"User"> | string
     Role?: StringWithAggregatesFilter<"User"> | string
+    classAt?: StringWithAggregatesFilter<"User"> | string
+    classRoom?: StringWithAggregatesFilter<"User"> | string
     IsArchived?: BoolWithAggregatesFilter<"User"> | boolean
     CreatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     UpdatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -9313,12 +10600,14 @@ export namespace Prisma {
     EndDate?: DateTimeFilter<"Activity"> | Date | string
     Type?: StringFilter<"Activity"> | string
     Images?: JsonFilter<"Activity">
-    Score?: IntFilter<"Activity"> | number
+    Score?: FloatNullableFilter<"Activity"> | number | null
     Location?: StringNullableFilter<"Activity"> | string | null
     MaxParticipants?: IntNullableFilter<"Activity"> | number | null
+    SemesterID?: IntFilter<"Activity"> | number
     IsArchived?: BoolFilter<"Activity"> | boolean
     CreatedAt?: DateTimeFilter<"Activity"> | Date | string
     UpdatedAt?: DateTimeFilter<"Activity"> | Date | string
+    Semester?: XOR<SemesterRelationFilter, SemesterWhereInput>
     ActivityResults?: ActivityResultsListRelationFilter
     ActivityDetails?: ActivityDetailsListRelationFilter
   }
@@ -9331,12 +10620,14 @@ export namespace Prisma {
     EndDate?: SortOrder
     Type?: SortOrder
     Images?: SortOrder
-    Score?: SortOrder
+    Score?: SortOrderInput | SortOrder
     Location?: SortOrderInput | SortOrder
     MaxParticipants?: SortOrderInput | SortOrder
+    SemesterID?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
+    Semester?: SemesterOrderByWithRelationInput
     ActivityResults?: ActivityResultsOrderByRelationAggregateInput
     ActivityDetails?: ActivityDetailsOrderByRelationAggregateInput
   }
@@ -9352,12 +10643,14 @@ export namespace Prisma {
     EndDate?: DateTimeFilter<"Activity"> | Date | string
     Type?: StringFilter<"Activity"> | string
     Images?: JsonFilter<"Activity">
-    Score?: IntFilter<"Activity"> | number
+    Score?: FloatNullableFilter<"Activity"> | number | null
     Location?: StringNullableFilter<"Activity"> | string | null
     MaxParticipants?: IntNullableFilter<"Activity"> | number | null
+    SemesterID?: IntFilter<"Activity"> | number
     IsArchived?: BoolFilter<"Activity"> | boolean
     CreatedAt?: DateTimeFilter<"Activity"> | Date | string
     UpdatedAt?: DateTimeFilter<"Activity"> | Date | string
+    Semester?: XOR<SemesterRelationFilter, SemesterWhereInput>
     ActivityResults?: ActivityResultsListRelationFilter
     ActivityDetails?: ActivityDetailsListRelationFilter
   }, "ID">
@@ -9370,9 +10663,10 @@ export namespace Prisma {
     EndDate?: SortOrder
     Type?: SortOrder
     Images?: SortOrder
-    Score?: SortOrder
+    Score?: SortOrderInput | SortOrder
     Location?: SortOrderInput | SortOrder
     MaxParticipants?: SortOrderInput | SortOrder
+    SemesterID?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -9394,9 +10688,10 @@ export namespace Prisma {
     EndDate?: DateTimeWithAggregatesFilter<"Activity"> | Date | string
     Type?: StringWithAggregatesFilter<"Activity"> | string
     Images?: JsonWithAggregatesFilter<"Activity">
-    Score?: IntWithAggregatesFilter<"Activity"> | number
+    Score?: FloatNullableWithAggregatesFilter<"Activity"> | number | null
     Location?: StringNullableWithAggregatesFilter<"Activity"> | string | null
     MaxParticipants?: IntNullableWithAggregatesFilter<"Activity"> | number | null
+    SemesterID?: IntWithAggregatesFilter<"Activity"> | number
     IsArchived?: BoolWithAggregatesFilter<"Activity"> | boolean
     CreatedAt?: DateTimeWithAggregatesFilter<"Activity"> | Date | string
     UpdatedAt?: DateTimeWithAggregatesFilter<"Activity"> | Date | string
@@ -9412,6 +10707,7 @@ export namespace Prisma {
     ActivityID?: IntFilter<"ActivityResults"> | number
     Reservation?: BoolFilter<"ActivityResults"> | boolean
     Status?: StringFilter<"ActivityResults"> | string
+    imageActivity?: StringNullableFilter<"ActivityResults"> | string | null
     IsArchived?: BoolFilter<"ActivityResults"> | boolean
     CreatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
     UpdatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
@@ -9427,6 +10723,7 @@ export namespace Prisma {
     ActivityID?: SortOrder
     Reservation?: SortOrder
     Status?: SortOrder
+    imageActivity?: SortOrderInput | SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -9445,6 +10742,7 @@ export namespace Prisma {
     ActivityID?: IntFilter<"ActivityResults"> | number
     Reservation?: BoolFilter<"ActivityResults"> | boolean
     Status?: StringFilter<"ActivityResults"> | string
+    imageActivity?: StringNullableFilter<"ActivityResults"> | string | null
     IsArchived?: BoolFilter<"ActivityResults"> | boolean
     CreatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
     UpdatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
@@ -9460,6 +10758,7 @@ export namespace Prisma {
     ActivityID?: SortOrder
     Reservation?: SortOrder
     Status?: SortOrder
+    imageActivity?: SortOrderInput | SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -9480,6 +10779,7 @@ export namespace Prisma {
     ActivityID?: IntWithAggregatesFilter<"ActivityResults"> | number
     Reservation?: BoolWithAggregatesFilter<"ActivityResults"> | boolean
     Status?: StringWithAggregatesFilter<"ActivityResults"> | string
+    imageActivity?: StringNullableWithAggregatesFilter<"ActivityResults"> | string | null
     IsArchived?: BoolWithAggregatesFilter<"ActivityResults"> | boolean
     CreatedAt?: DateTimeWithAggregatesFilter<"ActivityResults"> | Date | string
     UpdatedAt?: DateTimeWithAggregatesFilter<"ActivityResults"> | Date | string
@@ -9659,6 +10959,88 @@ export namespace Prisma {
     UpdatedAt?: DateTimeWithAggregatesFilter<"AdminRequest"> | Date | string
   }
 
+  export type SemesterWhereInput = {
+    AND?: SemesterWhereInput | SemesterWhereInput[]
+    OR?: SemesterWhereInput[]
+    NOT?: SemesterWhereInput | SemesterWhereInput[]
+    ID?: IntFilter<"Semester"> | number
+    Year?: IntFilter<"Semester"> | number
+    Term?: IntFilter<"Semester"> | number
+    StartDate?: DateTimeFilter<"Semester"> | Date | string
+    EndDate?: DateTimeFilter<"Semester"> | Date | string
+    Status?: StringFilter<"Semester"> | string
+    Description?: StringNullableFilter<"Semester"> | string | null
+    IsArchived?: BoolFilter<"Semester"> | boolean
+    CreatedAt?: DateTimeFilter<"Semester"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Semester"> | Date | string
+    Activities?: ActivityListRelationFilter
+  }
+
+  export type SemesterOrderByWithRelationInput = {
+    ID?: SortOrder
+    Year?: SortOrder
+    Term?: SortOrder
+    StartDate?: SortOrder
+    EndDate?: SortOrder
+    Status?: SortOrder
+    Description?: SortOrderInput | SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+    Activities?: ActivityOrderByRelationAggregateInput
+  }
+
+  export type SemesterWhereUniqueInput = Prisma.AtLeast<{
+    ID?: number
+    AND?: SemesterWhereInput | SemesterWhereInput[]
+    OR?: SemesterWhereInput[]
+    NOT?: SemesterWhereInput | SemesterWhereInput[]
+    Year?: IntFilter<"Semester"> | number
+    Term?: IntFilter<"Semester"> | number
+    StartDate?: DateTimeFilter<"Semester"> | Date | string
+    EndDate?: DateTimeFilter<"Semester"> | Date | string
+    Status?: StringFilter<"Semester"> | string
+    Description?: StringNullableFilter<"Semester"> | string | null
+    IsArchived?: BoolFilter<"Semester"> | boolean
+    CreatedAt?: DateTimeFilter<"Semester"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Semester"> | Date | string
+    Activities?: ActivityListRelationFilter
+  }, "ID">
+
+  export type SemesterOrderByWithAggregationInput = {
+    ID?: SortOrder
+    Year?: SortOrder
+    Term?: SortOrder
+    StartDate?: SortOrder
+    EndDate?: SortOrder
+    Status?: SortOrder
+    Description?: SortOrderInput | SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+    _count?: SemesterCountOrderByAggregateInput
+    _avg?: SemesterAvgOrderByAggregateInput
+    _max?: SemesterMaxOrderByAggregateInput
+    _min?: SemesterMinOrderByAggregateInput
+    _sum?: SemesterSumOrderByAggregateInput
+  }
+
+  export type SemesterScalarWhereWithAggregatesInput = {
+    AND?: SemesterScalarWhereWithAggregatesInput | SemesterScalarWhereWithAggregatesInput[]
+    OR?: SemesterScalarWhereWithAggregatesInput[]
+    NOT?: SemesterScalarWhereWithAggregatesInput | SemesterScalarWhereWithAggregatesInput[]
+    ID?: IntWithAggregatesFilter<"Semester"> | number
+    Year?: IntWithAggregatesFilter<"Semester"> | number
+    Term?: IntWithAggregatesFilter<"Semester"> | number
+    StartDate?: DateTimeWithAggregatesFilter<"Semester"> | Date | string
+    EndDate?: DateTimeWithAggregatesFilter<"Semester"> | Date | string
+    Status?: StringWithAggregatesFilter<"Semester"> | string
+    Description?: StringNullableWithAggregatesFilter<"Semester"> | string | null
+    IsArchived?: BoolWithAggregatesFilter<"Semester"> | boolean
+    CreatedAt?: DateTimeWithAggregatesFilter<"Semester"> | Date | string
+    UpdatedAt?: DateTimeWithAggregatesFilter<"Semester"> | Date | string
+  }
+
   export type UserCreateInput = {
     UserID?: string
     UserFirstName: string
@@ -9666,6 +11048,8 @@ export namespace Prisma {
     UserPassword: string
     UserImage?: string | null
     Role?: string
+    classAt: string
+    classRoom: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -9683,6 +11067,8 @@ export namespace Prisma {
     UserImage?: string | null
     DepartmentID: string
     Role?: string
+    classAt: string
+    classRoom: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -9698,6 +11084,8 @@ export namespace Prisma {
     UserPassword?: StringFieldUpdateOperationsInput | string
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     Role?: StringFieldUpdateOperationsInput | string
+    classAt?: StringFieldUpdateOperationsInput | string
+    classRoom?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9715,6 +11103,8 @@ export namespace Prisma {
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     DepartmentID?: StringFieldUpdateOperationsInput | string
     Role?: StringFieldUpdateOperationsInput | string
+    classAt?: StringFieldUpdateOperationsInput | string
+    classRoom?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9731,6 +11121,8 @@ export namespace Prisma {
     UserImage?: string | null
     DepartmentID: string
     Role?: string
+    classAt: string
+    classRoom: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -9743,6 +11135,8 @@ export namespace Prisma {
     UserPassword?: StringFieldUpdateOperationsInput | string
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     Role?: StringFieldUpdateOperationsInput | string
+    classAt?: StringFieldUpdateOperationsInput | string
+    classRoom?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9756,6 +11150,8 @@ export namespace Prisma {
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     DepartmentID?: StringFieldUpdateOperationsInput | string
     Role?: StringFieldUpdateOperationsInput | string
+    classAt?: StringFieldUpdateOperationsInput | string
+    classRoom?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9894,12 +11290,13 @@ export namespace Prisma {
     EndDate: Date | string
     Type: string
     Images: JsonNullValueInput | InputJsonValue
-    Score: number
+    Score?: number | null
     Location?: string | null
     MaxParticipants?: number | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
+    Semester: SemesterCreateNestedOneWithoutActivitiesInput
     ActivityResults?: ActivityResultsCreateNestedManyWithoutActivityInput
     ActivityDetails?: ActivityDetailsCreateNestedManyWithoutActivityInput
   }
@@ -9912,9 +11309,10 @@ export namespace Prisma {
     EndDate: Date | string
     Type: string
     Images: JsonNullValueInput | InputJsonValue
-    Score: number
+    Score?: number | null
     Location?: string | null
     MaxParticipants?: number | null
+    SemesterID: number
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -9929,12 +11327,13 @@ export namespace Prisma {
     EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
     Type?: StringFieldUpdateOperationsInput | string
     Images?: JsonNullValueInput | InputJsonValue
-    Score?: IntFieldUpdateOperationsInput | number
+    Score?: NullableFloatFieldUpdateOperationsInput | number | null
     Location?: NullableStringFieldUpdateOperationsInput | string | null
     MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Semester?: SemesterUpdateOneRequiredWithoutActivitiesNestedInput
     ActivityResults?: ActivityResultsUpdateManyWithoutActivityNestedInput
     ActivityDetails?: ActivityDetailsUpdateManyWithoutActivityNestedInput
   }
@@ -9947,9 +11346,10 @@ export namespace Prisma {
     EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
     Type?: StringFieldUpdateOperationsInput | string
     Images?: JsonNullValueInput | InputJsonValue
-    Score?: IntFieldUpdateOperationsInput | number
+    Score?: NullableFloatFieldUpdateOperationsInput | number | null
     Location?: NullableStringFieldUpdateOperationsInput | string | null
     MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    SemesterID?: IntFieldUpdateOperationsInput | number
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9965,9 +11365,10 @@ export namespace Prisma {
     EndDate: Date | string
     Type: string
     Images: JsonNullValueInput | InputJsonValue
-    Score: number
+    Score?: number | null
     Location?: string | null
     MaxParticipants?: number | null
+    SemesterID: number
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -9980,7 +11381,7 @@ export namespace Prisma {
     EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
     Type?: StringFieldUpdateOperationsInput | string
     Images?: JsonNullValueInput | InputJsonValue
-    Score?: IntFieldUpdateOperationsInput | number
+    Score?: NullableFloatFieldUpdateOperationsInput | number | null
     Location?: NullableStringFieldUpdateOperationsInput | string | null
     MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
@@ -9996,9 +11397,10 @@ export namespace Prisma {
     EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
     Type?: StringFieldUpdateOperationsInput | string
     Images?: JsonNullValueInput | InputJsonValue
-    Score?: IntFieldUpdateOperationsInput | number
+    Score?: NullableFloatFieldUpdateOperationsInput | number | null
     Location?: NullableStringFieldUpdateOperationsInput | string | null
     MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    SemesterID?: IntFieldUpdateOperationsInput | number
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10007,6 +11409,7 @@ export namespace Prisma {
   export type ActivityResultsCreateInput = {
     Reservation: boolean
     Status: string
+    imageActivity?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -10022,6 +11425,7 @@ export namespace Prisma {
     ActivityID: number
     Reservation: boolean
     Status: string
+    imageActivity?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -10030,6 +11434,7 @@ export namespace Prisma {
   export type ActivityResultsUpdateInput = {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
+    imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10045,6 +11450,7 @@ export namespace Prisma {
     ActivityID?: IntFieldUpdateOperationsInput | number
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
+    imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10057,6 +11463,7 @@ export namespace Prisma {
     ActivityID: number
     Reservation: boolean
     Status: string
+    imageActivity?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -10065,6 +11472,7 @@ export namespace Prisma {
   export type ActivityResultsUpdateManyMutationInput = {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
+    imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10077,6 +11485,7 @@ export namespace Prisma {
     ActivityID?: IntFieldUpdateOperationsInput | number
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
+    imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10270,6 +11679,98 @@ export namespace Prisma {
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type SemesterCreateInput = {
+    Year: number
+    Term: number
+    StartDate: Date | string
+    EndDate: Date | string
+    Status: string
+    Description?: string | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Activities?: ActivityCreateNestedManyWithoutSemesterInput
+  }
+
+  export type SemesterUncheckedCreateInput = {
+    ID?: number
+    Year: number
+    Term: number
+    StartDate: Date | string
+    EndDate: Date | string
+    Status: string
+    Description?: string | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Activities?: ActivityUncheckedCreateNestedManyWithoutSemesterInput
+  }
+
+  export type SemesterUpdateInput = {
+    Year?: IntFieldUpdateOperationsInput | number
+    Term?: IntFieldUpdateOperationsInput | number
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Status?: StringFieldUpdateOperationsInput | string
+    Description?: NullableStringFieldUpdateOperationsInput | string | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Activities?: ActivityUpdateManyWithoutSemesterNestedInput
+  }
+
+  export type SemesterUncheckedUpdateInput = {
+    ID?: IntFieldUpdateOperationsInput | number
+    Year?: IntFieldUpdateOperationsInput | number
+    Term?: IntFieldUpdateOperationsInput | number
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Status?: StringFieldUpdateOperationsInput | string
+    Description?: NullableStringFieldUpdateOperationsInput | string | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Activities?: ActivityUncheckedUpdateManyWithoutSemesterNestedInput
+  }
+
+  export type SemesterCreateManyInput = {
+    ID?: number
+    Year: number
+    Term: number
+    StartDate: Date | string
+    EndDate: Date | string
+    Status: string
+    Description?: string | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+  }
+
+  export type SemesterUpdateManyMutationInput = {
+    Year?: IntFieldUpdateOperationsInput | number
+    Term?: IntFieldUpdateOperationsInput | number
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Status?: StringFieldUpdateOperationsInput | string
+    Description?: NullableStringFieldUpdateOperationsInput | string | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SemesterUncheckedUpdateManyInput = {
+    ID?: IntFieldUpdateOperationsInput | number
+    Year?: IntFieldUpdateOperationsInput | number
+    Term?: IntFieldUpdateOperationsInput | number
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Status?: StringFieldUpdateOperationsInput | string
+    Description?: NullableStringFieldUpdateOperationsInput | string | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -10359,6 +11860,8 @@ export namespace Prisma {
     UserImage?: SortOrder
     DepartmentID?: SortOrder
     Role?: SortOrder
+    classAt?: SortOrder
+    classRoom?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10372,6 +11875,8 @@ export namespace Prisma {
     UserImage?: SortOrder
     DepartmentID?: SortOrder
     Role?: SortOrder
+    classAt?: SortOrder
+    classRoom?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10385,6 +11890,8 @@ export namespace Prisma {
     UserImage?: SortOrder
     DepartmentID?: SortOrder
     Role?: SortOrder
+    classAt?: SortOrder
+    classRoom?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10547,6 +12054,17 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -10556,6 +12074,11 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type SemesterRelationFilter = {
+    is?: SemesterWhereInput
+    isNot?: SemesterWhereInput
   }
 
   export type ActivityCountOrderByAggregateInput = {
@@ -10569,6 +12092,7 @@ export namespace Prisma {
     Score?: SortOrder
     Location?: SortOrder
     MaxParticipants?: SortOrder
+    SemesterID?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10578,6 +12102,7 @@ export namespace Prisma {
     ID?: SortOrder
     Score?: SortOrder
     MaxParticipants?: SortOrder
+    SemesterID?: SortOrder
   }
 
   export type ActivityMaxOrderByAggregateInput = {
@@ -10590,6 +12115,7 @@ export namespace Prisma {
     Score?: SortOrder
     Location?: SortOrder
     MaxParticipants?: SortOrder
+    SemesterID?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10605,6 +12131,7 @@ export namespace Prisma {
     Score?: SortOrder
     Location?: SortOrder
     MaxParticipants?: SortOrder
+    SemesterID?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10614,6 +12141,7 @@ export namespace Prisma {
     ID?: SortOrder
     Score?: SortOrder
     MaxParticipants?: SortOrder
+    SemesterID?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -10657,6 +12185,22 @@ export namespace Prisma {
     _max?: NestedJsonFilter<$PrismaModel>
   }
 
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -10685,6 +12229,7 @@ export namespace Prisma {
     ActivityID?: SortOrder
     Reservation?: SortOrder
     Status?: SortOrder
+    imageActivity?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10702,6 +12247,7 @@ export namespace Prisma {
     ActivityID?: SortOrder
     Reservation?: SortOrder
     Status?: SortOrder
+    imageActivity?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10714,6 +12260,7 @@ export namespace Prisma {
     ActivityID?: SortOrder
     Reservation?: SortOrder
     Status?: SortOrder
+    imageActivity?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10826,6 +12373,67 @@ export namespace Prisma {
   export type AdminRequestSumOrderByAggregateInput = {
     ID?: SortOrder
     ActivityID?: SortOrder
+  }
+
+  export type ActivityListRelationFilter = {
+    every?: ActivityWhereInput
+    some?: ActivityWhereInput
+    none?: ActivityWhereInput
+  }
+
+  export type ActivityOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SemesterCountOrderByAggregateInput = {
+    ID?: SortOrder
+    Year?: SortOrder
+    Term?: SortOrder
+    StartDate?: SortOrder
+    EndDate?: SortOrder
+    Status?: SortOrder
+    Description?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+
+  export type SemesterAvgOrderByAggregateInput = {
+    ID?: SortOrder
+    Year?: SortOrder
+    Term?: SortOrder
+  }
+
+  export type SemesterMaxOrderByAggregateInput = {
+    ID?: SortOrder
+    Year?: SortOrder
+    Term?: SortOrder
+    StartDate?: SortOrder
+    EndDate?: SortOrder
+    Status?: SortOrder
+    Description?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+
+  export type SemesterMinOrderByAggregateInput = {
+    ID?: SortOrder
+    Year?: SortOrder
+    Term?: SortOrder
+    StartDate?: SortOrder
+    EndDate?: SortOrder
+    Status?: SortOrder
+    Description?: SortOrder
+    IsArchived?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+
+  export type SemesterSumOrderByAggregateInput = {
+    ID?: SortOrder
+    Year?: SortOrder
+    Term?: SortOrder
   }
 
   export type DepartmentCreateNestedOneWithoutUsersInput = {
@@ -11072,6 +12680,12 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAdminInput, UserUpdateWithoutAdminInput>, UserUncheckedUpdateWithoutAdminInput>
   }
 
+  export type SemesterCreateNestedOneWithoutActivitiesInput = {
+    create?: XOR<SemesterCreateWithoutActivitiesInput, SemesterUncheckedCreateWithoutActivitiesInput>
+    connectOrCreate?: SemesterCreateOrConnectWithoutActivitiesInput
+    connect?: SemesterWhereUniqueInput
+  }
+
   export type ActivityResultsCreateNestedManyWithoutActivityInput = {
     create?: XOR<ActivityResultsCreateWithoutActivityInput, ActivityResultsUncheckedCreateWithoutActivityInput> | ActivityResultsCreateWithoutActivityInput[] | ActivityResultsUncheckedCreateWithoutActivityInput[]
     connectOrCreate?: ActivityResultsCreateOrConnectWithoutActivityInput | ActivityResultsCreateOrConnectWithoutActivityInput[]
@@ -11100,8 +12714,8 @@ export namespace Prisma {
     connect?: ActivityDetailsWhereUniqueInput | ActivityDetailsWhereUniqueInput[]
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
@@ -11114,6 +12728,14 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type SemesterUpdateOneRequiredWithoutActivitiesNestedInput = {
+    create?: XOR<SemesterCreateWithoutActivitiesInput, SemesterUncheckedCreateWithoutActivitiesInput>
+    connectOrCreate?: SemesterCreateOrConnectWithoutActivitiesInput
+    upsert?: SemesterUpsertWithoutActivitiesInput
+    connect?: SemesterWhereUniqueInput
+    update?: XOR<XOR<SemesterUpdateToOneWithWhereWithoutActivitiesInput, SemesterUpdateWithoutActivitiesInput>, SemesterUncheckedUpdateWithoutActivitiesInput>
   }
 
   export type ActivityResultsUpdateManyWithoutActivityNestedInput = {
@@ -11142,6 +12764,14 @@ export namespace Prisma {
     update?: ActivityDetailsUpdateWithWhereUniqueWithoutActivityInput | ActivityDetailsUpdateWithWhereUniqueWithoutActivityInput[]
     updateMany?: ActivityDetailsUpdateManyWithWhereWithoutActivityInput | ActivityDetailsUpdateManyWithWhereWithoutActivityInput[]
     deleteMany?: ActivityDetailsScalarWhereInput | ActivityDetailsScalarWhereInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type ActivityResultsUncheckedUpdateManyWithoutActivityNestedInput = {
@@ -11240,6 +12870,48 @@ export namespace Prisma {
     upsert?: ActivityUpsertWithoutActivityDetailsInput
     connect?: ActivityWhereUniqueInput
     update?: XOR<XOR<ActivityUpdateToOneWithWhereWithoutActivityDetailsInput, ActivityUpdateWithoutActivityDetailsInput>, ActivityUncheckedUpdateWithoutActivityDetailsInput>
+  }
+
+  export type ActivityCreateNestedManyWithoutSemesterInput = {
+    create?: XOR<ActivityCreateWithoutSemesterInput, ActivityUncheckedCreateWithoutSemesterInput> | ActivityCreateWithoutSemesterInput[] | ActivityUncheckedCreateWithoutSemesterInput[]
+    connectOrCreate?: ActivityCreateOrConnectWithoutSemesterInput | ActivityCreateOrConnectWithoutSemesterInput[]
+    createMany?: ActivityCreateManySemesterInputEnvelope
+    connect?: ActivityWhereUniqueInput | ActivityWhereUniqueInput[]
+  }
+
+  export type ActivityUncheckedCreateNestedManyWithoutSemesterInput = {
+    create?: XOR<ActivityCreateWithoutSemesterInput, ActivityUncheckedCreateWithoutSemesterInput> | ActivityCreateWithoutSemesterInput[] | ActivityUncheckedCreateWithoutSemesterInput[]
+    connectOrCreate?: ActivityCreateOrConnectWithoutSemesterInput | ActivityCreateOrConnectWithoutSemesterInput[]
+    createMany?: ActivityCreateManySemesterInputEnvelope
+    connect?: ActivityWhereUniqueInput | ActivityWhereUniqueInput[]
+  }
+
+  export type ActivityUpdateManyWithoutSemesterNestedInput = {
+    create?: XOR<ActivityCreateWithoutSemesterInput, ActivityUncheckedCreateWithoutSemesterInput> | ActivityCreateWithoutSemesterInput[] | ActivityUncheckedCreateWithoutSemesterInput[]
+    connectOrCreate?: ActivityCreateOrConnectWithoutSemesterInput | ActivityCreateOrConnectWithoutSemesterInput[]
+    upsert?: ActivityUpsertWithWhereUniqueWithoutSemesterInput | ActivityUpsertWithWhereUniqueWithoutSemesterInput[]
+    createMany?: ActivityCreateManySemesterInputEnvelope
+    set?: ActivityWhereUniqueInput | ActivityWhereUniqueInput[]
+    disconnect?: ActivityWhereUniqueInput | ActivityWhereUniqueInput[]
+    delete?: ActivityWhereUniqueInput | ActivityWhereUniqueInput[]
+    connect?: ActivityWhereUniqueInput | ActivityWhereUniqueInput[]
+    update?: ActivityUpdateWithWhereUniqueWithoutSemesterInput | ActivityUpdateWithWhereUniqueWithoutSemesterInput[]
+    updateMany?: ActivityUpdateManyWithWhereWithoutSemesterInput | ActivityUpdateManyWithWhereWithoutSemesterInput[]
+    deleteMany?: ActivityScalarWhereInput | ActivityScalarWhereInput[]
+  }
+
+  export type ActivityUncheckedUpdateManyWithoutSemesterNestedInput = {
+    create?: XOR<ActivityCreateWithoutSemesterInput, ActivityUncheckedCreateWithoutSemesterInput> | ActivityCreateWithoutSemesterInput[] | ActivityUncheckedCreateWithoutSemesterInput[]
+    connectOrCreate?: ActivityCreateOrConnectWithoutSemesterInput | ActivityCreateOrConnectWithoutSemesterInput[]
+    upsert?: ActivityUpsertWithWhereUniqueWithoutSemesterInput | ActivityUpsertWithWhereUniqueWithoutSemesterInput[]
+    createMany?: ActivityCreateManySemesterInputEnvelope
+    set?: ActivityWhereUniqueInput | ActivityWhereUniqueInput[]
+    disconnect?: ActivityWhereUniqueInput | ActivityWhereUniqueInput[]
+    delete?: ActivityWhereUniqueInput | ActivityWhereUniqueInput[]
+    connect?: ActivityWhereUniqueInput | ActivityWhereUniqueInput[]
+    update?: ActivityUpdateWithWhereUniqueWithoutSemesterInput | ActivityUpdateWithWhereUniqueWithoutSemesterInput[]
+    updateMany?: ActivityUpdateManyWithWhereWithoutSemesterInput | ActivityUpdateManyWithWhereWithoutSemesterInput[]
+    deleteMany?: ActivityScalarWhereInput | ActivityScalarWhereInput[]
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -11364,6 +13036,17 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -11413,6 +13096,22 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -11427,17 +13126,6 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type DepartmentCreateWithoutUsersInput = {
@@ -11487,6 +13175,7 @@ export namespace Prisma {
   export type ActivityResultsCreateWithoutUserInput = {
     Reservation: boolean
     Status: string
+    imageActivity?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11500,6 +13189,7 @@ export namespace Prisma {
     ActivityID: number
     Reservation: boolean
     Status: string
+    imageActivity?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11630,6 +13320,7 @@ export namespace Prisma {
     ActivityID?: IntFilter<"ActivityResults"> | number
     Reservation?: BoolFilter<"ActivityResults"> | boolean
     Status?: StringFilter<"ActivityResults"> | string
+    imageActivity?: StringNullableFilter<"ActivityResults"> | string | null
     IsArchived?: BoolFilter<"ActivityResults"> | boolean
     CreatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
     UpdatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
@@ -11674,6 +13365,8 @@ export namespace Prisma {
     UserPassword: string
     UserImage?: string | null
     Role?: string
+    classAt: string
+    classRoom: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11689,6 +13382,8 @@ export namespace Prisma {
     UserPassword: string
     UserImage?: string | null
     Role?: string
+    classAt: string
+    classRoom: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11710,6 +13405,7 @@ export namespace Prisma {
   export type ActivityResultsCreateWithoutDepartmentInput = {
     Reservation: boolean
     Status: string
+    imageActivity?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11723,6 +13419,7 @@ export namespace Prisma {
     ActivityID: number
     Reservation: boolean
     Status: string
+    imageActivity?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11765,6 +13462,8 @@ export namespace Prisma {
     UserImage?: StringNullableFilter<"User"> | string | null
     DepartmentID?: StringFilter<"User"> | string
     Role?: StringFilter<"User"> | string
+    classAt?: StringFilter<"User"> | string
+    classRoom?: StringFilter<"User"> | string
     IsArchived?: BoolFilter<"User"> | boolean
     CreatedAt?: DateTimeFilter<"User"> | Date | string
     UpdatedAt?: DateTimeFilter<"User"> | Date | string
@@ -11793,6 +13492,8 @@ export namespace Prisma {
     UserPassword: string
     UserImage?: string | null
     Role?: string
+    classAt: string
+    classRoom: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11809,6 +13510,8 @@ export namespace Prisma {
     UserImage?: string | null
     DepartmentID: string
     Role?: string
+    classAt: string
+    classRoom: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11839,6 +13542,8 @@ export namespace Prisma {
     UserPassword?: StringFieldUpdateOperationsInput | string
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     Role?: StringFieldUpdateOperationsInput | string
+    classAt?: StringFieldUpdateOperationsInput | string
+    classRoom?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11855,6 +13560,8 @@ export namespace Prisma {
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     DepartmentID?: StringFieldUpdateOperationsInput | string
     Role?: StringFieldUpdateOperationsInput | string
+    classAt?: StringFieldUpdateOperationsInput | string
+    classRoom?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11862,9 +13569,40 @@ export namespace Prisma {
     ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutUserNestedInput
   }
 
+  export type SemesterCreateWithoutActivitiesInput = {
+    Year: number
+    Term: number
+    StartDate: Date | string
+    EndDate: Date | string
+    Status: string
+    Description?: string | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+  }
+
+  export type SemesterUncheckedCreateWithoutActivitiesInput = {
+    ID?: number
+    Year: number
+    Term: number
+    StartDate: Date | string
+    EndDate: Date | string
+    Status: string
+    Description?: string | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+  }
+
+  export type SemesterCreateOrConnectWithoutActivitiesInput = {
+    where: SemesterWhereUniqueInput
+    create: XOR<SemesterCreateWithoutActivitiesInput, SemesterUncheckedCreateWithoutActivitiesInput>
+  }
+
   export type ActivityResultsCreateWithoutActivityInput = {
     Reservation: boolean
     Status: string
+    imageActivity?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11878,6 +13616,7 @@ export namespace Prisma {
     UserID: string
     Reservation: boolean
     Status: string
+    imageActivity?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11924,6 +13663,42 @@ export namespace Prisma {
   export type ActivityDetailsCreateManyActivityInputEnvelope = {
     data: ActivityDetailsCreateManyActivityInput | ActivityDetailsCreateManyActivityInput[]
     skipDuplicates?: boolean
+  }
+
+  export type SemesterUpsertWithoutActivitiesInput = {
+    update: XOR<SemesterUpdateWithoutActivitiesInput, SemesterUncheckedUpdateWithoutActivitiesInput>
+    create: XOR<SemesterCreateWithoutActivitiesInput, SemesterUncheckedCreateWithoutActivitiesInput>
+    where?: SemesterWhereInput
+  }
+
+  export type SemesterUpdateToOneWithWhereWithoutActivitiesInput = {
+    where?: SemesterWhereInput
+    data: XOR<SemesterUpdateWithoutActivitiesInput, SemesterUncheckedUpdateWithoutActivitiesInput>
+  }
+
+  export type SemesterUpdateWithoutActivitiesInput = {
+    Year?: IntFieldUpdateOperationsInput | number
+    Term?: IntFieldUpdateOperationsInput | number
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Status?: StringFieldUpdateOperationsInput | string
+    Description?: NullableStringFieldUpdateOperationsInput | string | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SemesterUncheckedUpdateWithoutActivitiesInput = {
+    ID?: IntFieldUpdateOperationsInput | number
+    Year?: IntFieldUpdateOperationsInput | number
+    Term?: IntFieldUpdateOperationsInput | number
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Status?: StringFieldUpdateOperationsInput | string
+    Description?: NullableStringFieldUpdateOperationsInput | string | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ActivityResultsUpsertWithWhereUniqueWithoutActivityInput = {
@@ -11988,6 +13763,8 @@ export namespace Prisma {
     UserPassword: string
     UserImage?: string | null
     Role?: string
+    classAt: string
+    classRoom: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -12004,6 +13781,8 @@ export namespace Prisma {
     UserImage?: string | null
     DepartmentID: string
     Role?: string
+    classAt: string
+    classRoom: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -12023,12 +13802,13 @@ export namespace Prisma {
     EndDate: Date | string
     Type: string
     Images: JsonNullValueInput | InputJsonValue
-    Score: number
+    Score?: number | null
     Location?: string | null
     MaxParticipants?: number | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
+    Semester: SemesterCreateNestedOneWithoutActivitiesInput
     ActivityDetails?: ActivityDetailsCreateNestedManyWithoutActivityInput
   }
 
@@ -12040,9 +13820,10 @@ export namespace Prisma {
     EndDate: Date | string
     Type: string
     Images: JsonNullValueInput | InputJsonValue
-    Score: number
+    Score?: number | null
     Location?: string | null
     MaxParticipants?: number | null
+    SemesterID: number
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -12101,6 +13882,8 @@ export namespace Prisma {
     UserPassword?: StringFieldUpdateOperationsInput | string
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     Role?: StringFieldUpdateOperationsInput | string
+    classAt?: StringFieldUpdateOperationsInput | string
+    classRoom?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12117,6 +13900,8 @@ export namespace Prisma {
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     DepartmentID?: StringFieldUpdateOperationsInput | string
     Role?: StringFieldUpdateOperationsInput | string
+    classAt?: StringFieldUpdateOperationsInput | string
+    classRoom?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12142,12 +13927,13 @@ export namespace Prisma {
     EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
     Type?: StringFieldUpdateOperationsInput | string
     Images?: JsonNullValueInput | InputJsonValue
-    Score?: IntFieldUpdateOperationsInput | number
+    Score?: NullableFloatFieldUpdateOperationsInput | number | null
     Location?: NullableStringFieldUpdateOperationsInput | string | null
     MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Semester?: SemesterUpdateOneRequiredWithoutActivitiesNestedInput
     ActivityDetails?: ActivityDetailsUpdateManyWithoutActivityNestedInput
   }
 
@@ -12159,9 +13945,10 @@ export namespace Prisma {
     EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
     Type?: StringFieldUpdateOperationsInput | string
     Images?: JsonNullValueInput | InputJsonValue
-    Score?: IntFieldUpdateOperationsInput | number
+    Score?: NullableFloatFieldUpdateOperationsInput | number | null
     Location?: NullableStringFieldUpdateOperationsInput | string | null
     MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    SemesterID?: IntFieldUpdateOperationsInput | number
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12175,6 +13962,8 @@ export namespace Prisma {
     UserPassword: string
     UserImage?: string | null
     Role?: string
+    classAt: string
+    classRoom: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -12191,6 +13980,8 @@ export namespace Prisma {
     UserImage?: string | null
     DepartmentID: string
     Role?: string
+    classAt: string
+    classRoom: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -12210,12 +14001,13 @@ export namespace Prisma {
     EndDate: Date | string
     Type: string
     Images: JsonNullValueInput | InputJsonValue
-    Score: number
+    Score?: number | null
     Location?: string | null
     MaxParticipants?: number | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
+    Semester: SemesterCreateNestedOneWithoutActivitiesInput
     ActivityResults?: ActivityResultsCreateNestedManyWithoutActivityInput
   }
 
@@ -12227,9 +14019,10 @@ export namespace Prisma {
     EndDate: Date | string
     Type: string
     Images: JsonNullValueInput | InputJsonValue
-    Score: number
+    Score?: number | null
     Location?: string | null
     MaxParticipants?: number | null
+    SemesterID: number
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -12259,6 +14052,8 @@ export namespace Prisma {
     UserPassword?: StringFieldUpdateOperationsInput | string
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     Role?: StringFieldUpdateOperationsInput | string
+    classAt?: StringFieldUpdateOperationsInput | string
+    classRoom?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12275,6 +14070,8 @@ export namespace Prisma {
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     DepartmentID?: StringFieldUpdateOperationsInput | string
     Role?: StringFieldUpdateOperationsInput | string
+    classAt?: StringFieldUpdateOperationsInput | string
+    classRoom?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12300,12 +14097,13 @@ export namespace Prisma {
     EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
     Type?: StringFieldUpdateOperationsInput | string
     Images?: JsonNullValueInput | InputJsonValue
-    Score?: IntFieldUpdateOperationsInput | number
+    Score?: NullableFloatFieldUpdateOperationsInput | number | null
     Location?: NullableStringFieldUpdateOperationsInput | string | null
     MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Semester?: SemesterUpdateOneRequiredWithoutActivitiesNestedInput
     ActivityResults?: ActivityResultsUpdateManyWithoutActivityNestedInput
   }
 
@@ -12317,13 +14115,95 @@ export namespace Prisma {
     EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
     Type?: StringFieldUpdateOperationsInput | string
     Images?: JsonNullValueInput | InputJsonValue
-    Score?: IntFieldUpdateOperationsInput | number
+    Score?: NullableFloatFieldUpdateOperationsInput | number | null
     Location?: NullableStringFieldUpdateOperationsInput | string | null
     MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    SemesterID?: IntFieldUpdateOperationsInput | number
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutActivityNestedInput
+  }
+
+  export type ActivityCreateWithoutSemesterInput = {
+    Title: string
+    Description: string
+    StartDate: Date | string
+    EndDate: Date | string
+    Type: string
+    Images: JsonNullValueInput | InputJsonValue
+    Score?: number | null
+    Location?: string | null
+    MaxParticipants?: number | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    ActivityResults?: ActivityResultsCreateNestedManyWithoutActivityInput
+    ActivityDetails?: ActivityDetailsCreateNestedManyWithoutActivityInput
+  }
+
+  export type ActivityUncheckedCreateWithoutSemesterInput = {
+    ID?: number
+    Title: string
+    Description: string
+    StartDate: Date | string
+    EndDate: Date | string
+    Type: string
+    Images: JsonNullValueInput | InputJsonValue
+    Score?: number | null
+    Location?: string | null
+    MaxParticipants?: number | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    ActivityResults?: ActivityResultsUncheckedCreateNestedManyWithoutActivityInput
+    ActivityDetails?: ActivityDetailsUncheckedCreateNestedManyWithoutActivityInput
+  }
+
+  export type ActivityCreateOrConnectWithoutSemesterInput = {
+    where: ActivityWhereUniqueInput
+    create: XOR<ActivityCreateWithoutSemesterInput, ActivityUncheckedCreateWithoutSemesterInput>
+  }
+
+  export type ActivityCreateManySemesterInputEnvelope = {
+    data: ActivityCreateManySemesterInput | ActivityCreateManySemesterInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ActivityUpsertWithWhereUniqueWithoutSemesterInput = {
+    where: ActivityWhereUniqueInput
+    update: XOR<ActivityUpdateWithoutSemesterInput, ActivityUncheckedUpdateWithoutSemesterInput>
+    create: XOR<ActivityCreateWithoutSemesterInput, ActivityUncheckedCreateWithoutSemesterInput>
+  }
+
+  export type ActivityUpdateWithWhereUniqueWithoutSemesterInput = {
+    where: ActivityWhereUniqueInput
+    data: XOR<ActivityUpdateWithoutSemesterInput, ActivityUncheckedUpdateWithoutSemesterInput>
+  }
+
+  export type ActivityUpdateManyWithWhereWithoutSemesterInput = {
+    where: ActivityScalarWhereInput
+    data: XOR<ActivityUpdateManyMutationInput, ActivityUncheckedUpdateManyWithoutSemesterInput>
+  }
+
+  export type ActivityScalarWhereInput = {
+    AND?: ActivityScalarWhereInput | ActivityScalarWhereInput[]
+    OR?: ActivityScalarWhereInput[]
+    NOT?: ActivityScalarWhereInput | ActivityScalarWhereInput[]
+    ID?: IntFilter<"Activity"> | number
+    Title?: StringFilter<"Activity"> | string
+    Description?: StringFilter<"Activity"> | string
+    StartDate?: DateTimeFilter<"Activity"> | Date | string
+    EndDate?: DateTimeFilter<"Activity"> | Date | string
+    Type?: StringFilter<"Activity"> | string
+    Images?: JsonFilter<"Activity">
+    Score?: FloatNullableFilter<"Activity"> | number | null
+    Location?: StringNullableFilter<"Activity"> | string | null
+    MaxParticipants?: IntNullableFilter<"Activity"> | number | null
+    SemesterID?: IntFilter<"Activity"> | number
+    IsArchived?: BoolFilter<"Activity"> | boolean
+    CreatedAt?: DateTimeFilter<"Activity"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Activity"> | Date | string
   }
 
   export type ActivityResultsCreateManyUserInput = {
@@ -12332,6 +14212,7 @@ export namespace Prisma {
     ActivityID: number
     Reservation: boolean
     Status: string
+    imageActivity?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -12352,6 +14233,7 @@ export namespace Prisma {
   export type ActivityResultsUpdateWithoutUserInput = {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
+    imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12365,6 +14247,7 @@ export namespace Prisma {
     ActivityID?: IntFieldUpdateOperationsInput | number
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
+    imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12376,6 +14259,7 @@ export namespace Prisma {
     ActivityID?: IntFieldUpdateOperationsInput | number
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
+    imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12423,6 +14307,8 @@ export namespace Prisma {
     UserPassword: string
     UserImage?: string | null
     Role?: string
+    classAt: string
+    classRoom: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -12434,6 +14320,7 @@ export namespace Prisma {
     ActivityID: number
     Reservation: boolean
     Status: string
+    imageActivity?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -12446,6 +14333,8 @@ export namespace Prisma {
     UserPassword?: StringFieldUpdateOperationsInput | string
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     Role?: StringFieldUpdateOperationsInput | string
+    classAt?: StringFieldUpdateOperationsInput | string
+    classRoom?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12461,6 +14350,8 @@ export namespace Prisma {
     UserPassword?: StringFieldUpdateOperationsInput | string
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     Role?: StringFieldUpdateOperationsInput | string
+    classAt?: StringFieldUpdateOperationsInput | string
+    classRoom?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12476,6 +14367,8 @@ export namespace Prisma {
     UserPassword?: StringFieldUpdateOperationsInput | string
     UserImage?: NullableStringFieldUpdateOperationsInput | string | null
     Role?: StringFieldUpdateOperationsInput | string
+    classAt?: StringFieldUpdateOperationsInput | string
+    classRoom?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12484,6 +14377,7 @@ export namespace Prisma {
   export type ActivityResultsUpdateWithoutDepartmentInput = {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
+    imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12497,6 +14391,7 @@ export namespace Prisma {
     ActivityID?: IntFieldUpdateOperationsInput | number
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
+    imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12508,6 +14403,7 @@ export namespace Prisma {
     ActivityID?: IntFieldUpdateOperationsInput | number
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
+    imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12519,6 +14415,7 @@ export namespace Prisma {
     UserID: string
     Reservation: boolean
     Status: string
+    imageActivity?: string | null
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -12539,6 +14436,7 @@ export namespace Prisma {
   export type ActivityResultsUpdateWithoutActivityInput = {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
+    imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12552,6 +14450,7 @@ export namespace Prisma {
     UserID?: StringFieldUpdateOperationsInput | string
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
+    imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12563,6 +14462,7 @@ export namespace Prisma {
     UserID?: StringFieldUpdateOperationsInput | string
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
+    imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12603,6 +14503,73 @@ export namespace Prisma {
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type ActivityCreateManySemesterInput = {
+    ID?: number
+    Title: string
+    Description: string
+    StartDate: Date | string
+    EndDate: Date | string
+    Type: string
+    Images: JsonNullValueInput | InputJsonValue
+    Score?: number | null
+    Location?: string | null
+    MaxParticipants?: number | null
+    IsArchived?: boolean
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+  }
+
+  export type ActivityUpdateWithoutSemesterInput = {
+    Title?: StringFieldUpdateOperationsInput | string
+    Description?: StringFieldUpdateOperationsInput | string
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Type?: StringFieldUpdateOperationsInput | string
+    Images?: JsonNullValueInput | InputJsonValue
+    Score?: NullableFloatFieldUpdateOperationsInput | number | null
+    Location?: NullableStringFieldUpdateOperationsInput | string | null
+    MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ActivityResults?: ActivityResultsUpdateManyWithoutActivityNestedInput
+    ActivityDetails?: ActivityDetailsUpdateManyWithoutActivityNestedInput
+  }
+
+  export type ActivityUncheckedUpdateWithoutSemesterInput = {
+    ID?: IntFieldUpdateOperationsInput | number
+    Title?: StringFieldUpdateOperationsInput | string
+    Description?: StringFieldUpdateOperationsInput | string
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Type?: StringFieldUpdateOperationsInput | string
+    Images?: JsonNullValueInput | InputJsonValue
+    Score?: NullableFloatFieldUpdateOperationsInput | number | null
+    Location?: NullableStringFieldUpdateOperationsInput | string | null
+    MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ActivityResults?: ActivityResultsUncheckedUpdateManyWithoutActivityNestedInput
+    ActivityDetails?: ActivityDetailsUncheckedUpdateManyWithoutActivityNestedInput
+  }
+
+  export type ActivityUncheckedUpdateManyWithoutSemesterInput = {
+    ID?: IntFieldUpdateOperationsInput | number
+    Title?: StringFieldUpdateOperationsInput | string
+    Description?: StringFieldUpdateOperationsInput | string
+    StartDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    Type?: StringFieldUpdateOperationsInput | string
+    Images?: JsonNullValueInput | InputJsonValue
+    Score?: NullableFloatFieldUpdateOperationsInput | number | null
+    Location?: NullableStringFieldUpdateOperationsInput | string | null
+    MaxParticipants?: NullableIntFieldUpdateOperationsInput | number | null
+    IsArchived?: BoolFieldUpdateOperationsInput | boolean
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
 
 
   /**
@@ -12620,6 +14587,10 @@ export namespace Prisma {
      * @deprecated Use ActivityCountOutputTypeDefaultArgs instead
      */
     export type ActivityCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ActivityCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use SemesterCountOutputTypeDefaultArgs instead
+     */
+    export type SemesterCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SemesterCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use UserDefaultArgs instead
      */
@@ -12648,6 +14619,10 @@ export namespace Prisma {
      * @deprecated Use AdminRequestDefaultArgs instead
      */
     export type AdminRequestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AdminRequestDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use SemesterDefaultArgs instead
+     */
+    export type SemesterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SemesterDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
