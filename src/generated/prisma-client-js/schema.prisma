@@ -91,6 +91,7 @@ model ActivityResults {
   Reservation   Boolean
   Status        String   @db.VarChar(20)
   imageActivity String?  @db.VarChar(512) // รูปภาพกิจกรรม
+  note          String   @db.VarChar(256) // หมายเหตุ
   IsArchived    Boolean  @default(false)
   CreatedAt     DateTime @default(now())
   UpdatedAt     DateTime @updatedAt

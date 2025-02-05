@@ -16,8 +16,8 @@ model User {
   UserImage     String?  @db.VarChar(256)
   DepartmentID  String   @db.VarChar(64)
   Role          String   @default("USER") @db.VarChar(20)
-  classAt       String   @db.VarChar(64)  // ชั้นเรียน
-  classRoom     String   @db.VarChar(64)  // ห้องเรียน
+  classAt       String   @db.VarChar(64) // ชั้นเรียน
+  classRoom     String   @db.VarChar(64) // ห้องเรียน
   IsArchived    Boolean  @default(false)
   CreatedAt     DateTime @default(now())
   UpdatedAt     DateTime @updatedAt
@@ -90,7 +90,8 @@ model ActivityResults {
   ActivityID    Int
   Reservation   Boolean
   Status        String   @db.VarChar(20)
-  imageActivity String?  @db.VarChar(512)  // รูปภาพกิจกรรม
+  imageActivity String?  @db.VarChar(512) // รูปภาพกิจกรรม
+  note          String   @db.VarChar(256) // หมายเหตุ
   IsArchived    Boolean  @default(false)
   CreatedAt     DateTime @default(now())
   UpdatedAt     DateTime @updatedAt

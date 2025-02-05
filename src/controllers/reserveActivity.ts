@@ -60,6 +60,7 @@ const reserveActivity: RequestHandler = async (req, res) => {
             DepartmentID: user.DepartmentID, // ใช้แผนกจากข้อมูลผู้ใช้
           },
         },
+        note: ""
       },
     });
 

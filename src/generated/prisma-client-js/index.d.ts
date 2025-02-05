@@ -5906,6 +5906,7 @@ export namespace Prisma {
     Reservation: boolean | null
     Status: string | null
     imageActivity: string | null
+    note: string | null
     IsArchived: boolean | null
     CreatedAt: Date | null
     UpdatedAt: Date | null
@@ -5919,6 +5920,7 @@ export namespace Prisma {
     Reservation: boolean | null
     Status: string | null
     imageActivity: string | null
+    note: string | null
     IsArchived: boolean | null
     CreatedAt: Date | null
     UpdatedAt: Date | null
@@ -5932,6 +5934,7 @@ export namespace Prisma {
     Reservation: number
     Status: number
     imageActivity: number
+    note: number
     IsArchived: number
     CreatedAt: number
     UpdatedAt: number
@@ -5957,6 +5960,7 @@ export namespace Prisma {
     Reservation?: true
     Status?: true
     imageActivity?: true
+    note?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -5970,6 +5974,7 @@ export namespace Prisma {
     Reservation?: true
     Status?: true
     imageActivity?: true
+    note?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -5983,6 +5988,7 @@ export namespace Prisma {
     Reservation?: true
     Status?: true
     imageActivity?: true
+    note?: true
     IsArchived?: true
     CreatedAt?: true
     UpdatedAt?: true
@@ -6083,6 +6089,7 @@ export namespace Prisma {
     Reservation: boolean
     Status: string
     imageActivity: string | null
+    note: string
     IsArchived: boolean
     CreatedAt: Date
     UpdatedAt: Date
@@ -6115,6 +6122,7 @@ export namespace Prisma {
     Reservation?: boolean
     Status?: boolean
     imageActivity?: boolean
+    note?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
@@ -6131,6 +6139,7 @@ export namespace Prisma {
     Reservation?: boolean
     Status?: boolean
     imageActivity?: boolean
+    note?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
@@ -6147,6 +6156,7 @@ export namespace Prisma {
     Reservation?: boolean
     Status?: boolean
     imageActivity?: boolean
+    note?: boolean
     IsArchived?: boolean
     CreatedAt?: boolean
     UpdatedAt?: boolean
@@ -6178,6 +6188,7 @@ export namespace Prisma {
       Reservation: boolean
       Status: string
       imageActivity: string | null
+      note: string
       IsArchived: boolean
       CreatedAt: Date
       UpdatedAt: Date
@@ -6612,6 +6623,7 @@ export namespace Prisma {
     readonly Reservation: FieldRef<"ActivityResults", 'Boolean'>
     readonly Status: FieldRef<"ActivityResults", 'String'>
     readonly imageActivity: FieldRef<"ActivityResults", 'String'>
+    readonly note: FieldRef<"ActivityResults", 'String'>
     readonly IsArchived: FieldRef<"ActivityResults", 'Boolean'>
     readonly CreatedAt: FieldRef<"ActivityResults", 'DateTime'>
     readonly UpdatedAt: FieldRef<"ActivityResults", 'DateTime'>
@@ -10196,6 +10208,7 @@ export namespace Prisma {
     Reservation: 'Reservation',
     Status: 'Status',
     imageActivity: 'imageActivity',
+    note: 'note',
     IsArchived: 'IsArchived',
     CreatedAt: 'CreatedAt',
     UpdatedAt: 'UpdatedAt'
@@ -10708,6 +10721,7 @@ export namespace Prisma {
     Reservation?: BoolFilter<"ActivityResults"> | boolean
     Status?: StringFilter<"ActivityResults"> | string
     imageActivity?: StringNullableFilter<"ActivityResults"> | string | null
+    note?: StringFilter<"ActivityResults"> | string
     IsArchived?: BoolFilter<"ActivityResults"> | boolean
     CreatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
     UpdatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
@@ -10724,6 +10738,7 @@ export namespace Prisma {
     Reservation?: SortOrder
     Status?: SortOrder
     imageActivity?: SortOrderInput | SortOrder
+    note?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10743,6 +10758,7 @@ export namespace Prisma {
     Reservation?: BoolFilter<"ActivityResults"> | boolean
     Status?: StringFilter<"ActivityResults"> | string
     imageActivity?: StringNullableFilter<"ActivityResults"> | string | null
+    note?: StringFilter<"ActivityResults"> | string
     IsArchived?: BoolFilter<"ActivityResults"> | boolean
     CreatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
     UpdatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
@@ -10759,6 +10775,7 @@ export namespace Prisma {
     Reservation?: SortOrder
     Status?: SortOrder
     imageActivity?: SortOrderInput | SortOrder
+    note?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -10780,6 +10797,7 @@ export namespace Prisma {
     Reservation?: BoolWithAggregatesFilter<"ActivityResults"> | boolean
     Status?: StringWithAggregatesFilter<"ActivityResults"> | string
     imageActivity?: StringNullableWithAggregatesFilter<"ActivityResults"> | string | null
+    note?: StringWithAggregatesFilter<"ActivityResults"> | string
     IsArchived?: BoolWithAggregatesFilter<"ActivityResults"> | boolean
     CreatedAt?: DateTimeWithAggregatesFilter<"ActivityResults"> | Date | string
     UpdatedAt?: DateTimeWithAggregatesFilter<"ActivityResults"> | Date | string
@@ -11410,6 +11428,7 @@ export namespace Prisma {
     Reservation: boolean
     Status: string
     imageActivity?: string | null
+    note: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11426,6 +11445,7 @@ export namespace Prisma {
     Reservation: boolean
     Status: string
     imageActivity?: string | null
+    note: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11435,6 +11455,7 @@ export namespace Prisma {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11451,6 +11472,7 @@ export namespace Prisma {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11464,6 +11486,7 @@ export namespace Prisma {
     Reservation: boolean
     Status: string
     imageActivity?: string | null
+    note: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -11473,6 +11496,7 @@ export namespace Prisma {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11486,6 +11510,7 @@ export namespace Prisma {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12230,6 +12255,7 @@ export namespace Prisma {
     Reservation?: SortOrder
     Status?: SortOrder
     imageActivity?: SortOrder
+    note?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -12248,6 +12274,7 @@ export namespace Prisma {
     Reservation?: SortOrder
     Status?: SortOrder
     imageActivity?: SortOrder
+    note?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -12261,6 +12288,7 @@ export namespace Prisma {
     Reservation?: SortOrder
     Status?: SortOrder
     imageActivity?: SortOrder
+    note?: SortOrder
     IsArchived?: SortOrder
     CreatedAt?: SortOrder
     UpdatedAt?: SortOrder
@@ -13176,6 +13204,7 @@ export namespace Prisma {
     Reservation: boolean
     Status: string
     imageActivity?: string | null
+    note: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -13190,6 +13219,7 @@ export namespace Prisma {
     Reservation: boolean
     Status: string
     imageActivity?: string | null
+    note: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -13321,6 +13351,7 @@ export namespace Prisma {
     Reservation?: BoolFilter<"ActivityResults"> | boolean
     Status?: StringFilter<"ActivityResults"> | string
     imageActivity?: StringNullableFilter<"ActivityResults"> | string | null
+    note?: StringFilter<"ActivityResults"> | string
     IsArchived?: BoolFilter<"ActivityResults"> | boolean
     CreatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
     UpdatedAt?: DateTimeFilter<"ActivityResults"> | Date | string
@@ -13406,6 +13437,7 @@ export namespace Prisma {
     Reservation: boolean
     Status: string
     imageActivity?: string | null
+    note: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -13420,6 +13452,7 @@ export namespace Prisma {
     Reservation: boolean
     Status: string
     imageActivity?: string | null
+    note: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -13603,6 +13636,7 @@ export namespace Prisma {
     Reservation: boolean
     Status: string
     imageActivity?: string | null
+    note: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -13617,6 +13651,7 @@ export namespace Prisma {
     Reservation: boolean
     Status: string
     imageActivity?: string | null
+    note: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -14213,6 +14248,7 @@ export namespace Prisma {
     Reservation: boolean
     Status: string
     imageActivity?: string | null
+    note: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -14234,6 +14270,7 @@ export namespace Prisma {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14248,6 +14285,7 @@ export namespace Prisma {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14260,6 +14298,7 @@ export namespace Prisma {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14321,6 +14360,7 @@ export namespace Prisma {
     Reservation: boolean
     Status: string
     imageActivity?: string | null
+    note: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -14378,6 +14418,7 @@ export namespace Prisma {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14392,6 +14433,7 @@ export namespace Prisma {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14404,6 +14446,7 @@ export namespace Prisma {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14416,6 +14459,7 @@ export namespace Prisma {
     Reservation: boolean
     Status: string
     imageActivity?: string | null
+    note: string
     IsArchived?: boolean
     CreatedAt?: Date | string
     UpdatedAt?: Date | string
@@ -14437,6 +14481,7 @@ export namespace Prisma {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14451,6 +14496,7 @@ export namespace Prisma {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14463,6 +14509,7 @@ export namespace Prisma {
     Reservation?: BoolFieldUpdateOperationsInput | boolean
     Status?: StringFieldUpdateOperationsInput | string
     imageActivity?: NullableStringFieldUpdateOperationsInput | string | null
+    note?: StringFieldUpdateOperationsInput | string
     IsArchived?: BoolFieldUpdateOperationsInput | boolean
     CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
