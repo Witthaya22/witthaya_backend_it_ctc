@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  database:
+    image: postgres:latest # หรือ mysql:latest ตามที่ใช้
+    container_name: my_database
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: 123
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

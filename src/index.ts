@@ -10,6 +10,7 @@ import ms from 'ms';
 import { MulterError } from 'multer';
 import path from 'path';
 import fs from 'fs';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -33,6 +34,7 @@ async function startServer() {
 
   const app = express();
   app.use(express.json());
+  app.use(cors());
   app.use('/api/uploads', express.static('public/uploads'));
   app.use('/images', express.static('public/images'));
   // ใน app.ts หรือ server.ts
